@@ -4,6 +4,7 @@ import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { getSiteUrl } from '@/lib/site-url';
+import GlobalRouteFaq from '@/components/seo/global-route-faq';
 import './globals.css';
 
 declare global {
@@ -432,6 +433,7 @@ export default function RootLayout({
             />
           </div>
         </section>
+        <GlobalRouteFaq />
         <footer className="border-t border-gray-200 bg-white px-4 py-5 text-center text-xs text-gray-600">
           <p>Summerlin West | Homes by Dr. Jan Duffy. All rights reserved. © 2026</p>
           <p className="mt-1">
