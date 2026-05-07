@@ -169,6 +169,41 @@ export default function MortgageCalculatorPage() {
           </p>
         </div>
 
+        <section className="mb-12 rounded-xl bg-white p-6 shadow-lg">
+          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
+            How to Use This Summerlin West Mortgage Calculator
+          </h2>
+          <p className="mb-3 text-gray-700">
+            Use this calculator to compare realistic monthly payment scenarios
+            before you tour homes in Summerlin West. Include HOA dues, property
+            taxes, and insurance so your estimate reflects true ownership cost,
+            not just principal and interest.
+          </p>
+          <div className="grid gap-3 md:grid-cols-3">
+            <article>
+              <h3 className="text-lg font-semibold text-gray-900">Budget Planning</h3>
+              <p className="mt-1 text-gray-700">
+                Stress-test different down payment levels and interest rates before
+                choosing a target price range.
+              </p>
+            </article>
+            <article>
+              <h3 className="text-lg font-semibold text-gray-900">Village-Level Costs</h3>
+              <p className="mt-1 text-gray-700">
+                Compare HOA and tax assumptions by neighborhood so your monthly
+                payment expectations stay accurate.
+              </p>
+            </article>
+            <article>
+              <h3 className="text-lg font-semibold text-gray-900">Offer Readiness</h3>
+              <p className="mt-1 text-gray-700">
+                Use payment scenarios to set clear limits before making offers in
+                competitive Summerlin West inventory.
+              </p>
+            </article>
+          </div>
+        </section>
+
         {/* RealScout Advanced Search Widget */}
         <div className="mb-16">
           <div className="max-w-4xl mx-auto text-center mb-8">
