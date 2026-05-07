@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Search,
   Filter,
@@ -67,129 +67,6 @@ export default function PropertySearchPage() {
     '$2M - $5M',
     '$5M+',
   ];
-
-  const [properties, setProperties] = useState([
-    {
-      id: '1',
-      mls: '2418448',
-      title: 'Luxury Estate in The Ridges',
-      price: 2495000,
-      priceFormatted: '$2,495,000',
-      address: '12345 Ridges Peak Dr',
-      village: 'The Ridges',
-      beds: 5,
-      baths: 6,
-      sqft: 5200,
-      lotSize: 0.75,
-      yearBuilt: 2023,
-      propertyType: 'Luxury Estate',
-      status: 'for-sale',
-      features: [
-        'Golf Course View',
-        'Guard Gated',
-        'Red Rock Views',
-        'Pool & Spa',
-      ],
-      image: '/properties/ridges-estate.jpg',
-      daysOnMarket: 12,
-      pricePerSqft: 480,
-    },
-    {
-      id: '2',
-      mls: '2418449',
-      title: 'Modern Villa in The Summit',
-      price: 1850000,
-      priceFormatted: '$1,850,000',
-      address: '6789 Summit View Ln',
-      village: 'The Summit',
-      beds: 4,
-      baths: 4,
-      sqft: 4100,
-      lotSize: 0.5,
-      yearBuilt: 2022,
-      propertyType: 'Single Family',
-      status: 'for-sale',
-      features: [
-        'Mountain Views',
-        'Smart Home',
-        "Chef's Kitchen",
-        '3-Car Garage',
-      ],
-      image: '/properties/summit-villa.jpg',
-      daysOnMarket: 8,
-      pricePerSqft: 451,
-    },
-    {
-      id: '3',
-      mls: '2418450',
-      title: 'Red Rock Country Club Estate',
-      price: 3200000,
-      priceFormatted: '$3,200,000',
-      address: '9876 Golf Club Dr',
-      village: 'Red Rock Country Club',
-      beds: 6,
-      baths: 7,
-      sqft: 6800,
-      lotSize: 1.2,
-      yearBuilt: 2021,
-      propertyType: 'Luxury Estate',
-      status: 'for-sale',
-      features: [
-        'Golf Course Frontage',
-        'Private Golf Club',
-        "Butler's Pantry",
-        'Guest House',
-      ],
-      image: '/properties/red-rock-estate.jpg',
-      daysOnMarket: 15,
-      pricePerSqft: 471,
-    },
-  ]);
-
-  const [filteredProperties, setFilteredProperties] = useState(properties);
-
-  useEffect(() => {
-    // Apply filters
-    const filtered = properties.filter((property) => {
-      if (searchParams.village && property.village !== searchParams.village)
-        return false;
-      if (
-        searchParams.minPrice &&
-        property.price < parseInt(searchParams.minPrice)
-      )
-        return false;
-      if (
-        searchParams.maxPrice &&
-        property.price > parseInt(searchParams.maxPrice)
-      )
-        return false;
-      if (
-        searchParams.minBeds &&
-        property.beds < parseInt(searchParams.minBeds)
-      )
-        return false;
-      if (
-        searchParams.minBaths &&
-        property.baths < parseInt(searchParams.minBaths)
-      )
-        return false;
-      if (
-        searchParams.minSqft &&
-        property.sqft < parseInt(searchParams.minSqft)
-      )
-        return false;
-      if (
-        searchParams.propertyType &&
-        property.propertyType !== searchParams.propertyType
-      )
-        return false;
-      if (searchParams.status && property.status !== searchParams.status)
-        return false;
-      return true;
-    });
-
-    setFilteredProperties(filtered);
-  }, [searchParams, properties]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();

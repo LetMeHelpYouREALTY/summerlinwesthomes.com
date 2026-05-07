@@ -46,157 +46,6 @@ export default function SummerlinWestHomes() {
   const [showContactModal, setShowContactModal] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Sample data - In production, this would come from your CMS/API
-  const featuredProperties: Property[] = [
-    {
-      id: '1',
-      title: 'Luxury Estate in The Ridges',
-      description: 'Spectacular custom estate with panoramic views',
-      price: 2495000,
-      priceFormatted: '$2,495,000',
-      address: {
-        street: '12345 Ridges Peak Dr',
-        city: 'Las Vegas',
-        state: 'NV',
-        zipCode: '89135',
-        fullAddress: '12345 Ridges Peak Dr, Las Vegas, NV 89135',
-      },
-      details: {
-        bedrooms: 5,
-        bathrooms: 6,
-        squareFeet: 5200,
-        lotSize: 0.75,
-        yearBuilt: 2023,
-        propertyType: 'luxury',
-        status: 'for-sale',
-      },
-      features: [
-        'Golf Course View',
-        'Custom Kitchen',
-        'Wine Cellar',
-        'Home Theater',
-        'Pool & Spa',
-      ],
-      images: [],
-      coordinates: { latitude: 36.1699, longitude: -115.1398 },
-      agent: {
-        id: '1',
-        name: 'Sarah Johnson',
-        email: 'sarah@summerlinwesthomes.com',
-        phone: '(702) 555-0101',
-        photo: '/agents/sarah-johnson.jpg',
-        bio: 'Top producer specializing in luxury estates',
-        specialties: [
-          'Luxury Estates',
-          'Golf Course Properties',
-          'New Construction',
-        ],
-        yearsOfExperience: 15,
-        licenseNumber: 'NV12345',
-      },
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      id: '2',
-      title: 'Modern Villa in The Summit',
-      description: 'Contemporary luxury with mountain vistas',
-      price: 1850000,
-      priceFormatted: '$1,850,000',
-      address: {
-        street: '6789 Summit View Ln',
-        city: 'Las Vegas',
-        state: 'NV',
-        zipCode: '89135',
-        fullAddress: '6789 Summit View Ln, Las Vegas, NV 89135',
-      },
-      details: {
-        bedrooms: 4,
-        bathrooms: 4,
-        squareFeet: 4100,
-        lotSize: 0.5,
-        yearBuilt: 2022,
-        propertyType: 'single-family',
-        status: 'for-sale',
-      },
-      features: [
-        'Mountain Views',
-        'Smart Home',
-        "Chef's Kitchen",
-        '3-Car Garage',
-        'Private Patio',
-      ],
-      images: [],
-      coordinates: { latitude: 36.1699, longitude: -115.1398 },
-      agent: {
-        id: '2',
-        name: 'Michael Chen',
-        email: 'michael@summerlinwesthomes.com',
-        phone: '(702) 555-0102',
-        photo: '/agents/michael-chen.jpg',
-        bio: 'Expert in modern luxury homes',
-        specialties: [
-          'Modern Homes',
-          'New Construction',
-          'Investment Properties',
-        ],
-        yearsOfExperience: 12,
-        licenseNumber: 'NV12346',
-      },
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      id: '3',
-      title: 'Red Rock Country Club Estate',
-      description: 'Exclusive golf course mansion',
-      price: 3200000,
-      priceFormatted: '$3,200,000',
-      address: {
-        street: '9876 Golf Club Dr',
-        city: 'Las Vegas',
-        state: 'NV',
-        zipCode: '89135',
-        fullAddress: '9876 Golf Club Dr, Las Vegas, NV 89135',
-      },
-      details: {
-        bedrooms: 6,
-        bathrooms: 7,
-        squareFeet: 6800,
-        lotSize: 1.2,
-        yearBuilt: 2021,
-        propertyType: 'luxury',
-        status: 'for-sale',
-      },
-      features: [
-        'Golf Course Frontage',
-        "Butler's Pantry",
-        'Elevator',
-        'Guest House',
-        'Tennis Court',
-      ],
-      images: [],
-      coordinates: { latitude: 36.1699, longitude: -115.1398 },
-      agent: {
-        id: '1',
-        name: 'Sarah Johnson',
-        email: 'sarah@summerlinwesthomes.com',
-        phone: '(702) 555-0101',
-        photo: '/agents/sarah-johnson.jpg',
-        bio: 'Top producer specializing in luxury estates',
-        specialties: [
-          'Luxury Estates',
-          'Golf Course Properties',
-          'New Construction',
-        ],
-        yearsOfExperience: 15,
-        licenseNumber: 'NV12345',
-      },
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-  ];
-
   const toggleSaved = (propertyId: string) => {
     setSavedProperties((prev) =>
       prev.includes(propertyId)
@@ -218,18 +67,9 @@ export default function SummerlinWestHomes() {
         {activeSection === 'home' && (
           <HomePage
             setActiveSection={setActiveSection}
-            featuredProperties={featuredProperties}
-            toggleSaved={toggleSaved}
-            savedProperties={savedProperties}
           />
         )}
-        {activeSection === 'properties' && (
-          <PropertiesSection
-            savedProperties={savedProperties}
-            setSavedProperties={setSavedProperties}
-            toggleSaved={toggleSaved}
-          />
-        )}
+        {activeSection === 'properties' && <PropertiesSection />}
         {activeSection === 'listings' && <ListingsSection />}
         {activeSection === 'villages' && <VillagesSection />}
         {activeSection === 'market-data' && <MarketDataSection />}
@@ -390,14 +230,8 @@ function Header({
 // Enhanced Home Page with RealScout Integration
 function HomePage({
   setActiveSection,
-  featuredProperties,
-  toggleSaved,
-  savedProperties,
 }: {
   setActiveSection: (section: string) => void;
-  featuredProperties: Property[];
-  toggleSaved: (id: string) => void;
-  savedProperties: string[];
 }) {
       return (
       <>
@@ -408,12 +242,7 @@ function HomePage({
       <AdvancedSearchWidget />
       <SimpleSearchWidget />
       <RealScoutSearchEmbed />
-      <FeaturedProperties
-        properties={featuredProperties}
-        setActiveSection={setActiveSection}
-        toggleSaved={toggleSaved}
-        savedProperties={savedProperties}
-      />
+      <FeaturedProperties setActiveSection={setActiveSection} />
       <CommunitiesPreview setActiveSection={setActiveSection} />
       <TestimonialsSection />
       <CTASection />
@@ -677,15 +506,9 @@ function RealScoutSearchEmbed() {
 
 // Enhanced Featured Properties with Real Data
 function FeaturedProperties({
-  properties,
   setActiveSection,
-  toggleSaved,
-  savedProperties,
 }: {
-  properties: Property[];
   setActiveSection: (section: string) => void;
-  toggleSaved: (id: string) => void;
-  savedProperties: string[];
 }) {
   return (
     <section className="bg-white py-16">
@@ -910,64 +733,16 @@ function CTASection() {
 }
 
 // Properties Section Component
-function PropertiesSection({
-  savedProperties,
-  setSavedProperties,
-  toggleSaved,
-}: {
-  savedProperties: string[];
-  setSavedProperties: (properties: string[]) => void;
-  toggleSaved: (id: string) => void;
-}) {
+function PropertiesSection() {
   const [filterType, setFilterType] = useState('all');
-  const [priceRange, setPriceRange] = useState('all');
-
-  const properties: Property[] = [
-    {
-      id: '4',
-      title: 'Desert Rose Estate',
-      description: 'Beautiful single family home with mountain views',
-      price: 1250000,
-      priceFormatted: '$1,250,000',
-      address: {
-        street: '123 Desert Rose Dr',
-        city: 'Las Vegas',
-        state: 'NV',
-        zipCode: '89135',
-        fullAddress: '123 Desert Rose Dr, Las Vegas, NV 89135',
-      },
-      details: {
-        bedrooms: 4,
-        bathrooms: 3,
-        squareFeet: 3200,
-        lotSize: 0.4,
-        yearBuilt: 2020,
-        propertyType: 'single-family',
-        status: 'for-sale',
-      },
-      features: ['Mountain Views', 'Updated Kitchen', 'Pool', '3-Car Garage'],
-      images: [],
-      coordinates: { latitude: 36.1699, longitude: -115.1398 },
-      agent: {
-        id: '3',
-        name: 'Sarah Johnson',
-        email: 'sarah@summerlinwesthomes.com',
-        phone: '(702) 555-0101',
-        photo: '/agents/sarah-johnson.jpg',
-        bio: 'Top producer specializing in luxury estates',
-        specialties: [
-          'Luxury Estates',
-          'Golf Course Properties',
-          'New Construction',
-        ],
-        yearsOfExperience: 15,
-        licenseNumber: 'NV12345',
-      },
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    // Add more properties here...
-  ];
+  const widgetRanges: Record<string, { min: string; max: string }> = {
+    all: { min: '500000', max: '1200000' },
+    'single-family': { min: '540000', max: '760000' },
+    condo: { min: '500000', max: '680000' },
+    townhouse: { min: '620000', max: '850000' },
+    luxury: { min: '900000', max: '1200000' },
+  };
+  const selectedRange = widgetRanges[filterType] ?? widgetRanges.all;
 
   return (
     <section className="py-24">
@@ -998,15 +773,15 @@ function PropertiesSection({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {properties.map((property) => (
-            <PropertyCard
-              key={property.id}
-              property={property}
-              isSaved={savedProperties.includes(property.id)}
-              onToggleSaved={() => toggleSaved(property.id)}
-            />
-          ))}
+        <div className="mx-auto max-w-6xl rounded-xl bg-white p-6 shadow-lg">
+          {React.createElement('realscout-office-listings', {
+            'agent-encoded-id': 'QWdlbnQtMjI1MDUw',
+            'sort-order': 'NEWEST',
+            'listing-status': 'For Sale',
+            'property-types': 'SFR,MF,TC',
+            'price-min': selectedRange.min,
+            'price-max': selectedRange.max,
+          })}
         </div>
       </div>
     </section>
