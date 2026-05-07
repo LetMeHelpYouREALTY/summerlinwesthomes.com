@@ -1,20 +1,16 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
+import { getSiteUrl } from '@/lib/site-url';
 
 export default function robots(): MetadataRoute.Robots {
+  const origin = getSiteUrl();
+
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: [
-        '/api/',
-        '/_next/',
-        '/admin/',
-        '/private/',
-        '/temp/',
-        '/draft/',
-      ],
+      disallow: ['/api/', '/admin/', '/private/', '/temp/', '/draft/'],
     },
-    sitemap: 'https://summerlinwesthomes.com/sitemap.xml',
-    host: 'https://summerlinwesthomes.com',
+    sitemap: `${origin}/sitemap.xml`,
+    host: origin,
   };
 }

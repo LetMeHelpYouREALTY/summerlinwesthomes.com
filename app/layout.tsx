@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import Script from 'next/script';
-import Image from 'next/image';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { getSiteUrl } from '@/lib/site-url';
 import './globals.css';
+
+const siteUrl = getSiteUrl();
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -17,9 +19,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Summerlin West Homes | Luxury Real Estate in Las Vegas',
+  metadataBase: new URL(siteUrl),
+  title: {
+    template: '%s | Summerlin West Homes',
+    default: 'Luxury Real Estate in Summerlin West, Las Vegas',
+  },
   description:
-    'Discover luxury homes and properties in Summerlin West, Las Vegas. Expert real estate services with local market knowledge and personalized attention.',
+    'Luxury Summerlin West real estate: homes for sale, local market insight, villages, amenities, schools, and buying or selling guidance in Las Vegas, Nevada.',
   keywords: [
     'Summerlin West Homes',
     'Las Vegas Real Estate',
@@ -36,15 +42,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://summerlinwesthomes.com'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
-    title: 'Summerlin West Homes | Luxury Real Estate in Las Vegas',
-    description:
-      'Discover luxury homes and properties in Summerlin West, Las Vegas. Expert real estate services with local market knowledge and personalized attention.',
-    url: 'https://summerlinwesthomes.com',
     siteName: 'Summerlin West Homes',
     locale: 'en_US',
     type: 'website',
@@ -67,9 +65,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Summerlin West Homes | Luxury Real Estate in Las Vegas',
-    description:
-      'Discover luxury homes and properties in Summerlin West, Las Vegas.',
     images: [
       {
         url: '/images/twitter-image-summerlin-west-homes.jpg',
@@ -169,21 +164,21 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'RealEstateAgent',
-              '@id': 'https://summerlinwesthomes.com/#organization',
+              '@id': `${siteUrl}/#organization`,
               name: 'Summerlin West Homes',
               alternateName: 'Summerlin West Luxury Real Estate',
               description:
                 'Premier luxury real estate agency specializing in Summerlin West, Las Vegas. Expert agents with deep local market knowledge and personalized service for discerning buyers and sellers.',
-              url: 'https://summerlinwesthomes.com',
+              url: siteUrl,
               logo: {
                 '@type': 'ImageObject',
-                url: 'https://summerlinwesthomes.com/images/logo-summerlin-west-homes.png',
+                url: `${siteUrl}/images/logo-summerlin-west-homes.png`,
                 width: 300,
                 height: 100,
               },
               image: {
                 '@type': 'ImageObject',
-                url: 'https://summerlinwesthomes.com/images/hero-summerlin-west-luxury-homes.jpg',
+                url: `${siteUrl}/images/hero-summerlin-west-luxury-homes.jpg`,
                 width: 1200,
                 height: 630,
               },
@@ -346,6 +341,28 @@ export default function RootLayout({
                   description: 'Private golf club community',
                 },
               ],
+            }),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              '@id': `${siteUrl}/#website`,
+              url: siteUrl,
+              name: 'Summerlin West Homes',
+              publisher: { '@id': `${siteUrl}/#organization` },
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: {
+                  '@type': 'EntryPoint',
+                  urlTemplate: `${siteUrl}/properties/search?q={search_term_string}`,
+                },
+                'query-input': 'required name=search_term_string',
+              },
             }),
           }}
         />

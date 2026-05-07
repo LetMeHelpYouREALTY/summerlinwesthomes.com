@@ -15,7 +15,8 @@
     "push": "powershell -ExecutionPolicy Bypass -File .\\quick-push.ps1",
     "auto-push": "powershell -ExecutionPolicy Bypass -File .\\scripts\\auto-push.ps1",
     "auto-push:custom": "powershell -ExecutionPolicy Bypass -File .\\scripts\\auto-push.ps1 -CommitMessage",
-    "quick-deploy": "npm run auto-push"
+    "quick-deploy": "npm run auto-push",
+    "verify:seo": "node scripts/seo-gsc-checklist.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.0.0",

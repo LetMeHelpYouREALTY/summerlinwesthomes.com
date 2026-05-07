@@ -1,0 +1,134 @@
+version: 1
+policy_name: summerlinwesthomes-agent-governance
+default_risk_posture: moderate
+environment:
+  canonical_origin_env: NEXT_PUBLIC_SITE_URL
+  defaults_to: https://summerlinwesthomes.com
+global_rules:
+  unknown_not_infer: true
+  require_idempotency_key_for_mutations: true
+  require_audit_log_for_mutations: true
+  require_dedupe_check_before_contact_create: true
+  unsubscribe_check_before_send: true
+  require_fair_housing_audit_before_publish_or_send: true
+  dry_run_required_for_tier_1_and_tier_2: true
+  rollback_required_for_mutating_workflows: true
+tiers:
+  tier_0_auto:
+    description: Reversible, non-client-facing, low-risk operations
+    requires_human_approval: false
+  tier_1_approve:
+    description: Stateful CRM or workflow mutations with business impact
+    requires_human_approval: true
+    approvers:
+      - dr_jan
+      - chance_fuller
+  tier_2_restricted:
+    description: Client-facing sends, compliance-sensitive, destructive, or financial actions
+    requires_human_approval: true
+    approvers:
+      - dr_jan
+      - bhhs_compliance
+systems:
+  fub:
+    allow:
+      - add_non_critical_tags
+      - stage_draft_contact_update_payload
+      - flag_duplicate_candidates
+    require_approval:
+      - create_contact
+      - update_contact_fields
+      - apply_lifecycle_tags
+      - enroll_or_unenroll_drip
+      - move_pipeline_stage
+      - merge_duplicate_contacts
+    deny_without_restricted_approval:
+      - delete_contact
+      - overwrite_protected_fields
+  realscout:
+    allow:
+      - generate_saved_search_payload
+      - calculate_engagement_score
+      - draft_reengagement_sequence
+    require_approval:
+      - send_invite
+      - update_saved_search_filters
+      - push_engagement_events_to_crm
+    deny_without_restricted_approval:
+      - revoke_active_search_without_contact_context
+  kvcore:
+    allow:
+      - stage_enrichment_diff
+      - validate_field_mapping
+    require_approval:
+      - push_enriched_fields_to_fub
+      - enroll_contact_in_kvcore_drip
+    deny_without_restricted_approval:
+      - overwrite_fub_source_of_truth_fields
+  homebot:
+    allow:
+      - compute_homebot_eligibility
+      - stage_digest_preferences
+    require_approval:
+      - activate_homebot_for_contact
+      - sync_homebot_insights_to_fub
+    deny_without_restricted_approval:
+      - send_to_unsubscribed_contact
+  microsite:
+    allow:
+      - generate_neighborhood_draft
+      - run_fair_housing_audit
+      - generate_schema_draft
+    require_approval:
+      - publish_page
+      - distribute_across_site_network
+      - override_fair_housing_warning
+    deny_without_restricted_approval:
+      - publish_without_disclosures
+  gbp:
+    allow:
+      - draft_gbp_post
+      - run_content_compliance_check
+    require_approval:
+      - publish_gbp_post
+      - update_location_specific_offer
+    deny_without_restricted_approval:
+      - publish_to_wrong_location
+communications:
+  allow:
+    - draft_email_reply
+    - draft_sms_reply
+    - draft_gbp_copy
+  require_approval:
+    - send_email
+    - send_sms
+    - publish_client_facing_copy
+  deny_without_restricted_approval:
+    - send_with_missing_pricing_context
+    - send_without_unsubscribe_check
+field_ownership:
+  source_of_truth:
+    contact_core: fub
+    listing_engagement: realscout
+    valuation_stream: homebot
+    drip_state: kvcore
+  protected_fields:
+    - legal_name
+    - primary_email
+    - primary_phone
+    - opt_in_status
+    - unsubscribe_status
+monitoring:
+  daily_digest:
+    enabled: true
+    includes:
+      - executed_actions
+      - pending_approvals
+      - blocked_actions
+      - duplicate_candidates
+      - compliance_warnings
+  alert_on:
+    - mutation_without_idempotency_key
+    - send_blocked_unsubscribe
+    - duplicate_create_attempt
+    - fair_housing_audit_failed

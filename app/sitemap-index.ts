@@ -1,22 +1,15 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
+import { getSiteUrl } from '@/lib/site-url';
 
+/** Optional multi-sitemap stub; Next uses `sitemap.ts` for `/sitemap.xml` by default. */
 export default function sitemapIndex(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://summerlinwesthomes.com';
+  const origin = getSiteUrl();
   const currentDate = new Date();
 
   return [
     {
-      url: `${baseUrl}/sitemap.xml`,
+      url: `${origin}/sitemap.xml`,
       lastModified: currentDate,
     },
-    // Future sitemaps can be added here:
-    // {
-    //   url: `${baseUrl}/sitemap-properties.xml`,
-    //   lastModified: currentDate,
-    // },
-    // {
-    //   url: `${baseUrl}/sitemap-blog.xml`,
-    //   lastModified: currentDate,
-    // },
   ];
 }

@@ -54,8 +54,14 @@ npm run lint         # Run ESLint
 npm run lint:fix     # Fix ESLint issues
 npm run type-check   # Run TypeScript type checking
 npm run format       # Format code with Prettier
+npm run verify:seo   # Print canonical URL inspection checklist
 npm run push         # Quick git push with automation
 ```
+
+### Agent Automation Policy
+
+- Runtime guardrails and approval tiers: `config/agent-execution-policy.yaml`
+- Human-approval runbook: `docs/automation/agent-governance.md`
 
 ## 📁 Project Structure
 

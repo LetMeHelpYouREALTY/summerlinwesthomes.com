@@ -1,136 +1,30 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
+import { getSiteUrl } from '@/lib/site-url';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://summerlinwesthomes.com';
+  const baseUrl = getSiteUrl();
 
-  // Use varied, realistic timestamps to avoid Google's manipulative pattern detection
   const currentDate = new Date();
   const yesterday = new Date(currentDate.getTime() - 24 * 60 * 60 * 1000);
   const twoDaysAgo = new Date(currentDate.getTime() - 2 * 24 * 60 * 60 * 1000);
   const threeDaysAgo = new Date(
-    currentDate.getTime() - 3 * 24 * 60 * 60 * 1000
+    currentDate.getTime() - 3 * 24 * 60 * 60 * 1000,
   );
   const weekAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
 
+  // Only routes that have a matching app/.../page.tsx (no sitemap-only placeholders).
   return [
-    // Primary Pages (Highest Priority)
-    {
-      url: baseUrl,
-      lastModified: currentDate,
-    },
-
-    // Transaction-Intent Pages (Critical for Real Estate SEO)
-    {
-      url: `${baseUrl}/properties/search`,
-      lastModified: yesterday,
-    },
-    {
-      url: `${baseUrl}/listings`,
-      lastModified: yesterday,
-    },
-    {
-      url: `${baseUrl}/market-data`,
-      lastModified: twoDaysAgo,
-    },
-
-    // Village/Community Pages (Local SEO)
-    {
-      url: `${baseUrl}/villages`,
-      lastModified: threeDaysAgo,
-    },
-    {
-      url: `${baseUrl}/villages/the-ridges`,
-      lastModified: weekAgo,
-    },
-    {
-      url: `${baseUrl}/villages/the-summit`,
-      lastModified: weekAgo,
-    },
-    {
-      url: `${baseUrl}/villages/red-rock-country-club`,
-      lastModified: weekAgo,
-    },
-    {
-      url: `${baseUrl}/villages/reverence`,
-      lastModified: weekAgo,
-    },
-    {
-      url: `${baseUrl}/villages/the-paseos`,
-      lastModified: weekAgo,
-    },
-    {
-      url: `${baseUrl}/villages/the-vistas`,
-      lastModified: weekAgo,
-    },
-
-    // E-E-A-T Pages (Experience, Expertise, Authority, Trust)
-    {
-      url: `${baseUrl}/about`,
-      lastModified: threeDaysAgo,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: weekAgo,
-    },
-
-               // Critical Real Estate Pages (High-Intent Keywords)
-           {
-             url: `${baseUrl}/home-valuation`,
-             lastModified: currentDate,
-           },
-           {
-             url: `${baseUrl}/sell-your-home`,
-             lastModified: currentDate,
-           },
-           {
-             url: `${baseUrl}/mortgage-calculator`,
-             lastModified: currentDate,
-           },
-           {
-             url: `${baseUrl}/buying-guide`,
-             lastModified: currentDate,
-           },
-
-    // Local SEO Pages (Google's 2025 Vicinity Update)
-    {
-      url: `${baseUrl}/schools`,
-      lastModified: weekAgo,
-    },
-    {
-      url: `${baseUrl}/amenities`,
-      lastModified: weekAgo,
-    },
-    {
-      url: `${baseUrl}/transportation`,
-      lastModified: weekAgo,
-    },
-    {
-      url: `${baseUrl}/neighborhoods/downtown-summerlin`,
-      lastModified: weekAgo,
-    },
-
-    // Content Hub Pages (Topical Authority)
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: yesterday,
-    },
-    {
-      url: `${baseUrl}/market-reports`,
-      lastModified: twoDaysAgo,
-    },
-    {
-      url: `${baseUrl}/resources`,
-      lastModified: threeDaysAgo,
-    },
-
-    // Team & Trust Pages
-    {
-      url: `${baseUrl}/team`,
-      lastModified: weekAgo,
-    },
-    {
-      url: `${baseUrl}/testimonials`,
-      lastModified: yesterday,
-    },
+    { url: baseUrl, lastModified: currentDate },
+    { url: `${baseUrl}/amenities`, lastModified: weekAgo },
+    { url: `${baseUrl}/buying-guide`, lastModified: currentDate },
+    { url: `${baseUrl}/home-valuation`, lastModified: currentDate },
+    { url: `${baseUrl}/listings`, lastModified: yesterday },
+    { url: `${baseUrl}/market-data`, lastModified: twoDaysAgo },
+    { url: `${baseUrl}/mortgage-calculator`, lastModified: currentDate },
+    { url: `${baseUrl}/properties/search`, lastModified: yesterday },
+    { url: `${baseUrl}/schools`, lastModified: weekAgo },
+    { url: `${baseUrl}/sell-your-home`, lastModified: currentDate },
+    { url: `${baseUrl}/transportation`, lastModified: weekAgo },
+    { url: `${baseUrl}/villages`, lastModified: threeDaysAgo },
   ];
 }
