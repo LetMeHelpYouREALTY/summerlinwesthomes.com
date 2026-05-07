@@ -128,11 +128,11 @@ export default function ListingsPage() {
           {/* RealScout Office Listings Widget */}
           {React.createElement('realscout-office-listings', {
             'agent-encoded-id': agentId,
-            'sort-order': 'STATUS_AND_SIGNIFICANT_CHANGE',
+            'sort-order': 'NEWEST',
             'listing-status': 'For Sale',
-            'property-types': 'SFR,MF,TH',
-            'price-min': '600000',
-            'price-max': '7500000',
+            'property-types': 'SFR,MF,TC',
+            'price-min': '700000',
+            'price-max': '3000000',
             'show-filters': 'true',
             'show-sort': 'true',
             'show-pagination': 'true'

@@ -420,7 +420,7 @@ export default function RootLayout({
             <div
               dangerouslySetInnerHTML={{
                 __html:
-                  '<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC"></realscout-office-listings>',
+                  '<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="700000" price-max="3000000"></realscout-office-listings>',
               }}
             />
           </div>

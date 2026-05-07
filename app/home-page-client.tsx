@@ -663,11 +663,11 @@ function RealScoutSearchEmbed() {
         <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">
           {React.createElement('realscout-office-listings', {
             'agent-encoded-id': 'QWdlbnQtMjI1MDUw',
-            'sort-order': 'STATUS_AND_SIGNIFICANT_CHANGE',
+            'sort-order': 'NEWEST',
             'listing-status': 'For Sale',
-            'property-types': 'SFR,MF',
-            'price-min': '600000',
-            'price-max': '750000',
+            'property-types': 'SFR,MF,TC',
+            'price-min': '700000',
+            'price-max': '3000000',
           })}
         </div>
       </div>
@@ -1146,11 +1146,11 @@ function AboutSection() {
           <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">
             {React.createElement('realscout-office-listings', {
               'agent-encoded-id': 'QWdlbnQtMjI1MDUw',
-              'sort-order': 'STATUS_AND_SIGNIFICANT_CHANGE',
+              'sort-order': 'NEWEST',
               'listing-status': 'For Sale',
-              'property-types': 'SFR,MF',
-              'price-min': '600000',
-              'price-max': '750000',
+              'property-types': 'SFR,MF,TC',
+              'price-min': '700000',
+              'price-max': '3000000',
             })}
           </div>
         </div>
@@ -1282,11 +1282,11 @@ function ListingsSection() {
             dangerouslySetInnerHTML={{
               __html: `<realscout-office-listings 
                 agent-encoded-id="${agentId}"
-                sort-order="STATUS_AND_SIGNIFICANT_CHANGE"
+                sort-order="NEWEST"
                 listing-status="For Sale"
-                property-types="SFR,MF"
-                price-min="600000"
-                price-max="750000"
+                property-types="SFR,MF,TC"
+                price-min="700000"
+                price-max="3000000"
               ></realscout-office-listings>`,
             }}
           />
