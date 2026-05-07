@@ -608,8 +608,8 @@ export default function MarketDataPage() {
               'sort-order': 'NEWEST',
               'listing-status': 'For Sale',
               'property-types': 'SFR,MF,TC',
-              'price-min': '700000',
-              'price-max': '3000000',
+              'price-min': '620000',
+              'price-max': '780000',
             })}
           </div>
         </div>

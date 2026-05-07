@@ -516,8 +516,8 @@ export default function VillagesPage() {
               'sort-order': 'NEWEST',
               'listing-status': 'For Sale',
               'property-types': 'SFR,MF,TC',
-              'price-min': '700000',
-              'price-max': '3000000',
+              'price-min': '680000',
+              'price-max': '850000',
             })}
           </div>
         </div>

@@ -594,7 +594,7 @@ export default function PropertySearchPage() {
                 Search Results
               </h2>
               <p className="text-gray-600">
-                {filteredProperties.length} properties found in Summerlin West
+                Live Summerlin West listings powered by RealScout MLS data
               </p>
             </div>
 
@@ -610,137 +610,16 @@ export default function PropertySearchPage() {
             </div>
           </div>
 
-          {/* Properties Grid */}
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {filteredProperties.map((property) => (
-              <div
-                key={property.id}
-                className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
-              >
-                <div className="relative h-64 bg-gradient-to-br from-amber-400 to-orange-500">
-                  <div className="absolute inset-0 bg-black opacity-20"></div>
-                  <div className="absolute left-4 top-4">
-                    <span className="rounded bg-amber-600 px-2 py-1 text-xs font-semibold text-white">
-                      MLS: {property.mls}
-                    </span>
-                  </div>
-                  <div className="absolute right-4 top-4">
-                    <span className="rounded-full bg-green-600 px-3 py-1 text-sm font-semibold text-white">
-                      {property.daysOnMarket} Days
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <h3 className="mb-2 text-2xl font-bold text-amber-600">
-                    {property.priceFormatted}
-                  </h3>
-                  <p className="mb-2 font-medium text-gray-800">
-                    {property.title}
-                  </p>
-                  <p className="mb-3 text-sm text-gray-600">
-                    {property.address}
-                  </p>
-                  <p className="mb-4 text-sm font-semibold text-amber-600">
-                    {property.village}
-                  </p>
-
-                  <div className="mb-6 grid grid-cols-3 gap-4 text-center">
-                    <div>
-                      <div className="mb-1 flex items-center justify-center space-x-1 text-gray-600">
-                        <Bed className="h-4 w-4" />
-                        <span className="text-sm">{property.beds}</span>
-                      </div>
-                      <span className="text-xs text-gray-500">Beds</span>
-                    </div>
-                    <div>
-                      <div className="mb-1 flex items-center justify-center space-x-1 text-gray-600">
-                        <Bath className="h-4 w-4" />
-                        <span className="text-sm">{property.baths}</span>
-                      </div>
-                      <span className="text-xs text-gray-500">Baths</span>
-                    </div>
-                    <div>
-                      <div className="mb-1 flex items-center justify-center space-x-1 text-gray-600">
-                        <Square className="h-4 w-4" />
-                        <span className="text-sm">
-                          {property.sqft.toLocaleString()}
-                        </span>
-                      </div>
-                      <span className="text-xs text-gray-500">Sq Ft</span>
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <div className="mb-2 flex justify-between text-sm">
-                      <span className="text-gray-500">Price per Sq Ft:</span>
-                      <span className="font-semibold">
-                        ${property.pricePerSqft}
-                      </span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-500">Lot Size:</span>
-                      <span className="font-semibold">
-                        {property.lotSize} acres
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <h4 className="mb-2 text-sm font-semibold text-gray-700">
-                      Key Features:
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {property.features.slice(0, 3).map((feature) => (
-                        <span
-                          key={feature}
-                          className="rounded bg-amber-100 px-2 py-1 text-xs text-amber-800"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <button className="w-full rounded-lg bg-gray-900 py-3 font-medium text-white transition-colors duration-200 hover:bg-amber-600">
-                    View Details
-                  </button>
-                </div>
-              </div>
-            ))}
+          <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">
+            {React.createElement('realscout-office-listings', {
+              'agent-encoded-id': 'QWdlbnQtMjI1MDUw',
+              'sort-order': 'NEWEST',
+              'listing-status': 'For Sale',
+              'property-types': 'SFR,MF,TC',
+              'price-min': '740000',
+              'price-max': '920000',
+            })}
           </div>
-
-          {/* No Results */}
-          {filteredProperties.length === 0 && (
-            <div className="py-16 text-center">
-              <Search className="mx-auto mb-4 h-16 w-16 text-gray-400" />
-              <h3 className="mb-2 text-xl font-semibold text-gray-600">
-                No Properties Found
-              </h3>
-              <p className="mb-6 text-gray-500">
-                Try adjusting your search criteria or contact us for
-                personalized assistance.
-              </p>
-              <button
-                onClick={() =>
-                  setSearchParams({
-                    village: '',
-                    minPrice: '',
-                    maxPrice: '',
-                    minBeds: '',
-                    minBaths: '',
-                    minSqft: '',
-                    propertyType: '',
-                    status: 'for-sale',
-                    view: 'list',
-                  })
-                }
-                className="rounded-lg bg-amber-600 px-6 py-3 font-medium text-white transition-colors hover:bg-amber-700"
-              >
-                Clear All Filters
-              </button>
-            </div>
-          )}
         </div>
       </section>
 
@@ -762,8 +641,8 @@ export default function PropertySearchPage() {
               'sort-order': 'NEWEST',
               'listing-status': 'For Sale',
               'property-types': 'SFR,MF,TC',
-              'price-min': '700000',
-              'price-max': '3000000',
+              'price-min': '800000',
+              'price-max': '1000000',
             })}
           </div>
         </div>

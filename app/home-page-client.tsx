@@ -666,8 +666,8 @@ function RealScoutSearchEmbed() {
             'sort-order': 'NEWEST',
             'listing-status': 'For Sale',
             'property-types': 'SFR,MF,TC',
-            'price-min': '700000',
-            'price-max': '3000000',
+            'price-min': '860000',
+            'price-max': '1100000',
           })}
         </div>
       </div>
@@ -708,15 +708,15 @@ function FeaturedProperties({
           </button>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {properties.map((property) => (
-            <PropertyCard
-              key={property.id}
-              property={property}
-              isSaved={savedProperties.includes(property.id)}
-              onToggleSaved={() => toggleSaved(property.id)}
-            />
-          ))}
+        <div className="mx-auto max-w-6xl rounded-xl bg-white p-6 shadow-lg">
+          {React.createElement('realscout-office-listings', {
+            'agent-encoded-id': 'QWdlbnQtMjI1MDUw',
+            'sort-order': 'NEWEST',
+            'listing-status': 'For Sale',
+            'property-types': 'SFR,MF,TC',
+            'price-min': '900000',
+            'price-max': '1200000',
+          })}
         </div>
       </div>
     </section>
@@ -810,7 +810,7 @@ function CommunitiesPreview({
           <div
             dangerouslySetInnerHTML={{
               __html:
-                '<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="700000" price-max="3000000"></realscout-office-listings>',
+                '<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="520000" price-max="880000"></realscout-office-listings>',
             }}
           />
         </div>
@@ -1149,8 +1149,8 @@ function AboutSection() {
               'sort-order': 'NEWEST',
               'listing-status': 'For Sale',
               'property-types': 'SFR,MF,TC',
-              'price-min': '700000',
-              'price-max': '3000000',
+              'price-min': '650000',
+              'price-max': '1200000',
             })}
           </div>
         </div>
@@ -1285,8 +1285,8 @@ function ListingsSection() {
                 sort-order="NEWEST"
                 listing-status="For Sale"
                 property-types="SFR,MF,TC"
-                price-min="700000"
-                price-max="3000000"
+                price-min="500000"
+                price-max="1200000"
               ></realscout-office-listings>`,
             }}
           />

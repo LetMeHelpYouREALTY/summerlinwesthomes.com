@@ -131,8 +131,8 @@ export default function ListingsPage() {
             'sort-order': 'NEWEST',
             'listing-status': 'For Sale',
             'property-types': 'SFR,MF,TC',
-            'price-min': '700000',
-            'price-max': '3000000',
+            'price-min': '560000',
+            'price-max': '720000',
             'show-filters': 'true',
             'show-sort': 'true',
             'show-pagination': 'true'
