@@ -794,37 +794,6 @@ function CommunitiesPreview({
 }: {
   setActiveSection: (section: string) => void;
 }) {
-  const communities = [
-    {
-      name: 'The Ridges',
-      type: 'Golf Course Living',
-      homes: 450,
-      rating: 4.9,
-      priceRange: '$1M - $25M',
-    },
-    {
-      name: 'The Summit',
-      type: 'Mountain Views',
-      homes: 600,
-      rating: 4.8,
-      priceRange: '$800K - $5M',
-    },
-    {
-      name: 'Red Rock Country Club',
-      type: 'Private Golf Club',
-      homes: 350,
-      rating: 5.0,
-      priceRange: '$750K - $8M',
-    },
-    {
-      name: 'Mesa Ridge',
-      type: 'Family Community',
-      homes: 200,
-      rating: 4.7,
-      priceRange: '$500K - $2M',
-    },
-  ];
-
   return (
     <section className="bg-gray-50 py-16">
       <div className="container mx-auto px-4">
@@ -837,31 +806,13 @@ function CommunitiesPreview({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {communities.map((community) => (
-            <div
-              key={community.name}
-              className="rounded-xl bg-white p-6 transition-shadow duration-300 hover:shadow-xl"
-            >
-              <div className="mb-4 h-32 rounded-lg bg-gradient-to-br from-amber-200 to-orange-300"></div>
-              <h4 className="mb-1 text-lg font-bold">{community.name}</h4>
-              <p className="mb-2 text-sm text-gray-600">{community.type}</p>
-              <p className="mb-3 text-sm font-medium text-amber-600">
-                {community.priceRange}
-              </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">
-                  {community.homes} homes
-                </span>
-                <div className="flex items-center space-x-1">
-                  <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  <span className="text-sm font-medium">
-                    {community.rating}
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="mx-auto max-w-6xl rounded-xl bg-white p-6 shadow-lg">
+          <div
+            dangerouslySetInnerHTML={{
+              __html:
+                '<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="700000" price-max="3000000"></realscout-office-listings>',
+            }}
+          />
         </div>
 
         <div className="mt-10 text-center">
