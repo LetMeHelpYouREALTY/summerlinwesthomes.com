@@ -28,10 +28,47 @@ const villageRows = [
   },
 ];
 
+const faqItems = [
+  {
+    question: 'What is the difference between Northwest Las Vegas and Summerlin West?',
+    answer:
+      'Summerlin West is a master-planned area within the west side market, while Northwest Las Vegas can include nearby non-Summerlin neighborhoods with different HOA rules, lot sizes, and pricing patterns.',
+  },
+  {
+    question: 'Are there homes for sale in North or West Summerlin right now?',
+    answer:
+      'Yes. Inventory changes weekly, so the best approach is to compare live Summerlin West listings by village and price band before scheduling tours.',
+  },
+  {
+    question: 'Where can I review Summerlin West association and CC&R expectations?',
+    answer:
+      'Association and CC&R terms vary by village and subdivision. Buyers should review the current HOA disclosures, monthly dues, and use restrictions before writing an offer.',
+  },
+];
+
 export default function SummerlinWestVillagesComparisonPage() {
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <main className="min-h-screen bg-white pt-24">
       <section className="container mx-auto px-4 py-12">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
+          }}
+        />
         <h1 className="mb-4 text-4xl font-bold text-gray-900">
           Summerlin West Villages Comparison
         </h1>
@@ -68,6 +105,44 @@ export default function SummerlinWestVillagesComparisonPage() {
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div className="mt-10 rounded-xl border border-gray-200 bg-white p-6">
+          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
+            Northwest Las Vegas vs Summerlin West: What Buyers Should Compare
+          </h2>
+          <p className="text-gray-700">
+            If you are comparing Northwest Las Vegas vs Summerlin West, focus on
+            HOA structure, village-level amenities, resale velocity, and average
+            closed price per square foot. This side-by-side view helps narrow your
+            shortlist before touring homes for sale in Summerlin West Las Vegas.
+          </p>
+        </div>
+
+        <div className="mt-8 rounded-xl border border-gray-200 bg-gray-50 p-6">
+          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
+            Summerlin West Association and CC&amp;R Planning Notes
+          </h2>
+          <p className="text-gray-700">
+            Before contract, verify community-specific CC&amp;Rs, design review
+            requirements, rental limitations, and current association dues. Terms
+            differ across Summerlin West villages and can affect long-term ownership
+            costs.
+          </p>
+        </div>
+
+        <div className="mt-8 rounded-xl border border-gray-200 bg-white p-6">
+          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
+            Frequently Asked Questions About Summerlin West Villages
+          </h2>
+          <div className="space-y-4">
+            {faqItems.map((faq) => (
+              <article key={faq.question}>
+                <h3 className="text-lg font-semibold text-gray-900">{faq.question}</h3>
+                <p className="mt-1 text-gray-700">{faq.answer}</p>
+              </article>
+            ))}
+          </div>
         </div>
 
         <div className="mt-10 rounded-xl bg-gray-50 p-6">
