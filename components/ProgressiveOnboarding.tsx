@@ -17,6 +17,9 @@ interface UserPreferences {
   location: string;
 }
 
+const REALSCOUT_SHARED_SEARCH_URL =
+  'https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay05NTMy';
+
 export function ProgressiveOnboarding() {
   const { isModalOpen, openModal, closeModal } = useOnboarding();
   const [currentStep, setCurrentStep] = useState(0);
@@ -104,28 +107,40 @@ export function ProgressiveOnboarding() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [closeModal]);
 
+  const buildPersonalizedSearchUrl = (preferences: UserPreferences, query: string) => {
+    const url = new URL(REALSCOUT_SHARED_SEARCH_URL);
+
+    if (query.trim()) {
+      url.searchParams.set('q', query.trim());
+    }
+    if (preferences.budget) {
+      url.searchParams.set('budget', preferences.budget);
+    }
+    if (preferences.bedrooms) {
+      url.searchParams.set('beds', preferences.bedrooms);
+    }
+    if (preferences.location) {
+      url.searchParams.set('area', preferences.location);
+    }
+
+    return url.toString();
+  };
+
   const handlePreferenceSelect = (type: keyof UserPreferences, value: string) => {
-    setUserPreferences(prev => ({ ...prev, [type]: value }));
-    
-    // Mark current step as completed
-    const updatedSteps = onboardingSteps.map((step, index) => 
-      index === currentStep ? { ...step, completed: true } : step
-    );
-    
-    // Move to next step or complete onboarding
+    const nextPreferences = { ...userPreferences, [type]: value };
+    setUserPreferences(nextPreferences);
+
     if (currentStep < onboardingSteps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Complete onboarding and show search tools
-      completeOnboarding();
+      completeOnboarding(nextPreferences);
     }
   };
 
-  const completeOnboarding = () => {
-    // Here you would typically show the relevant RealScout search tools
-    // For now, we'll just close the modal and show a success message
+  const completeOnboarding = (preferences: UserPreferences) => {
+    const personalizedUrl = buildPersonalizedSearchUrl(preferences, searchQuery);
+    window.open(personalizedUrl, '_blank', 'noopener,noreferrer');
     closeModal();
-    // You could also redirect to a specific search page or show search results
   };
 
   const getCompletionPercentage = () => {
