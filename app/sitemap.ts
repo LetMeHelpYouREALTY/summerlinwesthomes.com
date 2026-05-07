@@ -24,6 +24,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/properties/search`, lastModified: yesterday },
     { url: `${baseUrl}/schools`, lastModified: weekAgo },
     { url: `${baseUrl}/sell-your-home`, lastModified: currentDate },
+    {
+      url: `${baseUrl}/summerlin-west-market-snapshot`,
+      lastModified: currentDate,
+    },
+    {
+      url: `${baseUrl}/summerlin-west-schools-commute-amenities`,
+      lastModified: currentDate,
+    },
+    {
+      url: `${baseUrl}/summerlin-west-villages-comparison`,
+      lastModified: currentDate,
+    },
     { url: `${baseUrl}/transportation`, lastModified: weekAgo },
     { url: `${baseUrl}/villages`, lastModified: threeDaysAgo },
   ];

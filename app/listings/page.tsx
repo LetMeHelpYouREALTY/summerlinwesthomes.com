@@ -4,8 +4,7 @@ import React from 'react';
 import { Home, Filter } from 'lucide-react';
 
 export default function ListingsPage() {
-  // Sample agent ID - replace with your actual RealScout agent ID
-  const agentId = 'QWdlbnQtMjI1MDUw'; // Example: Agent-225050
+  const agentId = 'QWdlbnQtMjI1MDUw';
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -139,9 +138,8 @@ export default function ListingsPage() {
           })}
         </div>
 
-        {/* Additional Widgets Section */}
-        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {/* Property Search Widget */}
+        {/* Additional Widget */}
+        <div className="mt-8">
           <div className="rounded-lg bg-white p-6 shadow-lg">
             <h3 className="mb-4 text-xl font-semibold text-gray-900">
               <Filter className="mr-2 inline-block h-5 w-5 text-amber-600" />
@@ -151,26 +149,9 @@ export default function ListingsPage() {
               'agent-encoded-id': agentId,
               'show-filters': 'true',
               'show-sort': 'true',
-              'theme': 'light',
-              'placeholder': 'Search Summerlin West properties...'
+              theme: 'light',
+              placeholder: 'Search Summerlin West properties...'
             })}
-          </div>
-
-          {/* Featured Property Details */}
-          <div className="rounded-lg bg-white p-6 shadow-lg">
-            <h3 className="mb-4 text-xl font-semibold text-gray-900">
-              <Home className="mr-2 inline-block h-5 w-5 text-amber-600" />
-              Featured Property
-            </h3>
-            <div className="rounded-lg bg-gray-50 p-4 text-center">
-              <p className="mb-2 text-gray-600">
-                Property details widget will appear here when a listing is
-                selected
-              </p>
-              <p className="text-sm text-gray-500">
-                Click on any listing above to view detailed information
-              </p>
-            </div>
           </div>
         </div>
 
