@@ -18,7 +18,7 @@ interface UserPreferences {
 }
 
 export function ProgressiveOnboarding() {
-  const { isModalOpen, closeModal } = useOnboarding();
+  const { isModalOpen, openModal, closeModal } = useOnboarding();
   const [currentStep, setCurrentStep] = useState(0);
   const [userPreferences, setUserPreferences] = useState<UserPreferences>({
     budget: '',
@@ -133,6 +133,11 @@ export function ProgressiveOnboarding() {
     return (completed / onboardingSteps.length) * 100;
   };
 
+  const triggerQuickStart = () => {
+    setShowSuggestions(false);
+    openModal();
+  };
+
   const renderStepContent = () => {
     const step = onboardingSteps[currentStep];
     
@@ -222,14 +227,16 @@ export function ProgressiveOnboarding() {
                   placeholder="Search for your dream home..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      triggerQuickStart();
+                    }
+                  }}
                   onFocus={() => setShowSuggestions(true)}
                   className="flex-1 outline-none text-gray-900 placeholder-gray-500"
                 />
                 <button
-                  onClick={() => {
-                    // This will be handled by the context
-                    // The modal will open when triggered from elsewhere
-                  }}
+                  onClick={triggerQuickStart}
                   className="ml-3 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
                 >
                   Quick Start
