@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { getSiteUrl } from '@/lib/site-url';
 import GlobalRouteFaq from '@/components/seo/global-route-faq';
+import SiteHeader from '@/components/site-header';
 import './globals.css';
 
 declare global {
@@ -25,6 +26,22 @@ declare global {
 const siteUrl = getSiteUrl();
 const googleSiteVerification =
   process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
+
+const aggregateRatingValue =
+  process.env.NEXT_PUBLIC_GBP_AGGREGATE_RATING_VALUE?.trim();
+const aggregateRatingCount =
+  process.env.NEXT_PUBLIC_GBP_AGGREGATE_RATING_COUNT?.trim();
+const aggregateRatingBest =
+  process.env.NEXT_PUBLIC_GBP_AGGREGATE_RATING_BEST?.trim() ?? '5';
+const aggregateRating =
+  aggregateRatingValue && aggregateRatingCount
+    ? {
+        '@type': 'AggregateRating',
+        ratingValue: aggregateRatingValue,
+        reviewCount: aggregateRatingCount,
+        bestRating: aggregateRatingBest,
+      }
+    : undefined;
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -268,10 +285,15 @@ export default function RootLayout({
                   {
                     '@type': 'Offer',
                     itemOffered: {
-                      '@type': 'Product',
-                      name: 'Luxury Homes',
+                      '@type': 'Service',
+                      name: 'Luxury Home Buyer & Seller Representation',
                       description:
-                        'Premium properties in Summerlin West communities',
+                        'Buyer and seller representation for luxury homes across Summerlin West villages including The Ridges, The Summit, and Red Rock Country Club.',
+                      areaServed: [
+                        { '@type': 'City', name: 'Las Vegas' },
+                        { '@type': 'Place', name: 'Summerlin West' },
+                      ],
+                      provider: { '@id': `${siteUrl}/#organization` },
                     },
                   },
                   {
@@ -280,40 +302,17 @@ export default function RootLayout({
                       '@type': 'Service',
                       name: 'Real Estate Consultation',
                       description:
-                        'Expert guidance for luxury property transactions',
+                        'Expert guidance for luxury property transactions in Summerlin West and the Las Vegas valley.',
+                      areaServed: [
+                        { '@type': 'City', name: 'Las Vegas' },
+                        { '@type': 'Place', name: 'Summerlin West' },
+                      ],
+                      provider: { '@id': `${siteUrl}/#organization` },
                     },
                   },
                 ],
               },
-              foundingDate: '2010',
-              numberOfEmployees: '15',
-              award: [
-                'Top Producer - Las Vegas Real Estate',
-                'Best of Summerlin - Luxury Real Estate',
-                '5-Star Client Satisfaction Rating',
-              ],
-              review: [
-                {
-                  '@type': 'Review',
-                  reviewRating: {
-                    '@type': 'Rating',
-                    ratingValue: '5',
-                    bestRating: '5',
-                  },
-                  author: {
-                    '@type': 'Person',
-                    name: 'John & Jane Doe',
-                  },
-                  reviewBody:
-                    'The Summerlin West Homes team made our home buying experience seamless and enjoyable. Their expertise in the local market is unmatched!',
-                },
-              ],
-              aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '4.9',
-                reviewCount: '127',
-                bestRating: '5',
-              },
+              ...(aggregateRating ? { aggregateRating } : {}),
               priceRange: '$$$',
               currenciesAccepted: 'USD',
               paymentAccepted: [
@@ -418,6 +417,7 @@ export default function RootLayout({
             `,
           }}
         />
+        <SiteHeader />
         {children}
         <section className="border-t border-gray-200 bg-[#f8f7f4] px-4 py-12">
           <div className="mx-auto max-w-6xl">

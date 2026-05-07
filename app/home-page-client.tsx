@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Link from 'next/link';
 import {
   ChevronRight,
   Home,
-  Search,
   Phone,
   Mail,
   MapPin,
@@ -14,225 +14,26 @@ import {
   Heart,
   Star,
   Users,
-  Shield,
   TrendingUp,
-  Menu,
-  X,
-  Calendar,
-  Clock,
-  Award,
   Map,
-  Filter,
-  Settings,
-  Eye,
-  EyeOff,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ProgressiveOnboarding } from '@/components/ProgressiveOnboarding';
-import { OnboardingProvider, useOnboarding } from '@/components/OnboardingContext';
-import { formatPrice, formatSquareFeet } from '@/lib/utils';
-import type { Property, Agent } from '@/types/real-estate';
+import { OnboardingProvider } from '@/components/OnboardingContext';
+import { formatSquareFeet } from '@/lib/utils';
+import type { Property } from '@/types/real-estate';
 
-// Import the new page components
-import HomeValuationPage from './home-valuation/page';
-import SellYourHomePage from './sell-your-home/page';
-import MortgageCalculatorPage from './mortgage-calculator/page';
-import BuyingGuidePage from './buying-guide/page';
-
-// Main App Component - Summerlin West Homes
 export default function SummerlinWestHomes() {
-  const [activeSection, setActiveSection] = useState('home');
-  const [savedProperties, setSavedProperties] = useState<string[]>([]);
-  const [showContactModal, setShowContactModal] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleSaved = (propertyId: string) => {
-    setSavedProperties((prev) =>
-      prev.includes(propertyId)
-        ? prev.filter((id) => id !== propertyId)
-        : [...prev, propertyId]
-    );
-  };
-
   return (
     <OnboardingProvider>
       <div className="min-h-screen bg-gray-50">
-        <Header
-          activeSection={activeSection}
-          setActiveSection={setActiveSection}
-          isMobileMenuOpen={isMobileMenuOpen}
-          setIsMobileMenuOpen={setIsMobileMenuOpen}
-        />
-
-        {activeSection === 'home' && (
-          <HomePage
-            setActiveSection={setActiveSection}
-          />
-        )}
-        {activeSection === 'properties' && <PropertiesSection />}
-        {activeSection === 'listings' && <ListingsSection />}
-        {activeSection === 'villages' && <VillagesSection />}
-        {activeSection === 'market-data' && <MarketDataSection />}
-        {activeSection === 'about' && <AboutSection />}
-        {activeSection === 'home-valuation' && <HomeValuationSection />}
-        {activeSection === 'sell-your-home' && <SellYourHomeSection />}
-        {activeSection === 'mortgage-calculator' && <MortgageCalculatorSection />}
-        {activeSection === 'buying-guide' && <BuyingGuideSection />}
-
-        {showContactModal && (
-          <ContactModal onClose={() => setShowContactModal(false)} />
-        )}
-
+        <HomePage />
         <Footer />
       </div>
     </OnboardingProvider>
   );
 }
-
-// Enhanced Header Component with Mobile Navigation
-function Header({
-  activeSection,
-  setActiveSection,
-  isMobileMenuOpen,
-  setIsMobileMenuOpen,
-}: {
-  activeSection: string;
-  setActiveSection: (section: string) => void;
-  isMobileMenuOpen: boolean;
-  setIsMobileMenuOpen: (open: boolean) => void;
-}) {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navigationItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'properties', label: 'Properties' },
-    { id: 'listings', label: 'Listings' },
-    { id: 'villages', label: 'Villages' },
-    { id: 'schools', label: 'Schools' },
-    { id: 'amenities', label: 'Amenities' },
-    { id: 'transportation', label: 'Transportation' },
-    { id: 'market-data', label: 'Market Data' },
-    { id: 'home-valuation', label: 'Home Value' },
-    { id: 'sell-your-home', label: 'Sell Your Home' },
-    { id: 'mortgage-calculator', label: 'Mortgage Calculator' },
-    { id: 'buying-guide', label: 'Buying Guide' },
-    { id: 'about', label: 'About' },
-  ];
-
-  return (
-    <header
-      className={cn(
-        'fixed top-0 z-50 w-full transition-all duration-300',
-        isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur'
-      )}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 p-2">
-              <Home className="h-6 w-6 text-white" />
-            </div>
-            <div>
-              <p className="text-xl font-bold text-gray-900">
-                Summerlin West
-              </p>
-              <p className="text-xs text-gray-600">Luxury Real Estate</p>
-            </div>
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden space-x-8 md:flex">
-            {navigationItems.map((section) => (
-              <button
-                key={section.id}
-                onClick={() => setActiveSection(section.id)}
-                className={cn(
-                  'border-b-2 pb-1 font-medium transition-all duration-200',
-                  activeSection === section.id
-                    ? 'border-amber-600 text-amber-600'
-                    : 'border-transparent text-gray-700 hover:border-amber-300 hover:text-amber-600'
-                )}
-              >
-                {section.label}
-              </button>
-            ))}
-          </nav>
-
-          {/* Desktop CTA */}
-          <div className="hidden items-center space-x-4 lg:flex">
-            <div className="flex items-center space-x-2 text-gray-700">
-              <Phone className="h-4 w-4 text-amber-600" />
-              <span className="font-semibold">(702) 555-0100</span>
-            </div>
-            <button className="rounded-lg bg-amber-600 px-4 py-2 font-medium text-white transition-colors hover:bg-amber-700">
-              Schedule Tour
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="p-2 md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6 text-gray-700" />
-            ) : (
-              <Menu className="h-6 w-6 text-gray-700" />
-            )}
-          </button>
-        </div>
-
-        {/* Mobile Navigation Menu */}
-        {isMobileMenuOpen && (
-          <div className="border-t border-gray-200 bg-white py-4 md:hidden">
-            <nav className="flex flex-col space-y-4">
-              {navigationItems.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => {
-                    setActiveSection(section.id);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className={cn(
-                    'px-4 py-2 text-left font-medium transition-colors',
-                    activeSection === section.id
-                      ? 'bg-amber-50 text-amber-600'
-                      : 'text-gray-700 hover:bg-gray-50 hover:text-amber-600'
-                  )}
-                >
-                  {section.label}
-                </button>
-              ))}
-              <div className="border-t border-gray-200 px-4 pt-4">
-                <div className="mb-3 flex items-center space-x-2 text-gray-700">
-                  <Phone className="h-4 w-4 text-amber-600" />
-                  <span className="font-semibold">(702) 555-0100</span>
-                </div>
-                <button className="w-full rounded-lg bg-amber-600 px-4 py-2 font-medium text-white transition-colors hover:bg-amber-700">
-                  Schedule Tour
-                </button>
-              </div>
-            </nav>
-          </div>
-        )}
-      </div>
-    </header>
-  );
-}
-
-// Enhanced Home Page with RealScout Integration
-function HomePage({
-  setActiveSection,
-}: {
-  setActiveSection: (section: string) => void;
-}) {
+function HomePage() {
       return (
       <>
         <HeroSection />
@@ -242,8 +43,8 @@ function HomePage({
       <AdvancedSearchWidget />
       <SimpleSearchWidget />
       <RealScoutSearchEmbed />
-      <FeaturedProperties setActiveSection={setActiveSection} />
-      <CommunitiesPreview setActiveSection={setActiveSection} />
+      <FeaturedProperties />
+      <CommunitiesPreview />
       <TestimonialsSection />
       <CTASection />
     </>
@@ -509,11 +310,7 @@ function RealScoutSearchEmbed() {
 }
 
 // Enhanced Featured Properties with Real Data
-function FeaturedProperties({
-  setActiveSection,
-}: {
-  setActiveSection: (section: string) => void;
-}) {
+function FeaturedProperties() {
   return (
     <section className="bg-white py-16">
       <div className="container mx-auto px-4">
@@ -526,13 +323,14 @@ function FeaturedProperties({
               Premium homes for sale in Las Vegas Summerlin West, refreshed live
             </p>
           </div>
-          <button
-            onClick={() => setActiveSection('properties')}
+          <Link
+            href="/properties/search"
+            prefetch={false}
             className="flex items-center space-x-2 font-semibold text-amber-600 hover:text-amber-700"
           >
             <span>View All Properties</span>
             <ChevronRight className="h-5 w-5" />
-          </button>
+          </Link>
         </div>
 
         <div className="mx-auto max-w-6xl rounded-xl bg-white p-6 shadow-lg">
@@ -616,11 +414,7 @@ function PropertyCard({
 }
 
 // Communities Preview Section
-function CommunitiesPreview({
-  setActiveSection,
-}: {
-  setActiveSection: (section: string) => void;
-}) {
+function CommunitiesPreview() {
   return (
     <section className="bg-gray-50 py-16">
       <div className="container mx-auto px-4">
@@ -644,12 +438,13 @@ function CommunitiesPreview({
         </div>
 
         <div className="mt-10 text-center">
-          <button
-            onClick={() => setActiveSection('communities')}
-            className="rounded-lg bg-amber-600 px-8 py-3 font-medium text-white transition-colors hover:bg-amber-700"
+          <Link
+            href="/villages"
+            prefetch={false}
+            className="inline-block rounded-lg bg-amber-600 px-8 py-3 font-medium text-white transition-colors hover:bg-amber-700"
           >
             Explore All Communities
-          </button>
+          </Link>
         </div>
       </div>
     </section>
@@ -734,315 +529,6 @@ function CTASection() {
         </div>
       </div>
     </section>
-  );
-}
-
-// Properties Section Component
-function PropertiesSection() {
-  const [filterType, setFilterType] = useState('all');
-  const widgetRanges: Record<string, { min: string; max: string }> = {
-    all: { min: '500000', max: '1200000' },
-    'single-family': { min: '540000', max: '760000' },
-    condo: { min: '500000', max: '680000' },
-    townhouse: { min: '620000', max: '850000' },
-    luxury: { min: '900000', max: '1200000' },
-  };
-  const selectedRange = widgetRanges[filterType] ?? widgetRanges.all;
-
-  return (
-    <section className="py-24">
-      <div className="container mx-auto px-4">
-        <div className="mb-8">
-          <h2 className="mb-4 text-3xl font-bold">
-            Homes for Sale in Las Vegas — Browse by Property Type
-          </h2>
-          <div className="flex flex-wrap gap-4">
-            {['all', 'single-family', 'condo', 'townhouse', 'luxury'].map(
-              (type) => (
-                <button
-                  key={type}
-                  onClick={() => setFilterType(type)}
-                  className={cn(
-                    'rounded-lg px-4 py-2 font-medium transition-colors',
-                    filterType === type
-                      ? 'bg-amber-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  )}
-                >
-                  {type === 'all'
-                    ? 'All Types'
-                    : type
-                        .replace('-', ' ')
-                        .replace(/\b\w/g, (l) => l.toUpperCase())}
-                </button>
-              )
-            )}
-          </div>
-        </div>
-
-        <div className="mx-auto max-w-6xl rounded-xl bg-white p-6 shadow-lg">
-          {React.createElement('realscout-office-listings', {
-            'agent-encoded-id': 'QWdlbnQtMjI1MDUw',
-            'sort-order': 'NEWEST',
-            'listing-status': 'For Sale',
-            'property-types': 'SFR,MF,TC',
-            'price-min': selectedRange.min,
-            'price-max': selectedRange.max,
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Villages Section Component
-function VillagesSection() {
-  return (
-    <section className="py-24">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="mb-8 text-3xl font-bold">
-          Summerlin Homes for Sale by Village
-        </h2>
-        <p className="mx-auto mb-12 max-w-2xl text-gray-600">
-          Discover the unique character and luxury lifestyle of each village in
-          Summerlin West
-        </p>
-        <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <a
-            href="/villages"
-            className="rounded-lg bg-amber-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-amber-700"
-          >
-            Explore All Villages
-          </a>
-          <a
-            href="/properties/search"
-            className="rounded-lg border-2 border-amber-600 px-8 py-3 font-semibold text-amber-600 transition-colors hover:bg-amber-50"
-          >
-            Search Properties
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Market Data Section Component
-function MarketDataSection() {
-  return (
-    <section className="py-24">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="mb-8 text-3xl font-bold">
-          Las Vegas Homes & Summerlin West Market Trends
-        </h2>
-        <p className="mx-auto mb-12 max-w-2xl text-gray-600">
-          Real-time market insights and trends exclusively for Summerlin West
-          properties
-        </p>
-        <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <a
-            href="/market-data"
-            className="rounded-lg bg-amber-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-amber-700"
-          >
-            View Market Data
-          </a>
-          <a
-            href="/properties/search"
-            className="rounded-lg border-2 border-amber-600 px-8 py-3 font-semibold text-amber-600 transition-colors hover:bg-amber-50"
-          >
-            Search Properties
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// About Section Component
-function AboutSection() {
-  return (
-    <section className="py-24">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="mb-8 text-center text-3xl font-bold">
-            Summerlin West Real Estate Listings & Local Expertise
-          </h2>
-
-          <div className="prose prose-lg mx-auto text-gray-600">
-            <p className="mb-6">
-              Summerlin West represents the pinnacle of luxury living in Las
-              Vegas. As the western portion of the master-planned community of
-              Summerlin, this area encompasses over 22,500 acres of stunning
-              desert landscape transformed into one of the nation&apos;s premier
-              residential developments.
-            </p>
-
-            <div className="my-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
-                  <Users className="h-8 w-8 text-amber-600" />
-                </div>
-                <h4 className="mb-2 font-bold">Expert Team</h4>
-                <p className="text-sm">
-                  Dedicated professionals with deep local knowledge
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
-                  <Shield className="h-8 w-8 text-amber-600" />
-                </div>
-                <h4 className="mb-2 font-bold">Trusted Service</h4>
-                <p className="text-sm">
-                  20+ years serving the Summerlin community
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
-                  <TrendingUp className="h-8 w-8 text-amber-600" />
-                </div>
-                <h4 className="mb-2 font-bold">Market Leaders</h4>
-                <p className="text-sm">#1 in luxury home sales in Las Vegas</p>
-              </div>
-            </div>
-
-            <p>
-              Our team specializes in connecting discerning buyers with
-              exceptional properties throughout Summerlin West&apos;s diverse
-              communities. From golf course estates to modern luxury condos, we
-              provide unparalleled service and expertise in navigating this
-              prestigious market.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* RealScout Listings Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <div className="mb-8 text-center">
-            <h3 className="mb-4 text-3xl font-bold">
-              A Home in Vegas for Sale — Featured Summerlin West Picks
-            </h3>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              Preview curated Las Vegas homes for sale before you dive into the
-              full MLS-powered inventory.
-            </p>
-          </div>
-          <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">
-            {React.createElement('realscout-office-listings', {
-              'agent-encoded-id': 'QWdlbnQtMjI1MDUw',
-              'sort-order': 'NEWEST',
-              'listing-status': 'For Sale',
-              'property-types': 'SFR,MF,TC',
-              'price-min': '650000',
-              'price-max': '1200000',
-            })}
-          </div>
-        </div>
-      </section>
-    </section>
-  );
-}
-
-// Listings Section Component with RealScout Integration
-function ListingsSection() {
-  const agentId = 'QWdlbnQtMjI1MDUw';
-
-  return (
-    <section className="bg-gray-50 pb-16 pt-24">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="mb-8">
-          <h2 className="mb-4 text-4xl font-bold text-gray-900">
-            Summerlin Homes for Sale | Real Estate Listings in Las Vegas
-          </h2>
-          <p className="max-w-3xl text-xl text-gray-600">
-            Discover luxury homes for sale in Las Vegas Summerlin West. Browse
-            premium MLS-powered real estate listings through RealScout.
-          </p>
-        </div>
-
-        {/* RealScout Widget */}
-        <div className="rounded-lg bg-white p-6 shadow-lg">
-          <div className="mb-6">
-            <h3 className="mb-2 text-2xl font-semibold text-gray-900">
-              <Home className="mr-2 inline-block h-6 w-6 text-amber-600" />
-              Current Las Vegas Homes for Sale
-            </h3>
-            <p className="text-gray-600">
-              Powered by RealScout MLS integration - showing real-time property
-              data
-            </p>
-          </div>
-
-          {/* RealScout Office Listings Widget */}
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `<realscout-office-listings 
-                agent-encoded-id="${agentId}"
-                sort-order="NEWEST"
-                listing-status="For Sale"
-                property-types="SFR,MF,TC"
-                price-min="500000"
-                price-max="1200000"
-              ></realscout-office-listings>`,
-            }}
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Home Valuation Section Component
-function HomeValuationSection() {
-  return <HomeValuationPage />;
-}
-
-// Sell Your Home Section Component
-function SellYourHomeSection() {
-  return <SellYourHomePage />;
-}
-
-// Mortgage Calculator Section Component
-function MortgageCalculatorSection() {
-  return <MortgageCalculatorPage />;
-}
-
-// Buying Guide Section Component
-function BuyingGuideSection() {
-  return <BuyingGuidePage />;
-}
-
-// Contact Modal Component
-function ContactModal({ onClose }: { onClose: () => void }) {
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-      <div className="w-full max-w-md rounded-xl bg-white p-8">
-        <h3 className="mb-6 text-2xl font-bold">Contact Us</h3>
-        <div className="space-y-4">
-          <div className="flex items-center space-x-3">
-            <Phone className="h-5 w-5 text-amber-600" />
-            <span>(702) 555-0100</span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <Mail className="h-5 w-5 text-amber-600" />
-            <span>info@summerlinwesthomes.com</span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <MapPin className="h-5 w-5 text-amber-600" />
-            <span>1980 Festival Plaza Dr, Las Vegas</span>
-          </div>
-        </div>
-        <button
-          onClick={onClose}
-          className="mt-6 w-full rounded-lg bg-amber-600 py-3 font-medium text-white hover:bg-amber-700"
-        >
-          Close
-        </button>
-      </div>
-    </div>
   );
 }
 

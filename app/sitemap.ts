@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Only routes that have a matching app/.../page.tsx (no sitemap-only placeholders).
   return [
     { url: baseUrl, lastModified: currentDate },
+    { url: `${baseUrl}/about`, lastModified: currentDate },
     { url: `${baseUrl}/amenities`, lastModified: weekAgo },
     { url: `${baseUrl}/buying-guide`, lastModified: currentDate },
     { url: `${baseUrl}/home-valuation`, lastModified: currentDate },

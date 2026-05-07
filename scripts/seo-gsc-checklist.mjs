@@ -13,6 +13,7 @@ const raw =
 // Keep aligned with app/sitemap.ts
 const paths = [
   '/',
+  '/about',
   '/amenities',
   '/buying-guide',
   '/home-valuation',
