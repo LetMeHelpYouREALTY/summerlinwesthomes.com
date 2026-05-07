@@ -4,8 +4,8 @@ import { segmentMetadata } from '@/lib/segment-metadata';
 
 export const metadata: Metadata = segmentMetadata(
   '/market-data',
-  'Summerlin Market Data',
-  'Local market trends for Summerlin West: inventory snapshots, directional price context, days-on-market—supplement MLS data with lender-ready questions.',
+  'Las Vegas Homes & Summerlin West Market Data',
+  'Trends behind homes for sale in Summerlin: inventory, pricing context, days-on-market—pair with Las Vegas listings and lender questions.',
 );
 
 export default function MarketDataLayout({

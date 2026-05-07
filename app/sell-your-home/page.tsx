@@ -122,12 +122,11 @@ export default function SellYourHomePage() {
             </div>
           </div>
           <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-6xl">
-            Sell Your Summerlin West Home
+            Homes for Sale in Las Vegas — List Your Summerlin West Home
           </h1>
           <p className="mx-auto mb-8 max-w-4xl text-xl text-gray-600">
-            Get maximum value for your luxury property with our proven selling
-            strategies. Our team has helped hundreds of Summerlin West
-            homeowners achieve exceptional results.
+            Position your listing alongside active Las Vegas real estate listings
+            with a Summerlin West-focused marketing plan.
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-center">
             <div className="rounded-lg bg-white px-6 py-4 shadow-lg">
@@ -158,7 +157,7 @@ export default function SellYourHomePage() {
         <div className="mx-auto mb-16 max-w-4xl">
           <div className="mb-8 text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900">
-              Get Your Home&apos;s Current Market Value
+              Las Vegas Homes: Know Your Value Before You List
             </h2>
             <p className="text-lg text-gray-600">
               Discover what your Summerlin West property is worth before you
@@ -179,7 +178,7 @@ export default function SellYourHomePage() {
           {/* RealScout Advanced Search Widget */}
           <div className="mt-12 text-center">
             <h3 className="mb-6 text-2xl font-bold text-gray-900">
-              Advanced Property Search
+              Compare Homes for Sale in Summerlin While You Prep
             </h3>
             <p className="mb-8 text-lg text-gray-600">
               Explore the market while you learn about selling your home
@@ -197,7 +196,7 @@ export default function SellYourHomePage() {
           {/* RealScout Simple Search Widget */}
           <div className="mt-12 text-center">
             <h3 className="mb-6 text-2xl font-bold text-gray-900">
-              Quick Property Search
+              Las Vegas Homes for Sale — Quick Search
             </h3>
             <p className="mb-8 text-lg text-gray-600">
               Start your search with our simple and intuitive search tool

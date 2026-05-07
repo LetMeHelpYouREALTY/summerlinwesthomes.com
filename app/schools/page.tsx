@@ -172,7 +172,7 @@ export default function SchoolsPage() {
       <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 py-16 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Summerlin West Schools - Excellence in Education
+            Las Vegas Homes Near Top Schools — Summerlin West Guide
           </h1>
           <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
             Discover top-rated public and private schools serving the Summerlin
@@ -200,7 +200,7 @@ export default function SchoolsPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="mb-8 text-3xl font-bold">
-              Clark County School District - Summerlin West
+              Homes for Sale in Summerlin & CCSD Zoning Basics
             </h2>
             <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-3">
               <div className="rounded-lg bg-blue-50 p-6">
@@ -271,7 +271,7 @@ export default function SchoolsPage() {
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold">
-              {filteredSchools.length} Schools Found in Summerlin West
+              {filteredSchools.length} Schools Near Homes for Sale in Summerlin
             </h2>
             <p className="mx-auto max-w-2xl text-gray-600">
               Each school offers unique programs and opportunities for your

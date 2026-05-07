@@ -4,8 +4,8 @@ import { segmentMetadata } from '@/lib/segment-metadata';
 
 export const metadata: Metadata = segmentMetadata(
   '/buying-guide',
-  'Home Buying Guide',
-  'Steps to buy in Summerlin West: pre-approval, search, inspections, appraisals, and closing—written for Las Vegas buyers and move-up clients.',
+  'Houses for Sale in Summerlin Las Vegas | Buyer Guide',
+  'Buy a home in Vegas for sale within Summerlin West: pre-approval, Las Vegas listings search, inspections, appraisals, and closing.',
 );
 
 export default function BuyingGuideLayout({

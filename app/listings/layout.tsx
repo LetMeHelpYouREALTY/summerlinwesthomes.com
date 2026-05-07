@@ -4,8 +4,8 @@ import { segmentMetadata } from '@/lib/segment-metadata';
 
 export const metadata: Metadata = segmentMetadata(
   '/listings',
-  'Homes for Sale',
-  'Browse Summerlin West listings and filter by village, price, and features. Connect search results to tours and lender questions with local context.',
+  'Summerlin Homes for Sale | Real Estate Listings in Las Vegas',
+  'Browse homes for sale in Summerlin and Las Vegas MLS listings—filter by village, price, and features, then shortlist tours with local context.',
 );
 
 export default function ListingsLayout({

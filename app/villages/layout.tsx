@@ -4,8 +4,8 @@ import { segmentMetadata } from '@/lib/segment-metadata';
 
 export const metadata: Metadata = segmentMetadata(
   '/villages',
-  'Summerlin Villages',
-  'Overview of Summerlin West villages and luxury communities: character, typical product, and how to compare guard-gated golf, view, and family neighborhoods.',
+  'Homes for Sale in Las Vegas Summerlin | Village Guide',
+  'Summerlin West villages and homes for sale in Las Vegas Summerlin: compare golf, views, schools, and HOA context across communities.',
 );
 
 export default function VillagesLayout({

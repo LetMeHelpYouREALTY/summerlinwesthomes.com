@@ -265,11 +265,14 @@ function HomePage({
           <h1
             className="luxury-hero-title mx-auto mb-6 max-w-4xl text-balance text-5xl leading-[0.92] md:text-7xl"
           >
+            <span className="mb-4 block text-base font-semibold uppercase tracking-[0.14em] text-white/90 md:text-xl">
+              Summerlin homes for sale · Las Vegas real estate listings
+            </span>
             YOUR SUMMERLIN LEGACY.
           </h1>
           <p className="mx-auto mb-10 max-w-3xl text-lg font-medium text-white/90 md:text-3xl">
             Leverage our specialized market expertise to own the season in
-            Summerlin West.
+            Summerlin West—live Las Vegas homes inventory at your fingertips.
           </p>
           <button
             onClick={() =>
@@ -330,7 +333,7 @@ function HomeValueWidget() {
       <div className="container mx-auto px-4">
         <div className="mx-auto mb-12 max-w-4xl text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-            Discover Your Home&apos;s Market Value
+            Las Vegas Homes: What&apos;s Your Summerlin West Worth?
           </h2>
           <p className="mb-8 text-lg text-gray-600">
             Get an instant, accurate estimate of your Summerlin West
@@ -372,11 +375,11 @@ function AdvancedSearchWidget() {
       <div className="container mx-auto px-4">
         <div className="mx-auto mb-12 max-w-4xl text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-            Advanced Property Search
+            Real Estate Listings in Las Vegas — Advanced Search
           </h2>
           <p className="mb-8 text-lg text-gray-600">
-            Use our powerful search tools to find your perfect Summerlin West
-            home
+            Filter homes for sale in Summerlin with the same tools serious west
+            Las Vegas buyers use daily.
           </p>
         </div>
 
@@ -401,10 +404,11 @@ function SimpleSearchWidget() {
       <div className="container mx-auto px-4">
         <div className="mx-auto mb-12 max-w-4xl text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-            Quick Property Search
+            Homes for Sale in Summerlin — Quick Search
           </h2>
           <p className="mb-8 text-lg text-gray-600">
-            Start your search with our simple and intuitive search tool
+            Jump straight into Las Vegas homes for sale with a streamlined search
+            bar.
           </p>
         </div>
 
@@ -481,11 +485,11 @@ function RealScoutSearchEmbed() {
       <div className="container mx-auto px-4">
         <div className="mb-8 text-center">
           <h2 className="mb-4 text-3xl font-bold">
-            Find Your Dream Home in Summerlin West
+            Las Vegas Homes for Sale — Summerlin West Inventory
           </h2>
           <p className="mx-auto max-w-2xl text-gray-600">
-            Browse our current listings powered by RealScout with real-time MLS
-            data
+            Browse real estate listings in Las Vegas with live MLS feeds through
+            RealScout.
           </p>
         </div>
 
@@ -516,10 +520,10 @@ function FeaturedProperties({
         <div className="mb-12 flex items-center justify-between">
           <div>
             <h2 className="text-3xl font-bold">
-              Featured Luxury Properties in Summerlin West
+              Houses for Sale in Summerlin Las Vegas — Featured Listings
             </h2>
             <p className="mt-2 text-gray-600">
-              Hand-picked luxury homes available now
+              Premium homes for sale in Las Vegas Summerlin West, refreshed live
             </p>
           </div>
           <button
@@ -622,10 +626,11 @@ function CommunitiesPreview({
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-3xl font-bold">
-            Explore Summerlin West Communities
+            Homes for Sale in Las Vegas Summerlin — Explore Villages
           </h2>
           <p className="mx-auto max-w-2xl text-gray-600">
-            Each community offers unique amenities and lifestyle options
+            Compare village-level inventory while you shop Summerlin homes for
+            sale.
           </p>
         </div>
 
@@ -678,7 +683,7 @@ function TestimonialsSection() {
     <section className="bg-white py-16">
       <div className="container mx-auto px-4">
         <h2 className="mb-12 text-center text-3xl font-bold">
-          What Our Summerlin West Clients Say
+          What Las Vegas Home Buyers Say About Summerlin West
         </h2>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -713,11 +718,11 @@ function CTASection() {
     <section className="bg-gradient-to-br from-amber-600 to-orange-600 py-16">
       <div className="container mx-auto px-4 text-center">
         <h2 className="mb-4 text-3xl font-bold text-white">
-          Ready to Find Your Dream Home in Summerlin West?
+          Homes for Sale in Las Vegas — Start Your Summerlin West Search
         </h2>
         <p className="mx-auto mb-8 max-w-2xl text-white/90">
-          Join thousands of satisfied homeowners who have found their perfect
-          property in Summerlin West
+          Move from browsing Las Vegas real estate listings to touring the homes
+          that fit your brief.
         </p>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <button className="rounded-lg bg-white px-8 py-3 font-semibold text-amber-600 transition-all hover:shadow-xl">
@@ -748,7 +753,9 @@ function PropertiesSection() {
     <section className="py-24">
       <div className="container mx-auto px-4">
         <div className="mb-8">
-          <h2 className="mb-4 text-3xl font-bold">Available Properties</h2>
+          <h2 className="mb-4 text-3xl font-bold">
+            Homes for Sale in Las Vegas — Browse by Property Type
+          </h2>
           <div className="flex flex-wrap gap-4">
             {['all', 'single-family', 'condo', 'townhouse', 'luxury'].map(
               (type) => (
@@ -793,7 +800,9 @@ function VillagesSection() {
   return (
     <section className="py-24">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="mb-8 text-3xl font-bold">Summerlin West Villages</h2>
+        <h2 className="mb-8 text-3xl font-bold">
+          Summerlin Homes for Sale by Village
+        </h2>
         <p className="mx-auto mb-12 max-w-2xl text-gray-600">
           Discover the unique character and luxury lifestyle of each village in
           Summerlin West
@@ -822,7 +831,9 @@ function MarketDataSection() {
   return (
     <section className="py-24">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="mb-8 text-3xl font-bold">Market Data & Trends</h2>
+        <h2 className="mb-8 text-3xl font-bold">
+          Las Vegas Homes & Summerlin West Market Trends
+        </h2>
         <p className="mx-auto mb-12 max-w-2xl text-gray-600">
           Real-time market insights and trends exclusively for Summerlin West
           properties
@@ -853,7 +864,7 @@ function AboutSection() {
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-8 text-center text-3xl font-bold">
-            About Summerlin West Homes - Your Trusted Real Estate Partner
+            Summerlin West Real Estate Listings & Local Expertise
           </h2>
 
           <div className="prose prose-lg mx-auto text-gray-600">
@@ -911,11 +922,11 @@ function AboutSection() {
         <div className="container mx-auto px-4">
           <div className="mb-8 text-center">
             <h3 className="mb-4 text-3xl font-bold">
-              Featured Properties in Summerlin West
+              A Home in Vegas for Sale — Featured Summerlin West Picks
             </h3>
             <p className="mx-auto max-w-2xl text-gray-600">
-              Explore our current listings and discover why Summerlin West is
-              the premier choice for luxury real estate
+              Preview curated Las Vegas homes for sale before you dive into the
+              full MLS-powered inventory.
             </p>
           </div>
           <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">
@@ -944,12 +955,11 @@ function ListingsSection() {
         {/* Header */}
         <div className="mb-8">
           <h2 className="mb-4 text-4xl font-bold text-gray-900">
-            Summerlin West Properties - Luxury Real Estate Listings
+            Summerlin Homes for Sale | Real Estate Listings in Las Vegas
           </h2>
           <p className="max-w-3xl text-xl text-gray-600">
-            Discover luxury homes and properties in Summerlin West, Las Vegas.
-            Browse our curated selection of premium real estate listings powered
-            by RealScout.
+            Discover luxury homes for sale in Las Vegas Summerlin West. Browse
+            premium MLS-powered real estate listings through RealScout.
           </p>
         </div>
 
@@ -958,7 +968,7 @@ function ListingsSection() {
           <div className="mb-6">
             <h3 className="mb-2 text-2xl font-semibold text-gray-900">
               <Home className="mr-2 inline-block h-6 w-6 text-amber-600" />
-              Current Listings
+              Current Las Vegas Homes for Sale
             </h3>
             <p className="text-gray-600">
               Powered by RealScout MLS integration - showing real-time property

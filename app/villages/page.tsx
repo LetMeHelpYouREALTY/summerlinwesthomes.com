@@ -20,7 +20,7 @@ export default function VillagesPage() {
       <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-red-500 py-16 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Summerlin West Villages - Luxury Communities in Las Vegas
+            Homes for Sale in Las Vegas Summerlin — Village Guide
           </h1>
           <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
             Discover the unique character and luxury lifestyle of each village
@@ -48,7 +48,7 @@ export default function VillagesPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="mb-6 text-3xl font-bold">
-              Summerlin West Geographic Boundaries & Location
+              Summerlin Homes for Sale: Geography & Boundaries
             </h2>
             <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2">
               <div className="rounded-lg bg-gray-50 p-6">
@@ -102,7 +102,7 @@ export default function VillagesPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto mb-12 max-w-4xl text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-              Check Home Values Across Summerlin West Villages
+              Las Vegas Homes: Values Across Summerlin Villages
             </h2>
             <p className="mb-8 text-lg text-gray-600">
               Get instant property value estimates for any village in Summerlin
@@ -124,10 +124,10 @@ export default function VillagesPage() {
         {/* RealScout Advanced Search Widget */}
         <div className="mt-12 text-center">
           <h3 className="mb-6 text-2xl font-bold text-gray-900">
-            Advanced Property Search
+            Real Estate Listings in Las Vegas — Village Search
           </h3>
           <p className="mb-8 text-lg text-gray-600">
-            Search for properties across all Summerlin West villages
+            Search homes for sale in Summerlin across every village.
           </p>
           <div className="flex justify-center">
             <div
@@ -141,7 +141,7 @@ export default function VillagesPage() {
           {/* RealScout Simple Search Widget */}
           <div className="mt-12 text-center">
             <h3 className="mb-6 text-2xl font-bold text-gray-900">
-              Quick Property Search
+              Homes for Sale in Summerlin — Quick Search
             </h3>
             <p className="mb-8 text-lg text-gray-600">
               Start your search with our simple and intuitive search tool

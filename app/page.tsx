@@ -3,18 +3,19 @@ import HomePageClient from './home-page-client';
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Summerlin West Homes | Luxury Real Estate in Las Vegas',
+    absolute:
+      'Summerlin Homes for Sale | Las Vegas Homes & Real Estate Listings',
   },
   description:
-    'Discover luxury homes and properties in Summerlin West, Las Vegas. Expert real estate services with local market knowledge and personalized attention.',
+    'Summerlin homes for sale and Las Vegas real estate listings in Summerlin West. Browse homes for sale in Summerlin, houses for sale in Summerlin Las Vegas, and expert buyer guidance.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title:
-      'Summerlin West Homes | Luxury Real Estate in Las Vegas',
+      'Summerlin Homes for Sale | Las Vegas Homes & Real Estate Listings',
     description:
-      'Discover luxury homes and properties in Summerlin West, Las Vegas. Expert real estate services with local market knowledge and personalized attention.',
+      'Summerlin homes for sale and Las Vegas real estate listings in Summerlin West. Browse homes for sale in Summerlin and houses for sale in Summerlin Las Vegas.',
     url: '/',
     type: 'website',
   },

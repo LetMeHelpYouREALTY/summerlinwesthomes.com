@@ -192,7 +192,7 @@ export default function TransportationPage() {
       <section className="bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 py-16 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Summerlin West Transportation - Easy Access
+            Summerlin West Commutes & Las Vegas Corridor Access
           </h1>
           <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
             Navigate Summerlin West with ease through our comprehensive
@@ -220,7 +220,7 @@ export default function TransportationPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-6xl">
             <h2 className="mb-8 text-center text-3xl font-bold">
-              Quick Transportation Reference
+              Las Vegas Homes: Quick Commute Reference
             </h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               <div className="rounded-lg bg-blue-50 p-6 text-center">

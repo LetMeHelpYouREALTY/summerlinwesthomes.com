@@ -143,11 +143,11 @@ export default function MarketDataPage() {
       <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-red-500 py-16 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Summerlin West Market Data - Real Estate Trends & Insights
+            Las Vegas Homes & Summerlin West Market Data
           </h1>
           <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Real-time market insights and trends exclusively for Summerlin West
-            properties
+            Track trends behind homes for sale in Summerlin with village-level
+            context for west Las Vegas buyers and sellers.
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <span className="rounded-full bg-white/20 px-4 py-2">
@@ -171,7 +171,7 @@ export default function MarketDataPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Check Your Home&apos;s Current Market Value
+              Las Vegas Homes: Your Summerlin West Market Value
             </h2>
             <p className="text-lg text-gray-600 mb-8">
               Get instant property value estimates with our advanced RealScout technology
@@ -191,10 +191,10 @@ export default function MarketDataPage() {
         {/* RealScout Advanced Search Widget */}
         <div className="mt-12 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-6">
-            Advanced Property Search
+            Real Estate Listings in Las Vegas — Advanced Search
           </h3>
           <p className="text-lg text-gray-600 mb-8">
-            Search for properties while analyzing market data
+            Pair homes for sale in Las Vegas with the stats you just reviewed.
           </p>
           <div className="flex justify-center">
             <div
@@ -208,10 +208,10 @@ export default function MarketDataPage() {
         {/* RealScout Simple Search Widget */}
         <div className="mt-12 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-6">
-            Quick Property Search
+            Homes for Sale in Summerlin — Quick Search
           </h3>
           <p className="text-lg text-gray-600 mb-8">
-            Start your search with our simple and intuitive search tool
+            Jump into Las Vegas homes for sale while market signals are fresh.
           </p>
           <div className="flex justify-center">
             <div

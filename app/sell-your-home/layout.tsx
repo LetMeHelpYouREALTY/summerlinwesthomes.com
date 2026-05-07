@@ -4,8 +4,8 @@ import { segmentMetadata } from '@/lib/segment-metadata';
 
 export const metadata: Metadata = segmentMetadata(
   '/sell-your-home',
-  'Sell Your Summerlin Home',
-  'Listing strategy for Summerlin West sellers: pricing, presentation, timing, disclosures, and how luxury buyers evaluate condition and HOA context.',
+  'Homes for Sale in Las Vegas | List Your Summerlin West Home',
+  'Position your listing among Las Vegas real estate listings: Summerlin West pricing, presentation, timing, disclosures, and buyer expectations.',
 );
 
 export default function SellYourHomeLayout({

@@ -42,7 +42,7 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
           }}
         />
         <h1 className="mb-4 text-4xl font-bold text-gray-900">
-          Summerlin West Schools, Commute, and Amenities Guide
+          Homes for Sale in Las Vegas Summerlin — Schools, Commute & Amenities
         </h1>
         <p className="mb-10 max-w-3xl text-lg text-gray-600">
           Use this local planning guide to narrow neighborhoods before showings.
@@ -53,7 +53,7 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-xl border p-5">
             <h2 className="mb-2 text-2xl font-semibold text-gray-900">
-              Schools
+              Las Vegas Homes & School Fit
             </h2>
             <p className="text-gray-700">
               Start with zoning, daily drive times, and campus proximity. Then
@@ -62,7 +62,7 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
           </div>
           <div className="rounded-xl border p-5">
             <h2 className="mb-2 text-2xl font-semibold text-gray-900">
-              Commute
+              Summerlin Homes for Sale — Commute Planning
             </h2>
             <p className="text-gray-700">
               Compare major corridors and peak-time patterns by village so your
@@ -71,7 +71,7 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
           </div>
           <div className="rounded-xl border p-5">
             <h2 className="mb-2 text-2xl font-semibold text-gray-900">
-              Amenities
+              Real Estate Listings Near Daily Amenities
             </h2>
             <p className="text-gray-700">
               Evaluate parks, trails, golf, retail, and dining access by

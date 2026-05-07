@@ -23,6 +23,8 @@ declare global {
 }
 
 const siteUrl = getSiteUrl();
+const googleSiteVerification =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -101,9 +103,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
+  ...(googleSiteVerification
+    ? { verification: { google: googleSiteVerification } }
+    : {}),
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',

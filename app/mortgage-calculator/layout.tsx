@@ -4,8 +4,8 @@ import { segmentMetadata } from '@/lib/segment-metadata';
 
 export const metadata: Metadata = segmentMetadata(
   '/mortgage-calculator',
-  'Mortgage Calculator',
-  'Estimate Summerlin West purchase payments: principal & interest framing for luxury price bands. Confirm taxes, HOA, insurance, and MI with your lender.',
+  'Mortgage Calculator | Las Vegas Homes & Summerlin West',
+  'Payment scenarios for a home in Vegas for sale: principal, interest, taxes, insurance, and HOA—pair with real estate listings in Las Vegas before you offer.',
 );
 
 export default function MortgageCalculatorLayout({

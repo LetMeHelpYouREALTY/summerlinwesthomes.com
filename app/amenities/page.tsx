@@ -213,7 +213,7 @@ export default function AmenitiesPage() {
       <section className="bg-gradient-to-br from-green-600 via-green-700 to-emerald-800 py-16 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Summerlin West Amenities - Luxury Lifestyle
+            Las Vegas Homes Near Summerlin West Amenities
           </h1>
           <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
             Discover world-class golf courses, shopping, dining, and outdoor
@@ -269,7 +269,7 @@ export default function AmenitiesPage() {
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold">
-              {filteredAmenities.length} Amenities Found in Summerlin West
+              Summerlin Homes for Sale — Lifestyle Amenities Nearby
             </h2>
             <p className="mx-auto max-w-2xl text-gray-600">
               Everything you need for an exceptional lifestyle is just minutes

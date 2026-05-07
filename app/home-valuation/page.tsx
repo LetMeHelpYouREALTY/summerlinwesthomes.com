@@ -51,10 +51,11 @@ export default function HomeValuationPage() {
       <div className="bg-gradient-to-r from-blue-900 to-indigo-800 py-20 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Get Your Home&apos;s True Market Value
+            Las Vegas Homes — Summerlin West Value & Pricing
           </h1>
           <p className="mb-8 text-xl text-blue-100 md:text-2xl">
-            Professional home valuation for Summerlin West properties
+            Professional valuation context before you list or buy a home in Vegas
+            for sale.
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <div className="flex items-center gap-2">
@@ -87,7 +88,7 @@ export default function HomeValuationPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto mb-12 max-w-4xl text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-              Instant Home Value Estimate
+              Summerlin Homes for Sale — Instant Value Estimate
             </h2>
             <p className="mb-8 text-lg text-gray-600">
               Get an accurate, data-driven estimate of your home&apos;s current
@@ -109,7 +110,7 @@ export default function HomeValuationPage() {
         {/* RealScout Advanced Search Widget */}
         <div className="mt-12 text-center">
           <h3 className="mb-6 text-2xl font-bold text-gray-900">
-            Advanced Property Search
+            Real Estate Listings in Las Vegas — Advanced Search
           </h3>
           <p className="mb-8 text-lg text-gray-600">
             Search for properties while you check your home&apos;s value
@@ -127,7 +128,7 @@ export default function HomeValuationPage() {
         {/* RealScout Simple Search Widget */}
         <div className="mt-12 text-center">
           <h3 className="mb-6 text-2xl font-bold text-gray-900">
-            Quick Property Search
+            Homes for Sale in Summerlin — Quick Search
           </h3>
           <p className="mb-8 text-lg text-gray-600">
             Start your search with our simple and intuitive search tool

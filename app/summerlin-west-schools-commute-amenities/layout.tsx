@@ -4,8 +4,8 @@ import { segmentMetadata } from '@/lib/segment-metadata';
 
 export const metadata: Metadata = segmentMetadata(
   '/summerlin-west-schools-commute-amenities',
-  'Summerlin West Schools, Commute, and Amenities Guide',
-  'Neighborhood planning guide for Summerlin West schools, commute patterns, and daily amenities to help buyers compare lifestyle fit before touring homes.',
+  'Homes for Sale in Las Vegas Summerlin | Schools, Commute & Amenities',
+  'Plan Summerlin West moves around schools, commute corridors, and amenities—then align with Las Vegas real estate listings before you tour.',
 );
 
 export default function SummerlinWestSchoolsCommuteAmenitiesLayout({

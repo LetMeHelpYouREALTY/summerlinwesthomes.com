@@ -200,12 +200,11 @@ export default function BuyingGuidePage() {
             </div>
           </div>
           <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-6xl">
-            Complete Guide to Buying in Summerlin West
+            Houses for Sale in Summerlin Las Vegas — Buyer&apos;s Guide
           </h1>
           <p className="mx-auto max-w-4xl text-xl text-gray-600">
-            Everything you need to know about purchasing your dream home in Las
-            Vegas&apos;s premier master-planned community. From financing to
-            closing, we&apos;ll guide you every step of the way.
+            Everything you need to buy a home in Vegas for sale within Summerlin
+            West—financing, inspections, and competitive offers in Las Vegas.
           </p>
           <div className="mt-8">
             <a
@@ -222,10 +221,10 @@ export default function BuyingGuidePage() {
         <div className="mb-16">
           <div className="max-w-4xl mx-auto text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Start Your Property Search
+              Homes for Sale in Summerlin — Start Your Search
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              Use our advanced search tools to find your perfect Summerlin West home
+              Use advanced Las Vegas real estate listings tools before you tour.
             </p>
           </div>
           
@@ -241,7 +240,7 @@ export default function BuyingGuidePage() {
           {/* RealScout Simple Search Widget */}
           <div className="mt-12 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Quick Property Search
+              Las Vegas Homes for Sale — Quick Search
             </h3>
             <p className="text-lg text-gray-600 mb-8">
               Start your search with our simple and intuitive search tool

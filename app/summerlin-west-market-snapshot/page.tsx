@@ -2,22 +2,22 @@ import Link from 'next/link';
 
 const snapshotSections = [
   {
-    title: 'Inventory Direction',
+    title: 'Inventory Direction for Las Vegas Homes',
     detail:
       'Track whether fresh listings are rising or tightening by village so you can set realistic expectations before touring.',
   },
   {
-    title: 'Buyer Competition',
+    title: 'Buyer Competition on Summerlin Listings',
     detail:
       'Watch showing activity and offer speed to decide when stronger terms are needed in competitive pockets.',
   },
   {
-    title: 'Pricing Pressure',
+    title: 'Pricing Pressure on Homes for Sale in Summerlin',
     detail:
       'Compare list-price movement and recent closes to avoid overpaying or underpricing.',
   },
   {
-    title: 'Timing Strategy',
+    title: 'Timing Strategy for Las Vegas Real Estate Listings',
     detail:
       'Use seasonality and local launch patterns to pick better weeks to list or make offers.',
   },
@@ -65,7 +65,7 @@ export default function SummerlinWestMarketSnapshotPage() {
           }}
         />
         <h1 className="mb-4 text-4xl font-bold text-gray-900">
-          Summerlin West Market Snapshot
+          Las Vegas Homes for Sale — Summerlin West Market Snapshot
         </h1>
         <p className="mb-10 max-w-3xl text-lg text-gray-600">
           A practical local snapshot focused on how to act in the current

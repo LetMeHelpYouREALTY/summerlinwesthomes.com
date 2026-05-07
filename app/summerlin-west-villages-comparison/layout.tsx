@@ -4,8 +4,8 @@ import { segmentMetadata } from '@/lib/segment-metadata';
 
 export const metadata: Metadata = segmentMetadata(
   '/summerlin-west-villages-comparison',
-  'Summerlin West Villages Comparison',
-  'Compare Summerlin West villages by lifestyle fit, home style, and nearby amenities to find the best community for your next move.',
+  'Summerlin Homes for Sale | Villages Comparison Guide',
+  'Compare Summerlin West villages and real estate listings in Las Vegas: lifestyle fit, home styles, and amenities before you tour homes for sale in Summerlin.',
 );
 
 export default function SummerlinWestVillagesComparisonLayout({

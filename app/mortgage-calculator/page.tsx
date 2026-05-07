@@ -161,11 +161,12 @@ export default function MortgageCalculatorPage() {
             </div>
           </div>
           <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-6xl">
-            Mortgage Calculator
+            Mortgage Calculator for Las Vegas Homes & Summerlin West
           </h1>
           <p className="mx-auto max-w-4xl text-xl text-gray-600">
-            Calculate your monthly mortgage payment for Summerlin West properties. 
-            Get accurate estimates including principal, interest, taxes, and insurance.
+            Stress-test monthly payments for a home in Vegas for sale—include
+            taxes, insurance, and HOA after you shortlist real estate listings in
+            Las Vegas.
           </p>
         </div>
 
@@ -181,21 +182,27 @@ export default function MortgageCalculatorPage() {
           </p>
           <div className="grid gap-3 md:grid-cols-3">
             <article>
-              <h3 className="text-lg font-semibold text-gray-900">Budget Planning</h3>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Budget Planning for Summerlin Homes for Sale
+              </h3>
               <p className="mt-1 text-gray-700">
                 Stress-test different down payment levels and interest rates before
                 choosing a target price range.
               </p>
             </article>
             <article>
-              <h3 className="text-lg font-semibold text-gray-900">Village-Level Costs</h3>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Las Vegas Homes: Village-Level Ownership Costs
+              </h3>
               <p className="mt-1 text-gray-700">
                 Compare HOA and tax assumptions by neighborhood so your monthly
                 payment expectations stay accurate.
               </p>
             </article>
             <article>
-              <h3 className="text-lg font-semibold text-gray-900">Offer Readiness</h3>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Offer Readiness on Homes for Sale in Las Vegas
+              </h3>
               <p className="mt-1 text-gray-700">
                 Use payment scenarios to set clear limits before making offers in
                 competitive Summerlin West inventory.
@@ -208,10 +215,10 @@ export default function MortgageCalculatorPage() {
         <div className="mb-16">
           <div className="max-w-4xl mx-auto text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Find Your Dream Home
+              Homes for Sale in Summerlin — Match Payment to Price
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              Search for properties and calculate mortgage payments
+              Pair Las Vegas homes for sale with realistic monthly payments.
             </p>
           </div>
           
@@ -227,7 +234,7 @@ export default function MortgageCalculatorPage() {
           {/* RealScout Simple Search Widget */}
           <div className="mt-12 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Quick Property Search
+              Real Estate Listings in Las Vegas — Quick Search
             </h3>
             <p className="text-lg text-gray-600 mb-8">
               Start your search with our simple and intuitive search tool

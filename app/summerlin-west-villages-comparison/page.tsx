@@ -70,7 +70,7 @@ export default function SummerlinWestVillagesComparisonPage() {
           }}
         />
         <h1 className="mb-4 text-4xl font-bold text-gray-900">
-          Summerlin West Villages Comparison
+          Summerlin Homes for Sale — Villages Comparison Guide
         </h1>
         <p className="mb-10 max-w-3xl text-lg text-gray-600">
           Compare Summerlin West villages side by side so you can focus your

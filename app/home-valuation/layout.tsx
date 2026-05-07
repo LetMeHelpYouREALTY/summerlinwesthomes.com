@@ -4,8 +4,8 @@ import { segmentMetadata } from '@/lib/segment-metadata';
 
 export const metadata: Metadata = segmentMetadata(
   '/home-valuation',
-  'Home Value & Equity',
-  'Request context on Summerlin West home values: what drives price in each village and how upgrades, views, and product type influence buyer demand.',
+  'Las Vegas Homes | Summerlin West Home Value',
+  'Summerlin homes for sale pricing context: village-level value drivers, upgrades, views, and how your home compares to active Las Vegas listings.',
 );
 
 export default function HomeValuationLayout({
