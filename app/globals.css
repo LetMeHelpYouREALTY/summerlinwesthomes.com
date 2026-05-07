@@ -21,16 +21,55 @@
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: #1f2937;
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   letter-spacing: 0.01em;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
 h2,
 h3,
 h4 {
+  font-family: Georgia, 'Times New Roman', serif;
   letter-spacing: -0.02em;
+  color: #0b1231;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2rem, 3.5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.6rem, 2.6vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2vw, 2.1rem);
+}
+
+p {
+  color: #374151;
+}
+
+section {
+  scroll-margin-top: 96px;
+}
+
+.rounded-lg,
+.rounded-xl,
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl {
+  box-shadow: 0 14px 32px -18px rgb(11 18 49 / 0.35);
 }
 
 .luxury-hero-bg {
