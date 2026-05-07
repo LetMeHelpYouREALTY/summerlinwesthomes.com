@@ -140,9 +140,9 @@ function Header({
               <Home className="h-6 w-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">
+              <p className="text-xl font-bold text-gray-900">
                 Summerlin West
-              </h1>
+              </p>
               <p className="text-xs text-gray-600">Luxury Real Estate</p>
             </div>
           </div>
