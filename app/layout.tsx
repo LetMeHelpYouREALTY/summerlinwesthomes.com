@@ -6,6 +6,21 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { getSiteUrl } from '@/lib/site-url';
 import './globals.css';
 
+declare global {
+  interface Window {
+    Calendly?: {
+      initBadgeWidget: (options: {
+        url: string;
+        text: string;
+        color: string;
+        textColor: string;
+        branding: boolean;
+      }) => void;
+      initPopupWidget: (options: { url: string }) => void;
+    };
+  }
+}
+
 const siteUrl = getSiteUrl();
 
 const geistSans = Geist({
@@ -117,11 +132,17 @@ export default function RootLayout({
           type="font/woff2"
         />
 
-        {/* RealScout script loads with afterInteractive strategy */}
+        {/* RealScout script (load once globally) */}
         <link
           rel="preload"
           href="https://em.realscout.com/widgets/realscout-web-components.umd.js"
           as="script"
+        />
+        <Script
+          id="realscout-widget-js"
+          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
+          type="module"
+          strategy="afterInteractive"
         />
 
         {/* RealScout Widget Styles */}
@@ -129,31 +150,6 @@ export default function RootLayout({
           realscout-office-listings {
             --rs-listing-divider-color: rgb(101, 141, 172);
             width: 100%;
-          }
-          
-          realscout-home-value {
-            --rs-hvw-background-color: #ffffff;
-            --rs-hvw-title-color: #000000;
-            --rs-hvw-subtitle-color: rgba(28, 30, 38, 0.5);
-            --rs-hvw-primary-button-text-color: #ffffff;
-            --rs-hvw-primary-button-color: rgb(35, 93, 137);
-            --rs-hvw-secondary-button-text-color: rgb(35, 93, 137);
-            --rs-hvw-secondary-button-color: #ffffff;
-            --rs-hvw-widget-width: auto;
-          }
-          
-          realscout-advanced-search {
-            --rs-as-button-text-color: #ffffff;
-            --rs-as-background-color: #ffffff;
-            --rs-as-button-color: #1c71c3;
-            --rs-as-widget-width: 500px !important;
-          }
-          
-          realscout-simple-search {
-            --rs-ss-font-primary-color: #726a6d;
-            --rs-ss-searchbar-border-color: #1d6fbd;
-            --rs-ss-box-shadow: 0 10px 15px -3px #0000001a;
-            --rs-ss-widget-width: 500px !important;
           }
         `}</style>
 
@@ -366,21 +362,82 @@ export default function RootLayout({
             }),
           }}
         />
+        <link
+          href="https://assets.calendly.com/assets/external/widget.css"
+          rel="stylesheet"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-white text-gray-900 antialiased`}
       >
-        {/* RealScout Widget Script */}
-        <Script
-          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          type="module"
-          strategy="afterInteractive"
+        
+        <script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          type="text/javascript"
+          async
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                function initCalendlyWidgets() {
+                  if (!window.Calendly) return;
+                  window.Calendly.initBadgeWidget({
+                    url: 'https://calendly.com/drjanduffy/appointment',
+                    text: 'Schedule time with me',
+                    color: '#0069ff',
+                    textColor: '#ffffff',
+                    branding: false
+                  });
+                  document.querySelectorAll('[data-calendly-popup="appointment"]').forEach(function (el) {
+                    if (el.dataset.calendlyBound === 'true') return;
+                    el.dataset.calendlyBound = 'true';
+                    el.addEventListener('click', function (event) {
+                      event.preventDefault();
+                      if (window.Calendly) {
+                        window.Calendly.initPopupWidget({
+                          url: 'https://calendly.com/drjanduffy/appointment'
+                        });
+                      }
+                    });
+                  });
+                }
+                window.addEventListener('load', initCalendlyWidgets);
+                setTimeout(initCalendlyWidgets, 1500);
+              })();
+            `,
+          }}
         />
         {children}
+        <section className="border-t border-gray-200 bg-[#f8f7f4] px-4 py-12">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="mb-3 text-center text-2xl font-semibold text-gray-900 md:text-3xl">
+              Featured Listings
+            </h2>
+            <p className="mb-8 text-center text-gray-600">
+              Browse the newest Summerlin West homes for sale.
+            </p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html:
+                  '<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC"></realscout-office-listings>',
+              }}
+            />
+          </div>
+        </section>
         <footer className="border-t border-gray-200 bg-white px-4 py-5 text-center text-xs text-gray-600">
           <p>Summerlin West | Homes by Dr. Jan Duffy. All rights reserved. © 2026</p>
           <p className="mt-1">
             Berkshire Hathaway HomeServices Nevada Properties | S.0197614.LLC
+          </p>
+          <p className="mt-3">
+            <a
+              href="https://calendly.com/drjanduffy/appointment"
+              data-calendly-popup="appointment"
+              className="font-semibold text-[#0b1231] underline-offset-2 hover:underline"
+            >
+              Schedule time with me
+            </a>
           </p>
         </footer>
 

@@ -10,6 +10,7 @@ import {
   Mail,
   Users,
 } from 'lucide-react';
+import CalendlyInlineSection from '@/components/calendly-inline-section';
 
 export default function HomeValuationPage() {
   const [formData, setFormData] = useState({
@@ -68,6 +69,15 @@ export default function HomeValuationPage() {
               <MapPin className="h-5 w-5" />
               <span>Local Expertise</span>
             </div>
+          </div>
+          <div className="mt-8">
+            <a
+              href="https://calendly.com/drjanduffy/appointment"
+              data-calendly-popup="appointment"
+              className="inline-flex items-center rounded-full border border-white/40 bg-white/95 px-8 py-3 font-semibold text-blue-900 shadow-lg backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:bg-white"
+            >
+              Book a Valuation Review Call
+            </a>
           </div>
         </div>
       </div>
@@ -561,6 +571,10 @@ export default function HomeValuationPage() {
           </div>
         </div>
       </div>
+      <CalendlyInlineSection
+        title="Schedule a Valuation Review"
+        description="Walk through your valuation report and next steps with Dr. Jan Duffy."
+      />
     </div>
   );
 }

@@ -424,28 +424,21 @@ function HomePage({
   // Hero Section with Enhanced Visual Appeal
   function HeroSection() {
     return (
-      <section className="relative flex min-h-[85vh] items-end overflow-hidden md:min-h-screen">
+      <section className="relative flex min-h-screen items-end overflow-hidden">
         {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage:
-              "url('/images/hero-summerlin-west-luxury-homes.jpg')",
-          }}
-        />
+        <div className="luxury-hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat" />
         {/* Color and contrast overlays */}
-        <div className="absolute inset-0 bg-[#0b1231]/45" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1231]/30 via-[#0b1231]/35 to-[#0b1231]/70" />
+        <div className="absolute inset-0 bg-[#0b1231]/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1231]/15 via-[#0b1231]/40 to-[#0b1231]/75" />
 
         {/* Hero content */}
-        <div className="relative z-10 mx-auto w-full max-w-4xl px-6 pb-14 pt-28 text-center text-white md:pb-20 md:pt-36">
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-6 pb-16 pt-32 text-center text-white md:pb-24 md:pt-40">
           <h1
-            className="mx-auto mb-5 max-w-3xl text-balance text-5xl leading-[0.95] md:text-7xl"
-            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+            className="luxury-hero-title mx-auto mb-6 max-w-4xl text-balance text-5xl leading-[0.92] md:text-7xl"
           >
             YOUR SUMMERLIN LEGACY.
           </h1>
-          <p className="mx-auto mb-9 max-w-2xl text-lg font-medium text-white/90 md:text-3xl">
+          <p className="mx-auto mb-10 max-w-3xl text-lg font-medium text-white/90 md:text-3xl">
             Leverage our specialized market expertise to own the season in
             Summerlin West.
           </p>
@@ -457,7 +450,7 @@ function HomePage({
                 'noopener,noreferrer'
               )
             }
-            className="inline-flex items-center justify-center rounded-full bg-[#0b1231] px-10 py-4 text-xl font-semibold tracking-tight text-white shadow-2xl transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#101c49]"
+            className="inline-flex items-center justify-center rounded-full bg-[#0b1231] px-10 py-4 text-xl font-semibold tracking-tight text-white shadow-2xl ring-1 ring-white/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#101c49]"
           >
             Explore Listings
           </button>
@@ -481,7 +474,7 @@ function StatsBar() {
   ];
 
   return (
-    <section className="relative z-20 -mt-20 bg-white py-8 shadow-lg">
+    <section className="relative z-20 -mt-16 mx-4 rounded-2xl border border-[#d8c58e]/50 bg-[#faf7ef] py-8 shadow-xl md:mx-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat) => (
@@ -504,7 +497,7 @@ function StatsBar() {
 // RealScout Home Value Widget Section
 function HomeValueWidget() {
   return (
-    <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
+    <section className="bg-[#f6f4ef] py-20">
       <div className="container mx-auto px-4">
         <div className="mx-auto mb-12 max-w-4xl text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
@@ -517,7 +510,7 @@ function HomeValueWidget() {
         </div>
 
         {/* RealScout Home Value Widget */}
-        <div className="mx-auto max-w-2xl rounded-lg bg-white p-6 shadow-lg">
+        <div className="mx-auto max-w-2xl rounded-2xl border border-[#d8c58e]/40 bg-white p-6 shadow-xl">
           <div
             dangerouslySetInnerHTML={{
               __html:
@@ -546,7 +539,7 @@ function HomeValueWidget() {
 // RealScout Advanced Search Widget Section
 function AdvancedSearchWidget() {
   return (
-    <section className="bg-gradient-to-br from-green-50 to-emerald-100 py-16">
+    <section className="bg-white py-20">
       <div className="container mx-auto px-4">
         <div className="mx-auto mb-12 max-w-4xl text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
@@ -575,7 +568,7 @@ function AdvancedSearchWidget() {
 // RealScout Simple Search Widget Section
 function SimpleSearchWidget() {
   return (
-    <section className="bg-gradient-to-br from-purple-50 to-violet-100 py-16">
+    <section className="bg-[#f7f7fb] py-20">
       <div className="container mx-auto px-4">
         <div className="mx-auto mb-12 max-w-4xl text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">

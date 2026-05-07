@@ -13,6 +13,7 @@ import {
   ArrowRight,
   Star,
 } from 'lucide-react';
+import CalendlyInlineSection from '@/components/calendly-inline-section';
 
 export default function BuyingGuidePage() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -206,6 +207,15 @@ export default function BuyingGuidePage() {
             Vegas&apos;s premier master-planned community. From financing to
             closing, we&apos;ll guide you every step of the way.
           </p>
+          <div className="mt-8">
+            <a
+              href="https://calendly.com/drjanduffy/appointment"
+              data-calendly-popup="appointment"
+              className="inline-flex items-center rounded-full bg-gradient-to-r from-amber-600 to-orange-600 px-8 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:from-amber-700 hover:to-orange-700"
+            >
+              Book Your Buyer Consultation
+            </a>
+          </div>
         </div>
 
         {/* RealScout Advanced Search Widget */}
@@ -751,6 +761,10 @@ export default function BuyingGuidePage() {
           </div>
         </div>
       </div>
+      <CalendlyInlineSection
+        title="Book a Buyer Strategy Call"
+        description="Review your goals, timeline, and financing options with Dr. Jan Duffy."
+      />
     </div>
   );
 }

@@ -12,6 +12,7 @@ import {
   MapPin,
   CheckCircle,
 } from 'lucide-react';
+import CalendlyInlineSection from '@/components/calendly-inline-section';
 
 export default function SellYourHomePage() {
   const [formData, setFormData] = useState({
@@ -141,6 +142,15 @@ export default function SellYourHomePage() {
               <div className="text-2xl font-bold text-amber-600">$2.1M</div>
               <div className="text-sm text-gray-600">Average Sale Price</div>
             </div>
+          </div>
+          <div className="mt-8">
+            <a
+              href="https://calendly.com/drjanduffy/appointment"
+              data-calendly-popup="appointment"
+              className="inline-flex items-center rounded-full bg-gradient-to-r from-amber-600 to-orange-600 px-8 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:from-amber-700 hover:to-orange-700"
+            >
+              Book Your Seller Consultation
+            </a>
           </div>
         </div>
 
@@ -684,6 +694,10 @@ export default function SellYourHomePage() {
           </div>
         </div>
       </div>
+      <CalendlyInlineSection
+        title="Book a Seller Consultation"
+        description="Plan pricing, marketing, and timing for your Summerlin West home sale."
+      />
     </div>
   );
 }
