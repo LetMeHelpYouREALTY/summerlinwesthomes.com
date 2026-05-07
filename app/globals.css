@@ -40,3 +40,64 @@ h4 {
 .luxury-hero-title {
   font-family: Georgia, 'Times New Roman', serif;
 }
+
+/* Sitewide luxury color pass for legacy utility classes */
+.bg-blue-600,
+.bg-green-600,
+.bg-purple-600,
+.bg-orange-600 {
+  background-color: #0b1231 !important;
+}
+
+.hover\:bg-blue-700:hover,
+.hover\:bg-green-700:hover,
+.hover\:bg-purple-700:hover,
+.hover\:bg-orange-700:hover {
+  background-color: #101c49 !important;
+}
+
+.bg-amber-600 {
+  background-color: #9b7a3d !important;
+}
+
+.hover\:bg-amber-700:hover {
+  background-color: #7f632f !important;
+}
+
+.border-amber-600 {
+  border-color: #9b7a3d !important;
+}
+
+.text-amber-600,
+.text-amber-700 {
+  color: #9b7a3d !important;
+}
+
+.hover\:bg-amber-50:hover {
+  background-color: #f4efe2 !important;
+}
+
+.from-blue-50 {
+  --tw-gradient-from: #f8f4ea var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(248 244 234 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.to-indigo-100 {
+  --tw-gradient-to: #ece3cf var(--tw-gradient-to-position) !important;
+}
+
+.from-amber-600 {
+  --tw-gradient-from: #9b7a3d var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(155 122 61 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.via-orange-500 {
+  --tw-gradient-to: rgb(186 145 84 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), #ba9154 var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
+}
+
+.to-red-500 {
+  --tw-gradient-to: #d7b57d var(--tw-gradient-to-position) !important;
+}
