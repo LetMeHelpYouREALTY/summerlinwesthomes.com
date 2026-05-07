@@ -423,46 +423,49 @@ function HomePage({
 
   // Hero Section with Enhanced Visual Appeal
   function HeroSection() {
-    const { openModal } = useOnboarding();
-    
     return (
-      <section className="relative flex h-screen items-center justify-center">
-        {/* Background with gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-600 via-orange-500 to-red-500 opacity-90"></div>
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+      <section className="relative flex min-h-[85vh] items-end overflow-hidden md:min-h-screen">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              "url('/images/hero-summerlin-west-luxury-homes.jpg')",
+          }}
+        />
+        {/* Color and contrast overlays */}
+        <div className="absolute inset-0 bg-[#0b1231]/45" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1231]/30 via-[#0b1231]/35 to-[#0b1231]/70" />
 
-        {/* Hero Content */}
-        <div className="relative z-10 mx-auto max-w-5xl px-4 text-center text-white">
-          <div className="mb-6">
-            <span className="rounded-full bg-white/20 px-4 py-2 text-sm font-medium backdrop-blur">
-              Nevada&apos;s #1 Luxury Community
-            </span>
-          </div>
-          <h1 className="mb-6 text-5xl font-bold leading-tight md:text-7xl">
-            Welcome to <br />
-            Summerlin West
+        {/* Hero content */}
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-6 pb-14 pt-28 text-center text-white md:pb-20 md:pt-36">
+          <h1
+            className="mx-auto mb-5 max-w-3xl text-balance text-5xl leading-[0.95] md:text-7xl"
+            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+          >
+            YOUR SUMMERLIN LEGACY.
           </h1>
-          <p className="mx-auto mb-10 max-w-3xl text-xl text-white/90 md:text-2xl">
-            Discover exceptional luxury homes in Las Vegas&apos; most prestigious
-            master-planned community
+          <p className="mx-auto mb-9 max-w-2xl text-lg font-medium text-white/90 md:text-3xl">
+            Leverage our specialized market expertise to own the season in
+            Summerlin West.
           </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <button
-              onClick={openModal}
-              className="flex transform items-center justify-center space-x-2 rounded-lg bg-white px-8 py-4 font-semibold text-amber-600 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl"
-            >
-              <Search className="h-5 w-5" />
-                          <span>Find My Dream Home in 60 Seconds</span>
-            </button>
-            <button className="rounded-lg border-2 border-white px-8 py-4 font-semibold text-white transition-all duration-200 hover:bg-white hover:text-amber-600">
-              Download Community Guide
-            </button>
-          </div>
+          <button
+            onClick={() =>
+              window.open(
+                'https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay05NTMy',
+                '_blank',
+                'noopener,noreferrer'
+              )
+            }
+            className="inline-flex items-center justify-center rounded-full bg-[#0b1231] px-10 py-4 text-xl font-semibold tracking-tight text-white shadow-2xl transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#101c49]"
+          >
+            Explore Listings
+          </button>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 transform animate-bounce">
-          <ChevronRight className="h-8 w-8 rotate-90 text-white" />
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 transform animate-bounce">
+          <ChevronRight className="h-7 w-7 rotate-90 text-white/85" />
         </div>
       </section>
     );
