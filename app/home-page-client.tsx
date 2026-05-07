@@ -1148,6 +1148,30 @@ function Footer() {
                   Featured Summerlin West listings
                 </a>
               </li>
+              <li>
+                <a
+                  href="/summerlin-west-villages-comparison"
+                  className="text-gray-400 transition-colors hover:text-white"
+                >
+                  Compare Summerlin West villages by lifestyle
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/summerlin-west-market-snapshot"
+                  className="text-gray-400 transition-colors hover:text-white"
+                >
+                  Summerlin West market snapshot and trends
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/summerlin-west-schools-commute-amenities"
+                  className="text-gray-400 transition-colors hover:text-white"
+                >
+                  Schools, commute, and amenities planning guide
+                </a>
+              </li>
             </ul>
           </div>
 

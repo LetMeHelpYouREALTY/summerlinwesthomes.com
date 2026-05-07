@@ -439,6 +439,28 @@ export default function RootLayout({
               Schedule time with me
             </a>
           </p>
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-3 text-[11px]">
+            <a
+              href="/summerlin-west-villages-comparison"
+              className="text-[#0b1231] underline-offset-2 hover:underline"
+            >
+              Compare Summerlin West villages
+            </a>
+            <span aria-hidden="true">|</span>
+            <a
+              href="/summerlin-west-market-snapshot"
+              className="text-[#0b1231] underline-offset-2 hover:underline"
+            >
+              Summerlin West market snapshot
+            </a>
+            <span aria-hidden="true">|</span>
+            <a
+              href="/summerlin-west-schools-commute-amenities"
+              className="text-[#0b1231] underline-offset-2 hover:underline"
+            >
+              Schools, commute, and amenities guide
+            </a>
+          </div>
         </footer>
 
         {/* Vercel Analytics and Performance Monitoring */}
