@@ -377,6 +377,12 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         {children}
+        <footer className="border-t border-gray-200 bg-white px-4 py-5 text-center text-xs text-gray-600">
+          <p>Summerlin West | Homes by Dr. Jan Duffy. All rights reserved. © 2026</p>
+          <p className="mt-1">
+            Berkshire Hathaway HomeServices Nevada Properties | S.0197614.LLC
+          </p>
+        </footer>
 
         {/* Vercel Analytics and Performance Monitoring */}
         <Analytics />

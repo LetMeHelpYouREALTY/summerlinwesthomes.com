@@ -1595,10 +1595,7 @@ function Footer() {
         </div>
 
         <div className="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-          <p>
-            &copy; 2024 Summerlin West Homes. All rights reserved. | Powered by
-            RealScout | DRE #01234567
-          </p>
+          <p>Local experts for Summerlin West real estate and relocation support.</p>
         </div>
       </div>
     </footer>
