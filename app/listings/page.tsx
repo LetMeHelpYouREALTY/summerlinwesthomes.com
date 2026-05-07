@@ -155,6 +155,41 @@ export default function ListingsPage() {
           </div>
         </div>
 
+        <section className="mt-8 rounded-lg bg-white p-6 shadow-lg">
+          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
+            How to Use Summerlin West Listings for Better Decisions
+          </h2>
+          <p className="mb-4 text-gray-700">
+            Active inventory can shift quickly across Summerlin West villages. Use
+            this page to compare price bands, days on market, and home features
+            before scheduling tours. Focusing on live data helps buyers avoid stale
+            assumptions and spot stronger opportunities earlier.
+          </p>
+          <div className="grid gap-4 md:grid-cols-3">
+            <article>
+              <h3 className="text-lg font-semibold text-gray-900">Price Positioning</h3>
+              <p className="mt-1 text-gray-700">
+                Compare active asking prices with recent closes to understand where
+                negotiation room may exist.
+              </p>
+            </article>
+            <article>
+              <h3 className="text-lg font-semibold text-gray-900">Village Fit</h3>
+              <p className="mt-1 text-gray-700">
+                Filter by location and home type to narrow inventory to villages
+                that match your lifestyle and commute needs.
+              </p>
+            </article>
+            <article>
+              <h3 className="text-lg font-semibold text-gray-900">Offer Timing</h3>
+              <p className="mt-1 text-gray-700">
+                Watch listing freshness and activity trends to decide when to move
+                quickly or when to negotiate more aggressively.
+              </p>
+            </article>
+          </div>
+        </section>
+
 
       </div>
     </div>

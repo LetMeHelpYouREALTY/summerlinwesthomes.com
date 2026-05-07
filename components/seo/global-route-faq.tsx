@@ -33,6 +33,16 @@ const FAQ_BY_ROUTE: Record<string, FaqItem[]> = {
       answer:
         'Price bands vary by village and home type. You can filter by budget directly to compare current opportunities in each neighborhood.',
     },
+    {
+      question: 'Is Summerlin West still growing with new neighborhoods?',
+      answer:
+        'Yes. Summerlin West remains an active growth corridor with ongoing village development, new construction deliveries, and phased community expansion.',
+    },
+    {
+      question: 'What should I compare before touring Summerlin West homes?',
+      answer:
+        'Most buyers compare village HOA structure, commute patterns, school access, and current listing velocity before scheduling tours.',
+    },
   ],
   '/villages': [
     {
