@@ -46,6 +46,16 @@ const FAQ_BY_ROUTE: Record<string, FaqItem[]> = {
       answer:
         'Summerlin West includes multiple villages with distinct home styles, amenities, and HOA structures; inventory differs by village each week.',
     },
+    {
+      question: 'What is the lifestyle like in Summerlin West Las Vegas?',
+      answer:
+        'Summerlin West blends newer luxury neighborhoods, elevated desert views, trail connectivity, and quick access to Red Rock Canyon, with Downtown Summerlin serving many retail and dining needs.',
+    },
+    {
+      question: 'Which newer Summerlin West villages are getting the most attention?',
+      answer:
+        'Buyers frequently compare Grand Park Village, Stonebridge, Red Point Square, and Kestrel Commons for newer layouts, modern finishes, and proximity to west-side amenities.',
+    },
   ],
   '/properties/search': [
     {
@@ -58,6 +68,11 @@ const FAQ_BY_ROUTE: Record<string, FaqItem[]> = {
       answer:
         'Yes. The search tools support multiple property types so you can narrow results to match your lifestyle and budget.',
     },
+    {
+      question: 'Is Summerlin West a strong area for new construction?',
+      answer:
+        'Yes. Summerlin West remains one of the primary new-home corridors in west Las Vegas, with multiple active builders and ongoing village expansion.',
+    },
   ],
   '/market-data': [
     {
@@ -69,6 +84,16 @@ const FAQ_BY_ROUTE: Record<string, FaqItem[]> = {
       question: 'Is Summerlin West different from nearby northwest Las Vegas pricing?',
       answer:
         'It can be. Village-level HOA, lot size, age of inventory, and amenities often create pricing differences versus nearby west-side neighborhoods.',
+    },
+    {
+      question: 'Is the Summerlin West market still competitive in 2026?',
+      answer:
+        'The market remains premium, but many buyers are seeing more negotiation room than peak cycles, with some listings taking longer to go under contract than in prior years.',
+    },
+    {
+      question: 'Do high-elevation villages in west Summerlin hold value well?',
+      answer:
+        'Many buyers prioritize higher-elevation communities near Red Rock for long-term demand, view premiums, and lifestyle positioning within the west valley.',
     },
   ],
   '/home-valuation': [
@@ -105,6 +130,16 @@ const FAQ_BY_ROUTE: Record<string, FaqItem[]> = {
       question: 'Is new construction available in Summerlin West?',
       answer:
         'Availability varies by phase and builder. Compare new-home incentives versus resale options to find the strongest total value.',
+    },
+    {
+      question: 'What extra ownership costs should I plan for in Summerlin West?',
+      answer:
+        'Many communities include a master association plus a village or sub-association HOA, and some newer neighborhoods may also include SID/LID assessments in property tax bills.',
+    },
+    {
+      question: 'What are the main pros and cons of buying in Summerlin West?',
+      answer:
+        'Common advantages are newer energy-efficient homes, strong community planning, and Red Rock access; common tradeoffs are premium pricing, stricter HOA rules, and longer drives to some metro destinations.',
     },
   ],
   '/mortgage-calculator': [
@@ -153,6 +188,11 @@ const FAQ_BY_ROUTE: Record<string, FaqItem[]> = {
       question: 'What roads are most used for Summerlin West commuting?',
       answer:
         'Common routes include Charleston, Sahara, and the 215 beltway depending on destination and peak-hour conditions.',
+    },
+    {
+      question: 'Is Summerlin West farther from the Strip and airport?',
+      answer:
+        'Generally yes, compared with central valley neighborhoods. Many buyers accept the extra drive time for newer housing, trail access, and west-edge mountain proximity.',
     },
   ],
   '/listings': [
