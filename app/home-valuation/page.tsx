@@ -493,7 +493,7 @@ export default function HomeValuationPage() {
             <div className="mb-12 text-center">
               <SectionHeading
                 image={headingImages.h2.homeValue}
-                title="Why Choose Sun City Summerlin 55+ Real Estate for Your Valuation?"
+                title="Why Choose Summerlin Real Estate for Your Valuation?"
                 subtitle="Expert local knowledge combined with cutting-edge technology for accurate market insights"
               />
             </div>

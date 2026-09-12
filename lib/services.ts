@@ -1,4 +1,5 @@
 import { headingImages, type HeadingImage } from '@/lib/section-images';
+import { BUSINESS } from '@/lib/business';
 
 export type ServiceGroupId =
   | 'buyers'
@@ -1089,7 +1090,7 @@ export const SERVICE_INDEX_FAQS: readonly ServiceFaq[] = [
   {
     question: 'How do I start with Dr. Jan Duffy?',
     answer:
-      'Call (702) 718-0043 or book a consult. Bring the property address or the village you want to tour so the first call stays specific.',
+      `Call ${BUSINESS.phoneDisplay} or book a consult. Bring the property address or the village you want to tour so the first call stays specific.`,
   },
 ];
 

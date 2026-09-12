@@ -2,12 +2,11 @@ import type { Metadata } from 'next';
 import { openGraphWebsite } from '@/lib/open-graph';
 import HomePageClient from './home-page-client';
 
-const homeTitle =
-  'Sun City Summerlin 55+ Homes | Las Vegas Real Estate';
+const homeTitle = 'Summerlin Real Estate | Homes by Dr. Jan Duffy';
 const homeDescription =
-  'Find 55+ homes in Sun City Summerlin, Las Vegas, with Dr. Jan Duffy. Age-qualified active-adult real estate since 2013. Call (702) 718-0043.';
+  'Summerlin Real Estate | Homes by Dr. Jan Duffy serves buyers, sellers, and investors across Summerlin, Las Vegas, Henderson, and Clark County. Call (702) 842-0410.';
 const homeOgDescription =
-  'Sun City Summerlin 55+ real estate in Las Vegas. Homes by Dr. Jan Duffy — active-adult community representation since 2013.';
+  'Luxury residential sales, buyer representation, new construction, 55+ community sales, investment consulting, and relocation. Call (702) 842-0410.';
 
 export const metadata: Metadata = {
   title: {

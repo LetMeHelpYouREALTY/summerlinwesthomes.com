@@ -65,15 +65,15 @@ export default function SiteNapFooter() {
       </div>
       <p className="mt-5">
         <a
-          href="/sun-city-summerlin"
+          href="/office"
           className="font-semibold text-[#0b1231] underline-offset-2 hover:underline"
         >
-          Sun City Summerlin 55+ real estate office
+          Summerlin Real Estate office
         </a>
       </p>
       <p className="mt-2">
-        Sun City Summerlin 55+ Real Estate | Homes by Dr. Jan Duffy. All
-        rights reserved. © 2026
+        Summerlin Real Estate | Homes by Dr. Jan Duffy. All rights reserved. ©
+        2026
       </p>
       <p className="mt-1">Nevada license {BUSINESS.license}</p>
       <p className="mt-3">

@@ -6,7 +6,6 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import {
   AREA_SERVED,
-  AVAILABLE_LANGUAGES,
   BUSINESS,
   SOCIAL_PROFILES,
   SPECIAL_HOURS,
@@ -78,17 +77,18 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    template: '%s | Sun City Summerlin 55+ Real Estate',
-    default: 'Sun City Summerlin 55+ Homes | Las Vegas Real Estate',
+    template: '%s | Summerlin Real Estate',
+    default: 'Summerlin Real Estate | Homes by Dr. Jan Duffy',
   },
   description: BUSINESS.description,
   keywords: [
-    'Sun City Summerlin',
-    '55+ homes Las Vegas',
-    'active adult real estate',
+    'Summerlin Real Estate',
     'Las Vegas Real Estate',
     'Dr. Jan Duffy',
     'Summerlin West',
+    'The Ridges',
+    'Red Rock Country Club',
+    'Sun City',
   ],
   authors: [{ name: BUSINESS.name }],
   creator: BUSINESS.name,
@@ -185,7 +185,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': ['RealEstateAgent', 'RealEstateAgency', 'LocalBusiness'],
+              '@type': ['RealEstateAgent', 'LocalBusiness'],
               '@id': `${BUSINESS.website}/#organization`,
               name: BUSINESS.name,
               alternateName: [
@@ -224,15 +224,6 @@ export default function RootLayout({
               },
               foundingDate: BUSINESS.foundingDate,
               areaServed: [...AREA_SERVED],
-              serviceArea: {
-                '@type': 'GeoCircle',
-                geoMidpoint: {
-                  '@type': 'GeoCoordinates',
-                  latitude: BUSINESS.latitude,
-                  longitude: BUSINESS.longitude,
-                },
-                geoRadius: '15000',
-              },
               openingHours: [...BUSINESS.openingHours],
               specialOpeningHoursSpecification: [...SPECIAL_HOURS],
               contactPoint: [
@@ -240,7 +231,6 @@ export default function RootLayout({
                   '@type': 'ContactPoint',
                   telephone: BUSINESS.phoneSchema,
                   contactType: 'customer service',
-                  availableLanguage: [...AVAILABLE_LANGUAGES],
                   hoursAvailable: {
                     '@type': 'OpeningHoursSpecification',
                     dayOfWeek: [
@@ -284,6 +274,16 @@ export default function RootLayout({
                   name: 'Free parking lot',
                   value: true,
                 },
+                {
+                  '@type': 'LocationFeatureSpecification',
+                  name: 'Free parking garage',
+                  value: true,
+                },
+                {
+                  '@type': 'LocationFeatureSpecification',
+                  name: 'Gender-neutral restroom',
+                  value: true,
+                },
               ],
               additionalProperty: [
                 {
@@ -299,20 +299,16 @@ export default function RootLayout({
               ],
               hasOfferCatalog: {
                 '@type': 'OfferCatalog',
-                name: 'Sun City Summerlin 55+ Real Estate Services',
+                name: 'Summerlin Real Estate Services',
                 itemListElement: [
                   {
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
-                      name: 'Sun City Summerlin 55+ Buyer & Seller Representation',
+                      name: 'Luxury residential home sales',
                       description:
-                        'Buyer and seller representation for age-qualified homes in Sun City Summerlin, with additional west Las Vegas service area coverage.',
-                      areaServed: [
-                        { '@type': 'City', name: 'Las Vegas' },
-                        { '@type': 'Place', name: 'Sun City Summerlin' },
-                        { '@type': 'Place', name: 'Summerlin West' },
-                      ],
+                        'Buyer and seller representation for luxury residential homes in Summerlin, Las Vegas, Henderson, and Clark County.',
+                      areaServed: [...AREA_SERVED],
                       provider: { '@id': `${BUSINESS.website}/#organization` },
                     },
                   },
@@ -320,13 +316,10 @@ export default function RootLayout({
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
-                      name: 'Real Estate Consultation',
+                      name: 'Real estate consulting',
                       description:
-                        'Consultations for Sun City Summerlin 55+ homes and west-valley transactions. Call (702) 718-0043.',
-                      areaServed: [
-                        { '@type': 'City', name: 'Las Vegas' },
-                        { '@type': 'Place', name: 'Sun City Summerlin' },
-                      ],
+                        'Investment property consulting, 55+ active-adult community sales, new construction, divorce and probate, and relocation services. Call (702) 842-0410.',
+                      areaServed: [...AREA_SERVED],
                       provider: { '@id': `${BUSINESS.website}/#organization` },
                     },
                   },
@@ -342,33 +335,40 @@ export default function RootLayout({
                 'Wire Transfer',
               ],
               knowsAbout: [
-                'Sun City Summerlin 55+ real estate',
-                'Active adult communities',
-                'Summerlin West Real Estate Market',
-                'Las Vegas luxury and move-up homes',
+                'Summerlin real estate',
+                'The Ridges',
+                'Summerlin West',
+                'Red Rock Country Club',
+                'Sun City',
+                'Del Webb communities',
+                'Luxury residential home sales',
+                'Investment property consulting',
               ],
-              knowsLanguage: [...AVAILABLE_LANGUAGES],
               communities: [
                 {
                   '@type': 'Place',
-                  name: 'Sun City Summerlin',
-                  description:
-                    'Age-qualified 55+ active-adult community in Las Vegas, NV 89134',
-                },
-                {
-                  '@type': 'Place',
                   name: 'The Ridges',
-                  description: 'Golf community in Summerlin West',
+                  description: 'Summerlin community specialty',
                 },
                 {
                   '@type': 'Place',
-                  name: 'The Summit',
-                  description: 'Mountain living community',
+                  name: 'Summerlin West',
+                  description: 'West-valley Summerlin villages',
                 },
                 {
                   '@type': 'Place',
                   name: 'Red Rock Country Club',
-                  description: 'Private golf club community',
+                  description: 'Summerlin golf community specialty',
+                },
+                {
+                  '@type': 'Place',
+                  name: 'Sun City',
+                  description: '55+ active-adult community sales',
+                },
+                {
+                  '@type': 'Place',
+                  name: 'Del Webb',
+                  description: '55+ active-adult community sales',
                 },
               ],
             }),
@@ -449,7 +449,7 @@ export default function RootLayout({
             <SectionHeading
               image={headingImages.h2.featured}
               title="Featured Listings"
-              subtitle="Browse Sun City Summerlin 55+ and west Las Vegas homes for sale."
+              subtitle="Browse Summerlin, Summerlin West, and Las Vegas homes for sale."
             />
             <div
               dangerouslySetInnerHTML={{

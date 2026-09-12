@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/buying-guide`, lastModified: currentDate },
     { url: `${baseUrl}/home-valuation`, lastModified: currentDate },
     { url: `${baseUrl}/listings`, lastModified: yesterday },
+    { url: `${baseUrl}/office`, lastModified: currentDate },
     { url: `${baseUrl}/market-data`, lastModified: twoDaysAgo },
     { url: `${baseUrl}/mortgage-calculator`, lastModified: currentDate },
     { url: `${baseUrl}/properties/search`, lastModified: yesterday },

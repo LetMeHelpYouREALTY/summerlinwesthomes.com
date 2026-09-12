@@ -14,7 +14,7 @@ import {
   TrendingUp,
   Map,
 } from 'lucide-react';
-import { BUSINESS, googleReviewsUrl, telHref } from '@/lib/business';
+import { BUSINESS, googleReviewsUrl, mapsUrl, telHref } from '@/lib/business';
 import { cn } from '@/lib/utils';
 import { ProgressiveOnboarding } from '@/components/ProgressiveOnboarding';
 import { OnboardingProvider } from '@/components/OnboardingContext';
@@ -78,13 +78,13 @@ function HomePage() {
             className="luxury-hero-title mx-auto mb-6 max-w-4xl text-balance text-5xl leading-[0.92] md:text-7xl"
           >
             <span className="mb-4 block text-base font-semibold uppercase tracking-[0.14em] text-white/90 md:text-xl">
-              Sun City Summerlin 55+ homes · Las Vegas
+              Summerlin Real Estate · Las Vegas
             </span>
             YOUR NEXT CHAPTER.
           </h1>
           <p className="mx-auto mb-10 max-w-3xl text-lg font-medium text-white/90 md:text-3xl">
-            Age-qualified Sun City Summerlin real estate with 25+ years in
-            active-adult communities. Call {BUSINESS.phoneDisplay}.
+            Buyers, sellers, and investors across Summerlin, Las Vegas,
+            Henderson, and Clark County. Call {BUSINESS.phoneDisplay}.
           </p>
           <button
             onClick={() =>
@@ -111,9 +111,9 @@ function HomePage() {
 // Enhanced Stats Bar with Real Data
 function StatsBar() {
   const stats = [
-    { value: '55+', label: 'Sun City Summerlin', icon: Home },
-    { value: '2013', label: 'Office opened', icon: Map },
-    { value: '89134', label: 'Las Vegas zip', icon: Users },
+    { value: 'Summerlin', label: 'Primary market', icon: Home },
+    { value: '2008', label: 'Office opened', icon: Map },
+    { value: '89135', label: 'Las Vegas zip', icon: Users },
     { value: BUSINESS.phoneDisplay, label: 'Call or text', icon: TrendingUp },
   ];
 
@@ -455,7 +455,7 @@ function GoogleReviewsSection() {
       <div className="container mx-auto px-4 text-center">
         <SectionHeading
           image={headingImages.h2.testimonials}
-          title="Google reviews for Sun City Summerlin 55+ Real Estate"
+          title="Google reviews for Summerlin Real Estate"
           subtitle="Read and leave reviews on the Google Business Profile. This site does not invent star ratings."
         />
         <a
@@ -467,7 +467,7 @@ function GoogleReviewsSection() {
           View Google Reviews
         </a>
         <a
-          href={BUSINESS.googleProfileUrl}
+          href={mapsUrl}
           className="mt-6 ml-3 inline-block rounded-lg border border-[#0b1231] px-8 py-3 font-semibold text-[#0b1231]"
           rel="noopener noreferrer"
           target="_blank"
@@ -484,8 +484,8 @@ function CTASection() {
   return (
     <OverlayHeadingSection
       image={headingImages.h2.cta}
-      title="Sun City Summerlin 55+ homes for sale in Las Vegas"
-      subtitle="Search age-qualified listings, then call the office to tour."
+      title="Summerlin homes for sale in Las Vegas"
+      subtitle="Search listings, then call the office to tour."
     >
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Link
@@ -517,8 +517,8 @@ function Footer() {
               {BUSINESS.shortName}
             </h4>
             <p className="text-sm text-gray-400">
-              Homes by Dr. Jan Duffy. Age-qualified Sun City Summerlin
-              representation.
+              Homes by Dr. Jan Duffy. Summerlin, Las Vegas, Henderson, and
+              Clark County representation.
             </p>
           </div>
 
@@ -530,7 +530,7 @@ function Footer() {
                   href="/services"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
-                  Sun City Summerlin 55+ real estate services
+                  Summerlin Real Estate services
                 </Link>
               </li>
               <li>
@@ -589,10 +589,10 @@ function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="/sun-city-summerlin"
+                  href="/office"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
-                  Sun City Summerlin 55+ real estate office
+                  Summerlin Real Estate office
                 </Link>
               </li>
               <li>
@@ -688,7 +688,7 @@ function Footer() {
 
         <div className="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
           <p>
-            Sun City Summerlin 55+ real estate and west Las Vegas representation.
+            Summerlin Real Estate | Homes by Dr. Jan Duffy.
           </p>
         </div>
       </div>

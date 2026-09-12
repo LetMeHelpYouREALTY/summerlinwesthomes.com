@@ -5,9 +5,9 @@ import ServiceCards from '@/components/services/service-cards';
 import { headingImages } from '@/lib/section-images';
 import { PageHero } from '@/components/media/heading-media';
 
-const title = 'Sun City Summerlin 55+ Real Estate Services | Las Vegas';
+const title = 'Summerlin Real Estate Services | Las Vegas';
 const description =
-  'Buyer, seller, land, commercial, rental, and consulting services for Sun City Summerlin and west Las Vegas. Call (702) 718-0043.';
+  'Luxury residential sales, buyer representation, new construction, 55+ community sales, investment consulting, divorce and probate, and relocation. Call (702) 842-0410.';
 
 export const metadata: Metadata = {
   title,
@@ -25,7 +25,7 @@ export default function ServicesIndexPage() {
     <main className="min-h-screen bg-gray-50">
       <PageHero
         image={headingImages.h2.guide}
-        title="Find Sun City Summerlin 55+ real estate services"
+        title="Find Summerlin Real Estate services"
         subtitle={`${BUSINESS.name} at ${BUSINESS.streetAddress}, ${BUSINESS.addressLocality}. ${BUSINESS.phoneDisplay}.`}
       />
       <ServiceCards

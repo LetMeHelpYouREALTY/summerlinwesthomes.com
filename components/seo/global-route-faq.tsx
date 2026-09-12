@@ -231,7 +231,7 @@ export default function GlobalRouteFaq() {
 
   const faqItems = useMemo(() => {
     // Location page already renders GBP FAQs + FAQPage JSON-LD.
-    if (pathname === '/sun-city-summerlin') {
+    if (pathname === '/office' || pathname === '/sun-city-summerlin') {
       return [];
     }
     if (pathname === '/services') {
@@ -283,7 +283,7 @@ export default function GlobalRouteFaq() {
           image={headingImages.h2.faq}
           title={
             pathname === '/'
-              ? 'Sun City Summerlin 55+ FAQ'
+              ? 'Summerlin Real Estate FAQ'
               : 'Summerlin West FAQ'
           }
           titleClassName="text-3xl font-semibold text-[#050b25]"

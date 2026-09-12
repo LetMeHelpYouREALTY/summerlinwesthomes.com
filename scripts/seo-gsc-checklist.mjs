@@ -41,6 +41,7 @@ const paths = [
   '/schools',
   '/sell-your-home',
   '/services',
+  '/office',
   '/sun-city-summerlin',
   '/summerlin-west-market-snapshot',
   '/summerlin-west-schools-commute-amenities',

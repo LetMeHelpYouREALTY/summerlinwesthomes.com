@@ -4,37 +4,34 @@ import { CANONICAL_SITE_URL } from '@/lib/site-url';
  * Google Business Profile NAP for this site.
  * Visible text, tel/sms links, and LocalBusiness JSON-LD must stay identical.
  *
- * Listing: Sun City Summerlin 55+ Real Estate | Homes by Dr. Jan Duffy
- * 55+ / active-adult language refers to a Housing for Older Persons Act community.
+ * Listing: Summerlin Real Estate | Homes by Dr. Jan Duffy
  * Brokerage brand names are omitted from public copy and schema so Google
  * associates this site with the GBP listing, not a parent company.
- * Website / schema url: https://www.summerlinwesthomes.com (not suncityvegas.com).
+ * Website / schema url: https://www.summerlinwesthomes.com
  */
 export const BUSINESS = {
-  name: 'Sun City Summerlin 55+ Real Estate | Homes by Dr. Jan Duffy',
-  shortName: 'Sun City Summerlin 55+ Real Estate',
+  name: 'Summerlin Real Estate | Homes by Dr. Jan Duffy',
+  shortName: 'Summerlin Real Estate',
   tagline: 'Homes by Dr. Jan Duffy',
   license: 'S.0197614.LLC',
-  streetAddress: '9406 Del Webb Boulevard',
+  streetAddress: '10777 West Twain Avenue # 333',
   addressLocality: 'Las Vegas',
   addressRegion: 'NV',
-  postalCode: '89134',
+  postalCode: '89135',
   addressCountry: 'US',
-  phoneDisplay: '(702) 718-0043',
-  phoneTel: '+17027180043',
-  phoneSchema: '+1-702-718-0043',
+  phoneDisplay: '(702) 842-0410',
+  phoneTel: '+17028420410',
+  phoneSchema: '+1-702-842-0410',
   email: 'info@summerlinwesthomes.com',
   website: CANONICAL_SITE_URL,
-  googleProfileUrl: 'https://g.page/r/CVIgC-30nTd3ECE',
-  googleReviewsUrl: 'https://g.page/r/CVIgC-30nTd3ECE/review',
-  foundingDate: '2013-09-20',
-  /** Pin for 9406 Del Webb Blvd, Las Vegas, NV 89134 */
-  latitude: 36.210683,
-  longitude: -115.298354,
+  foundingDate: '2008-09-20',
+  /** Building pin for 10777 W Twain Ave, Las Vegas, NV 89135 */
+  latitude: 36.12278,
+  longitude: -115.32664,
   hoursDisplay: 'Daily 6:00 AM – 9:00 PM',
   openingHours: ['Mo-Su 06:00-21:00'],
   description:
-    'Dr. Jan Duffy represents buyers and sellers in Sun City Summerlin, a 55+ active-adult community in Las Vegas. Homes by Dr. Jan Duffy has focused on age-qualified Sun City Summerlin real estate since 2013, with 25+ years in active-adult communities. Golf courses, fitness centers, pools, walking trails, and clubs are part of the community amenities. Call (702) 718-0043.',
+    'Summerlin Real Estate | Homes by Dr. Jan Duffy serves buyers, sellers, and investors across Summerlin, Las Vegas, Henderson, and Clark County. Services include luxury residential home sales, buyer representation, new construction sales, 55+ active adult community sales, investment property consulting, divorce and probate real estate, and relocation services. Specializing in The Ridges, Summerlin West, Red Rock Country Club, Sun City, and Del Webb communities.',
 } as const;
 
 export const BUSINESS_ADDRESS_LINE = `${BUSINESS.streetAddress}, ${BUSINESS.addressLocality}, ${BUSINESS.addressRegion} ${BUSINESS.postalCode}`;
@@ -43,40 +40,40 @@ export const telHref = `tel:${BUSINESS.phoneTel}`;
 export const smsHref = `sms:${BUSINESS.phoneTel}`;
 export const mailtoHref = `mailto:${BUSINESS.email}`;
 
-const mapsQuery = encodeURIComponent(BUSINESS_ADDRESS_LINE);
+const mapsQuery = encodeURIComponent(
+  `${BUSINESS.name} ${BUSINESS_ADDRESS_LINE}`,
+);
 
 export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
-export const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}`;
-export const mapsEmbedUrl = `https://maps.google.com/maps?q=${mapsQuery}&output=embed`;
-export const googleReviewsUrl = BUSINESS.googleReviewsUrl;
+export const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(BUSINESS_ADDRESS_LINE)}`;
+export const mapsEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(BUSINESS_ADDRESS_LINE)}&output=embed`;
+export const googleReviewsUrl = mapsUrl;
 
 export const SOCIAL_PROFILES = [
-  BUSINESS.googleProfileUrl,
-  'https://www.facebook.com/DrJanDuffyRealtorCentennialHills/',
+  'https://www.facebook.com/RealtorDrJanDuffySummerlin',
   'https://www.instagram.com/drjanduffy/',
-  'https://www.linkedin.com/company/lvrmembers/',
+  'https://www.pinterest.com/DrJanDuffy/',
   'https://www.youtube.com/@DrDuffy',
-  'https://x.com/drjanduffy',
+  'https://twitter.com/drjanduffy',
   'https://www.tiktok.com/@dr.janduffy',
 ] as const;
 
 export const AREA_SERVED = [
-  { '@type': 'State' as const, name: 'Nevada' },
   { '@type': 'City' as const, name: 'Las Vegas' },
   { '@type': 'City' as const, name: 'Henderson' },
   { '@type': 'City' as const, name: 'North Las Vegas' },
   { '@type': 'AdministrativeArea' as const, name: 'Clark County' },
-  { '@type': 'Place' as const, name: 'Sun City Summerlin' },
+  { '@type': 'Place' as const, name: 'Summerlin' },
   { '@type': 'Place' as const, name: 'Summerlin West' },
-] as const;
-
-export const AVAILABLE_LANGUAGES = [
-  'English',
-  'Spanish',
-  'Arabic',
-  'Cantonese',
-  'Filipino',
-  'American Sign Language',
+  { '@type': 'Place' as const, name: 'Summerlin North' },
+  { '@type': 'Place' as const, name: 'Summerlin South' },
+  { '@type': 'Place' as const, name: 'Paradise' },
+  { '@type': 'Place' as const, name: 'Enterprise' },
+  { '@type': 'Place' as const, name: 'Spring Valley' },
+  { '@type': 'Place' as const, name: 'The Ridges' },
+  { '@type': 'Place' as const, name: 'Red Rock Country Club' },
+  { '@type': 'Place' as const, name: 'Sun City' },
+  { '@type': 'Place' as const, name: 'Del Webb' },
 ] as const;
 
 export const SPECIAL_HOURS = [

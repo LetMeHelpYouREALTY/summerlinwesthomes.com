@@ -8,7 +8,7 @@ export type GbpFaq = {
 /** Typical Google Business Profile questions — also used as FAQPage schema. */
 export const GBP_FAQS: readonly GbpFaq[] = [
   {
-    question: 'Where is Sun City Summerlin 55+ Real Estate | Homes by Dr. Jan Duffy?',
+    question: 'Where is Summerlin Real Estate | Homes by Dr. Jan Duffy?',
     answer: `${BUSINESS.name} is at ${BUSINESS.streetAddress}, ${BUSINESS.addressLocality}, ${BUSINESS.addressRegion} ${BUSINESS.postalCode}.`,
   },
   {
@@ -20,22 +20,17 @@ export const GBP_FAQS: readonly GbpFaq[] = [
     answer: `${BUSINESS.hoursDisplay}. The office is closed July 3–4, 2026.`,
   },
   {
-    question: 'Is Sun City Summerlin a 55+ community?',
-    answer:
-      'Yes. Sun City Summerlin is an age-qualified 55+ active-adult community under the Housing for Older Persons Act. Representation here is for that community’s homes, not a general “family” housing pitch.',
-  },
-  {
     question: 'What is the website?',
     answer: `The website is ${BUSINESS.website}.`,
   },
   {
     question: 'Which areas do you serve?',
     answer:
-      'Primary focus is Sun City Summerlin (89134). Service area also includes Las Vegas, Henderson, North Las Vegas, Clark County, and west-valley zips such as 89135 and 89138.',
+      'Service area includes Summerlin, Las Vegas, Henderson, North Las Vegas, Clark County, Paradise, Enterprise, Spring Valley, Summerlin West, Summerlin North, and Summerlin South. Specialties include The Ridges, Red Rock Country Club, Sun City, and Del Webb communities.',
   },
   {
     question: 'Is the office wheelchair accessible?',
     answer:
-      'Yes. The office lists wheelchair-accessible entrance, parking, seating, and restroom, plus free parking.',
+      'Yes. The office lists a wheelchair-accessible entrance, parking lot, seating, and restroom, plus free parking lot and free parking garage.',
   },
 ] as const;

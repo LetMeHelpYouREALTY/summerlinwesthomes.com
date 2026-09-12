@@ -266,7 +266,7 @@ export default function SellYourHomePage() {
               <div>
                 <SectionHeading
                   image={headingImages.h2.selling}
-                  title="Why Choose Sun City Summerlin 55+ Real Estate?"
+                  title="Why Choose Summerlin Real Estate?"
                 />
                 <div className="grid gap-6 md:grid-cols-2">
                   {whyChooseUs.map((item, index) => (

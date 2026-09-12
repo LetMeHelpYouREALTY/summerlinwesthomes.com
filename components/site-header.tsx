@@ -19,7 +19,7 @@ const brand = {
 
 const PRIMARY_NAV = [
   { href: '/', label: 'Home' },
-  { href: '/sun-city-summerlin', label: 'Office' },
+  { href: '/office', label: 'Office' },
   { href: '/properties/search', label: 'Search' },
   { href: '/listings', label: 'Listings' },
   { href: '/services', label: 'Services' },
@@ -28,6 +28,7 @@ const PRIMARY_NAV = [
 ] as const;
 
 const NEIGHBORHOOD_NAV = [
+  { href: '/sun-city-summerlin', label: 'Sun City' },
   { href: '/schools', label: 'Schools' },
   { href: '/amenities', label: 'Amenities' },
   { href: '/transportation', label: 'Transportation' },
