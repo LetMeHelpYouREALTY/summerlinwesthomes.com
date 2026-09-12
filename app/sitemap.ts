@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/schools`, lastModified: weekAgo },
     { url: `${baseUrl}/sell-your-home`, lastModified: currentDate },
     { url: `${baseUrl}/services`, lastModified: currentDate },
+    { url: `${baseUrl}/sun-city-summerlin`, lastModified: currentDate },
     ...SERVICES.map((service) => ({
       url: `${baseUrl}${servicePath(service.slug)}`,
       lastModified: currentDate,

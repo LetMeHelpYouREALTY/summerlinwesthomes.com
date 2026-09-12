@@ -5,7 +5,7 @@ import ServiceCards from '@/components/services/service-cards';
 import { headingImages } from '@/lib/section-images';
 import { PageHero } from '@/components/media/heading-media';
 
-const title = 'Real Estate Services in Summerlin West | Las Vegas';
+const title = 'Sun City Summerlin 55+ Real Estate Services | Las Vegas';
 const description =
   'Buyer, seller, land, commercial, rental, and consulting services for Sun City Summerlin and west Las Vegas. Call (702) 718-0043.';
 
@@ -25,7 +25,7 @@ export default function ServicesIndexPage() {
     <main className="min-h-screen bg-gray-50">
       <PageHero
         image={headingImages.h2.guide}
-        title="Find Summerlin West real estate services"
+        title="Find Sun City Summerlin 55+ real estate services"
         subtitle={`${BUSINESS.name} at ${BUSINESS.streetAddress}, ${BUSINESS.addressLocality}. ${BUSINESS.phoneDisplay}.`}
       />
       <ServiceCards

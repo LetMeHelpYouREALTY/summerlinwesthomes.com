@@ -56,11 +56,18 @@ export default function SiteNapFooter() {
         />
       </div>
       <p className="mt-5">
-        Summerlin West | Homes by Dr. Jan Duffy. All rights reserved. © 2026
+        <a
+          href="/sun-city-summerlin"
+          className="font-semibold text-[#0b1231] underline-offset-2 hover:underline"
+        >
+          Sun City Summerlin 55+ real estate office
+        </a>
       </p>
-      <p className="mt-1">
-        {BUSINESS.brokerage} | {BUSINESS.license}
+      <p className="mt-2">
+        Sun City Summerlin 55+ Real Estate | Homes by Dr. Jan Duffy. All
+        rights reserved. © 2026
       </p>
+      <p className="mt-1">Nevada license {BUSINESS.license}</p>
       <p className="mt-3">
         <a
           href="https://calendly.com/drjanduffy/appointment"

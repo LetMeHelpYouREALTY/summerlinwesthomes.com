@@ -266,7 +266,7 @@ export default function SellYourHomePage() {
               <div>
                 <SectionHeading
                   image={headingImages.h2.selling}
-                  title="Why Choose Summerlin West Homes?"
+                  title="Why Choose Sun City Summerlin 55+ Real Estate?"
                 />
                 <div className="grid gap-6 md:grid-cols-2">
                   {whyChooseUs.map((item, index) => (
@@ -658,7 +658,7 @@ export default function SellYourHomePage() {
 
                   <p className="text-center text-sm text-gray-500">
                     By submitting this form, you agree to receive communications
-                    from Summerlin West Homes. We respect your privacy and will
+                    from {BUSINESS.shortName}. We respect your privacy and will
                     never share your information.
                   </p>
                 </form>

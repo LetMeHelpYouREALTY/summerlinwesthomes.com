@@ -6,14 +6,10 @@ import Link from 'next/link';
 import {
   ChevronRight,
   Home,
-  Phone,
-  Mail,
-  MapPin,
   Bed,
   Bath,
   Square,
   Heart,
-  Star,
   Users,
   TrendingUp,
   Map,
@@ -54,7 +50,7 @@ function HomePage() {
       <FeaturedProperties />
       <CommunitiesPreview />
       <ServiceCards />
-      <TestimonialsSection />
+      <GoogleReviewsSection />
       <CTASection />
     </>
   );
@@ -115,10 +111,10 @@ function HomePage() {
 // Enhanced Stats Bar with Real Data
 function StatsBar() {
   const stats = [
-    { value: '2,500+', label: 'Luxury Homes', icon: Home },
-    { value: '22,500', label: 'Acres', icon: Map },
-    { value: '30+', label: 'Communities', icon: Users },
-    { value: '$1.2M', label: 'Avg Home Price', icon: TrendingUp },
+    { value: '55+', label: 'Sun City Summerlin', icon: Home },
+    { value: '2013', label: 'Office opened', icon: Map },
+    { value: '89134', label: 'Las Vegas zip', icon: Users },
+    { value: BUSINESS.phoneDisplay, label: 'Call or text', icon: TrendingUp },
   ];
 
   return (
@@ -453,58 +449,23 @@ function CommunitiesPreview() {
   );
 }
 
-// Testimonials Section
-function TestimonialsSection() {
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      role: 'Homeowner',
-      text: 'The team made our dream of owning in Summerlin West a reality. Exceptional service!',
-      rating: 5,
-    },
-    {
-      name: 'Michael Chen',
-      role: 'Investor',
-      text: 'Professional, knowledgeable, and always available. Best real estate experience.',
-      rating: 5,
-    },
-    {
-      name: 'The Williams Family',
-      role: 'New Residents',
-      text: "They found us the perfect home in The Ridges. Couldn't be happier!",
-      rating: 5,
-    },
-  ];
-
+function GoogleReviewsSection() {
   return (
     <section className="bg-white py-16">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 text-center">
         <SectionHeading
           image={headingImages.h2.testimonials}
-          title="What Las Vegas Home Buyers Say About Summerlin West"
+          title="Google reviews for Sun City Summerlin 55+ Real Estate"
+          subtitle="Read and leave reviews on the Google Business Profile. This site does not invent star ratings."
         />
-
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.name} className="rounded-xl bg-gray-50 p-6">
-              <div className="mb-4 flex">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="h-5 w-5 fill-amber-400 text-amber-400"
-                  />
-                ))}
-              </div>
-              <p className="mb-4 italic text-gray-600">
-                &ldquo;{testimonial.text}&rdquo;
-              </p>
-              <div>
-                <p className="font-semibold">{testimonial.name}</p>
-                <p className="text-sm text-gray-500">{testimonial.role}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <a
+          href={googleReviewsUrl}
+          className="mt-6 inline-block rounded-lg bg-[#0b1231] px-8 py-3 font-semibold text-white"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          View Google Reviews
+        </a>
       </div>
     </section>
   );
@@ -515,16 +476,23 @@ function CTASection() {
   return (
     <OverlayHeadingSection
       image={headingImages.h2.cta}
-      title="Homes for Sale in Las Vegas — Start Your Summerlin West Search"
-      subtitle="Move from browsing Las Vegas real estate listings to touring the homes that fit your brief."
+      title="Sun City Summerlin 55+ homes for sale in Las Vegas"
+      subtitle="Search age-qualified listings, then call the office to tour."
     >
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <button className="rounded-lg bg-white px-8 py-3 font-semibold text-amber-600 transition-all hover:shadow-xl">
-            Start Your Search
-          </button>
-          <button className="rounded-lg border-2 border-white px-8 py-3 font-semibold text-white transition-all hover:bg-white hover:text-amber-600">
-            Contact an Agent
-          </button>
+          <Link
+            href="/properties/search"
+            prefetch={false}
+            className="rounded-lg bg-white px-8 py-3 font-semibold text-amber-600 transition-all hover:shadow-xl"
+          >
+            Search listings
+          </Link>
+          <a
+            href={telHref}
+            className="rounded-lg border-2 border-white px-8 py-3 font-semibold text-white transition-all hover:bg-white hover:text-amber-600"
+          >
+            Call {BUSINESS.phoneDisplay}
+          </a>
         </div>
     </OverlayHeadingSection>
   );
@@ -541,7 +509,8 @@ function Footer() {
               {BUSINESS.shortName}
             </h4>
             <p className="text-sm text-gray-400">
-              Your trusted partner in luxury real estate
+              Homes by Dr. Jan Duffy. Age-qualified Sun City Summerlin
+              representation.
             </p>
           </div>
 
@@ -553,7 +522,7 @@ function Footer() {
                   href="/services"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
-                  Summerlin West real estate services
+                  Sun City Summerlin 55+ real estate services
                 </Link>
               </li>
               <li>
@@ -610,6 +579,14 @@ function Footer() {
           <div>
             <h4 className="mb-4 font-bold">Areas &amp; lifestyle</h4>
             <ul className="space-y-2 text-sm">
+              <li>
+                <Link
+                  href="/sun-city-summerlin"
+                  className="text-gray-400 transition-colors hover:text-white"
+                >
+                  Sun City Summerlin 55+ real estate office
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/villages"

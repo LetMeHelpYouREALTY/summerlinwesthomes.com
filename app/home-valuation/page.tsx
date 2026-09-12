@@ -477,7 +477,7 @@ export default function HomeValuationPage() {
                   </button>
                   <p className="mt-4 text-center text-sm text-gray-500">
                     By submitting this form, you agree to receive communications
-                    from Summerlin West Homes
+                    from {BUSINESS.shortName}
                   </p>
                 </div>
               </form>
@@ -493,7 +493,7 @@ export default function HomeValuationPage() {
             <div className="mb-12 text-center">
               <SectionHeading
                 image={headingImages.h2.homeValue}
-                title="Why Choose Summerlin West Homes for Your Valuation?"
+                title="Why Choose Sun City Summerlin 55+ Real Estate for Your Valuation?"
                 subtitle="Expert local knowledge combined with cutting-edge technology for accurate market insights"
               />
             </div>

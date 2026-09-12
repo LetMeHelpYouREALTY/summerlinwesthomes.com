@@ -185,10 +185,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': ['RealEstateAgent', 'LocalBusiness'],
+              '@type': ['RealEstateAgent', 'RealEstateAgency', 'LocalBusiness'],
               '@id': `${siteUrl}/#organization`,
               name: BUSINESS.name,
-              alternateName: 'Homes by Dr. Jan Duffy',
+              alternateName: [
+                BUSINESS.shortName,
+                'Homes by Dr. Jan Duffy',
+              ],
               description: BUSINESS.description,
               url: siteUrl,
               logo: {
@@ -296,17 +299,18 @@ export default function RootLayout({
               ],
               hasOfferCatalog: {
                 '@type': 'OfferCatalog',
-                name: 'Luxury Properties in Summerlin West',
+                name: 'Sun City Summerlin 55+ Real Estate Services',
                 itemListElement: [
                   {
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
-                      name: 'Luxury Home Buyer & Seller Representation',
+                      name: 'Sun City Summerlin 55+ Buyer & Seller Representation',
                       description:
-                        'Buyer and seller representation for luxury homes across Summerlin West villages including The Ridges, The Summit, and Red Rock Country Club.',
+                        'Buyer and seller representation for age-qualified homes in Sun City Summerlin, with additional west Las Vegas service area coverage.',
                       areaServed: [
                         { '@type': 'City', name: 'Las Vegas' },
+                        { '@type': 'Place', name: 'Sun City Summerlin' },
                         { '@type': 'Place', name: 'Summerlin West' },
                       ],
                       provider: { '@id': `${siteUrl}/#organization` },
@@ -318,10 +322,10 @@ export default function RootLayout({
                       '@type': 'Service',
                       name: 'Real Estate Consultation',
                       description:
-                        'Expert guidance for luxury property transactions in Summerlin West and the Las Vegas valley.',
+                        'Consultations for Sun City Summerlin 55+ homes and west-valley transactions. Call (702) 718-0043.',
                       areaServed: [
                         { '@type': 'City', name: 'Las Vegas' },
-                        { '@type': 'Place', name: 'Summerlin West' },
+                        { '@type': 'Place', name: 'Sun City Summerlin' },
                       ],
                       provider: { '@id': `${siteUrl}/#organization` },
                     },
@@ -343,11 +347,18 @@ export default function RootLayout({
                 'Summerlin West Real Estate Market',
                 'Las Vegas luxury and move-up homes',
               ],
+              knowsLanguage: [...AVAILABLE_LANGUAGES],
               communities: [
                 {
                   '@type': 'Place',
+                  name: 'Sun City Summerlin',
+                  description:
+                    'Age-qualified 55+ active-adult community in Las Vegas, NV 89134',
+                },
+                {
+                  '@type': 'Place',
                   name: 'The Ridges',
-                  description: 'Luxury golf community in Summerlin West',
+                  description: 'Golf community in Summerlin West',
                 },
                 {
                   '@type': 'Place',
@@ -438,7 +449,7 @@ export default function RootLayout({
             <SectionHeading
               image={headingImages.h2.featured}
               title="Featured Listings"
-              subtitle="Browse the newest Summerlin West homes for sale."
+              subtitle="Browse Sun City Summerlin 55+ and west Las Vegas homes for sale."
             />
             <div
               dangerouslySetInnerHTML={{

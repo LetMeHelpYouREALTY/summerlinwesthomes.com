@@ -4,12 +4,13 @@
  *
  * Listing: Sun City Summerlin 55+ Real Estate | Homes by Dr. Jan Duffy
  * 55+ / active-adult language refers to a Housing for Older Persons Act community.
+ * Brokerage brand names are omitted from public copy and schema so Google
+ * associates this site with the GBP listing, not a parent company.
  */
 export const BUSINESS = {
   name: 'Sun City Summerlin 55+ Real Estate | Homes by Dr. Jan Duffy',
-  shortName: 'Sun City Summerlin',
-  tagline: '55+ Real Estate',
-  brokerage: 'Berkshire Hathaway HomeServices Nevada Properties',
+  shortName: 'Sun City Summerlin 55+ Real Estate',
+  tagline: 'Homes by Dr. Jan Duffy',
   license: 'S.0197614.LLC',
   streetAddress: '9406 Del Webb Boulevard',
   addressLocality: 'Las Vegas',
@@ -21,6 +22,7 @@ export const BUSINESS = {
   phoneSchema: '+1-702-718-0043',
   email: 'info@summerlinwesthomes.com',
   gbpWebsite: 'https://www.suncityvegas.com',
+  googleProfileUrl: 'https://g.page/r/CVIgC-30nTd3ECE',
   googleReviewsUrl: 'https://g.page/r/CVIgC-30nTd3ECE/review',
   foundingDate: '2013-09-20',
   /** Pin for 9406 Del Webb Blvd, Las Vegas, NV 89134 */
@@ -46,11 +48,11 @@ export const mapsEmbedUrl = `https://maps.google.com/maps?q=${mapsQuery}&output=
 export const googleReviewsUrl = BUSINESS.googleReviewsUrl;
 
 export const SOCIAL_PROFILES = [
+  BUSINESS.googleProfileUrl,
   'https://www.facebook.com/DrJanDuffyRealtorCentennialHills/',
   'https://www.instagram.com/drjanduffy/',
   'https://www.linkedin.com/company/lvrmembers/',
   'https://www.youtube.com/@DrDuffy',
-  'https://www.pinterest.com/bhhsluxury/',
   'https://x.com/drjanduffy',
   'https://www.tiktok.com/@dr.janduffy',
   BUSINESS.gbpWebsite,
