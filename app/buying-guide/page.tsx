@@ -20,6 +20,7 @@ import {
   PageHero,
   SectionHeading,
 } from '@/components/media/heading-media';
+import { BUSINESS, telHref } from '@/lib/business';
 
 export default function BuyingGuidePage() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -752,7 +753,7 @@ export default function BuyingGuidePage() {
             <div className="mt-8 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
               <div className="flex items-center space-x-2">
                 <Phone className="h-5 w-5" />
-                <span>(702) 555-0100</span>
+                <a href={telHref}>{BUSINESS.phoneDisplay}</a>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-5 w-5" />

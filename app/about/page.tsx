@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import AboutSection from '@/components/home-spa/about-section';
+import { openGraphWebsite } from '@/lib/open-graph';
 
 export const metadata: Metadata = {
   title: 'About Summerlin West Luxury Real Estate | Local Expertise',
@@ -8,13 +9,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/about',
   },
-  openGraph: {
+  openGraph: openGraphWebsite({
     title: 'About Summerlin West Luxury Real Estate',
     description:
       'Local expertise for Summerlin West homes, estates, and Las Vegas MLS-powered search.',
     url: '/about',
-    type: 'website',
-  },
+  }),
 };
 
 export default function AboutPage() {

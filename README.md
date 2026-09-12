@@ -254,7 +254,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For support and questions:
 
 - **Email**: support@summerlinwesthomes.com
-- **Phone**: (702) 555-0100
+- **Phone**: (702) 842-0410
 - **Website**: https://summerlinwesthomes.com
 
 ---

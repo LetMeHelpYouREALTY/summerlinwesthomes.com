@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { openGraphWebsite } from '@/lib/open-graph';
 
 /** Per-route canonical + OG URL (relative paths resolve with metadataBase). */
 export function segmentMetadata(
@@ -12,10 +13,10 @@ export function segmentMetadata(
     alternates: {
       canonical: path,
     },
-    openGraph: {
+    openGraph: openGraphWebsite({
+      title: segmentTitle,
       description,
       url: path,
-      type: 'website',
-    },
+    }),
   };
 }

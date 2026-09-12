@@ -18,6 +18,7 @@ import {
   TrendingUp,
   Map,
 } from 'lucide-react';
+import { BUSINESS, telHref } from '@/lib/business';
 import { cn } from '@/lib/utils';
 import { ProgressiveOnboarding } from '@/components/ProgressiveOnboarding';
 import { OnboardingProvider } from '@/components/OnboardingContext';
@@ -669,13 +670,14 @@ function Footer() {
           <div>
             <h4 className="mb-4 font-bold">Contact Info</h4>
             <p className="text-sm text-gray-400">
-              1980 Festival Plaza Dr
+              {BUSINESS.streetAddress}
               <br />
-              Suite 300
+              {BUSINESS.addressLocality}, {BUSINESS.addressRegion}{' '}
+              {BUSINESS.postalCode}
               <br />
-              Las Vegas, NV 89135
-              <br />
-              (702) 555-0100
+              <a href={telHref} className="hover:text-white">
+                {BUSINESS.phoneDisplay}
+              </a>
             </p>
           </div>
         </div>

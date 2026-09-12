@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronDown, Home, Menu, Phone, X } from 'lucide-react';
+import { BUSINESS, telHref } from '@/lib/business';
 import { cn } from '@/lib/utils';
 
 /** Deepest brand navy + champagne — aligned with hero (`#0b1231`, `#d8c58e`) */
@@ -39,8 +40,8 @@ const RESOURCES_NAV = [
 ] as const;
 
 const CALENDLY_APPOINTMENT = 'https://calendly.com/drjanduffy/appointment';
-const SITE_PHONE_DISPLAY = '(702) 555-0100';
-const SITE_PHONE_TEL = 'tel:+17025550100';
+const SITE_PHONE_DISPLAY = BUSINESS.phoneDisplay;
+const SITE_PHONE_TEL = telHref;
 
 function navItemActive(pathname: string, href: string) {
   if (href === '/') return pathname === '/';

@@ -5,6 +5,7 @@ import {
   PageHero,
   SectionHeading,
 } from '@/components/media/heading-media';
+import { BUSINESS, telHref } from '@/lib/business';
 
 const villageRows = [
   {
@@ -158,10 +159,10 @@ export default function SummerlinWestVillagesComparisonPage() {
               View Live Listings
             </Link>
             <a
-              href="tel:+17025550100"
+              href={telHref}
               className="rounded-lg border border-amber-600 px-5 py-3 font-semibold text-amber-700 hover:bg-amber-50"
             >
-              Call (702) 555-0100
+              Call {BUSINESS.phoneDisplay}
             </a>
           </div>
         </div>

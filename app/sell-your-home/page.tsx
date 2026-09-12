@@ -19,6 +19,7 @@ import {
   PageHero,
   SectionHeading,
 } from '@/components/media/heading-media';
+import { BUSINESS, telHref } from '@/lib/business';
 
 export default function SellYourHomePage() {
   const [formData, setFormData] = useState({
@@ -675,7 +676,7 @@ export default function SellYourHomePage() {
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
                     <Phone className="h-5 w-5" />
-                    <span>(702) 555-0100</span>
+                    <a href={telHref}>{BUSINESS.phoneDisplay}</a>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail className="h-5 w-5" />

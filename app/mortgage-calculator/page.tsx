@@ -8,6 +8,7 @@ import {
   PageHero,
   SectionHeading,
 } from '@/components/media/heading-media';
+import { BUSINESS, telHref } from '@/lib/business';
 
 export default function MortgageCalculatorPage() {
   const [formData, setFormData] = useState({
@@ -477,7 +478,9 @@ export default function MortgageCalculatorPage() {
                 <div className="space-y-3">
                   <div className="flex items-center justify-center space-x-3">
                     <Phone className="h-5 w-5 text-amber-600" />
-                    <span className="text-gray-700">(702) 555-0100</span>
+                    <a href={telHref} className="text-gray-700">
+                      {BUSINESS.phoneDisplay}
+                    </a>
                   </div>
                   <div className="flex items-center justify-center space-x-3">
                     <Mail className="h-5 w-5 text-amber-600" />

@@ -4,10 +4,13 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { BUSINESS, mapsUrl } from '@/lib/business';
 import { absoluteMediaUrl } from '@/lib/media-url';
+import { defaultTwitter, openGraphWebsite } from '@/lib/open-graph';
 import { getSiteUrl } from '@/lib/site-url';
 import GlobalRouteFaq from '@/components/seo/global-route-faq';
 import SiteHeader from '@/components/site-header';
+import SiteNapFooter from '@/components/site-nap-footer';
 import { headingImages } from '@/lib/section-images';
 import { SectionHeading } from '@/components/media/heading-media';
 import './globals.css';
@@ -30,18 +33,6 @@ declare global {
 const siteUrl = getSiteUrl();
 const heroImageUrl = absoluteMediaUrl(
   '/images/hero-summerlin-west-luxury-homes.jpg',
-  siteUrl,
-);
-const ogImageUrl = absoluteMediaUrl(
-  '/images/og-image-summerlin-west-homes.jpg',
-  siteUrl,
-);
-const ogImageWebpUrl = absoluteMediaUrl(
-  '/images/og-image-summerlin-west-homes.webp',
-  siteUrl,
-);
-const twitterImageUrl = absoluteMediaUrl(
-  '/images/twitter-image-summerlin-west-homes.jpg',
   siteUrl,
 );
 const logoImageUrl = absoluteMediaUrl(
@@ -101,38 +92,8 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  openGraph: {
-    siteName: 'Summerlin West Homes',
-    locale: 'en_US',
-    type: 'website',
-    images: [
-      {
-        url: ogImageUrl,
-        width: 1200,
-        height: 630,
-        alt: 'Summerlin West Homes - Luxury Real Estate in Las Vegas',
-        type: 'image/jpeg',
-      },
-      {
-        url: ogImageWebpUrl,
-        width: 1200,
-        height: 630,
-        alt: 'Summerlin West Homes - Luxury Real Estate in Las Vegas',
-        type: 'image/webp',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    images: [
-      {
-        url: twitterImageUrl,
-        width: 1200,
-        height: 630,
-        alt: 'Summerlin West Homes - Luxury Real Estate in Las Vegas',
-      },
-    ],
-  },
+  openGraph: openGraphWebsite(),
+  twitter: defaultTwitter,
   robots: {
     index: true,
     follow: true,
@@ -218,9 +179,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'RealEstateAgent',
+              '@type': ['RealEstateAgent', 'LocalBusiness'],
               '@id': `${siteUrl}/#organization`,
-              name: 'Summerlin West Homes',
+              name: BUSINESS.name,
               alternateName: 'Summerlin West Luxury Real Estate',
               description:
                 'Premier luxury real estate agency specializing in Summerlin West, Las Vegas. Expert agents with deep local market knowledge and personalized service for discerning buyers and sellers.',
@@ -237,20 +198,21 @@ export default function RootLayout({
                 width: 1200,
                 height: 630,
               },
-              telephone: '+1-702-555-0100',
-              email: 'info@summerlinwesthomes.com',
+              telephone: BUSINESS.phoneSchema,
+              email: BUSINESS.email,
+              hasMap: mapsUrl,
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: '123 Luxury Lane',
-                addressLocality: 'Las Vegas',
-                addressRegion: 'NV',
-                postalCode: '89135',
-                addressCountry: 'US',
+                streetAddress: BUSINESS.streetAddress,
+                addressLocality: BUSINESS.addressLocality,
+                addressRegion: BUSINESS.addressRegion,
+                postalCode: BUSINESS.postalCode,
+                addressCountry: BUSINESS.addressCountry,
               },
               geo: {
                 '@type': 'GeoCoordinates',
-                latitude: 36.1699,
-                longitude: -115.1398,
+                latitude: BUSINESS.latitude,
+                longitude: BUSINESS.longitude,
               },
               areaServed: [
                 {
@@ -268,20 +230,16 @@ export default function RootLayout({
                 '@type': 'GeoCircle',
                 geoMidpoint: {
                   '@type': 'GeoCoordinates',
-                  latitude: 36.1699,
-                  longitude: -115.1398,
+                  latitude: BUSINESS.latitude,
+                  longitude: BUSINESS.longitude,
                 },
                 geoRadius: '15000',
               },
-              openingHours: [
-                'Mo-Fr 09:00-18:00',
-                'Sa 10:00-16:00',
-                'Su 12:00-16:00',
-              ],
+              openingHours: [...BUSINESS.openingHours],
               contactPoint: [
                 {
                   '@type': 'ContactPoint',
-                  telephone: '+1-702-555-0100',
+                  telephone: BUSINESS.phoneSchema,
                   contactType: 'customer service',
                   availableLanguage: 'English',
                   hoursAvailable: {
@@ -292,16 +250,12 @@ export default function RootLayout({
                       'Wednesday',
                       'Thursday',
                       'Friday',
+                      'Saturday',
+                      'Sunday',
                     ],
-                    opens: '09:00',
-                    closes: '18:00',
+                    opens: '06:00',
+                    closes: '21:00',
                   },
-                },
-                {
-                  '@type': 'ContactPoint',
-                  telephone: '+1-702-555-0101',
-                  contactType: 'sales',
-                  availableLanguage: 'English',
                 },
               ],
               sameAs: [
@@ -467,43 +421,7 @@ export default function RootLayout({
           </div>
         </section>
         <GlobalRouteFaq />
-        <footer className="border-t border-gray-200 bg-white px-4 py-5 text-center text-xs text-gray-600">
-          <p>Summerlin West | Homes by Dr. Jan Duffy. All rights reserved. © 2026</p>
-          <p className="mt-1">
-            Berkshire Hathaway HomeServices Nevada Properties | S.0197614.LLC
-          </p>
-          <p className="mt-3">
-            <a
-              href="https://calendly.com/drjanduffy/appointment"
-              data-calendly-popup="appointment"
-              className="font-semibold text-[#0b1231] underline-offset-2 hover:underline"
-            >
-              Schedule time with me
-            </a>
-          </p>
-          <div className="mt-3 flex flex-wrap items-center justify-center gap-3 text-[11px]">
-            <a
-              href="/summerlin-west-villages-comparison"
-              className="text-[#0b1231] underline-offset-2 hover:underline"
-            >
-              Compare Summerlin West villages
-            </a>
-            <span aria-hidden="true">|</span>
-            <a
-              href="/summerlin-west-market-snapshot"
-              className="text-[#0b1231] underline-offset-2 hover:underline"
-            >
-              Summerlin West market snapshot
-            </a>
-            <span aria-hidden="true">|</span>
-            <a
-              href="/summerlin-west-schools-commute-amenities"
-              className="text-[#0b1231] underline-offset-2 hover:underline"
-            >
-              Schools, commute, and amenities guide
-            </a>
-          </div>
-        </footer>
+        <SiteNapFooter />
 
         {/* Vercel Analytics and Performance Monitoring */}
         <Analytics />

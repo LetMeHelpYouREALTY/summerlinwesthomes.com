@@ -18,6 +18,7 @@ import {
   PageHero,
   SectionHeading,
 } from '@/components/media/heading-media';
+import { BUSINESS, telHref } from '@/lib/business';
 
 export default function HomeValuationPage() {
   const [formData, setFormData] = useState({
@@ -555,11 +556,11 @@ export default function HomeValuationPage() {
       >
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="tel:+1-702-555-0100"
+              href={telHref}
               className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold text-blue-900 transition-colors duration-200 hover:bg-blue-50"
             >
               <Phone className="h-5 w-5" />
-              Call (702) 555-0100
+              Call {BUSINESS.phoneDisplay}
             </a>
             <a
               href="mailto:info@summerlinwesthomes.com"
