@@ -3,7 +3,7 @@ policy_name: summerlinwesthomes-agent-governance
 default_risk_posture: moderate
 environment:
   canonical_origin_env: NEXT_PUBLIC_SITE_URL
-  defaults_to: https://summerlinwesthomes.com
+  defaults_to: https://www.summerlinwesthomes.com
 global_rules:
   unknown_not_infer: true
   require_idempotency_key_for_mutations: true

@@ -1,24 +1,26 @@
 import type { Metadata } from 'next';
+import { openGraphWebsite } from '@/lib/open-graph';
 import HomePageClient from './home-page-client';
+
+const homeTitle = 'Summerlin Real Estate | Homes by Dr. Jan Duffy';
+const homeDescription =
+  'Summerlin Real Estate | Homes by Dr. Jan Duffy serves buyers, sellers, and investors across Summerlin, Las Vegas, Henderson, and Clark County. Call (702) 842-0410.';
+const homeOgDescription =
+  'Luxury residential sales, buyer representation, new construction, 55+ community sales, investment consulting, and relocation. Call (702) 842-0410.';
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      'Summerlin Homes for Sale | Las Vegas Homes & Real Estate Listings',
+    absolute: homeTitle,
   },
-  description:
-    'Summerlin homes for sale and Las Vegas real estate listings in Summerlin West. Browse homes for sale in Summerlin, houses for sale in Summerlin Las Vegas, and expert buyer guidance.',
+  description: homeDescription,
   alternates: {
     canonical: '/',
   },
-  openGraph: {
-    title:
-      'Summerlin Homes for Sale | Las Vegas Homes & Real Estate Listings',
-    description:
-      'Summerlin homes for sale and Las Vegas real estate listings in Summerlin West. Browse homes for sale in Summerlin and houses for sale in Summerlin Las Vegas.',
+  openGraph: openGraphWebsite({
+    title: homeTitle,
+    description: homeOgDescription,
     url: '/',
-    type: 'website',
-  },
+  }),
 };
 
 export default function Page() {

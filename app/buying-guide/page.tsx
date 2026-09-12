@@ -14,6 +14,13 @@ import {
   Star,
 } from 'lucide-react';
 import CalendlyInlineSection from '@/components/calendly-inline-section';
+import { headingImages } from '@/lib/section-images';
+import {
+  MediaThumbHeading,
+  PageHero,
+  SectionHeading,
+} from '@/components/media/heading-media';
+import { BUSINESS, telHref } from '@/lib/business';
 
 export default function BuyingGuidePage() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -190,22 +197,12 @@ export default function BuyingGuidePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
-      <div className="container mx-auto px-4 py-12">
-        {/* Hero Section */}
-        <div className="mb-16 text-center">
-          <div className="mb-6 flex justify-center">
-            <div className="rounded-full bg-amber-100 p-4">
-              <Home className="h-12 w-12 text-amber-600" />
-            </div>
-          </div>
-          <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-6xl">
-            Houses for Sale in Summerlin Las Vegas — Buyer&apos;s Guide
-          </h1>
-          <p className="mx-auto max-w-4xl text-xl text-gray-600">
-            Everything you need to buy a home in Vegas for sale within Summerlin
-            West—financing, inspections, and competitive offers in Las Vegas.
-          </p>
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        image={headingImages.h1.buying}
+        title="Houses for Sale in Summerlin Las Vegas — Buyer's Guide"
+        subtitle="Everything you need to buy a home in Vegas for sale within Summerlin West—financing, inspections, and competitive offers in Las Vegas."
+      >
           <div className="mt-8">
             <a
               href="https://calendly.com/drjanduffy/appointment"
@@ -215,17 +212,15 @@ export default function BuyingGuidePage() {
               Book Your Buyer Consultation
             </a>
           </div>
-        </div>
-
-        {/* RealScout Advanced Search Widget */}
+      </PageHero>
+      <div className="container mx-auto px-4 py-12">
         <div className="mb-16">
           <div className="max-w-4xl mx-auto text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Homes for Sale in Summerlin — Start Your Search
-            </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Use advanced Las Vegas real estate listings tools before you tour.
-            </p>
+            <SectionHeading
+              image={headingImages.h2.search}
+              title="Homes for Sale in Summerlin — Start Your Search"
+              subtitle="Use advanced Las Vegas real estate listings tools before you tour."
+            />
           </div>
           
           {/* RealScout Advanced Search Widget */}
@@ -239,12 +234,13 @@ export default function BuyingGuidePage() {
           
           {/* RealScout Simple Search Widget */}
           <div className="mt-12 text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Las Vegas Homes for Sale — Quick Search
-            </h3>
-            <p className="text-lg text-gray-600 mb-8">
-              Start your search with our simple and intuitive search tool
-            </p>
+            <SectionHeading
+              as="h3"
+              image={headingImages.h3.search}
+              title="Las Vegas Homes for Sale — Quick Search"
+              subtitle="Start your search with our simple and intuitive search tool"
+              titleClassName="text-2xl font-bold text-gray-900"
+            />
             <div className="flex justify-center">
               <div
                 dangerouslySetInnerHTML={{
@@ -310,9 +306,10 @@ export default function BuyingGuidePage() {
             <div className="space-y-12">
               {/* Why Summerlin West */}
               <div className="rounded-xl bg-white p-8 shadow-xl">
-                <h2 className="mb-6 text-3xl font-bold text-gray-900">
-                  Why Choose Summerlin West?
-                </h2>
+                <SectionHeading
+                  image={headingImages.h2.villages}
+                  title="Why Choose Summerlin West?"
+                />
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="space-y-4">
                     <div className="flex items-start space-x-3">
@@ -320,9 +317,11 @@ export default function BuyingGuidePage() {
                         <Star className="h-5 w-5 text-amber-600" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900">
-                          Premier Location
-                        </h3>
+                        <MediaThumbHeading
+                          image={headingImages.h3.vistas}
+                          title="Premier Location"
+                          titleClassName="font-semibold text-gray-900"
+                        />
                         <p className="text-sm text-gray-600">
                           Nestled against the Red Rock Canyon with stunning
                           mountain views
@@ -377,9 +376,10 @@ export default function BuyingGuidePage() {
 
               {/* Buying Steps Overview */}
               <div className="rounded-xl bg-white p-8 shadow-xl">
-                <h2 className="mb-8 text-3xl font-bold text-gray-900">
-                  The 6-Step Buying Process
-                </h2>
+                <SectionHeading
+                  image={headingImages.h2.guide}
+                  title="The 6-Step Buying Process"
+                />
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {buyingSteps.map((step) => (
                     <div
@@ -441,9 +441,10 @@ export default function BuyingGuidePage() {
           {activeTab === 'search' && (
             <div className="space-y-12">
               <div className="rounded-xl bg-white p-8 shadow-xl">
-                <h2 className="mb-8 text-3xl font-bold text-gray-900">
-                  How to Search for Your Dream Home
-                </h2>
+                <SectionHeading
+                  image={headingImages.h2.search}
+                  title="How to Search for Your Dream Home"
+                />
 
                 <div className="space-y-8">
                   {buyingSteps.slice(1, 4).map((step) => (
@@ -512,9 +513,10 @@ export default function BuyingGuidePage() {
           {activeTab === 'financing' && (
             <div className="space-y-12">
               <div className="rounded-xl bg-white p-8 shadow-xl">
-                <h2 className="mb-8 text-3xl font-bold text-gray-900">
-                  Financing Your Summerlin West Home
-                </h2>
+                <SectionHeading
+                  image={headingImages.h2.financing}
+                  title="Financing Your Summerlin West Home"
+                />
 
                 <div className="grid gap-6 md:grid-cols-2">
                   {financingOptions.map((option, index) => (
@@ -620,9 +622,10 @@ export default function BuyingGuidePage() {
           {activeTab === 'closing' && (
             <div className="space-y-12">
               <div className="rounded-xl bg-white p-8 shadow-xl">
-                <h2 className="mb-8 text-3xl font-bold text-gray-900">
-                  The Closing Process
-                </h2>
+                <SectionHeading
+                  image={headingImages.h2.consult}
+                  title="The Closing Process"
+                />
 
                 <div className="space-y-8">
                   {buyingSteps.slice(4, 6).map((step) => (
@@ -750,7 +753,7 @@ export default function BuyingGuidePage() {
             <div className="mt-8 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
               <div className="flex items-center space-x-2">
                 <Phone className="h-5 w-5" />
-                <span>(702) 555-0100</span>
+                <a href={telHref}>{BUSINESS.phoneDisplay}</a>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-5 w-5" />

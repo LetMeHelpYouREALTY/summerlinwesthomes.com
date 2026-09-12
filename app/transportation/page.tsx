@@ -11,12 +11,16 @@ import {
   Phone,
   Globe,
   Navigation,
-  Car as Parking,
-  Fuel as GasPump,
-  Wifi,
-  CreditCard,
   Info,
 } from 'lucide-react';
+import { headingImages } from '@/lib/section-images';
+import {
+  CardMediaHeading,
+  MediaThumbHeading,
+  OverlayHeadingSection,
+  PageHero,
+  SectionHeading,
+} from '@/components/media/heading-media';
 
 export default function TransportationPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -43,6 +47,7 @@ export default function TransportationPage() {
         'Rest areas',
       ],
       tips: 'Best travel times: 6-8 AM and 4-6 PM. Avoid 12-2 PM for fastest travel.',
+      image: headingImages.h3.highway,
     },
     {
       name: 'Charleston Boulevard (SR 159)',
@@ -65,6 +70,7 @@ export default function TransportationPage() {
         'Pedestrian crossings',
       ],
       tips: 'Heavy traffic during peak hours. Consider alternate routes during events.',
+      image: headingImages.h3.arterial,
     },
     {
       name: 'Hualapai Way',
@@ -86,6 +92,7 @@ export default function TransportationPage() {
         'School zones',
       ],
       tips: 'Watch for school zone speed limits during school hours.',
+      image: headingImages.h3.arterial,
     },
     {
       name: 'RTC Transit - Route 206',
@@ -111,6 +118,7 @@ export default function TransportationPage() {
       ],
       phone: '(702) 228-7433',
       website: 'https://www.rtcsnv.com',
+      image: headingImages.h3.transit,
     },
     {
       name: 'McCarran International Airport (LAS)',
@@ -131,6 +139,7 @@ export default function TransportationPage() {
       ],
       phone: '(702) 261-5211',
       website: 'https://www.mccarran.com',
+      image: headingImages.h3.airport,
     },
     {
       name: 'Downtown Summerlin Transit Center',
@@ -148,6 +157,7 @@ export default function TransportationPage() {
       hours: '6:00 AM - 10:00 PM daily',
       parking: 'Free parking available',
       phone: '(702) 228-7433',
+      image: headingImages.h3.hub,
     },
     {
       name: 'Red Rock Canyon Scenic Drive',
@@ -168,6 +178,7 @@ export default function TransportationPage() {
       hours: '6:00 AM - 8:00 PM (varies by season)',
       fee: '$15 per vehicle (7-day pass)',
       tips: 'Best times: Early morning or late afternoon. Avoid midday heat.',
+      image: headingImages.h3.scenic,
     },
   ];
 
@@ -187,17 +198,12 @@ export default function TransportationPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Summerlin West Commutes & Las Vegas Corridor Access
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Navigate Summerlin West with ease through our comprehensive
-            transportation guide
-          </p>
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        image={headingImages.h1.transport}
+        title="Summerlin West Commutes & Las Vegas Corridor Access"
+        subtitle="Navigate Summerlin West with ease through our comprehensive transportation guide"
+      >
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <span className="rounded-full bg-white/20 px-4 py-2">
               Major Highways
@@ -212,51 +218,53 @@ export default function TransportationPage() {
               Scenic Routes
             </span>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Quick Access Info */}
       <section className="bg-white py-12">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-6xl">
-            <h2 className="mb-8 text-center text-3xl font-bold">
-              Las Vegas Homes: Quick Commute Reference
-            </h2>
+            <SectionHeading
+              image={headingImages.h2.commute}
+              title="Las Vegas Homes: Quick Commute Reference"
+            />
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               <div className="rounded-lg bg-blue-50 p-6 text-center">
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
-                  <Car className="h-6 w-6 text-blue-600" />
-                </div>
-                <h3 className="mb-2 font-bold text-blue-900">To Downtown</h3>
+                <MediaThumbHeading
+                  image={headingImages.h3.downtown}
+                  title="To Downtown"
+                  titleClassName="mb-2 font-bold text-blue-900"
+                />
                 <p className="text-sm text-blue-700">
                   15-20 minutes via 215 Beltway
                 </p>
               </div>
               <div className="rounded-lg bg-green-50 p-6 text-center">
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                  <Plane className="h-6 w-6 text-green-600" />
-                </div>
-                <h3 className="mb-2 font-bold text-green-900">To Airport</h3>
+                <MediaThumbHeading
+                  image={headingImages.h3.airport}
+                  title="To Airport"
+                  titleClassName="mb-2 font-bold text-green-900"
+                />
                 <p className="text-sm text-green-700">
                   35-45 minutes via 215 Beltway
                 </p>
               </div>
               <div className="rounded-lg bg-purple-50 p-6 text-center">
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple-100">
-                  <MapPin className="h-6 w-6 text-purple-600" />
-                </div>
-                <h3 className="mb-2 font-bold text-purple-900">To Red Rock</h3>
+                <MediaThumbHeading
+                  image={headingImages.h3.scenic}
+                  title="To Red Rock"
+                  titleClassName="mb-2 font-bold text-purple-900"
+                />
                 <p className="text-sm text-purple-700">
                   5-10 minutes via Charleston
                 </p>
               </div>
               <div className="rounded-lg bg-orange-50 p-6 text-center">
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-orange-100">
-                  <Bus className="h-6 w-6 text-orange-600" />
-                </div>
-                <h3 className="mb-2 font-bold text-orange-900">
-                  Public Transit
-                </h3>
+                <MediaThumbHeading
+                  image={headingImages.h3.transit}
+                  title="Public Transit"
+                  titleClassName="mb-2 font-bold text-orange-900"
+                />
                 <p className="text-sm text-orange-700">
                   RTC Route 206 every 15-20 min
                 </p>
@@ -270,7 +278,11 @@ export default function TransportationPage() {
       <section className="bg-gray-100 py-8">
         <div className="container mx-auto px-4">
           <div className="mb-6 text-center">
-            <h2 className="mb-4 text-2xl font-bold">Filter by Category</h2>
+            <SectionHeading
+              image={headingImages.h2.commute}
+              title="Filter by Category"
+              titleClassName="text-2xl font-bold"
+            />
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => {
@@ -298,12 +310,11 @@ export default function TransportationPage() {
       <section className="bg-white py-16">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold">
-              {filteredOptions.length} Transportation Options in Summerlin West
-            </h2>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              Multiple ways to get around and access the entire Las Vegas Valley
-            </p>
+            <SectionHeading
+              image={headingImages.h2.listings}
+              title={`${filteredOptions.length} Transportation Options in Summerlin West`}
+              subtitle="Multiple ways to get around and access the entire Las Vegas Valley"
+            />
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -312,13 +323,13 @@ export default function TransportationPage() {
                 key={option.name}
                 className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
               >
-                <div className="bg-gradient-to-br from-purple-500 to-indigo-600 p-6 text-white">
-                  <div className="mb-4">
-                    <h3 className="text-2xl font-bold">{option.name}</h3>
-                    <p className="mt-2 text-purple-100">{option.type}</p>
-                  </div>
-                  <p className="text-white/90">{option.description}</p>
-                </div>
+                <CardMediaHeading
+                  image={option.image}
+                  title={option.name}
+                >
+                    <p className="mt-2 text-white/90">{option.type}</p>
+                    <p className="mt-2 text-sm text-white/85">{option.description}</p>
+                </CardMediaHeading>
 
                 <div className="p-6">
                   {option.travelTime && (
@@ -411,15 +422,11 @@ export default function TransportationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-purple-600 to-indigo-700 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">
-            Need Help Navigating Summerlin West?
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-white/90">
-            Our team can provide detailed directions and transportation
-            recommendations for your visit
-          </p>
+      <OverlayHeadingSection
+        image={headingImages.h2.cta}
+        title="Need Help Navigating Summerlin West?"
+        subtitle="Our team can provide detailed directions and transportation recommendations for your visit"
+      >
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <button className="rounded-lg bg-white px-8 py-3 font-semibold text-purple-600 transition-all hover:shadow-xl">
               Get Directions
@@ -428,8 +435,7 @@ export default function TransportationPage() {
               Download Transportation Guide
             </button>
           </div>
-        </div>
-      </section>
+      </OverlayHeadingSection>
     </div>
   );
 }

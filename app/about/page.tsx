@@ -1,20 +1,22 @@
 import type { Metadata } from 'next';
 import AboutSection from '@/components/home-spa/about-section';
+import { BUSINESS } from '@/lib/business';
+import { openGraphWebsite } from '@/lib/open-graph';
+
+const title = 'About Summerlin Real Estate | Homes by Dr. Jan Duffy';
+const description = `Meet ${BUSINESS.name} at ${BUSINESS.streetAddress}, ${BUSINESS.addressLocality}, ${BUSINESS.addressRegion} ${BUSINESS.postalCode}. Call ${BUSINESS.phoneDisplay}.`;
 
 export const metadata: Metadata = {
-  title: 'About Summerlin West Luxury Real Estate | Local Expertise',
-  description:
-    'Learn about Summerlin West luxury real estate expertise, villages, Las Vegas MLS search support, and how we help buyers and sellers in western Summerlin.',
+  title,
+  description,
   alternates: {
     canonical: '/about',
   },
-  openGraph: {
-    title: 'About Summerlin West Luxury Real Estate',
-    description:
-      'Local expertise for Summerlin West homes, estates, and Las Vegas MLS-powered search.',
+  openGraph: openGraphWebsite({
+    title,
+    description,
     url: '/about',
-    type: 'website',
-  },
+  }),
 };
 
 export default function AboutPage() {

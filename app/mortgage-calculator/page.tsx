@@ -2,6 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { Calculator, Home, DollarSign, TrendingUp, Phone, Mail, Download } from 'lucide-react';
+import { headingImages } from '@/lib/section-images';
+import {
+  MediaThumbHeading,
+  PageHero,
+  SectionHeading,
+} from '@/components/media/heading-media';
+import { BUSINESS, telHref } from '@/lib/business';
 
 export default function MortgageCalculatorPage() {
   const [formData, setFormData] = useState({
@@ -151,58 +158,47 @@ export default function MortgageCalculatorPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        image={headingImages.h1.mortgage}
+        title="Mortgage Calculator for Las Vegas Homes & Summerlin West"
+        subtitle="Stress-test monthly payments for a home in Vegas for sale—include taxes, insurance, and HOA after you shortlist real estate listings in Las Vegas."
+      />
       <div className="container mx-auto px-4 py-12">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <div className="mb-6 flex justify-center">
-            <div className="rounded-full bg-amber-100 p-4">
-              <Calculator className="h-12 w-12 text-amber-600" />
-            </div>
-          </div>
-          <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-6xl">
-            Mortgage Calculator for Las Vegas Homes & Summerlin West
-          </h1>
-          <p className="mx-auto max-w-4xl text-xl text-gray-600">
-            Stress-test monthly payments for a home in Vegas for sale—include
-            taxes, insurance, and HOA after you shortlist real estate listings in
-            Las Vegas.
-          </p>
-        </div>
 
         <section className="mb-12 rounded-xl bg-white p-6 shadow-lg">
-          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
-            How to Use This Summerlin West Mortgage Calculator
-          </h2>
-          <p className="mb-3 text-gray-700">
-            Use this calculator to compare realistic monthly payment scenarios
-            before you tour homes in Summerlin West. Include HOA dues, property
-            taxes, and insurance so your estimate reflects true ownership cost,
-            not just principal and interest.
-          </p>
+          <SectionHeading
+            image={headingImages.h2.financing}
+            title="How to Use This Summerlin West Mortgage Calculator"
+            subtitle="Use this calculator to compare realistic monthly payment scenarios before you tour homes in Summerlin West. Include HOA dues, property taxes, and insurance so your estimate reflects true ownership cost, not just principal and interest."
+            titleClassName="text-2xl font-semibold text-gray-900"
+          />
           <div className="grid gap-3 md:grid-cols-3">
             <article>
-              <h3 className="text-lg font-semibold text-gray-900">
-                Budget Planning for Summerlin Homes for Sale
-              </h3>
+              <MediaThumbHeading
+                image={headingImages.h3.price}
+                title="Budget Planning for Summerlin Homes for Sale"
+              />
               <p className="mt-1 text-gray-700">
                 Stress-test different down payment levels and interest rates before
                 choosing a target price range.
               </p>
             </article>
             <article>
-              <h3 className="text-lg font-semibold text-gray-900">
-                Las Vegas Homes: Village-Level Ownership Costs
-              </h3>
+              <MediaThumbHeading
+                image={headingImages.h3.vistas}
+                title="Las Vegas Homes: Village-Level Ownership Costs"
+              />
               <p className="mt-1 text-gray-700">
                 Compare HOA and tax assumptions by neighborhood so your monthly
                 payment expectations stay accurate.
               </p>
             </article>
             <article>
-              <h3 className="text-lg font-semibold text-gray-900">
-                Offer Readiness on Homes for Sale in Las Vegas
-              </h3>
+              <MediaThumbHeading
+                image={headingImages.h3.timing}
+                title="Offer Readiness on Homes for Sale in Las Vegas"
+              />
               <p className="mt-1 text-gray-700">
                 Use payment scenarios to set clear limits before making offers in
                 competitive Summerlin West inventory.
@@ -214,12 +210,11 @@ export default function MortgageCalculatorPage() {
         {/* RealScout Advanced Search Widget */}
         <div className="mb-16">
           <div className="max-w-4xl mx-auto text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Homes for Sale in Summerlin — Match Payment to Price
-            </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Pair Las Vegas homes for sale with realistic monthly payments.
-            </p>
+            <SectionHeading
+              image={headingImages.h2.search}
+              title="Homes for Sale in Summerlin — Match Payment to Price"
+              subtitle="Pair Las Vegas homes for sale with realistic monthly payments."
+            />
           </div>
           
           {/* RealScout Advanced Search Widget */}
@@ -233,12 +228,13 @@ export default function MortgageCalculatorPage() {
           
           {/* RealScout Simple Search Widget */}
           <div className="mt-12 text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Real Estate Listings in Las Vegas — Quick Search
-            </h3>
-            <p className="text-lg text-gray-600 mb-8">
-              Start your search with our simple and intuitive search tool
-            </p>
+            <SectionHeading
+              as="h3"
+              image={headingImages.h3.search}
+              title="Real Estate Listings in Las Vegas — Quick Search"
+              subtitle="Start your search with our simple and intuitive search tool"
+              titleClassName="text-2xl font-bold text-gray-900"
+            />
             <div className="flex justify-center">
               <div
                 dangerouslySetInnerHTML={{
@@ -482,7 +478,9 @@ export default function MortgageCalculatorPage() {
                 <div className="space-y-3">
                   <div className="flex items-center justify-center space-x-3">
                     <Phone className="h-5 w-5 text-amber-600" />
-                    <span className="text-gray-700">(702) 555-0100</span>
+                    <a href={telHref} className="text-gray-700">
+                      {BUSINESS.phoneDisplay}
+                    </a>
                   </div>
                   <div className="flex items-center justify-center space-x-3">
                     <Mail className="h-5 w-5 text-amber-600" />

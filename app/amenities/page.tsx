@@ -5,9 +5,6 @@ import {
   Flag,
   Mountain,
   ShoppingBag,
-  Utensils,
-  Car,
-  Trees,
   Heart,
   Star,
   MapPin,
@@ -16,7 +13,16 @@ import {
   Clock,
   Users,
   Award,
+  Trees,
 } from 'lucide-react';
+import { headingImages } from '@/lib/section-images';
+import {
+  CardMediaHeading,
+  MediaThumbHeading,
+  OverlayHeadingSection,
+  PageHero,
+  SectionHeading,
+} from '@/components/media/heading-media';
 
 export default function AmenitiesPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -41,7 +47,7 @@ export default function AmenitiesPage() {
       hours: '6:00 AM - 6:00 PM',
       phone: '(702) 256-2000',
       website: 'https://tpc.com/lasvegas',
-      image: '/amenities/tpc-golf.jpg',
+      image: headingImages.amenities.tpcGolf,
     },
     {
       name: 'Red Rock Canyon National Conservation Area',
@@ -62,7 +68,7 @@ export default function AmenitiesPage() {
       hours: '6:00 AM - 8:00 PM',
       phone: '(702) 515-5350',
       website: 'https://www.nps.gov/redr',
-      image: '/amenities/red-rock.jpg',
+      image: headingImages.amenities.redRock,
     },
     {
       name: 'Downtown Summerlin',
@@ -83,7 +89,7 @@ export default function AmenitiesPage() {
       hours: '10:00 AM - 9:00 PM',
       phone: '(702) 570-8000',
       website: 'https://downtownsummerlin.com',
-      image: '/amenities/downtown-summerlin.jpg',
+      image: headingImages.amenities.downtownSummerlin,
     },
     {
       name: 'The Ridges Golf Club',
@@ -104,7 +110,7 @@ export default function AmenitiesPage() {
       hours: 'Members Only',
       phone: '(702) 256-2000',
       website: 'https://theridgesgolfclub.com',
-      image: '/amenities/ridges-golf.jpg',
+      image: headingImages.amenities.ridgesGolf,
     },
     {
       name: 'Summerlin Hospital Medical Center',
@@ -125,7 +131,7 @@ export default function AmenitiesPage() {
       hours: '24/7 Emergency',
       phone: '(702) 233-7000',
       website: 'https://summerlinhospital.com',
-      image: '/amenities/summerlin-hospital.jpg',
+      image: headingImages.amenities.hospital,
     },
     {
       name: 'Red Rock Casino Resort & Spa',
@@ -146,7 +152,7 @@ export default function AmenitiesPage() {
       hours: '24/7 Gaming',
       phone: '(702) 797-7777',
       website: 'https://redrock.sclv.com',
-      image: '/amenities/red-rock-casino.jpg',
+      image: headingImages.amenities.casino,
     },
     {
       name: 'Summerlin Library',
@@ -167,7 +173,7 @@ export default function AmenitiesPage() {
       hours: '10:00 AM - 8:00 PM',
       phone: '(702) 507-6300',
       website: 'https://lvccld.org',
-      image: '/amenities/summerlin-library.jpg',
+      image: headingImages.amenities.library,
     },
     {
       name: 'The Summit Club',
@@ -188,7 +194,7 @@ export default function AmenitiesPage() {
       hours: '5:00 PM - 10:00 PM',
       phone: '(702) 256-2000',
       website: 'https://thesummitclub.com',
-      image: '/amenities/summit-club.jpg',
+      image: headingImages.amenities.summitClub,
     },
   ];
 
@@ -208,17 +214,12 @@ export default function AmenitiesPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-600 via-green-700 to-emerald-800 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Las Vegas Homes Near Summerlin West Amenities
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Discover world-class golf courses, shopping, dining, and outdoor
-            recreation in Summerlin West
-          </p>
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        image={headingImages.h1.amenities}
+        title="Las Vegas Homes Near Summerlin West Amenities"
+        subtitle="Discover world-class golf courses, shopping, dining, and outdoor recreation in Summerlin West"
+      >
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <span className="rounded-full bg-white/20 px-4 py-2">
               Golf Courses
@@ -233,14 +234,17 @@ export default function AmenitiesPage() {
               Healthcare
             </span>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Category Filter */}
       <section className="bg-white py-8">
         <div className="container mx-auto px-4">
           <div className="mb-6 text-center">
-            <h2 className="mb-4 text-2xl font-bold">Filter by Category</h2>
+            <SectionHeading
+              image={headingImages.h2.amenities}
+              title="Filter by Category"
+              titleClassName="text-2xl font-bold"
+            />
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => {
@@ -268,13 +272,11 @@ export default function AmenitiesPage() {
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold">
-              Summerlin Homes for Sale — Lifestyle Amenities Nearby
-            </h2>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              Everything you need for an exceptional lifestyle is just minutes
-              away
-            </p>
+            <SectionHeading
+              image={headingImages.h2.listings}
+              title="Summerlin Homes for Sale — Lifestyle Amenities Nearby"
+              subtitle="Everything you need for an exceptional lifestyle is just minutes away"
+            />
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -283,25 +285,25 @@ export default function AmenitiesPage() {
                 key={amenity.name}
                 className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
               >
-                <div className="bg-gradient-to-br from-green-500 to-emerald-600 p-6 text-white">
-                  <div className="mb-4 flex items-center justify-between">
-                    <h3 className="text-2xl font-bold">{amenity.name}</h3>
-                    <div className="flex items-center space-x-1">
+                <CardMediaHeading
+                  image={amenity.image}
+                  title={amenity.name}
+                >
+                    <div className="mt-2 flex items-center space-x-1">
                       <Star className="h-5 w-5 fill-yellow-300 text-yellow-300" />
                       <span className="text-lg font-semibold">
                         {amenity.rating}
                       </span>
                     </div>
-                  </div>
-                  <div className="mb-2 flex items-center space-x-2">
-                    <Award className="h-4 w-4" />
-                    <span>{amenity.type}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <MapPin className="h-4 w-4" />
-                    <span>{amenity.distance}</span>
-                  </div>
-                </div>
+                    <div className="mt-2 flex items-center space-x-2">
+                      <Award className="h-4 w-4" />
+                      <span>{amenity.type}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <MapPin className="h-4 w-4" />
+                      <span>{amenity.distance}</span>
+                    </div>
+                </CardMediaHeading>
 
                 <div className="p-6">
                   <p className="mb-4 text-gray-700">{amenity.description}</p>
@@ -365,34 +367,38 @@ export default function AmenitiesPage() {
       <section className="bg-white py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="mb-8 text-3xl font-bold">
-              Why Choose Summerlin West for Your Lifestyle?
-            </h2>
+            <SectionHeading
+              image={headingImages.h2.cta}
+              title="Why Choose Summerlin West for Your Lifestyle?"
+            />
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                  <Flag className="h-8 w-8 text-green-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold">Golf Paradise</h3>
+                <MediaThumbHeading
+                  image={headingImages.h3.golf}
+                  title="Golf Paradise"
+                  titleClassName="mb-2 text-xl font-bold"
+                />
                 <p className="text-gray-600">
                   Access to world-class golf courses including TPC Las Vegas and
                   The Ridges
                 </p>
               </div>
               <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
-                  <Mountain className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold">Outdoor Recreation</h3>
+                <MediaThumbHeading
+                  image={headingImages.h3.outdoor}
+                  title="Outdoor Recreation"
+                  titleClassName="mb-2 text-xl font-bold"
+                />
                 <p className="text-gray-600">
                   Red Rock Canyon access for hiking, climbing, and scenic drives
                 </p>
               </div>
               <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-purple-100">
-                  <ShoppingBag className="h-8 w-8 text-purple-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold">Shopping & Dining</h3>
+                <MediaThumbHeading
+                  image={headingImages.h3.shopping}
+                  title="Shopping & Dining"
+                  titleClassName="mb-2 text-xl font-bold"
+                />
                 <p className="text-gray-600">
                   Downtown Summerlin offers premium retail and fine dining
                   options
@@ -404,15 +410,11 @@ export default function AmenitiesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-green-600 to-emerald-700 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">
-            Ready to Experience Summerlin West Living?
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-white/90">
-            Let us show you how these amenities enhance your quality of life in
-            Summerlin West
-          </p>
+      <OverlayHeadingSection
+        image={headingImages.h2.cta}
+        title="Ready to Experience Summerlin West Living?"
+        subtitle="Let us show you how these amenities enhance your quality of life in Summerlin West"
+      >
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <button className="rounded-lg bg-white px-8 py-3 font-semibold text-green-600 transition-all hover:shadow-xl">
               Schedule a Tour
@@ -421,8 +423,7 @@ export default function AmenitiesPage() {
               Download Amenities Guide
             </button>
           </div>
-        </div>
-      </section>
+      </OverlayHeadingSection>
     </div>
   );
 }

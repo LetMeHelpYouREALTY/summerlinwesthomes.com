@@ -14,6 +14,11 @@ import {
   Sliders,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { headingImages } from '@/lib/section-images';
+import {
+  PageHero,
+  SectionHeading,
+} from '@/components/media/heading-media';
 
 export default function PropertySearchPage() {
   const [searchParams, setSearchParams] = useState({
@@ -79,17 +84,12 @@ export default function PropertySearchPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-red-500 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Las Vegas Homes for Sale — Summerlin West Property Search
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Search homes for sale in Summerlin and compare Las Vegas real estate
-            listings side by side—from move-up homes to luxury estates.
-          </p>
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        image={headingImages.h1.search}
+        title="Las Vegas Homes for Sale — Summerlin West Property Search"
+        subtitle="Search homes for sale in Summerlin and compare Las Vegas real estate listings side by side—from move-up homes to luxury estates."
+      >
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <span className="rounded-full bg-white/20 px-4 py-2">
               Exclusive to Summerlin West
@@ -104,8 +104,7 @@ export default function PropertySearchPage() {
               Red Rock Canyon Views
             </span>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Search Form */}
       <section className="relative z-20 -mt-8 bg-white py-8 shadow-lg">
@@ -352,13 +351,11 @@ export default function PropertySearchPage() {
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto mb-12 max-w-4xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-              Las Vegas Homes: Summerlin West Value Estimates
-            </h2>
-            <p className="mb-8 text-lg text-gray-600">
-              Get instant property value estimates while you search for your
-              dream home
-            </p>
+            <SectionHeading
+              image={headingImages.h2.homeValue}
+              title="Las Vegas Homes: Summerlin West Value Estimates"
+              subtitle="Get instant property value estimates while you search for your dream home"
+            />
           </div>
 
           {/* RealScout Home Value Widget */}
@@ -374,12 +371,13 @@ export default function PropertySearchPage() {
 
         {/* RealScout Advanced Search Widget */}
         <div className="mt-12 text-center">
-          <h3 className="mb-6 text-2xl font-bold text-gray-900">
-            Real Estate Listings in Las Vegas — Advanced Tools
-          </h3>
-          <p className="mb-8 text-lg text-gray-600">
-            Layer filters on top of homes for sale in Las Vegas Summerlin West.
-          </p>
+          <SectionHeading
+            as="h3"
+            image={headingImages.h2.search}
+            title="Real Estate Listings in Las Vegas — Advanced Tools"
+            subtitle="Layer filters on top of homes for sale in Las Vegas Summerlin West."
+            titleClassName="text-2xl font-bold text-gray-900"
+          />
           <div className="flex justify-center">
             <div
               dangerouslySetInnerHTML={{
@@ -392,12 +390,13 @@ export default function PropertySearchPage() {
 
         {/* RealScout Simple Search Widget */}
         <div className="mt-12 text-center">
-          <h3 className="mb-6 text-2xl font-bold text-gray-900">
-            Quick Property Search
-          </h3>
-          <p className="mb-8 text-lg text-gray-600">
-            Start your search with our simple and intuitive search tool
-          </p>
+          <SectionHeading
+            as="h3"
+            image={headingImages.h3.search}
+            title="Quick Property Search"
+            subtitle="Start your search with our simple and intuitive search tool"
+            titleClassName="text-2xl font-bold text-gray-900"
+          />
           <div className="flex justify-center">
             <div
               dangerouslySetInnerHTML={{
@@ -467,12 +466,12 @@ export default function PropertySearchPage() {
           {/* Results Header */}
           <div className="mb-8 flex items-center justify-between">
             <div>
-              <h2 className="mb-2 text-3xl font-bold text-gray-900">
-                Summerlin Homes for Sale — Search Results
-              </h2>
-              <p className="text-gray-600">
-                Live Las Vegas real estate listings via RealScout MLS data
-              </p>
+            <SectionHeading
+              className="mb-0 text-left"
+              image={headingImages.h2.featured}
+              title="Summerlin Homes for Sale — Search Results"
+              subtitle="Live Las Vegas real estate listings via RealScout MLS data"
+            />
             </div>
 
             <div className="flex items-center space-x-4">
@@ -504,13 +503,13 @@ export default function PropertySearchPage() {
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
           <div className="mb-8 text-center">
-            <h3 className="mb-4 text-3xl font-bold">
-              Homes for Sale in Las Vegas — Additional MLS Bands
-            </h3>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              Browse real-time property listings with up-to-date MLS data and
-              advanced search capabilities
-            </p>
+            <SectionHeading
+              as="h3"
+              image={headingImages.h2.listings}
+              title="Homes for Sale in Las Vegas — Additional MLS Bands"
+              subtitle="Browse real-time property listings with up-to-date MLS data and advanced search capabilities"
+              titleClassName="text-3xl font-bold"
+            />
           </div>
           <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">
             {React.createElement('realscout-office-listings', {

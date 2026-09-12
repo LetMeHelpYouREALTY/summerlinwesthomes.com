@@ -4,11 +4,28 @@
  * Run: npm run verify:seo
  *
  * Reads NEXT_PUBLIC_SITE_URL from the environment if set (e.g. copy from Vercel);
- * otherwise uses the repo default apex for summerlinwesthomes.com.
+ * otherwise uses https://www.summerlinwesthomes.com.
  */
-const raw =
-  process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, '') ||
-  'https://summerlinwesthomes.com';
+function canonicalOrigin(value) {
+  const origin = value.replace(/\/+$/, '');
+  try {
+    const hostname = new URL(origin).hostname;
+    if (
+      hostname === 'summerlinwesthomes.com' ||
+      hostname === 'www.summerlinwesthomes.com'
+    ) {
+      return 'https://www.summerlinwesthomes.com';
+    }
+    return origin;
+  } catch {
+    return 'https://www.summerlinwesthomes.com';
+  }
+}
+
+const raw = canonicalOrigin(
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+    'https://www.summerlinwesthomes.com',
+);
 
 // Keep aligned with app/sitemap.ts
 const paths = [
@@ -23,6 +40,9 @@ const paths = [
   '/properties/search',
   '/schools',
   '/sell-your-home',
+  '/services',
+  '/office',
+  '/sun-city-summerlin',
   '/summerlin-west-market-snapshot',
   '/summerlin-west-schools-commute-amenities',
   '/summerlin-west-villages-comparison',

@@ -11,6 +11,14 @@ import {
   Users,
 } from 'lucide-react';
 import CalendlyInlineSection from '@/components/calendly-inline-section';
+import { headingImages } from '@/lib/section-images';
+import {
+  MediaThumbHeading,
+  OverlayHeadingSection,
+  PageHero,
+  SectionHeading,
+} from '@/components/media/heading-media';
+import { BUSINESS, telHref } from '@/lib/business';
 
 export default function HomeValuationPage() {
   const [formData, setFormData] = useState({
@@ -46,17 +54,12 @@ export default function HomeValuationPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-900 to-indigo-800 py-20 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Las Vegas Homes — Summerlin West Value & Pricing
-          </h1>
-          <p className="mb-8 text-xl text-blue-100 md:text-2xl">
-            Professional valuation context before you list or buy a home in Vegas
-            for sale.
-          </p>
+    <div className="min-h-screen bg-[#f8f7f4]">
+      <PageHero
+        image={headingImages.h1.valuation}
+        title="Las Vegas Homes — Summerlin West Value & Pricing"
+        subtitle="Professional valuation context before you list or buy a home in Vegas for sale."
+      >
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <div className="flex items-center gap-2">
               <Calculator className="h-5 w-5" />
@@ -80,20 +83,17 @@ export default function HomeValuationPage() {
               Book a Valuation Review Call
             </a>
           </div>
-        </div>
-      </div>
+      </PageHero>
 
       {/* RealScout Home Value Widget Section */}
       <div className="bg-white py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto mb-12 max-w-4xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-              Summerlin Homes for Sale — Instant Value Estimate
-            </h2>
-            <p className="mb-8 text-lg text-gray-600">
-              Get an accurate, data-driven estimate of your home&apos;s current
-              market value using our advanced RealScout technology
-            </p>
+            <SectionHeading
+              image={headingImages.h2.homeValue}
+              title="Summerlin Homes for Sale — Instant Value Estimate"
+              subtitle="Get an accurate, data-driven estimate of your home's current market value using our advanced RealScout technology"
+            />
           </div>
 
           {/* RealScout Home Value Widget */}
@@ -109,12 +109,13 @@ export default function HomeValuationPage() {
 
         {/* RealScout Advanced Search Widget */}
         <div className="mt-12 text-center">
-          <h3 className="mb-6 text-2xl font-bold text-gray-900">
-            Real Estate Listings in Las Vegas — Advanced Search
-          </h3>
-          <p className="mb-8 text-lg text-gray-600">
-            Search for properties while you check your home&apos;s value
-          </p>
+          <SectionHeading
+            as="h3"
+            image={headingImages.h2.search}
+            title="Real Estate Listings in Las Vegas — Advanced Search"
+            subtitle="Search for properties while you check your home's value"
+            titleClassName="text-2xl font-bold text-gray-900"
+          />
           <div className="flex justify-center">
             <div
               dangerouslySetInnerHTML={{
@@ -127,12 +128,13 @@ export default function HomeValuationPage() {
 
         {/* RealScout Simple Search Widget */}
         <div className="mt-12 text-center">
-          <h3 className="mb-6 text-2xl font-bold text-gray-900">
-            Homes for Sale in Summerlin — Quick Search
-          </h3>
-          <p className="mb-8 text-lg text-gray-600">
-            Start your search with our simple and intuitive search tool
-          </p>
+          <SectionHeading
+            as="h3"
+            image={headingImages.h3.search}
+            title="Homes for Sale in Summerlin — Quick Search"
+            subtitle="Start your search with our simple and intuitive search tool"
+            titleClassName="text-2xl font-bold text-gray-900"
+          />
           <div className="flex justify-center">
             <div
               dangerouslySetInnerHTML={{
@@ -201,13 +203,11 @@ export default function HomeValuationPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl">
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-                Need a Detailed Professional Valuation?
-              </h2>
-              <p className="text-lg text-gray-600">
-                Fill out the form below for a comprehensive market analysis and
-                personalized consultation
-              </p>
+              <SectionHeading
+                image={headingImages.h2.consult}
+                title="Need a Detailed Professional Valuation?"
+                subtitle="Fill out the form below for a comprehensive market analysis and personalized consultation"
+              />
             </div>
 
             <div className="rounded-lg bg-white p-8 shadow-lg">
@@ -477,7 +477,7 @@ export default function HomeValuationPage() {
                   </button>
                   <p className="mt-4 text-center text-sm text-gray-500">
                     By submitting this form, you agree to receive communications
-                    from Summerlin West Homes
+                    from {BUSINESS.shortName}
                   </p>
                 </div>
               </form>
@@ -491,13 +491,11 @@ export default function HomeValuationPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-6xl">
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-                Why Choose Summerlin West Homes for Your Valuation?
-              </h2>
-              <p className="text-lg text-gray-600">
-                Expert local knowledge combined with cutting-edge technology for
-                accurate market insights
-              </p>
+              <SectionHeading
+                image={headingImages.h2.homeValue}
+                title="Why Choose Summerlin Real Estate for Your Valuation?"
+                subtitle="Expert local knowledge combined with cutting-edge technology for accurate market insights"
+              />
             </div>
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -505,9 +503,11 @@ export default function HomeValuationPage() {
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
                   <TrendingUp className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="mb-2 text-xl font-semibold text-gray-900">
-                  Market Expertise
-                </h3>
+                <MediaThumbHeading
+                  image={headingImages.h3.stats}
+                  title="Market Expertise"
+                  titleClassName="mb-2 text-xl font-semibold text-gray-900"
+                />
                 <p className="text-gray-600">
                   Deep understanding of Summerlin West market trends and
                   property values
@@ -518,9 +518,11 @@ export default function HomeValuationPage() {
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
                   <Calculator className="h-8 w-8 text-green-600" />
                 </div>
-                <h3 className="mb-2 text-xl font-semibold text-gray-900">
-                  Advanced Analytics
-                </h3>
+                <MediaThumbHeading
+                  image={headingImages.h2.financing}
+                  title="Advanced Analytics"
+                  titleClassName="mb-2 text-xl font-semibold text-gray-900"
+                />
                 <p className="text-gray-600">
                   Data-driven insights using the latest real estate technology
                   and market data
@@ -531,9 +533,11 @@ export default function HomeValuationPage() {
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-purple-100">
                   <Users className="h-8 w-8 text-purple-600" />
                 </div>
-                <h3 className="mb-2 text-xl font-semibold text-gray-900">
-                  Personalized Service
-                </h3>
+                <MediaThumbHeading
+                  image={headingImages.h2.consult}
+                  title="Personalized Service"
+                  titleClassName="mb-2 text-xl font-semibold text-gray-900"
+                />
                 <p className="text-gray-600">
                   One-on-one consultation and ongoing support throughout your
                   selling journey
@@ -545,22 +549,18 @@ export default function HomeValuationPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-blue-900 to-indigo-800 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-            Ready to Discover Your Home&apos;s True Value?
-          </h2>
-          <p className="mb-8 text-xl text-blue-100">
-            Get started with our instant valuation tool above, or contact us for
-            a comprehensive analysis
-          </p>
+      <OverlayHeadingSection
+        image={headingImages.h2.cta}
+        title="Ready to Discover Your Home's True Value?"
+        subtitle="Get started with our instant valuation tool above, or contact us for a comprehensive analysis"
+      >
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="tel:+1-702-555-0100"
+              href={telHref}
               className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold text-blue-900 transition-colors duration-200 hover:bg-blue-50"
             >
               <Phone className="h-5 w-5" />
-              Call (702) 555-0100
+              Call {BUSINESS.phoneDisplay}
             </a>
             <a
               href="mailto:info@summerlinwesthomes.com"
@@ -570,8 +570,7 @@ export default function HomeValuationPage() {
               Email Us
             </a>
           </div>
-        </div>
-      </div>
+      </OverlayHeadingSection>
       <CalendlyInlineSection
         title="Schedule a Valuation Review"
         description="Walk through your valuation report and next steps with Dr. Jan Duffy."

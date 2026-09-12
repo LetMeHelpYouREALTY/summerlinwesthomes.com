@@ -1,3 +1,6 @@
+import { headingImages } from '@/lib/section-images';
+import { SectionHeading } from '@/components/media/heading-media';
+
 type CalendlyInlineSectionProps = {
   title?: string;
   description?: string;
@@ -10,10 +13,11 @@ export default function CalendlyInlineSection({
   return (
     <section className="border-t border-gray-200 bg-white px-4 py-10">
       <div className="mx-auto max-w-5xl">
-        <h2 className="mb-3 text-center text-2xl font-semibold text-gray-900 md:text-3xl">
-          {title}
-        </h2>
-        <p className="mb-6 text-center text-gray-600">{description}</p>
+        <SectionHeading
+          image={headingImages.h2.consult}
+          title={title}
+          subtitle={description}
+        />
         <div
           className="calendly-inline-widget min-h-[700px] w-full"
           data-url="https://calendly.com/drjanduffy/appointment"

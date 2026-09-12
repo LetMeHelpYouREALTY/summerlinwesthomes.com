@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next';
-import { getSiteUrl } from '@/lib/site-url';
+import { CANONICAL_SITE_URL } from '@/lib/site-url';
+import { SERVICES, servicePath } from '@/lib/services';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = getSiteUrl();
+  const baseUrl = CANONICAL_SITE_URL;
 
   const currentDate = new Date();
   const yesterday = new Date(currentDate.getTime() - 24 * 60 * 60 * 1000);
@@ -20,11 +21,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/buying-guide`, lastModified: currentDate },
     { url: `${baseUrl}/home-valuation`, lastModified: currentDate },
     { url: `${baseUrl}/listings`, lastModified: yesterday },
+    { url: `${baseUrl}/office`, lastModified: currentDate },
     { url: `${baseUrl}/market-data`, lastModified: twoDaysAgo },
     { url: `${baseUrl}/mortgage-calculator`, lastModified: currentDate },
     { url: `${baseUrl}/properties/search`, lastModified: yesterday },
     { url: `${baseUrl}/schools`, lastModified: weekAgo },
     { url: `${baseUrl}/sell-your-home`, lastModified: currentDate },
+    { url: `${baseUrl}/services`, lastModified: currentDate },
+    { url: `${baseUrl}/sun-city-summerlin`, lastModified: currentDate },
+    ...SERVICES.map((service) => ({
+      url: `${baseUrl}${servicePath(service.slug)}`,
+      lastModified: currentDate,
+    })),
     {
       url: `${baseUrl}/summerlin-west-market-snapshot`,
       lastModified: currentDate,

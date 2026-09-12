@@ -1,55 +1,47 @@
-# Open Graph Images for Summerlin West Homes
+# Site images for Summerlin West Homes
 
-This directory contains the template and instructions for generating Open Graph images for social media sharing.
+Git is the backup for every photograph in this directory. Cloudflare R2 is the production store and CDN.
 
-## Required Images
+Photographs replace the previous gradient and missing-file placeholders.
 
-The following images need to be generated and placed in this directory:
+## Serving
 
-1. **`og-image-summerlin-west-homes.jpg`** (1200x630px) - JPEG version for Open Graph
-2. **`og-image-summerlin-west-homes.webp`** (1200x630px) - WebP version for Open Graph
-3. **`twitter-image-summerlin-west-homes.jpg`** (1200x630px) - JPEG version for Twitter
+- **Backup:** files in this folder, committed to git
+- **Production:** Cloudflare R2 object keys that match the public path (`images/...`)
+- **Local / unset env:** Next.js serves these files from `/images/...`
 
-## How to Generate Images
+Set `NEXT_PUBLIC_CLOUDFLARE_R2_URL` to the R2 public origin (an `https://pub-….r2.dev` URL or a dedicated media host). Leave it empty to keep serving the git copies.
 
-### Option 1: Using the HTML Template
+Upload or refresh the R2 copies with:
 
-1. Open `og-image-template.html` in a browser
-2. Set browser viewport to 1200x630 pixels
-3. Take a screenshot or use browser dev tools to capture the image
-4. Save as the required filenames
+```bash
+npx wrangler login
+npm run sync:images -- --create-bucket
+```
 
-### Option 2: Using Online Tools
+Do not orange-cloud the Vercel site hostname. Only the R2 media host should be proxied by Cloudflare.
 
-- **Canva**: Use 1200x630px template
-- **Figma**: Export at 1200x630px
-- **Adobe Creative Suite**: Create 1200x630px design
+## Brand / social
 
-### Option 3: Professional Design
+- `hero-summerlin-west-luxury-homes.jpg` — homepage H1 and schema image
+- `og-image-summerlin-west-homes.jpg` / `.webp` — Open Graph
+- `twitter-image-summerlin-west-homes.jpg` — Twitter card
+- `logo-summerlin-west-homes.png` — schema logo
 
-- Hire a graphic designer to create branded Open Graph images
-- Ensure they follow the 1200x630px aspect ratio
-- Use brand colors: #0A2540, #3A8DDE, #F7F9FC, #16B286
+## Section photographs
 
-## Image Specifications
+These are the primary heading, amenity, school, commute, and lifestyle photos:
 
-- **Dimensions**: 1200x630 pixels (1.91:1 aspect ratio)
-- **Format**: JPG and WebP
-- **File Size**: Under 5MB
-- **Content**: Should include:
-  - Company logo/name
-  - Tagline
-  - Key visual elements
-  - Brand colors
+- `sections/h1-*.jpg` — page-level H1 heroes
+- `sections/h2-*.jpg` — section H2 banners
+- `sections/h3-*.jpg` — subsection H3 thumbnails
+- `amenities/` — amenity cards
+- `schools/` — campus cards
+- `transport/` — commute cards
+- `lifestyle/` — golf, outdoor, shopping
 
-## Current Status
+Images are wired through `lib/section-images.ts`, `lib/media-url.ts`, and `components/media/heading-media.tsx`.
 
-⚠️ **Images Missing**: The actual image files need to be created and placed in this directory for Open Graph metadata to work properly.
+## Dr. Jan Duffy portrait
 
-## Testing
-
-After adding the images, test your Open Graph tags using:
-
-- [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)
-- [Twitter Card Validator](https://cards-dev.twitter.com/validator)
-- [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/)
+The studio portrait is used in the site header only (`dr-duffy/source-dr-jan-duffy.jpg`). Section headings keep the photographs above, not generated Duffy composites.

@@ -10,9 +10,15 @@ import {
   Phone,
   Globe,
   BookOpen,
-  Shield,
-  TrendingUp,
 } from 'lucide-react';
+import { headingImages } from '@/lib/section-images';
+import {
+  CardMediaHeading,
+  MediaThumbHeading,
+  OverlayHeadingSection,
+  PageHero,
+  SectionHeading,
+} from '@/components/media/heading-media';
 
 export default function SchoolsPage() {
   const [selectedSchoolType, setSelectedSchoolType] = useState('all');
@@ -42,6 +48,7 @@ export default function SchoolsPage() {
       website: 'https://www.paloverde.ccsd.net',
       description:
         'Premier public high school serving Summerlin West with exceptional academic programs and college preparation.',
+      image: headingImages.schools.high,
     },
     {
       name: 'Sig Rogich Middle School',
@@ -67,6 +74,7 @@ export default function SchoolsPage() {
       website: 'https://www.sigrogich.ccsd.net',
       description:
         'Excellence in middle school education with strong focus on STEM and gifted programs.',
+      image: headingImages.schools.middle,
     },
     {
       name: 'Walter V. Long Elementary',
@@ -92,6 +100,7 @@ export default function SchoolsPage() {
       website: 'https://www.waltervlong.ccsd.net',
       description:
         'Outstanding elementary education with strong foundation in reading and mathematics.',
+      image: headingImages.schools.elementary,
     },
     {
       name: 'Faith Lutheran Middle & High School',
@@ -117,6 +126,7 @@ export default function SchoolsPage() {
       website: 'https://www.faithlutheranlv.org',
       description:
         'Premier private Christian education with exceptional academic and spiritual development.',
+      image: headingImages.schools.private,
     },
     {
       name: 'The Meadows School',
@@ -142,6 +152,7 @@ export default function SchoolsPage() {
       website: 'https://www.themeadowsschool.org',
       description:
         'Elite private education with world-class college preparation and global perspective.',
+      image: headingImages.schools.collegePrep,
     },
   ];
 
@@ -167,17 +178,12 @@ export default function SchoolsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Las Vegas Homes Near Top Schools — Summerlin West Guide
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Discover top-rated public and private schools serving the Summerlin
-            West community
-          </p>
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        image={headingImages.h1.schools}
+        title="Las Vegas Homes Near Top Schools — Summerlin West Guide"
+        subtitle="Discover top-rated public and private schools serving the Summerlin West community"
+      >
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <span className="rounded-full bg-white/20 px-4 py-2">
               Top-Rated Schools
@@ -192,47 +198,44 @@ export default function SchoolsPage() {
               STEM Excellence
             </span>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* School District Information */}
       <section className="bg-white py-12">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="mb-8 text-3xl font-bold">
-              Homes for Sale in Summerlin & CCSD Zoning Basics
-            </h2>
+            <SectionHeading
+              image={headingImages.h2.schools}
+              title="Homes for Sale in Summerlin & CCSD Zoning Basics"
+            />
             <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-3">
               <div className="rounded-lg bg-blue-50 p-6">
-                <div className="mb-4 flex justify-center">
-                  <Shield className="h-12 w-12 text-blue-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold text-blue-900">
-                  District Excellence
-                </h3>
+                <MediaThumbHeading
+                  image={headingImages.schools.high}
+                  title="District Excellence"
+                  titleClassName="mb-2 text-xl font-bold text-blue-900"
+                />
                 <p className="text-blue-700">
                   Nationally recognized school district serving over 300,000
                   students
                 </p>
               </div>
               <div className="rounded-lg bg-green-50 p-6">
-                <div className="mb-4 flex justify-center">
-                  <TrendingUp className="h-12 w-12 text-green-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold text-green-900">
-                  Academic Achievement
-                </h3>
+                <MediaThumbHeading
+                  image={headingImages.schools.collegePrep}
+                  title="Academic Achievement"
+                  titleClassName="mb-2 text-xl font-bold text-green-900"
+                />
                 <p className="text-green-700">
                   High graduation rates and college acceptance percentages
                 </p>
               </div>
               <div className="rounded-lg bg-purple-50 p-6">
-                <div className="mb-4 flex justify-center">
-                  <Award className="h-12 w-12 text-purple-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold text-purple-900">
-                  Program Variety
-                </h3>
+                <MediaThumbHeading
+                  image={headingImages.schools.private}
+                  title="Program Variety"
+                  titleClassName="mb-2 text-xl font-bold text-purple-900"
+                />
                 <p className="text-purple-700">
                   Advanced Placement, STEM, Arts, and Athletics programs
                 </p>
@@ -270,13 +273,11 @@ export default function SchoolsPage() {
       <section className="bg-white py-16">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold">
-              {filteredSchools.length} Schools Near Homes for Sale in Summerlin
-            </h2>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              Each school offers unique programs and opportunities for your
-              child&apos;s education
-            </p>
+            <SectionHeading
+              image={headingImages.h2.guide}
+              title={`${filteredSchools.length} Schools Near Homes for Sale in Summerlin`}
+              subtitle="Each school offers unique programs and opportunities for your child's education"
+            />
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -285,25 +286,25 @@ export default function SchoolsPage() {
                 key={school.name}
                 className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
               >
-                <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-6 text-white">
-                  <div className="mb-4 flex items-center justify-between">
-                    <h3 className="text-2xl font-bold">{school.name}</h3>
-                    <div className="flex items-center space-x-1">
+                <CardMediaHeading
+                  image={school.image}
+                  title={school.name}
+                >
+                    <div className="mt-2 flex items-center space-x-1">
                       <Star className="h-5 w-5 fill-yellow-300 text-yellow-300" />
                       <span className="text-lg font-semibold">
                         {school.rating}
                       </span>
                     </div>
-                  </div>
-                  <div className="mb-2 flex items-center space-x-2">
-                    <GraduationCap className="h-4 w-4" />
-                    <span>{school.type}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <BookOpen className="h-4 w-4" />
-                    <span>Grades {school.grade}</span>
-                  </div>
-                </div>
+                    <div className="mt-2 flex items-center space-x-2">
+                      <GraduationCap className="h-4 w-4" />
+                      <span>{school.type}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <BookOpen className="h-4 w-4" />
+                      <span>Grades {school.grade}</span>
+                    </div>
+                </CardMediaHeading>
 
                 <div className="p-6">
                   <div className="mb-4 flex items-center space-x-2 text-gray-600">
@@ -386,15 +387,11 @@ export default function SchoolsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-indigo-700 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">
-            Need Help Finding the Right School?
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-white/90">
-            Our team can help you understand school boundaries, programs, and
-            enrollment options in Summerlin West
-          </p>
+      <OverlayHeadingSection
+        image={headingImages.h2.consult}
+        title="Need Help Finding the Right School?"
+        subtitle="Our team can help you understand school boundaries, programs, and enrollment options in Summerlin West"
+      >
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <button className="rounded-lg bg-white px-8 py-3 font-semibold text-blue-600 transition-all hover:shadow-xl">
               School Consultation
@@ -403,8 +400,7 @@ export default function SchoolsPage() {
               Download School Guide
             </button>
           </div>
-        </div>
-      </section>
+      </OverlayHeadingSection>
     </div>
   );
 }

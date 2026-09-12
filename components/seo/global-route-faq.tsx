@@ -2,6 +2,13 @@
 
 import { useMemo } from 'react';
 import { usePathname } from 'next/navigation';
+import { headingImages } from '@/lib/section-images';
+import { SectionHeading } from '@/components/media/heading-media';
+import { GBP_FAQS } from '@/lib/gbp-faq';
+import {
+  getServiceBySlug,
+  SERVICE_INDEX_FAQS,
+} from '@/lib/services';
 
 type FaqItem = {
   question: string;
@@ -223,6 +230,23 @@ export default function GlobalRouteFaq() {
   const pathname = usePathname();
 
   const faqItems = useMemo(() => {
+    // Location page already renders GBP FAQs + FAQPage JSON-LD.
+    if (pathname === '/office' || pathname === '/sun-city-summerlin') {
+      return [];
+    }
+    if (pathname === '/services') {
+      return [...SERVICE_INDEX_FAQS];
+    }
+    if (pathname.startsWith('/services/')) {
+      const slug = pathname.replace('/services/', '').split('/')[0];
+      const service = getServiceBySlug(slug);
+      if (service) {
+        return [...service.faqs];
+      }
+    }
+    if (pathname === '/') {
+      return [...GBP_FAQS, ...FAQ_BY_ROUTE['/']];
+    }
     return FAQ_BY_ROUTE[pathname] ?? FALLBACK_FAQ;
   }, [pathname]);
 
@@ -242,6 +266,10 @@ export default function GlobalRouteFaq() {
     [faqItems]
   );
 
+  if (faqItems.length === 0) {
+    return null;
+  }
+
   return (
     <section className="border-t border-[#d7c5a0] bg-[#f8f4ea] px-4 py-10">
       <div className="mx-auto max-w-6xl">
@@ -251,9 +279,15 @@ export default function GlobalRouteFaq() {
             __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
           }}
         />
-        <h2 className="mb-5 text-center text-3xl font-semibold text-[#050b25]">
-          Summerlin West FAQ
-        </h2>
+        <SectionHeading
+          image={headingImages.h2.faq}
+          title={
+            pathname === '/'
+              ? 'Summerlin Real Estate FAQ'
+              : 'Summerlin West FAQ'
+          }
+          titleClassName="text-3xl font-semibold text-[#050b25]"
+        />
         <div className="grid gap-4 md:grid-cols-2">
           {faqItems.map((faq) => (
             <article

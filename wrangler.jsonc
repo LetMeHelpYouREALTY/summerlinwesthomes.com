@@ -1,0 +1,15 @@
+/**
+ * Cloudflare R2 config for site photography.
+ * Git keeps the originals under public/images/; this bucket is the CDN copy.
+ * Do not `wrangler deploy` a Worker from this file — media is object storage only.
+ */
+{
+  "name": "summerlinwest-homes-media",
+  "compatibility_date": "2026-09-12",
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "summerlinwest-homes-media"
+    }
+  ]
+}

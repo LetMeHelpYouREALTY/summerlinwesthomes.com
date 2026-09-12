@@ -1,62 +1,94 @@
 'use client';
 
 import React from 'react';
-import { Users, Shield, TrendingUp } from 'lucide-react';
+import Link from 'next/link';
+import { MapPin, Phone, Users } from 'lucide-react';
+import {
+  BUSINESS,
+  BUSINESS_ADDRESS_LINE,
+  googleReviewsUrl,
+  telHref,
+} from '@/lib/business';
+import { headingImages } from '@/lib/section-images';
+import { PageHero, SectionHeading } from '@/components/media/heading-media';
 
 export default function AboutSection() {
   return (
+    <>
+      <PageHero
+        image={headingImages.h1.about}
+        title="About Summerlin Real Estate"
+        subtitle={`${BUSINESS.name} at ${BUSINESS_ADDRESS_LINE}. Call ${BUSINESS.phoneDisplay}.`}
+      />
     <section className="py-24">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl">
-          <h1 className="mb-8 text-center text-3xl font-bold md:text-4xl">
-            Summerlin West Real Estate Listings & Local Expertise
-          </h1>
 
           <div className="prose prose-lg mx-auto text-gray-600">
-            <p className="mb-6">
-              Summerlin West represents the pinnacle of luxury living in Las
-              Vegas. As the western portion of the master-planned community of
-              Summerlin, this area encompasses over 22,500 acres of stunning
-              desert landscape transformed into one of the nation&apos;s premier
-              residential developments.
-            </p>
+            <p className="mb-6">{BUSINESS.description}</p>
 
             <div className="my-12 grid grid-cols-1 gap-6 md:grid-cols-3">
               <div className="text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
+                  <MapPin className="h-8 w-8 text-amber-600" />
+                </div>
+                <h4 className="mb-2 font-bold">Office</h4>
+                <p className="text-sm">
+                  {BUSINESS.streetAddress}, {BUSINESS.addressLocality},{' '}
+                  {BUSINESS.addressRegion} {BUSINESS.postalCode}
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
+                  <Phone className="h-8 w-8 text-amber-600" />
+                </div>
+                <h4 className="mb-2 font-bold">Call or text</h4>
+                <p className="text-sm">
+                  {BUSINESS.phoneDisplay} · {BUSINESS.hoursDisplay}
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
                   <Users className="h-8 w-8 text-amber-600" />
                 </div>
-                <h4 className="mb-2 font-bold">Expert Team</h4>
+                <h4 className="mb-2 font-bold">Since 2008</h4>
                 <p className="text-sm">
-                  Dedicated professionals with deep local knowledge
+                  Opened September 20, 2008. Nevada license {BUSINESS.license}.
                 </p>
-              </div>
-
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
-                  <Shield className="h-8 w-8 text-amber-600" />
-                </div>
-                <h4 className="mb-2 font-bold">Trusted Service</h4>
-                <p className="text-sm">
-                  20+ years serving the Summerlin community
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
-                  <TrendingUp className="h-8 w-8 text-amber-600" />
-                </div>
-                <h4 className="mb-2 font-bold">Market Leaders</h4>
-                <p className="text-sm">#1 in luxury home sales in Las Vegas</p>
               </div>
             </div>
 
             <p>
-              Our team specializes in connecting discerning buyers with
-              exceptional properties throughout Summerlin West&apos;s diverse
-              communities. From golf course estates to modern luxury condos, we
-              provide unparalleled service and expertise in navigating this
-              prestigious market.
+              Specialties include The Ridges, Summerlin West, Red Rock Country
+              Club, Sun City, and Del Webb communities. Sun City and Del Webb
+              55+ sales refer to age-qualified Housing for Older Persons Act
+              communities.
+            </p>
+            <p className="mt-6">
+              <a
+                href={telHref}
+                className="font-semibold text-[#0b1231] underline-offset-2 hover:underline"
+              >
+                Call {BUSINESS.phoneDisplay}
+              </a>
+              {' · '}
+              <Link
+                href="/office"
+                className="font-semibold text-[#0b1231] underline-offset-2 hover:underline"
+              >
+                Office details
+              </Link>
+              {' · '}
+              <a
+                href={googleReviewsUrl}
+                className="font-semibold text-[#0b1231] underline-offset-2 hover:underline"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                View Google Reviews
+              </a>
             </p>
           </div>
         </div>
@@ -65,26 +97,25 @@ export default function AboutSection() {
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
           <div className="mb-8 text-center">
-            <h3 className="mb-4 text-3xl font-bold">
-              A Home in Vegas for Sale — Featured Summerlin West Picks
-            </h3>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              Preview curated Las Vegas homes for sale before you dive into the
-              full MLS-powered inventory.
-            </p>
+            <SectionHeading
+              as="h3"
+              image={headingImages.h2.featured}
+              title="Summerlin homes for sale"
+              subtitle="Preview current listings across Summerlin, Summerlin West, and the wider Las Vegas service area."
+              titleClassName="text-3xl font-bold md:text-4xl"
+            />
           </div>
-          <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">
-            {React.createElement('realscout-office-listings', {
-              'agent-encoded-id': 'QWdlbnQtMjI1MDUw',
-              'sort-order': 'NEWEST',
-              'listing-status': 'For Sale',
-              'property-types': 'SFR,MF,TC',
-              'price-min': '650000',
-              'price-max': '1200000',
-            })}
+          <div className="mx-auto max-w-6xl rounded-xl bg-white p-6 shadow-lg">
+            <div
+              dangerouslySetInnerHTML={{
+                __html:
+                  '<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="250000" price-max="900000"></realscout-office-listings>',
+              }}
+            />
           </div>
         </div>
       </section>
     </section>
+    </>
   );
 }
