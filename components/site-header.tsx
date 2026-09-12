@@ -21,6 +21,7 @@ const PRIMARY_NAV = [
   { href: '/', label: 'Home' },
   { href: '/properties/search', label: 'Search' },
   { href: '/listings', label: 'Listings' },
+  { href: '/services', label: 'Services' },
   { href: '/villages', label: 'Villages' },
   { href: '/market-data', label: 'Market Data' },
 ] as const;

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getSiteUrl } from '@/lib/site-url';
+import { SERVICES, servicePath } from '@/lib/services';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = getSiteUrl();
@@ -25,6 +26,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/properties/search`, lastModified: yesterday },
     { url: `${baseUrl}/schools`, lastModified: weekAgo },
     { url: `${baseUrl}/sell-your-home`, lastModified: currentDate },
+    { url: `${baseUrl}/services`, lastModified: currentDate },
+    ...SERVICES.map((service) => ({
+      url: `${baseUrl}${servicePath(service.slug)}`,
+      lastModified: currentDate,
+    })),
     {
       url: `${baseUrl}/summerlin-west-market-snapshot`,
       lastModified: currentDate,

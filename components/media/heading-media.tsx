@@ -64,7 +64,7 @@ export function PageHero({
 }
 
 type SectionHeadingProps = {
-  as?: 'h2' | 'h3';
+  as?: 'h2' | 'h3' | 'h4';
   image: HeadingImage;
   title: ReactNode;
   subtitle?: ReactNode;
@@ -114,7 +114,7 @@ export function SectionHeading({
 }
 
 type OverlayHeadingSectionProps = {
-  as?: 'h2' | 'h3';
+  as?: 'h2' | 'h3' | 'h4';
   image: HeadingImage;
   title: ReactNode;
   subtitle?: ReactNode;
@@ -156,7 +156,7 @@ export function OverlayHeadingSection({
 }
 
 type CardMediaHeadingProps = {
-  as?: 'h2' | 'h3';
+  as?: 'h2' | 'h3' | 'h4';
   image: HeadingImage;
   title: ReactNode;
   children?: ReactNode;
@@ -195,7 +195,7 @@ export function CardMediaHeading({
 }
 
 type MediaThumbHeadingProps = {
-  as?: 'h2' | 'h3';
+  as?: 'h2' | 'h3' | 'h4';
   image: HeadingImage;
   title: ReactNode;
   children?: ReactNode;

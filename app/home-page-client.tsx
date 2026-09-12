@@ -29,6 +29,7 @@ import {
   OverlayHeadingSection,
   SectionHeading,
 } from '@/components/media/heading-media';
+import ServiceCards from '@/components/services/service-cards';
 
 export default function SummerlinWestHomes() {
   return (
@@ -52,6 +53,7 @@ function HomePage() {
       <RealScoutSearchEmbed />
       <FeaturedProperties />
       <CommunitiesPreview />
+      <ServiceCards />
       <TestimonialsSection />
       <CTASection />
     </>
@@ -546,6 +548,14 @@ function Footer() {
           <div>
             <h4 className="mb-4 font-bold">Buyer &amp; seller tools</h4>
             <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href="/services"
+                  className="text-gray-400 transition-colors hover:text-white"
+                >
+                  Summerlin West real estate services
+                </a>
+              </li>
               <li>
                 <a
                   href="/properties/search"

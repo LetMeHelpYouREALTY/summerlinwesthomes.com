@@ -4,6 +4,10 @@ import { useMemo } from 'react';
 import { usePathname } from 'next/navigation';
 import { headingImages } from '@/lib/section-images';
 import { SectionHeading } from '@/components/media/heading-media';
+import {
+  getServiceBySlug,
+  SERVICE_INDEX_FAQS,
+} from '@/lib/services';
 
 type FaqItem = {
   question: string;
@@ -225,6 +229,16 @@ export default function GlobalRouteFaq() {
   const pathname = usePathname();
 
   const faqItems = useMemo(() => {
+    if (pathname === '/services') {
+      return [...SERVICE_INDEX_FAQS];
+    }
+    if (pathname.startsWith('/services/')) {
+      const slug = pathname.replace('/services/', '').split('/')[0];
+      const service = getServiceBySlug(slug);
+      if (service) {
+        return [...service.faqs];
+      }
+    }
     return FAQ_BY_ROUTE[pathname] ?? FALLBACK_FAQ;
   }, [pathname]);
 
