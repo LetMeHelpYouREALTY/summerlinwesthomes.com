@@ -37,7 +37,7 @@ export function PageHero({
         alt={image.alt}
         fill
         priority
-        className="object-cover"
+        className="object-cover object-center"
         sizes="100vw"
       />
       <div
@@ -91,7 +91,7 @@ export function SectionHeading({
           src={image.src}
           alt={image.alt}
           fill
-          className="object-cover"
+          className="object-cover object-center"
           sizes="(max-width: 768px) 100vw, 896px"
         />
         <div className="absolute inset-0 bg-[#0b1231]/18" />
@@ -138,7 +138,7 @@ export function OverlayHeadingSection({
         src={image.src}
         alt={image.alt}
         fill
-        className="object-cover"
+        className="object-cover object-center"
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-[#0b1231]/62" />
@@ -180,7 +180,7 @@ export function CardMediaHeading({
         src={image.src}
         alt={image.alt}
         fill
-        className="object-cover"
+        className="object-cover object-center"
         sizes="(max-width: 1024px) 100vw, 50vw"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0b1231]/88 via-[#0b1231]/40 to-[#0b1231]/10" />
@@ -220,7 +220,7 @@ export function MediaThumbHeading({
           src={image.src}
           alt={image.alt}
           fill
-          className="object-cover"
+          className="object-cover object-center"
           sizes="(max-width: 768px) 100vw, 33vw"
         />
       </div>

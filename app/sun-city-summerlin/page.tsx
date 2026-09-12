@@ -29,7 +29,7 @@ export default function SunCitySummerlinPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <PageHero
-        image={headingImages.h1.about}
+        image={headingImages.h1.sunCity}
         title="Sun City and Del Webb 55+ homes"
         subtitle="Age-qualified active-adult community sales across Sun City Summerlin and Del Webb, with the office in Summerlin at 10777 West Twain Avenue."
       />

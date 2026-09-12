@@ -4,7 +4,7 @@ import { absoluteMediaUrl } from '@/lib/media-url';
 import { getSiteUrl } from '@/lib/site-url';
 
 const siteUrl = getSiteUrl();
-const ogAlt = `${BUSINESS.name} - Luxury Real Estate in Las Vegas`;
+const ogAlt = `Dr. Jan Duffy of ${BUSINESS.name} in Las Vegas`;
 
 /**
  * Shared Open Graph fields. Next.js shallow-merges metadata, so any child
@@ -15,18 +15,18 @@ export const defaultOgImages: NonNullable<
   NonNullable<Metadata['openGraph']>['images']
 > = [
   {
-    url: absoluteMediaUrl('/images/og-image-summerlin-west-homes.jpg', siteUrl),
+    url: absoluteMediaUrl('/images/dr-duffy/h1-home.jpg', siteUrl),
     width: 1200,
     height: 630,
     alt: ogAlt,
     type: 'image/jpeg',
   },
   {
-    url: absoluteMediaUrl('/images/og-image-summerlin-west-homes.webp', siteUrl),
+    url: absoluteMediaUrl('/images/dr-duffy/h1-about.jpg', siteUrl),
     width: 1200,
     height: 630,
     alt: ogAlt,
-    type: 'image/webp',
+    type: 'image/jpeg',
   },
 ];
 
@@ -35,7 +35,7 @@ export const defaultTwitterImages: NonNullable<
 > = [
   {
     url: absoluteMediaUrl(
-      '/images/twitter-image-summerlin-west-homes.jpg',
+      '/images/dr-duffy/h1-office.jpg',
       siteUrl,
     ),
     width: 1200,

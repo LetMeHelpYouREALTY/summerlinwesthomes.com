@@ -24,7 +24,7 @@ export default function ServicesIndexPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <PageHero
-        image={headingImages.h2.guide}
+        image={headingImages.h1.services}
         title="Find Summerlin Real Estate services"
         subtitle={`${BUSINESS.name} at ${BUSINESS.streetAddress}, ${BUSINESS.addressLocality}. ${BUSINESS.phoneDisplay}.`}
       />

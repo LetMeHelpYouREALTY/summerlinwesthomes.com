@@ -5,280 +5,97 @@ export type HeadingImage = {
   alt: string;
 };
 
-const section = (file: string, alt: string): HeadingImage => ({
-  src: mediaUrl(`/images/sections/${file}`),
-  alt,
-});
+export function duffy(slot: string, topic: string): HeadingImage {
+  return {
+    src: mediaUrl(`/images/dr-duffy/${slot}.jpg`),
+    alt: `Dr. Jan Duffy of Summerlin Real Estate in Las Vegas, ${topic}`,
+  };
+}
 
 export const headingImages = {
+  header: duffy(
+    'header-portrait',
+    'office portrait for the site header',
+  ),
   h1: {
-    home: {
-      src: mediaUrl('/images/hero-summerlin-west-luxury-homes.jpg'),
-      alt: 'Luxury estate at dusk in Summerlin West Las Vegas with Red Rock Canyon beyond',
-    },
-    about: section(
-      'h1-about.jpg',
-      'Covered courtyard at a luxury Summerlin West Las Vegas estate',
-    ),
-    amenities: section(
-      'h1-amenities.jpg',
-      'Championship golf fairway in Summerlin West with Red Rock Canyon views',
-    ),
-    buying: section(
-      'h1-buying.jpg',
-      'Grand foyer inside a luxury Summerlin West Las Vegas home',
-    ),
-    valuation: section(
-      'h1-valuation.jpg',
-      'Luxury Summerlin West home exterior photographed for a market valuation',
-    ),
-    listings: section(
-      'h1-listings.jpg',
-      'Tree-lined street of luxury homes for sale in Summerlin West Las Vegas',
-    ),
-    market: section(
-      'h1-market.jpg',
-      'Aerial view of a master-planned Summerlin West Las Vegas neighborhood',
-    ),
-    marketSnapshot: section(
-      'h1-market-snapshot.jpg',
-      'Hillside view of Summerlin West homes, pools, and desert mountains',
-    ),
-    mortgage: section(
-      'h1-mortgage.jpg',
-      'House keys on a marble island in a luxury Las Vegas kitchen',
-    ),
-    search: section(
-      'h1-search.jpg',
-      'Open-concept luxury kitchen and great room in Summerlin West Las Vegas',
-    ),
-    schools: section(
-      'h1-schools.jpg',
-      'Modern desert campus architecture serving Summerlin West Las Vegas',
-    ),
-    schoolsCommute: section(
-      'h1-schools-commute.jpg',
-      'Campus walkway and landscaped boulevard in Summerlin West Las Vegas',
-    ),
-    sell: section(
-      'h1-sell.jpg',
-      'Twilight exterior of a luxury Summerlin West home prepared for listing',
-    ),
-    transport: section(
-      'h1-transport.jpg',
-      'Scenic desert highway west of Las Vegas toward Red Rock Canyon',
-    ),
-    villages: section(
-      'h1-villages.jpg',
-      'Guard-gated village entrance in Summerlin West Las Vegas',
-    ),
-    villagesCompare: section(
-      'h1-villages-compare.jpg',
-      'Two neighboring luxury homes on a Summerlin West village street',
-    ),
+    home: duffy('h1-home', 'homepage hero for Summerlin homes'),
+    about: duffy('h1-about', 'about the Las Vegas office'),
+    amenities: duffy('h1-amenities', 'Summerlin amenities guidance'),
+    buying: duffy('h1-buying', 'home buying guidance'),
+    valuation: duffy('h1-valuation', 'home valuation consults'),
+    listings: duffy('h1-listings', 'current listings'),
+    market: duffy('h1-market', 'market data'),
+    marketSnapshot: duffy('h1-market-snapshot', 'market snapshot'),
+    mortgage: duffy('h1-mortgage', 'mortgage planning'),
+    search: duffy('h1-search', 'home search'),
+    schools: duffy('h1-schools', 'school and commute planning'),
+    schoolsCommute: duffy('h1-schools-commute', 'schools, commute, and amenities'),
+    sell: duffy('h1-sell', 'home selling'),
+    transport: duffy('h1-transport', 'transportation and access'),
+    villages: duffy('h1-villages', 'Summerlin villages'),
+    villagesCompare: duffy('h1-villages-compare', 'village comparison'),
+    office: duffy('h1-office', 'Twain Avenue office'),
+    services: duffy('h1-services', 'real estate services'),
+    sunCity: duffy('h1-sun-city', 'Sun City and Del Webb 55+ sales'),
   },
   h2: {
-    homeValue: section(
-      'h2-home-value.jpg',
-      'Stone facade and entry of a luxury Summerlin West home',
-    ),
-    search: section(
-      'h2-search.jpg',
-      'Home office overlooking a Las Vegas desert golf course',
-    ),
-    listings: section(
-      'h2-listings.jpg',
-      'Luxury backyard pool and patio in Summerlin West Las Vegas',
-    ),
-    villages: section(
-      'h2-villages.jpg',
-      'Sunset street of luxury homes in a Summerlin West village',
-    ),
-    testimonials: section(
-      'h2-testimonials.jpg',
-      'Patio dining table facing desert mountains in Summerlin West',
-    ),
-    cta: section(
-      'h2-cta.jpg',
-      'Red Rock Canyon sandstone cliffs at sunset west of Las Vegas',
-    ),
-    financing: section(
-      'h2-financing.jpg',
-      'Notebook and house keys on a sunlit luxury kitchen island',
-    ),
-    selling: section(
-      'h2-selling.jpg',
-      'Staged living room with golf-course views in Summerlin West',
-    ),
-    schools: section(
-      'h2-schools.jpg',
-      'Contemporary campus courtyard in Las Vegas',
-    ),
-    amenities: section(
-      'h2-amenities.jpg',
-      'Golf, retail, and Red Rock Canyon lifestyle in Summerlin West',
-    ),
-    commute: section(
-      'h2-commute.jpg',
-      'Las Vegas beltway at golden hour with desert mountains ahead',
-    ),
-    market: section(
-      'h2-market.jpg',
-      'Hillside view of Summerlin West rooftops, pools, and mountains',
-    ),
-    guide: section(
-      'h2-guide.jpg',
-      'Guidebook on a table overlooking a luxury Las Vegas backyard',
-    ),
-    featured: section(
-      'h2-featured.jpg',
-      'Luxury living room looking out to a Summerlin West golf course',
-    ),
-    faq: section(
-      'h2-faq.jpg',
-      'Quiet reading room with desert light in a luxury Las Vegas home',
-    ),
-    consult: section(
-      'h2-consult.jpg',
-      'Consultation table in a luxury Las Vegas office with mountain views',
-    ),
-    geography: section(
-      'h2-villages.jpg',
-      'Summerlin West village street with desert mountains on the horizon',
-    ),
+    homeValue: duffy('h2-home-value', 'home value section'),
+    search: duffy('h2-search', 'search section'),
+    listings: duffy('h2-listings', 'listings section'),
+    villages: duffy('h2-villages', 'villages section'),
+    testimonials: duffy('h2-testimonials', 'Google reviews section'),
+    cta: duffy('h2-cta', 'call-to-action section'),
+    financing: duffy('h2-financing', 'financing section'),
+    selling: duffy('h2-selling', 'selling section'),
+    schools: duffy('h2-schools', 'schools section'),
+    amenities: duffy('h2-amenities', 'amenities section'),
+    commute: duffy('h2-commute', 'commute section'),
+    market: duffy('h2-market', 'market section'),
+    guide: duffy('h2-guide', 'buyer and seller guide'),
+    featured: duffy('h2-featured', 'featured listings'),
+    faq: duffy('h2-faq', 'frequently asked questions'),
+    consult: duffy('h2-consult', 'consultation section'),
+    geography: duffy('h2-geography', 'west-valley geography'),
   },
   h3: {
-    downtown: {
-      src: mediaUrl('/images/transport/downtown.jpg'),
-      alt: 'Las Vegas skyline at dusk from a west-valley corridor',
-    },
-    airport: {
-      src: mediaUrl('/images/transport/airport.jpg'),
-      alt: 'Desert airport terminal and control tower at golden hour',
-    },
-    transit: {
-      src: mediaUrl('/images/transport/transit.jpg'),
-      alt: 'Landscaped transit stop in an upscale Las Vegas shopping district',
-    },
-    arterial: {
-      src: mediaUrl('/images/transport/arterial.jpg'),
-      alt: 'Palm-lined arterial boulevard through Summerlin West Las Vegas',
-    },
-    hub: {
-      src: mediaUrl('/images/transport/hub.jpg'),
-      alt: 'Modern transit plaza with desert landscaping in Las Vegas',
-    },
-    scenic: {
-      src: mediaUrl('/images/transport/scenic.jpg'),
-      alt: 'Red Rock Canyon scenic drive hugging sandstone cliffs',
-    },
-    highway: {
-      src: mediaUrl('/images/transport/highway.jpg'),
-      alt: 'Multi-lane Las Vegas beltway toward desert mountains',
-    },
-    golf: {
-      src: mediaUrl('/images/lifestyle/golf.jpg'),
-      alt: 'Golf green with Red Rock Canyon behind in Summerlin West',
-    },
-    outdoor: {
-      src: mediaUrl('/images/lifestyle/outdoor.jpg'),
-      alt: 'Desert hiking trail toward red sandstone cliffs near Las Vegas',
-    },
-    shopping: {
-      src: mediaUrl('/images/lifestyle/shopping.jpg'),
-      alt: 'Evening patio and boutique storefronts in Downtown Summerlin',
-    },
-    price: section(
-      'h3-price.jpg',
-      'Luxury Summerlin West home with circular driveway and desert landscaping',
-    ),
-    timing: section(
-      'h3-timing.jpg',
-      'Stone columns and entry of a luxury Summerlin West home',
-    ),
-    stats: section(
-      'h3-stats.jpg',
-      'Home office overlooking a master-planned Las Vegas neighborhood',
-    ),
-    search: section(
-      'h3-search.jpg',
-      'Kitchen island with a tablet and pool view in Summerlin West',
-    ),
-    ridges: section(
-      'h3-ridges.jpg',
-      'Ridge-top luxury estate with canyon views in Summerlin West',
-    ),
-    summit: section(
-      'h3-summit.jpg',
-      'Modern hillside home with glass walls and desert mountain views',
-    ),
-    countryClub: section(
-      'h3-country-club.jpg',
-      'Private golf community clubhouse and fairway in Summerlin West',
-    ),
-    vistas: section(
-      'h3-vistas.jpg',
-      'Established Summerlin West village with trails and two-story homes',
-    ),
-    stonebridge: section(
-      'h3-stonebridge.jpg',
-      'Newer desert-modern homes on a quiet Summerlin West street',
-    ),
+    downtown: duffy('h3-downtown', 'downtown Las Vegas access'),
+    airport: duffy('h3-airport', 'airport access'),
+    transit: duffy('h3-transit', 'transit options'),
+    arterial: duffy('h3-arterial', 'arterial roads'),
+    hub: duffy('h3-hub', 'west-valley hubs'),
+    scenic: duffy('h3-scenic', 'scenic desert drives'),
+    highway: duffy('h3-highway', 'beltway commuting'),
+    golf: duffy('h3-golf', 'golf communities'),
+    outdoor: duffy('h3-outdoor', 'outdoor recreation'),
+    shopping: duffy('h3-shopping', 'Summerlin shopping'),
+    price: duffy('h3-price', 'pricing context'),
+    timing: duffy('h3-timing', 'timing a sale or purchase'),
+    stats: duffy('h3-stats', 'market statistics'),
+    search: duffy('h3-search', 'listing search tools'),
+    ridges: duffy('h3-ridges', 'The Ridges'),
+    summit: duffy('h3-summit', 'The Summit'),
+    countryClub: duffy('h3-country-club', 'Red Rock Country Club'),
+    vistas: duffy('h3-vistas', 'Summerlin village living'),
+    stonebridge: duffy('h3-stonebridge', 'newer Summerlin villages'),
   },
   amenities: {
-    tpcGolf: {
-      src: mediaUrl('/images/amenities/tpc-golf.jpg'),
-      alt: 'Championship golf hole with water and Red Rock Canyon in Las Vegas',
-    },
-    redRock: {
-      src: mediaUrl('/images/amenities/red-rock.jpg'),
-      alt: 'Red Rock Canyon sandstone cliffs and scenic desert road',
-    },
-    downtownSummerlin: {
-      src: mediaUrl('/images/amenities/downtown-summerlin.jpg'),
-      alt: 'Palm-lined plaza at Downtown Summerlin in Las Vegas',
-    },
-    ridgesGolf: {
-      src: mediaUrl('/images/amenities/ridges-golf.jpg'),
-      alt: 'Private golf clubhouse on a ridge in Summerlin West Las Vegas',
-    },
-    hospital: {
-      src: mediaUrl('/images/amenities/summerlin-hospital.jpg'),
-      alt: 'Modern medical campus exterior in Summerlin Las Vegas',
-    },
-    casino: {
-      src: mediaUrl('/images/amenities/red-rock-casino.jpg'),
-      alt: 'Luxury west Las Vegas resort exterior at dusk',
-    },
-    library: {
-      src: mediaUrl('/images/amenities/summerlin-library.jpg'),
-      alt: 'Contemporary public library exterior in Summerlin Las Vegas',
-    },
-    summitClub: {
-      src: mediaUrl('/images/amenities/summit-club.jpg'),
-      alt: 'Fine-dining room with panoramic mountain views in Summerlin West',
-    },
+    tpcGolf: duffy('amenities-tpc-golf', 'TPC golf in Summerlin'),
+    redRock: duffy('amenities-red-rock', 'Red Rock Canyon access'),
+    downtownSummerlin: duffy(
+      'amenities-downtown-summerlin',
+      'Downtown Summerlin',
+    ),
+    ridgesGolf: duffy('amenities-ridges-golf', 'The Ridges golf'),
+    hospital: duffy('amenities-hospital', 'nearby medical campuses'),
+    casino: duffy('amenities-casino', 'west-valley resort amenities'),
+    library: duffy('amenities-library', 'Summerlin library access'),
+    summitClub: duffy('amenities-summit-club', 'The Summit Club area'),
   },
   schools: {
-    high: {
-      src: mediaUrl('/images/schools/high.jpg'),
-      alt: 'Public high school campus and athletic field in Las Vegas',
-    },
-    middle: {
-      src: mediaUrl('/images/schools/middle.jpg'),
-      alt: 'Middle school courtyard and classroom buildings in Las Vegas',
-    },
-    elementary: {
-      src: mediaUrl('/images/schools/elementary.jpg'),
-      alt: 'Elementary campus buildings and playground in Las Vegas',
-    },
-    private: {
-      src: mediaUrl('/images/schools/private.jpg'),
-      alt: 'Private school campus buildings and landscaped quad in Las Vegas',
-    },
-    collegePrep: {
-      src: mediaUrl('/images/schools/college-prep.jpg'),
-      alt: 'College-preparatory academic building in Las Vegas',
-    },
+    high: duffy('schools-high', 'high school zoning and commute'),
+    middle: duffy('schools-middle', 'middle school commute'),
+    elementary: duffy('schools-elementary', 'elementary school commute'),
+    private: duffy('schools-private', 'private school options'),
+    collegePrep: duffy('schools-college-prep', 'college-prep campuses'),
   },
 } as const;

@@ -28,7 +28,22 @@ Do not orange-cloud the Vercel site hostname. Only the R2 media host should be p
 - `twitter-image-summerlin-west-homes.jpg` — Twitter card
 - `logo-summerlin-west-homes.png` — schema logo
 
-## Section library
+## Dr. Jan Duffy portraits
+
+Unique section portraits live in `dr-duffy/`. Each file is a distinct crop, color grade, canvas, and JPEG encode so Google does not treat them as one duplicate image.
+
+Regenerate with:
+
+```bash
+npm run generate:duffy-images
+```
+
+- `source-dr-jan-duffy.jpg` — original studio portrait
+- `h1-*.jpg` / `h2-*.jpg` / `h3-*.jpg` — heading slots
+- `amenities-*.jpg` / `schools-*.jpg` / `service-*.jpg` — card slots
+- `header-portrait.jpg` — site header
+
+Do not reuse one file across sections.
 
 - `sections/h1-*.jpg` — page-level H1 heroes
 - `sections/h2-*.jpg` — section H2 banners

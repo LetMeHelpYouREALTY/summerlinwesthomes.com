@@ -89,7 +89,7 @@ export default function OfficePage() {
         }}
       />
       <PageHero
-        image={headingImages.h1.about}
+        image={headingImages.h1.office}
         title="Summerlin Real Estate office"
         subtitle={`${BUSINESS.streetAddress}, ${BUSINESS.addressLocality}, ${BUSINESS.addressRegion} ${BUSINESS.postalCode}`}
       />

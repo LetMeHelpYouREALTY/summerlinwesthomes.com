@@ -4,8 +4,10 @@ import type { CSSProperties } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, Home, Menu, Phone, X } from 'lucide-react';
+import Image from 'next/image';
+import { ChevronDown, Menu, Phone, X } from 'lucide-react';
 import { BUSINESS, telHref } from '@/lib/business';
+import { headingImages } from '@/lib/section-images';
 import { cn } from '@/lib/utils';
 
 /** Deepest brand navy + champagne — aligned with hero (`#0b1231`, `#d8c58e`) */
@@ -214,15 +216,13 @@ export default function SiteHeader() {
               prefetch={false}
               className="flex min-w-0 items-center gap-3"
             >
-              <div
-                className="shrink-0 rounded-xl border border-[#d8c58e]/40 p-2 shadow-md"
-                style={{
-                  background: `linear-gradient(135deg, ${brand.gold} 0%, #c4a86a 100%)`,
-                  boxShadow: '0 6px 20px -6px rgba(216, 197, 142, 0.45)',
-                }}
-              >
-                <Home className="h-6 w-6 text-[color:var(--hdr-navy)]" />
-              </div>
+              <Image
+                src={headingImages.header.src}
+                alt={headingImages.header.alt}
+                width={48}
+                height={48}
+                className="h-12 w-12 shrink-0 rounded-xl border border-[#d8c58e]/40 object-cover shadow-md"
+              />
               <div className="min-w-0 text-left">
                 <p className="truncate text-lg font-bold tracking-tight text-white sm:text-xl">
                   {BUSINESS.shortName}
