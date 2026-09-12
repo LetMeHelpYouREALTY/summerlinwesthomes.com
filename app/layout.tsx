@@ -38,7 +38,7 @@ declare global {
 
 const siteUrl = getSiteUrl();
 const heroImageUrl = absoluteMediaUrl(
-  '/images/dr-duffy/h1-home.jpg',
+  '/images/hero-summerlin-west-luxury-homes.jpg',
   siteUrl,
 );
 const logoImageUrl = absoluteMediaUrl(

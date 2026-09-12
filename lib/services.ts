@@ -1,4 +1,4 @@
-import { duffy, type HeadingImage } from '@/lib/section-images';
+import { headingImages, type HeadingImage } from '@/lib/section-images';
 import { BUSINESS } from '@/lib/business';
 
 export type ServiceGroupId =
@@ -91,7 +91,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/home-valuation',
     relatedLabel: 'Summerlin West home value context',
-    image: duffy('service-appraisals', 'appraisals'),
+    image: headingImages.h1.valuation,
   },
   {
     slug: 'comparative-real-estate-market-analysis',
@@ -120,7 +120,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/market-data',
     relatedLabel: 'Summerlin West market data',
-    image: duffy('service-comparative-real-estate-market-analysis', 'comparative real estate market analysis'),
+    image: headingImages.h2.market,
   },
   {
     slug: 'buying-agent-services',
@@ -149,7 +149,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/buying-guide',
     relatedLabel: 'Las Vegas home buying guide',
-    image: duffy('service-buying-agent-services', 'buying agent services'),
+    image: headingImages.h1.buying,
   },
   {
     slug: 'first-time-home-buyer-services',
@@ -178,7 +178,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/buying-guide',
     relatedLabel: 'Buyer guide for Summerlin West',
-    image: duffy('service-first-time-home-buyer-services', 'first time home buyer services'),
+    image: headingImages.h2.guide,
   },
   {
     slug: 'home-buying-sales',
@@ -207,7 +207,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/properties/search',
     relatedLabel: 'Search Summerlin West homes',
-    image: duffy('service-home-buying-sales', 'home buying sales'),
+    image: headingImages.h1.listings,
   },
   {
     slug: 'condo-buying-sales-assistance',
@@ -236,7 +236,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/properties/search',
     relatedLabel: 'Search condos and townhomes',
-    image: duffy('service-condo-buying-sales-assistance', 'condo buying sales assistance'),
+    image: headingImages.h1.search,
   },
   {
     slug: 'relocation-assistance',
@@ -265,7 +265,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/villages',
     relatedLabel: 'Compare Summerlin West villages',
-    image: duffy('service-relocation-assistance', 'relocation assistance'),
+    image: headingImages.h1.transport,
   },
   {
     slug: 'luxury-property-buying-sales',
@@ -294,7 +294,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/listings',
     relatedLabel: 'Featured Summerlin West listings',
-    image: duffy('service-luxury-property-buying-sales', 'luxury property buying sales'),
+    image: headingImages.h1.home,
   },
   {
     slug: 'mortgage-lending-services',
@@ -323,7 +323,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/mortgage-calculator',
     relatedLabel: 'Mortgage payment calculator',
-    image: duffy('service-mortgage-lending-services', 'mortgage lending services'),
+    image: headingImages.h1.mortgage,
   },
   {
     slug: 'sellers-agent-services',
@@ -352,7 +352,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/sell-your-home',
     relatedLabel: 'Sell your Summerlin home',
-    image: duffy('service-sellers-agent-services', 'sellers agent services'),
+    image: headingImages.h1.sell,
   },
   {
     slug: 'home-staging',
@@ -381,7 +381,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/sell-your-home',
     relatedLabel: 'Seller listing plan',
-    image: duffy('service-home-staging', 'home staging'),
+    image: headingImages.h2.selling,
   },
   {
     slug: 'real-estate-photography',
@@ -410,7 +410,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/sell-your-home',
     relatedLabel: 'Prepare a Summerlin listing',
-    image: duffy('service-real-estate-photography', 'real estate photography'),
+    image: headingImages.h2.featured,
   },
   {
     slug: 'real-estate-marketing',
@@ -439,7 +439,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/sell-your-home',
     relatedLabel: 'Seller marketing path',
-    image: duffy('service-real-estate-marketing', 'real estate marketing'),
+    image: headingImages.h2.cta,
   },
   {
     slug: 'real-estate-sales',
@@ -468,7 +468,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/listings',
     relatedLabel: 'Current listings',
-    image: duffy('service-real-estate-sales', 'real estate sales'),
+    image: headingImages.h2.listings,
   },
   {
     slug: 'real-estate-sales-management',
@@ -497,7 +497,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/sell-your-home',
     relatedLabel: 'Seller process overview',
-    image: duffy('service-real-estate-sales-management', 'real estate sales management'),
+    image: headingImages.h2.consult,
   },
   {
     slug: 'foreclosed-property-sales',
@@ -526,7 +526,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/properties/search',
     relatedLabel: 'Search live inventory',
-    image: duffy('service-foreclosed-property-sales', 'foreclosed property sales'),
+    image: headingImages.h2.homeValue,
   },
   {
     slug: 'property-auctions',
@@ -555,7 +555,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/market-data',
     relatedLabel: 'Local market context',
-    image: duffy('service-property-auctions', 'property auctions'),
+    image: headingImages.h3.timing,
   },
   {
     slug: 'building-lot-sales',
@@ -584,7 +584,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/villages',
     relatedLabel: 'Summerlin West villages',
-    image: duffy('service-building-lot-sales', 'building lot sales'),
+    image: headingImages.h3.stonebridge,
   },
   {
     slug: 'land-buying-sales',
@@ -613,7 +613,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/villages',
     relatedLabel: 'Village and lot context',
-    image: duffy('service-land-buying-sales', 'land buying sales'),
+    image: headingImages.h1.villages,
   },
   {
     slug: 'land-leasing-sales',
@@ -642,7 +642,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/market-data',
     relatedLabel: 'West-valley market notes',
-    image: duffy('service-land-leasing-sales', 'land leasing sales'),
+    image: headingImages.h3.vistas,
   },
   {
     slug: 'new-construction-sales-leasing',
@@ -671,7 +671,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/listings',
     relatedLabel: 'See current inventory',
-    image: duffy('service-new-construction-sales-leasing', 'new construction sales leasing'),
+    image: headingImages.h3.ridges,
   },
   {
     slug: 'new-construction-services',
@@ -700,7 +700,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/summerlin-west-villages-comparison',
     relatedLabel: 'Compare villages',
-    image: duffy('service-new-construction-services', 'new construction services'),
+    image: headingImages.h3.summit,
   },
   {
     slug: 'commercial-property-buying-sales',
@@ -729,7 +729,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/amenities',
     relatedLabel: 'West-side commercial context',
-    image: duffy('service-commercial-property-buying-sales', 'commercial property buying sales'),
+    image: headingImages.h2.amenities,
   },
   {
     slug: 'office-space-leasing',
@@ -758,7 +758,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/transportation',
     relatedLabel: 'West-valley access',
-    image: duffy('service-office-space-leasing', 'office space leasing'),
+    image: headingImages.h3.hub,
   },
   {
     slug: 'warehouse-property-sales',
@@ -787,7 +787,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/transportation',
     relatedLabel: 'Freight and commute routes',
-    image: duffy('service-warehouse-property-sales', 'warehouse property sales'),
+    image: headingImages.h3.arterial,
   },
   {
     slug: 'real-estate-investing',
@@ -816,7 +816,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/market-data',
     relatedLabel: 'Market data for investors',
-    image: duffy('service-real-estate-investing', 'real estate investing'),
+    image: headingImages.h1.market,
   },
   {
     slug: 'real-estate-investment-consulting',
@@ -845,7 +845,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/summerlin-west-market-snapshot',
     relatedLabel: 'Market snapshot',
-    image: duffy('service-real-estate-investment-consulting', 'real estate investment consulting'),
+    image: headingImages.h1.marketSnapshot,
   },
   {
     slug: 'real-estate-development',
@@ -874,7 +874,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/villages',
     relatedLabel: 'Village map and growth',
-    image: duffy('service-real-estate-development', 'real estate development'),
+    image: headingImages.h2.villages,
   },
   {
     slug: 'real-estate-development-consulting',
@@ -903,7 +903,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/about',
     relatedLabel: 'Local team context',
-    image: duffy('service-real-estate-development-consulting', 'real estate development consulting'),
+    image: headingImages.h2.consult,
   },
   {
     slug: 'property-rentals',
@@ -932,7 +932,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/properties/search',
     relatedLabel: 'Browse current homes',
-    image: duffy('service-property-rentals', 'property rentals'),
+    image: headingImages.h2.search,
   },
   {
     slug: 'property-leasing',
@@ -961,7 +961,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/listings',
     relatedLabel: 'Current property inventory',
-    image: duffy('service-property-leasing', 'property leasing'),
+    image: headingImages.h3.price,
   },
   {
     slug: 'property-rental-assistance',
@@ -990,7 +990,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/buying-guide',
     relatedLabel: 'If you may buy later',
-    image: duffy('service-property-rental-assistance', 'property rental assistance'),
+    image: headingImages.h2.financing,
   },
   {
     slug: 'furnished-property-rentals-sales',
@@ -1019,7 +1019,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/home-valuation',
     relatedLabel: 'Value a turnkey home',
-    image: duffy('service-furnished-property-rentals-sales', 'furnished property rentals sales'),
+    image: headingImages.h3.shopping,
   },
   {
     slug: 'short-term-property-rentals',
@@ -1048,7 +1048,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/amenities',
     relatedLabel: 'Visitor and amenity context',
-    image: duffy('service-short-term-property-rentals', 'short term property rentals'),
+    image: headingImages.h3.outdoor,
   },
   {
     slug: 'property-management',
@@ -1077,7 +1077,7 @@ export const SERVICES: readonly Service[] = [
     ],
     relatedHref: '/sell-your-home',
     relatedLabel: 'If you later decide to sell',
-    image: duffy('service-property-management', 'property management'),
+    image: headingImages.h2.testimonials,
   },
 ];
 

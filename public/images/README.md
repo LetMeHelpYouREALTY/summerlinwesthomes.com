@@ -28,22 +28,9 @@ Do not orange-cloud the Vercel site hostname. Only the R2 media host should be p
 - `twitter-image-summerlin-west-homes.jpg` — Twitter card
 - `logo-summerlin-west-homes.png` — schema logo
 
-## Dr. Jan Duffy portraits
+## Section photographs
 
-Unique section portraits live in `dr-duffy/`. Each file is a distinct crop, color grade, canvas, and JPEG encode so Google does not treat them as one duplicate image.
-
-Regenerate with:
-
-```bash
-npm run generate:duffy-images
-```
-
-- `source-dr-jan-duffy.jpg` — original studio portrait
-- `h1-*.jpg` / `h2-*.jpg` / `h3-*.jpg` — heading slots
-- `amenities-*.jpg` / `schools-*.jpg` / `service-*.jpg` — card slots
-- `header-portrait.jpg` — site header
-
-Do not reuse one file across sections.
+These are the primary heading, amenity, school, commute, and lifestyle photos:
 
 - `sections/h1-*.jpg` — page-level H1 heroes
 - `sections/h2-*.jpg` — section H2 banners
@@ -54,3 +41,7 @@ Do not reuse one file across sections.
 - `lifestyle/` — golf, outdoor, shopping
 
 Images are wired through `lib/section-images.ts`, `lib/media-url.ts`, and `components/media/heading-media.tsx`.
+
+## Dr. Jan Duffy portrait
+
+The studio portrait is used in the site header only (`dr-duffy/source-dr-jan-duffy.jpg`). Section headings keep the photographs above, not generated Duffy composites.
