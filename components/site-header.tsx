@@ -210,25 +210,28 @@ export default function SiteHeader() {
         )}
       >
         <div className="container mx-auto px-4">
-          <div className="flex h-[4.25rem] items-center justify-between sm:h-20">
+          <div className="flex items-center justify-between gap-4 py-3">
             <Link
               href="/"
               prefetch={false}
-              className="flex min-w-0 items-center gap-3"
+              className="flex shrink-0 items-center gap-3"
             >
               <Image
                 src={headingImages.header.src}
                 alt={headingImages.header.alt}
-                width={48}
-                height={48}
-                className="h-12 w-12 shrink-0 rounded-xl border border-[#d8c58e]/40 object-cover shadow-md"
+                width={56}
+                height={56}
+                className="h-12 w-12 shrink-0 rounded-full border border-[#d8c58e]/50 object-cover object-top shadow-md sm:h-14 sm:w-14"
               />
-              <div className="min-w-0 text-left">
-                <p className="truncate text-lg font-bold tracking-tight text-white sm:text-xl">
+              <div className="text-left">
+                <p
+                  className="whitespace-nowrap text-base font-bold tracking-tight sm:text-lg"
+                  style={{ color: '#ffffff' }}
+                >
                   {BUSINESS.shortName}
                 </p>
                 <p
-                  className="truncate text-[11px] font-medium uppercase tracking-[0.12em] sm:text-xs"
+                  className="text-[11px] font-medium uppercase tracking-wide sm:whitespace-nowrap sm:tracking-[0.12em] sm:text-xs"
                   style={{ color: brand.gold }}
                 >
                   {BUSINESS.tagline}
@@ -236,53 +239,10 @@ export default function SiteHeader() {
               </div>
             </Link>
 
-            <nav
-              className="hidden items-center gap-5 xl:gap-6 lg:flex"
-              aria-label="Main"
-              onMouseEnter={cancelDesktopNavCloseTimer}
-              onMouseLeave={scheduleDesktopNavClose}
-            >
-              {PRIMARY_NAV.map((item) => {
-                const active = navItemActive(pathname, item.href);
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    prefetch={false}
-                    onMouseEnter={() => setDesktopMenuOpen(null)}
-                    className={cn(
-                      'border-b-2 pb-1 text-sm font-medium transition-colors duration-150 xl:text-base',
-                      active
-                        ? 'border-[color:var(--hdr-gold)] text-[color:var(--hdr-gold)]'
-                        : 'border-transparent text-white/85 hover:border-[color:var(--hdr-gold-muted)] hover:text-[color:var(--hdr-gold-hover)]'
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-              <NavDropdown
-                id="area"
-                label="Area"
-                items={NEIGHBORHOOD_NAV}
-                pathname={pathname}
-                openId={desktopMenuOpen}
-                setOpenId={setDesktopMenuOpen}
-              />
-              <NavDropdown
-                id="resources"
-                label="Resources"
-                items={RESOURCES_NAV}
-                pathname={pathname}
-                openId={desktopMenuOpen}
-                setOpenId={setDesktopMenuOpen}
-              />
-            </nav>
-
-            <div className="hidden items-center gap-4 lg:flex">
+            <div className="hidden shrink-0 items-center gap-4 xl:flex">
               <a
                 href={SITE_PHONE_TEL}
-                className="flex items-center gap-2 text-white/90 transition-colors hover:text-[color:var(--hdr-gold-hover)]"
+                className="flex items-center gap-2 whitespace-nowrap text-white/90 transition-colors hover:text-[color:var(--hdr-gold-hover)]"
               >
                 <Phone
                   className="h-4 w-4 shrink-0 text-[color:var(--hdr-gold)]"
@@ -295,7 +255,7 @@ export default function SiteHeader() {
               <a
                 href={CALENDLY_APPOINTMENT}
                 data-calendly-popup="appointment"
-                className="rounded-lg px-4 py-2 text-sm font-semibold text-[color:var(--hdr-navy)] shadow-md transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 xl:text-base"
+                className="whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold text-[color:var(--hdr-navy)] shadow-md transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 xl:text-base"
                 style={{
                   backgroundColor: brand.gold,
                   boxShadow: '0 4px 14px -4px rgba(216, 197, 142, 0.55)',
@@ -307,7 +267,7 @@ export default function SiteHeader() {
 
             <button
               type="button"
-              className="flex h-11 w-11 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10 lg:hidden"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10 xl:hidden"
               style={{ color: brand.gold }}
               onClick={() => setMobileOpen((o) => !o)}
               aria-expanded={mobileOpen ? 'true' : 'false'}
@@ -321,13 +281,57 @@ export default function SiteHeader() {
               )}
             </button>
           </div>
+
+          <nav
+            className="hidden items-center justify-center gap-5 border-t py-2.5 xl:flex xl:gap-7"
+            style={{ borderColor: brand.goldMuted }}
+            aria-label="Main"
+            onMouseEnter={cancelDesktopNavCloseTimer}
+            onMouseLeave={scheduleDesktopNavClose}
+          >
+            {PRIMARY_NAV.map((item) => {
+              const active = navItemActive(pathname, item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  prefetch={false}
+                  onMouseEnter={() => setDesktopMenuOpen(null)}
+                  className={cn(
+                    'border-b-2 pb-1 text-sm font-medium transition-colors duration-150',
+                    active
+                      ? 'border-[color:var(--hdr-gold)] text-[color:var(--hdr-gold)]'
+                      : 'border-transparent text-white/85 hover:border-[color:var(--hdr-gold-muted)] hover:text-[color:var(--hdr-gold-hover)]'
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <NavDropdown
+              id="area"
+              label="Area"
+              items={NEIGHBORHOOD_NAV}
+              pathname={pathname}
+              openId={desktopMenuOpen}
+              setOpenId={setDesktopMenuOpen}
+            />
+            <NavDropdown
+              id="resources"
+              label="Resources"
+              items={RESOURCES_NAV}
+              pathname={pathname}
+              openId={desktopMenuOpen}
+              setOpenId={setDesktopMenuOpen}
+            />
+          </nav>
         </div>
       </div>
 
       {mobileOpen && (
         <div
           id="site-mobile-nav"
-          className="fixed inset-x-0 bottom-0 top-[4.25rem] z-50 flex flex-col border-t sm:top-20"
+          className="absolute inset-x-0 top-full z-50 flex max-h-[calc(100dvh-5.5rem)] flex-col border-t xl:hidden"
           style={{
             backgroundColor: brand.navy,
             borderColor: brand.goldMuted,
