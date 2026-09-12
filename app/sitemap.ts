@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next';
-import { getSiteUrl } from '@/lib/site-url';
+import { CANONICAL_SITE_URL } from '@/lib/site-url';
 import { SERVICES, servicePath } from '@/lib/services';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = getSiteUrl();
+  const baseUrl = CANONICAL_SITE_URL;
 
   const currentDate = new Date();
   const yesterday = new Date(currentDate.getTime() - 24 * 60 * 60 * 1000);
