@@ -68,21 +68,18 @@ function HomePage() {
           className="object-cover"
           sizes="100vw"
         />
-        {/* Color and contrast overlays */}
-        <div className="absolute inset-0 bg-[#0b1231]/50" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1231]/15 via-[#0b1231]/40 to-[#0b1231]/75" />
+        <div className="absolute inset-0 bg-[#050b25]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050b25] via-[#050b25]/70 to-[#050b25]/25" />
 
         {/* Hero content */}
         <div className="relative z-10 mx-auto w-full max-w-5xl px-6 pb-16 pt-32 text-center text-white md:pb-24 md:pt-40">
-          <h1
-            className="luxury-hero-title mx-auto mb-6 max-w-4xl text-balance text-5xl leading-[0.92] md:text-7xl"
-          >
-            <span className="mb-4 block text-base font-semibold uppercase tracking-[0.14em] text-white/90 md:text-xl">
+          <h1 className="luxury-hero-title mx-auto mb-6 max-w-4xl text-balance text-5xl leading-[0.92] text-white md:text-7xl">
+            <span className="mb-4 block text-base font-semibold uppercase tracking-[0.14em] text-white md:text-xl">
               Summerlin Real Estate · Las Vegas
             </span>
             YOUR NEXT CHAPTER.
           </h1>
-          <p className="mx-auto mb-10 max-w-3xl text-lg font-medium text-white/90 md:text-3xl">
+          <p className="luxury-hero-copy mx-auto mb-10 max-w-3xl text-lg font-medium text-white md:text-3xl">
             Buyers, sellers, and investors across Summerlin, Las Vegas,
             Henderson, and Clark County. Call {BUSINESS.phoneDisplay}.
           </p>
@@ -94,7 +91,7 @@ function HomePage() {
                 'noopener,noreferrer'
               )
             }
-            className="inline-flex items-center justify-center rounded-full bg-[#0b1231] px-10 py-4 text-xl font-semibold tracking-tight text-white shadow-2xl ring-1 ring-white/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#101c49]"
+            className="inline-flex items-center justify-center rounded-full bg-[#e8d5a3] px-10 py-4 text-xl font-semibold tracking-tight text-[#050b25] shadow-2xl ring-1 ring-white/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#f3e6c0]"
           >
             Explore Listings
           </button>

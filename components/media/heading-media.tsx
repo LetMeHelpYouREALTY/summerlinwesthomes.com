@@ -41,7 +41,7 @@ export function PageHero({
         sizes="100vw"
       />
       <div
-        className={cn('absolute inset-0 bg-[#0b1231]/55', overlayClassName)}
+        className={cn('absolute inset-0 bg-[#0b1231]/70', overlayClassName)}
       />
       <div
         className={cn(
@@ -49,11 +49,11 @@ export function PageHero({
           contentClassName,
         )}
       >
-        <h1 className="mb-6 max-w-5xl text-balance text-4xl font-bold md:text-6xl">
+        <h1 className="mb-6 max-w-5xl text-balance text-4xl font-bold text-white md:text-6xl">
           {title}
         </h1>
         {subtitle ? (
-          <p className="mx-auto mb-8 max-w-3xl text-xl text-white/90 md:text-2xl">
+          <p className="mx-auto mb-8 max-w-3xl text-xl font-medium text-white md:text-2xl">
             {subtitle}
           </p>
         ) : null}
@@ -141,13 +141,13 @@ export function OverlayHeadingSection({
         className="object-cover object-center"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-[#0b1231]/62" />
+      <div className="absolute inset-0 bg-[#0b1231]/75" />
       <div className="relative z-10 container mx-auto px-4 text-center">
         <Tag className="mb-4 text-3xl font-bold text-white md:text-4xl">
           {title}
         </Tag>
         {subtitle ? (
-          <p className="mx-auto mb-8 max-w-2xl text-white/90">{subtitle}</p>
+          <p className="mx-auto mb-8 max-w-2xl font-medium text-white">{subtitle}</p>
         ) : null}
         {children}
       </div>
