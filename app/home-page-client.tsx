@@ -18,7 +18,7 @@ import {
   TrendingUp,
   Map,
 } from 'lucide-react';
-import { BUSINESS, telHref } from '@/lib/business';
+import { BUSINESS, googleReviewsUrl, telHref } from '@/lib/business';
 import { cn } from '@/lib/utils';
 import { ProgressiveOnboarding } from '@/components/ProgressiveOnboarding';
 import { OnboardingProvider } from '@/components/OnboardingContext';
@@ -82,13 +82,13 @@ function HomePage() {
             className="luxury-hero-title mx-auto mb-6 max-w-4xl text-balance text-5xl leading-[0.92] md:text-7xl"
           >
             <span className="mb-4 block text-base font-semibold uppercase tracking-[0.14em] text-white/90 md:text-xl">
-              Summerlin homes for sale · Las Vegas real estate listings
+              Sun City Summerlin 55+ homes · Las Vegas
             </span>
-            YOUR SUMMERLIN LEGACY.
+            YOUR NEXT CHAPTER.
           </h1>
           <p className="mx-auto mb-10 max-w-3xl text-lg font-medium text-white/90 md:text-3xl">
-            Leverage our specialized market expertise to own the season in
-            Summerlin West—live Las Vegas homes inventory at your fingertips.
+            Age-qualified Sun City Summerlin real estate with 25+ years in
+            active-adult communities. Call {BUSINESS.phoneDisplay}.
           </p>
           <button
             onClick={() =>
@@ -538,7 +538,7 @@ function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div>
             <h4 className="mb-4 font-bold text-amber-400">
-              Summerlin West Homes
+              {BUSINESS.shortName}
             </h4>
             <p className="text-sm text-gray-400">
               Your trusted partner in luxury real estate
@@ -688,12 +688,23 @@ function Footer() {
               <a href={telHref} className="hover:text-white">
                 {BUSINESS.phoneDisplay}
               </a>
+              <br />
+              <a
+                href={googleReviewsUrl}
+                className="hover:text-white"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                View Google Reviews
+              </a>
             </p>
           </div>
         </div>
 
         <div className="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-          <p>Local experts for Summerlin West real estate and relocation support.</p>
+          <p>
+            Sun City Summerlin 55+ real estate and west Las Vegas representation.
+          </p>
         </div>
       </div>
     </footer>

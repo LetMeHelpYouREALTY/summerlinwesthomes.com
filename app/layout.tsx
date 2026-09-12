@@ -4,7 +4,14 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { BUSINESS, mapsUrl } from '@/lib/business';
+import {
+  AREA_SERVED,
+  AVAILABLE_LANGUAGES,
+  BUSINESS,
+  SOCIAL_PROFILES,
+  SPECIAL_HOURS,
+  mapsUrl,
+} from '@/lib/business';
 import { absoluteMediaUrl } from '@/lib/media-url';
 import { defaultTwitter, openGraphWebsite } from '@/lib/open-graph';
 import { getSiteUrl } from '@/lib/site-url';
@@ -71,22 +78,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    template: '%s | Summerlin West Homes',
-    default: 'Luxury Real Estate in Summerlin West, Las Vegas',
+    template: '%s | Sun City Summerlin 55+ Real Estate',
+    default: 'Sun City Summerlin 55+ Homes | Las Vegas Real Estate',
   },
-  description:
-    'Luxury Summerlin West real estate: homes for sale, local market insight, villages, amenities, schools, and buying or selling guidance in Las Vegas, Nevada.',
+  description: BUSINESS.description,
   keywords: [
-    'Summerlin West Homes',
+    'Sun City Summerlin',
+    '55+ homes Las Vegas',
+    'active adult real estate',
     'Las Vegas Real Estate',
-    'Luxury Homes',
-    'Summerlin Properties',
-    'Nevada Real Estate',
-    'Las Vegas Homes for Sale',
+    'Dr. Jan Duffy',
+    'Summerlin West',
   ],
-  authors: [{ name: 'Summerlin West Homes' }],
-  creator: 'Summerlin West Homes',
-  publisher: 'Summerlin West Homes',
+  authors: [{ name: BUSINESS.name }],
+  creator: BUSINESS.name,
+  publisher: BUSINESS.name,
   formatDetection: {
     email: false,
     address: false,
@@ -182,9 +188,8 @@ export default function RootLayout({
               '@type': ['RealEstateAgent', 'LocalBusiness'],
               '@id': `${siteUrl}/#organization`,
               name: BUSINESS.name,
-              alternateName: 'Summerlin West Luxury Real Estate',
-              description:
-                'Premier luxury real estate agency specializing in Summerlin West, Las Vegas. Expert agents with deep local market knowledge and personalized service for discerning buyers and sellers.',
+              alternateName: 'Homes by Dr. Jan Duffy',
+              description: BUSINESS.description,
               url: siteUrl,
               logo: {
                 '@type': 'ImageObject',
@@ -214,18 +219,8 @@ export default function RootLayout({
                 latitude: BUSINESS.latitude,
                 longitude: BUSINESS.longitude,
               },
-              areaServed: [
-                {
-                  '@type': 'City',
-                  name: 'Las Vegas',
-                  sameAs: 'https://en.wikipedia.org/wiki/Las_Vegas',
-                },
-                {
-                  '@type': 'Place',
-                  name: 'Summerlin West',
-                  description: 'Premier master-planned community in Las Vegas',
-                },
-              ],
+              foundingDate: BUSINESS.foundingDate,
+              areaServed: [...AREA_SERVED],
               serviceArea: {
                 '@type': 'GeoCircle',
                 geoMidpoint: {
@@ -236,12 +231,13 @@ export default function RootLayout({
                 geoRadius: '15000',
               },
               openingHours: [...BUSINESS.openingHours],
+              specialOpeningHoursSpecification: [...SPECIAL_HOURS],
               contactPoint: [
                 {
                   '@type': 'ContactPoint',
                   telephone: BUSINESS.phoneSchema,
                   contactType: 'customer service',
-                  availableLanguage: 'English',
+                  availableLanguage: [...AVAILABLE_LANGUAGES],
                   hoursAvailable: {
                     '@type': 'OpeningHoursSpecification',
                     dayOfWeek: [
@@ -258,11 +254,45 @@ export default function RootLayout({
                   },
                 },
               ],
-              sameAs: [
-                'https://www.facebook.com/summerlinwesthomes',
-                'https://www.instagram.com/summerlinwesthomes',
-                'https://www.linkedin.com/company/summerlin-west-homes',
-                'https://www.youtube.com/@summerlinwesthomes',
+              sameAs: [...SOCIAL_PROFILES],
+              amenityFeature: [
+                {
+                  '@type': 'LocationFeatureSpecification',
+                  name: 'Wheelchair accessible entrance',
+                  value: true,
+                },
+                {
+                  '@type': 'LocationFeatureSpecification',
+                  name: 'Wheelchair accessible parking lot',
+                  value: true,
+                },
+                {
+                  '@type': 'LocationFeatureSpecification',
+                  name: 'Wheelchair accessible restroom',
+                  value: true,
+                },
+                {
+                  '@type': 'LocationFeatureSpecification',
+                  name: 'Wheelchair accessible seating',
+                  value: true,
+                },
+                {
+                  '@type': 'LocationFeatureSpecification',
+                  name: 'Free parking lot',
+                  value: true,
+                },
+              ],
+              additionalProperty: [
+                {
+                  '@type': 'PropertyValue',
+                  name: 'Veteran-owned',
+                  value: 'True',
+                },
+                {
+                  '@type': 'PropertyValue',
+                  name: 'Women-owned',
+                  value: 'True',
+                },
               ],
               hasOfferCatalog: {
                 '@type': 'OfferCatalog',
@@ -308,12 +338,10 @@ export default function RootLayout({
                 'Wire Transfer',
               ],
               knowsAbout: [
+                'Sun City Summerlin 55+ real estate',
+                'Active adult communities',
                 'Summerlin West Real Estate Market',
-                'Luxury Home Sales',
-                'Golf Course Properties',
-                'New Construction',
-                'Investment Properties',
-                'Las Vegas Luxury Market',
+                'Las Vegas luxury and move-up homes',
               ],
               communities: [
                 {
@@ -344,7 +372,7 @@ export default function RootLayout({
               '@type': 'WebSite',
               '@id': `${siteUrl}/#website`,
               url: siteUrl,
-              name: 'Summerlin West Homes',
+              name: BUSINESS.name,
               publisher: { '@id': `${siteUrl}/#organization` },
               potentialAction: {
                 '@type': 'SearchAction',

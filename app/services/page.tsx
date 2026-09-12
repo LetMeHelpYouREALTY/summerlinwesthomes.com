@@ -7,7 +7,7 @@ import { PageHero } from '@/components/media/heading-media';
 
 const title = 'Real Estate Services in Summerlin West | Las Vegas';
 const description =
-  'Buyer, seller, land, commercial, rental, and consulting services for Summerlin West. Call (702) 842-0410.';
+  'Buyer, seller, land, commercial, rental, and consulting services for Sun City Summerlin and west Las Vegas. Call (702) 718-0043.';
 
 export const metadata: Metadata = {
   title,

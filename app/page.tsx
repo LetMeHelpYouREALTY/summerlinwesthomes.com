@@ -3,11 +3,11 @@ import { openGraphWebsite } from '@/lib/open-graph';
 import HomePageClient from './home-page-client';
 
 const homeTitle =
-  'Summerlin Homes for Sale | Las Vegas Homes & Real Estate Listings';
+  'Sun City Summerlin 55+ Homes | Las Vegas Real Estate';
 const homeDescription =
-  'Summerlin homes for sale and Las Vegas real estate listings in Summerlin West. Browse homes for sale in Summerlin, houses for sale in Summerlin Las Vegas, and expert buyer guidance.';
+  'Find 55+ homes in Sun City Summerlin, Las Vegas, with Dr. Jan Duffy. Age-qualified active-adult real estate since 2013. Call (702) 718-0043.';
 const homeOgDescription =
-  'Summerlin homes for sale and Las Vegas real estate listings in Summerlin West. Browse homes for sale in Summerlin and houses for sale in Summerlin Las Vegas.';
+  'Sun City Summerlin 55+ real estate in Las Vegas. Homes by Dr. Jan Duffy — active-adult community representation since 2013.';
 
 export const metadata: Metadata = {
   title: {

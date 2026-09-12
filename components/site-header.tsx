@@ -223,13 +223,13 @@ export default function SiteHeader() {
               </div>
               <div className="min-w-0 text-left">
                 <p className="truncate text-lg font-bold tracking-tight text-white sm:text-xl">
-                  Summerlin West
+                  {BUSINESS.shortName}
                 </p>
                 <p
                   className="truncate text-[11px] font-medium uppercase tracking-[0.12em] sm:text-xs"
                   style={{ color: brand.gold }}
                 >
-                  Luxury Real Estate
+                  {BUSINESS.tagline}
                 </p>
               </div>
             </Link>

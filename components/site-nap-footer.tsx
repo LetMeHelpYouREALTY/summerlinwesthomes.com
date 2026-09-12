@@ -2,8 +2,9 @@ import {
   BUSINESS,
   BUSINESS_ADDRESS_LINE,
   directionsUrl,
+  googleReviewsUrl,
   mapsEmbedUrl,
-  mapsUrl,
+  smsHref,
   telHref,
 } from '@/lib/business';
 
@@ -23,6 +24,10 @@ export default function SiteNapFooter() {
           Call {BUSINESS.phoneDisplay}
         </a>
         <span aria-hidden="true">|</span>
+        <a href={smsHref} className="underline-offset-2 hover:underline">
+          Text
+        </a>
+        <span aria-hidden="true">|</span>
         <a
           href={directionsUrl}
           className="underline-offset-2 hover:underline"
@@ -33,12 +38,12 @@ export default function SiteNapFooter() {
         </a>
         <span aria-hidden="true">|</span>
         <a
-          href={mapsUrl}
+          href={googleReviewsUrl}
           className="underline-offset-2 hover:underline"
           rel="noopener noreferrer"
           target="_blank"
         >
-          View on Google Maps
+          View Google Reviews
         </a>
       </div>
       <div className="mx-auto mt-4 max-w-xl overflow-hidden rounded-xl border border-gray-200">

@@ -312,7 +312,7 @@ export const SERVICES: readonly Service[] = [
       {
         question: 'Do you originate loans in house?',
         answer:
-          'No. Dr. Jan Duffy and Summerlin West Homes provide real estate representation and connect you with licensed lenders for quotes.',
+          'No. Dr. Jan Duffy provides real estate representation and connects you with licensed lenders for quotes.',
       },
       {
         question: 'Can I compare a cash offer to a financed offer?',
@@ -1089,7 +1089,7 @@ export const SERVICE_INDEX_FAQS: readonly ServiceFaq[] = [
   {
     question: 'How do I start with Dr. Jan Duffy?',
     answer:
-      'Call (702) 842-0410 or book a consult. Bring the property address or the village you want to tour so the first call stays specific.',
+      'Call (702) 718-0043 or book a consult. Bring the property address or the village you want to tour so the first call stays specific.',
   },
 ];
 
