@@ -1,6 +1,25 @@
 # Site images for Summerlin West Homes
 
-Photographs in this directory replace the previous gradient and missing-file placeholders.
+Git is the backup for every photograph in this directory. Cloudflare R2 is the production store and CDN.
+
+Photographs replace the previous gradient and missing-file placeholders.
+
+## Serving
+
+- **Backup:** files in this folder, committed to git
+- **Production:** Cloudflare R2 object keys that match the public path (`images/...`)
+- **Local / unset env:** Next.js serves these files from `/images/...`
+
+Set `NEXT_PUBLIC_CLOUDFLARE_R2_URL` to the R2 public origin (an `https://pub-….r2.dev` URL or a dedicated media host). Leave it empty to keep serving the git copies.
+
+Upload or refresh the R2 copies with:
+
+```bash
+npx wrangler login
+npm run sync:images -- --create-bucket
+```
+
+Do not orange-cloud the Vercel site hostname. Only the R2 media host should be proxied by Cloudflare.
 
 ## Brand / social
 
@@ -19,4 +38,4 @@ Photographs in this directory replace the previous gradient and missing-file pla
 - `transport/` — commute cards
 - `lifestyle/` — golf, outdoor, shopping
 
-Images are wired through `lib/section-images.ts` and `components/media/heading-media.tsx`.
+Images are wired through `lib/section-images.ts`, `lib/media-url.ts`, and `components/media/heading-media.tsx`.

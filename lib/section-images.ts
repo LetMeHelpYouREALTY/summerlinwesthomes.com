@@ -1,17 +1,19 @@
+import { mediaUrl } from '@/lib/media-url';
+
 export type HeadingImage = {
   src: string;
   alt: string;
 };
 
 const section = (file: string, alt: string): HeadingImage => ({
-  src: `/images/sections/${file}`,
+  src: mediaUrl(`/images/sections/${file}`),
   alt,
 });
 
 export const headingImages = {
   h1: {
     home: {
-      src: '/images/hero-summerlin-west-luxury-homes.jpg',
+      src: mediaUrl('/images/hero-summerlin-west-luxury-homes.jpg'),
       alt: 'Luxury estate at dusk in Summerlin West Las Vegas with Red Rock Canyon beyond',
     },
     about: section(
@@ -147,43 +149,43 @@ export const headingImages = {
   },
   h3: {
     downtown: {
-      src: '/images/transport/downtown.jpg',
+      src: mediaUrl('/images/transport/downtown.jpg'),
       alt: 'Las Vegas skyline at dusk from a west-valley corridor',
     },
     airport: {
-      src: '/images/transport/airport.jpg',
+      src: mediaUrl('/images/transport/airport.jpg'),
       alt: 'Desert airport terminal and control tower at golden hour',
     },
     transit: {
-      src: '/images/transport/transit.jpg',
+      src: mediaUrl('/images/transport/transit.jpg'),
       alt: 'Landscaped transit stop in an upscale Las Vegas shopping district',
     },
     arterial: {
-      src: '/images/transport/arterial.jpg',
+      src: mediaUrl('/images/transport/arterial.jpg'),
       alt: 'Palm-lined arterial boulevard through Summerlin West Las Vegas',
     },
     hub: {
-      src: '/images/transport/hub.jpg',
+      src: mediaUrl('/images/transport/hub.jpg'),
       alt: 'Modern transit plaza with desert landscaping in Las Vegas',
     },
     scenic: {
-      src: '/images/transport/scenic.jpg',
+      src: mediaUrl('/images/transport/scenic.jpg'),
       alt: 'Red Rock Canyon scenic drive hugging sandstone cliffs',
     },
     highway: {
-      src: '/images/transport/highway.jpg',
+      src: mediaUrl('/images/transport/highway.jpg'),
       alt: 'Multi-lane Las Vegas beltway toward desert mountains',
     },
     golf: {
-      src: '/images/lifestyle/golf.jpg',
+      src: mediaUrl('/images/lifestyle/golf.jpg'),
       alt: 'Golf green with Red Rock Canyon behind in Summerlin West',
     },
     outdoor: {
-      src: '/images/lifestyle/outdoor.jpg',
+      src: mediaUrl('/images/lifestyle/outdoor.jpg'),
       alt: 'Desert hiking trail toward red sandstone cliffs near Las Vegas',
     },
     shopping: {
-      src: '/images/lifestyle/shopping.jpg',
+      src: mediaUrl('/images/lifestyle/shopping.jpg'),
       alt: 'Evening patio and boutique storefronts in Downtown Summerlin',
     },
     price: section(
@@ -225,57 +227,57 @@ export const headingImages = {
   },
   amenities: {
     tpcGolf: {
-      src: '/images/amenities/tpc-golf.jpg',
+      src: mediaUrl('/images/amenities/tpc-golf.jpg'),
       alt: 'Championship golf hole with water and Red Rock Canyon in Las Vegas',
     },
     redRock: {
-      src: '/images/amenities/red-rock.jpg',
+      src: mediaUrl('/images/amenities/red-rock.jpg'),
       alt: 'Red Rock Canyon sandstone cliffs and scenic desert road',
     },
     downtownSummerlin: {
-      src: '/images/amenities/downtown-summerlin.jpg',
+      src: mediaUrl('/images/amenities/downtown-summerlin.jpg'),
       alt: 'Palm-lined plaza at Downtown Summerlin in Las Vegas',
     },
     ridgesGolf: {
-      src: '/images/amenities/ridges-golf.jpg',
+      src: mediaUrl('/images/amenities/ridges-golf.jpg'),
       alt: 'Private golf clubhouse on a ridge in Summerlin West Las Vegas',
     },
     hospital: {
-      src: '/images/amenities/summerlin-hospital.jpg',
+      src: mediaUrl('/images/amenities/summerlin-hospital.jpg'),
       alt: 'Modern medical campus exterior in Summerlin Las Vegas',
     },
     casino: {
-      src: '/images/amenities/red-rock-casino.jpg',
+      src: mediaUrl('/images/amenities/red-rock-casino.jpg'),
       alt: 'Luxury west Las Vegas resort exterior at dusk',
     },
     library: {
-      src: '/images/amenities/summerlin-library.jpg',
+      src: mediaUrl('/images/amenities/summerlin-library.jpg'),
       alt: 'Contemporary public library exterior in Summerlin Las Vegas',
     },
     summitClub: {
-      src: '/images/amenities/summit-club.jpg',
+      src: mediaUrl('/images/amenities/summit-club.jpg'),
       alt: 'Fine-dining room with panoramic mountain views in Summerlin West',
     },
   },
   schools: {
     high: {
-      src: '/images/schools/high.jpg',
+      src: mediaUrl('/images/schools/high.jpg'),
       alt: 'Public high school campus and athletic field in Las Vegas',
     },
     middle: {
-      src: '/images/schools/middle.jpg',
+      src: mediaUrl('/images/schools/middle.jpg'),
       alt: 'Middle school courtyard and classroom buildings in Las Vegas',
     },
     elementary: {
-      src: '/images/schools/elementary.jpg',
+      src: mediaUrl('/images/schools/elementary.jpg'),
       alt: 'Elementary campus buildings and playground in Las Vegas',
     },
     private: {
-      src: '/images/schools/private.jpg',
+      src: mediaUrl('/images/schools/private.jpg'),
       alt: 'Private school campus buildings and landscaped quad in Las Vegas',
     },
     collegePrep: {
-      src: '/images/schools/college-prep.jpg',
+      src: mediaUrl('/images/schools/college-prep.jpg'),
       alt: 'College-preparatory academic building in Las Vegas',
     },
   },

@@ -1,8 +1,10 @@
+import type { CSSProperties, ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { absoluteMediaUrl } from '@/lib/media-url';
 import { getSiteUrl } from '@/lib/site-url';
 import GlobalRouteFaq from '@/components/seo/global-route-faq';
 import SiteHeader from '@/components/site-header';
@@ -26,6 +28,26 @@ declare global {
 }
 
 const siteUrl = getSiteUrl();
+const heroImageUrl = absoluteMediaUrl(
+  '/images/hero-summerlin-west-luxury-homes.jpg',
+  siteUrl,
+);
+const ogImageUrl = absoluteMediaUrl(
+  '/images/og-image-summerlin-west-homes.jpg',
+  siteUrl,
+);
+const ogImageWebpUrl = absoluteMediaUrl(
+  '/images/og-image-summerlin-west-homes.webp',
+  siteUrl,
+);
+const twitterImageUrl = absoluteMediaUrl(
+  '/images/twitter-image-summerlin-west-homes.jpg',
+  siteUrl,
+);
+const logoImageUrl = absoluteMediaUrl(
+  '/images/logo-summerlin-west-homes.png',
+  siteUrl,
+);
 const googleSiteVerification =
   process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
 
@@ -85,14 +107,14 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/og-image-summerlin-west-homes.jpg',
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: 'Summerlin West Homes - Luxury Real Estate in Las Vegas',
         type: 'image/jpeg',
       },
       {
-        url: '/images/og-image-summerlin-west-homes.webp',
+        url: ogImageWebpUrl,
         width: 1200,
         height: 630,
         alt: 'Summerlin West Homes - Luxury Real Estate in Las Vegas',
@@ -104,7 +126,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     images: [
       {
-        url: '/images/twitter-image-summerlin-west-homes.jpg',
+        url: twitterImageUrl,
         width: 1200,
         height: 630,
         alt: 'Summerlin West Homes - Luxury Real Estate in Las Vegas',
@@ -140,10 +162,18 @@ export const viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html
+      lang="en"
+      className="scroll-smooth"
+      style={
+        {
+          '--luxury-hero-image': `url('${heroImageUrl}')`,
+        } as CSSProperties
+      }
+    >
       <head>
         {/* Fonts are preloaded for performance */}
         <link
@@ -197,13 +227,13 @@ export default function RootLayout({
               url: siteUrl,
               logo: {
                 '@type': 'ImageObject',
-                url: `${siteUrl}/images/logo-summerlin-west-homes.png`,
+                url: logoImageUrl,
                 width: 300,
                 height: 100,
               },
               image: {
                 '@type': 'ImageObject',
-                url: `${siteUrl}/images/hero-summerlin-west-luxury-homes.jpg`,
+                url: heroImageUrl,
                 width: 1200,
                 height: 630,
               },

@@ -73,7 +73,10 @@ section {
 }
 
 .luxury-hero-bg {
-  background-image: url('/images/hero-summerlin-west-luxury-homes.jpg');
+  background-image: var(
+    --luxury-hero-image,
+    url('/images/hero-summerlin-west-luxury-homes.jpg')
+  );
 }
 
 .luxury-hero-title {

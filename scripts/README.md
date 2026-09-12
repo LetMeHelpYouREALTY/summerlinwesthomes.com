@@ -2,6 +2,8 @@
 
 These scripts automatically commit and push all changes to git after every update.
 
+Image backups in `public/images/` are uploaded to Cloudflare R2 with `npm run sync:images` (`scripts/sync-images-to-r2.mjs`).
+
 ## Available Scripts
 
 ### 1. PowerShell Script (`auto-push.ps1`)

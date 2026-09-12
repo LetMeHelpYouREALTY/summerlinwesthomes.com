@@ -21,6 +21,7 @@ This website showcases luxury properties in Summerlin West, providing potential 
 - **Forms**: React Hook Form + Zod validation
 - **Animations**: Framer Motion
 - **Deployment**: Vercel
+- **Image storage**: Cloudflare R2 (git copies under `public/images/` are the backup)
 
 ## 🛠️ Development Setup
 
@@ -55,8 +56,21 @@ npm run lint:fix     # Fix ESLint issues
 npm run type-check   # Run TypeScript type checking
 npm run format       # Format code with Prettier
 npm run verify:seo   # Print canonical URL inspection checklist
+npm run sync:images  # Upload public/images to Cloudflare R2
 npm run push         # Quick git push with automation
 ```
+
+### Image storage (Cloudflare R2 + git backup)
+
+Photographs in `public/images/` are committed to git as the backup. Production should serve them from a Cloudflare R2 bucket (`summerlinwest-homes-media`).
+
+1. Authenticate Wrangler (`npx wrangler login`, or set `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`).
+2. Create the bucket and upload: `npm run sync:images:create`
+3. Copy the public origin from `npx wrangler r2 bucket dev-url get summerlinwest-homes-media`.
+4. Set `NEXT_PUBLIC_CLOUDFLARE_R2_URL` on Vercel (for example `https://pub-….r2.dev` or `https://media.summerlinwesthomes.com`).
+5. Keep the Vercel site hostname DNS-only (gray cloud). Only the media host should be Cloudflare-proxied.
+
+Leave `NEXT_PUBLIC_CLOUDFLARE_R2_URL` empty for local development; Next.js will keep serving `/images/...` from git.
 
 ### Agent Automation Policy
 
@@ -194,7 +208,7 @@ summerlinwesthomes.com/
 
 ### Environment Management
 
-- Environment variables
+- Environment variables (see `.env.example`, including `NEXT_PUBLIC_CLOUDFLARE_R2_URL`)
 - Feature flags
 - A/B testing setup
 - Monitoring and alerts
