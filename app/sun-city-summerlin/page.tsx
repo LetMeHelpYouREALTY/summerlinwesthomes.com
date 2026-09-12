@@ -139,6 +139,14 @@ export default function SunCitySummerlinLocationPage() {
           >
             View Google Reviews
           </a>
+          <a
+            href={BUSINESS.googleProfileUrl}
+            className="rounded-lg border border-[#0b1231] px-5 py-3 font-semibold text-[#0b1231]"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Google Business Profile
+          </a>
         </div>
       </section>
 
