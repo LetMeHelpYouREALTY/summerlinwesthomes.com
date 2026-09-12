@@ -25,6 +25,10 @@ export const GBP_FAQS: readonly GbpFaq[] = [
       'Yes. Sun City Summerlin is an age-qualified 55+ active-adult community under the Housing for Older Persons Act. Representation here is for that community’s homes, not a general “family” housing pitch.',
   },
   {
+    question: 'What is the website?',
+    answer: `The website is ${BUSINESS.website}.`,
+  },
+  {
     question: 'Which areas do you serve?',
     answer:
       'Primary focus is Sun City Summerlin (89134). Service area also includes Las Vegas, Henderson, North Las Vegas, Clark County, and west-valley zips such as 89135 and 89138.',

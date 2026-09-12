@@ -1,3 +1,5 @@
+import { CANONICAL_SITE_URL } from '@/lib/site-url';
+
 /**
  * Google Business Profile NAP for this site.
  * Visible text, tel/sms links, and LocalBusiness JSON-LD must stay identical.
@@ -6,6 +8,7 @@
  * 55+ / active-adult language refers to a Housing for Older Persons Act community.
  * Brokerage brand names are omitted from public copy and schema so Google
  * associates this site with the GBP listing, not a parent company.
+ * Website / schema url: summerlinwesthomes.com (not suncityvegas.com).
  */
 export const BUSINESS = {
   name: 'Sun City Summerlin 55+ Real Estate | Homes by Dr. Jan Duffy',
@@ -21,7 +24,7 @@ export const BUSINESS = {
   phoneTel: '+17027180043',
   phoneSchema: '+1-702-718-0043',
   email: 'info@summerlinwesthomes.com',
-  gbpWebsite: 'https://www.suncityvegas.com',
+  website: CANONICAL_SITE_URL,
   googleProfileUrl: 'https://g.page/r/CVIgC-30nTd3ECE',
   googleReviewsUrl: 'https://g.page/r/CVIgC-30nTd3ECE/review',
   foundingDate: '2013-09-20',
@@ -55,7 +58,6 @@ export const SOCIAL_PROFILES = [
   'https://www.youtube.com/@DrDuffy',
   'https://x.com/drjanduffy',
   'https://www.tiktok.com/@dr.janduffy',
-  BUSINESS.gbpWebsite,
 ] as const;
 
 export const AREA_SERVED = [

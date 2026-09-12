@@ -186,14 +186,14 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': ['RealEstateAgent', 'RealEstateAgency', 'LocalBusiness'],
-              '@id': `${siteUrl}/#organization`,
+              '@id': `${BUSINESS.website}/#organization`,
               name: BUSINESS.name,
               alternateName: [
                 BUSINESS.shortName,
                 'Homes by Dr. Jan Duffy',
               ],
               description: BUSINESS.description,
-              url: siteUrl,
+              url: BUSINESS.website,
               logo: {
                 '@type': 'ImageObject',
                 url: logoImageUrl,
@@ -313,7 +313,7 @@ export default function RootLayout({
                         { '@type': 'Place', name: 'Sun City Summerlin' },
                         { '@type': 'Place', name: 'Summerlin West' },
                       ],
-                      provider: { '@id': `${siteUrl}/#organization` },
+                      provider: { '@id': `${BUSINESS.website}/#organization` },
                     },
                   },
                   {
@@ -327,7 +327,7 @@ export default function RootLayout({
                         { '@type': 'City', name: 'Las Vegas' },
                         { '@type': 'Place', name: 'Sun City Summerlin' },
                       ],
-                      provider: { '@id': `${siteUrl}/#organization` },
+                      provider: { '@id': `${BUSINESS.website}/#organization` },
                     },
                   },
                 ],
@@ -381,15 +381,15 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
-              '@id': `${siteUrl}/#website`,
-              url: siteUrl,
+              '@id': `${BUSINESS.website}/#website`,
+              url: BUSINESS.website,
               name: BUSINESS.name,
-              publisher: { '@id': `${siteUrl}/#organization` },
+              publisher: { '@id': `${BUSINESS.website}/#organization` },
               potentialAction: {
                 '@type': 'SearchAction',
                 target: {
                   '@type': 'EntryPoint',
-                  urlTemplate: `${siteUrl}/properties/search?q={search_term_string}`,
+                  urlTemplate: `${BUSINESS.website}/properties/search?q={search_term_string}`,
                 },
                 'query-input': 'required name=search_term_string',
               },
