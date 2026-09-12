@@ -549,60 +549,60 @@ function Footer() {
             <h4 className="mb-4 font-bold">Buyer &amp; seller tools</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a
+                <Link
                   href="/services"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Summerlin West real estate services
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/properties/search"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Search Summerlin West homes for sale
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/market-data"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Summerlin West real estate market data
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/buying-guide"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Las Vegas home buying guide
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/sell-your-home"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Sell your Summerlin home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/home-valuation"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Summerlin West home value context
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/mortgage-calculator"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Mortgage payment calculator
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -611,68 +611,68 @@ function Footer() {
             <h4 className="mb-4 font-bold">Areas &amp; lifestyle</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a
+                <Link
                   href="/villages"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Luxury villages &amp; communities overview
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/amenities"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Golf, recreation &amp; Summerlin amenities
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/schools"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Schools serving Summerlin West
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/transportation"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Transportation &amp; Las Vegas access
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/listings"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Featured Summerlin West listings
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/summerlin-west-villages-comparison"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Compare Summerlin West villages by lifestyle
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/summerlin-west-market-snapshot"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Summerlin West market snapshot and trends
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/summerlin-west-schools-commute-amenities"
                   className="text-gray-400 transition-colors hover:text-white"
                 >
                   Schools, commute, and amenities planning guide
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
