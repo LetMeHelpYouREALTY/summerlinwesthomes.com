@@ -27,7 +27,7 @@ export function PageHero({
   return (
     <section
       className={cn(
-        'relative overflow-hidden text-white',
+        'photo-hero relative overflow-hidden text-white',
         minHeightClass,
         className,
       )}
@@ -41,19 +41,20 @@ export function PageHero({
         sizes="100vw"
       />
       <div
-        className={cn('absolute inset-0 bg-[#0b1231]/70', overlayClassName)}
+        className={cn('absolute inset-0 bg-[#050b25]/75', overlayClassName)}
       />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#050b25]/90 via-[#050b25]/55 to-[#050b25]/35" />
       <div
         className={cn(
           'relative z-10 mx-auto flex min-h-[inherit] max-w-6xl flex-col items-center justify-center px-4 py-16 text-center md:py-20',
           contentClassName,
         )}
       >
-        <h1 className="mb-6 max-w-5xl text-balance text-4xl font-bold text-white md:text-6xl">
+        <h1 className="photo-hero-title mb-6 max-w-5xl text-balance text-4xl font-bold text-white md:text-6xl">
           {title}
         </h1>
         {subtitle ? (
-          <p className="mx-auto mb-8 max-w-3xl text-xl font-medium text-white md:text-2xl">
+          <p className="photo-hero-copy mx-auto mb-8 max-w-3xl text-xl font-medium text-white md:text-2xl">
             {subtitle}
           </p>
         ) : null}
@@ -133,7 +134,7 @@ export function OverlayHeadingSection({
   const Tag = as;
 
   return (
-    <section className={cn('relative overflow-hidden py-16 text-white', className)}>
+    <section className={cn('photo-hero relative overflow-hidden py-16 text-white', className)}>
       <Image
         src={image.src}
         alt={image.alt}
@@ -141,13 +142,15 @@ export function OverlayHeadingSection({
         className="object-cover object-center"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-[#0b1231]/75" />
+      <div className="absolute inset-0 bg-[#050b25]/80" />
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <Tag className="mb-4 text-3xl font-bold text-white md:text-4xl">
+        <Tag className="photo-hero-title mb-4 text-3xl font-bold text-white md:text-4xl">
           {title}
         </Tag>
         {subtitle ? (
-          <p className="mx-auto mb-8 max-w-2xl font-medium text-white">{subtitle}</p>
+          <p className="photo-hero-copy mx-auto mb-8 max-w-2xl font-medium text-white">
+            {subtitle}
+          </p>
         ) : null}
         {children}
       </div>
@@ -184,8 +187,8 @@ export function CardMediaHeading({
         sizes="(max-width: 1024px) 100vw, 50vw"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0b1231]/88 via-[#0b1231]/40 to-[#0b1231]/10" />
-      <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-        <Tag className={cn('text-2xl font-bold text-white', titleClassName)}>
+      <div className="photo-hero absolute inset-x-0 bottom-0 p-6 text-white">
+        <Tag className={cn('photo-hero-title text-2xl font-bold text-white', titleClassName)}>
           {title}
         </Tag>
         {children}

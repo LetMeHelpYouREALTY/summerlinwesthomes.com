@@ -59,7 +59,7 @@ function HomePage() {
   // Hero Section with Enhanced Visual Appeal
   function HeroSection() {
     return (
-      <section className="relative flex min-h-screen items-end overflow-hidden">
+      <section className="photo-hero relative flex min-h-screen items-end overflow-hidden">
         <Image
           src={headingImages.h1.home.src}
           alt={headingImages.h1.home.alt}
