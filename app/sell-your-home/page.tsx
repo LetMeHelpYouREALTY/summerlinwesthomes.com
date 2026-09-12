@@ -13,6 +13,12 @@ import {
   CheckCircle,
 } from 'lucide-react';
 import CalendlyInlineSection from '@/components/calendly-inline-section';
+import { headingImages } from '@/lib/section-images';
+import {
+  MediaThumbHeading,
+  PageHero,
+  SectionHeading,
+} from '@/components/media/heading-media';
 
 export default function SellYourHomePage() {
   const [formData, setFormData] = useState({
@@ -112,22 +118,12 @@ export default function SellYourHomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
-      <div className="container mx-auto px-4 py-12">
-        {/* Hero Section */}
-        <div className="mb-16 text-center">
-          <div className="mb-6 flex justify-center">
-            <div className="rounded-full bg-amber-100 p-4">
-              <Home className="h-12 w-12 text-amber-600" />
-            </div>
-          </div>
-          <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-6xl">
-            Homes for Sale in Las Vegas — List Your Summerlin West Home
-          </h1>
-          <p className="mx-auto mb-8 max-w-4xl text-xl text-gray-600">
-            Position your listing alongside active Las Vegas real estate listings
-            with a Summerlin West-focused marketing plan.
-          </p>
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        image={headingImages.h1.sell}
+        title="Homes for Sale in Las Vegas — List Your Summerlin West Home"
+        subtitle="Position your listing alongside active Las Vegas real estate listings with a Summerlin West-focused marketing plan."
+      >
           <div className="flex flex-wrap justify-center gap-6 text-center">
             <div className="rounded-lg bg-white px-6 py-4 shadow-lg">
               <div className="text-2xl font-bold text-amber-600">8.2%</div>
@@ -151,18 +147,15 @@ export default function SellYourHomePage() {
               Book Your Seller Consultation
             </a>
           </div>
-        </div>
-
-        {/* RealScout Home Value Widget Section */}
+      </PageHero>
+      <div className="container mx-auto px-4 py-12">
         <div className="mx-auto mb-16 max-w-4xl">
           <div className="mb-8 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900">
-              Las Vegas Homes: Know Your Value Before You List
-            </h2>
-            <p className="text-lg text-gray-600">
-              Discover what your Summerlin West property is worth before you
-              sell
-            </p>
+            <SectionHeading
+              image={headingImages.h2.homeValue}
+              title="Las Vegas Homes: Know Your Value Before You List"
+              subtitle="Discover what your Summerlin West property is worth before you sell"
+            />
           </div>
 
           {/* RealScout Home Value Widget */}
@@ -270,9 +263,10 @@ export default function SellYourHomePage() {
             <div className="space-y-12">
               {/* Why Choose Us */}
               <div>
-                <h2 className="mb-8 text-3xl font-bold text-gray-900">
-                  Why Choose Summerlin West Homes?
-                </h2>
+                <SectionHeading
+                  image={headingImages.h2.selling}
+                  title="Why Choose Summerlin West Homes?"
+                />
                 <div className="grid gap-6 md:grid-cols-2">
                   {whyChooseUs.map((item, index) => (
                     <div
@@ -295,9 +289,10 @@ export default function SellYourHomePage() {
 
               {/* Our Selling Process */}
               <div>
-                <h2 className="mb-8 text-3xl font-bold text-gray-900">
-                  Our Proven 5-Step Selling Process
-                </h2>
+                <SectionHeading
+                  image={headingImages.h2.guide}
+                  title="Our Proven 5-Step Selling Process"
+                />
                 <div className="space-y-6">
                   {sellingProcess.map((step, index) => (
                     <div key={index} className="flex items-start space-x-4">
@@ -354,13 +349,12 @@ export default function SellYourHomePage() {
             {/* Contact Form */}
             <div className="space-y-8">
               <div className="rounded-xl bg-white p-8 shadow-xl">
-                <h2 className="mb-6 text-2xl font-bold text-gray-900">
-                  Get Your Free Home Evaluation
-                </h2>
-                <p className="mb-6 text-gray-600">
-                  Tell us about your property and we&apos;ll provide a detailed
-                  market analysis and recommended selling strategy.
-                </p>
+                <SectionHeading
+                  image={headingImages.h2.consult}
+                  title="Get Your Free Home Evaluation"
+                  subtitle="Tell us about your property and we'll provide a detailed market analysis and recommended selling strategy."
+                  titleClassName="text-2xl font-bold text-gray-900"
+                />
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Property Information */}

@@ -2,15 +2,20 @@
 
 import React from 'react';
 import { Users, Shield, TrendingUp } from 'lucide-react';
+import { headingImages } from '@/lib/section-images';
+import { PageHero, SectionHeading } from '@/components/media/heading-media';
 
 export default function AboutSection() {
   return (
+    <>
+      <PageHero
+        image={headingImages.h1.about}
+        title="Summerlin West Real Estate Listings & Local Expertise"
+        subtitle="Local guidance for Summerlin West homes, estates, and Las Vegas MLS-powered search."
+      />
     <section className="py-24">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl">
-          <h1 className="mb-8 text-center text-3xl font-bold md:text-4xl">
-            Summerlin West Real Estate Listings & Local Expertise
-          </h1>
 
           <div className="prose prose-lg mx-auto text-gray-600">
             <p className="mb-6">
@@ -65,13 +70,13 @@ export default function AboutSection() {
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
           <div className="mb-8 text-center">
-            <h3 className="mb-4 text-3xl font-bold">
-              A Home in Vegas for Sale — Featured Summerlin West Picks
-            </h3>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              Preview curated Las Vegas homes for sale before you dive into the
-              full MLS-powered inventory.
-            </p>
+            <SectionHeading
+              as="h3"
+              image={headingImages.h2.featured}
+              title="A Home in Vegas for Sale — Featured Summerlin West Picks"
+              subtitle="Preview curated Las Vegas homes for sale before you dive into the full MLS-powered inventory."
+              titleClassName="text-3xl font-bold md:text-4xl"
+            />
           </div>
           <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">
             {React.createElement('realscout-office-listings', {
@@ -86,5 +91,6 @@ export default function AboutSection() {
         </div>
       </section>
     </section>
+    </>
   );
 }

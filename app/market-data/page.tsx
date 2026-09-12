@@ -12,6 +12,13 @@ import {
   MapPin,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { headingImages } from '@/lib/section-images';
+import {
+  MediaThumbHeading,
+  OverlayHeadingSection,
+  PageHero,
+  SectionHeading,
+} from '@/components/media/heading-media';
 
 export default function MarketDataPage() {
   const [selectedVillage, setSelectedVillage] = useState('all');
@@ -138,17 +145,12 @@ export default function MarketDataPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-red-500 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Las Vegas Homes & Summerlin West Market Data
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Track trends behind homes for sale in Summerlin with village-level
-            context for west Las Vegas buyers and sellers.
-          </p>
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        image={headingImages.h1.market}
+        title="Las Vegas Homes & Summerlin West Market Data"
+        subtitle="Track trends behind homes for sale in Summerlin with village-level context for west Las Vegas buyers and sellers."
+      >
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <span className="rounded-full bg-white/20 px-4 py-2">
               Real-time MLS Data
@@ -163,19 +165,17 @@ export default function MarketDataPage() {
               Inventory Levels
             </span>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* RealScout Home Value Widget Section */}
       <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Las Vegas Homes: Your Summerlin West Market Value
-            </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Get instant property value estimates with our advanced RealScout technology
-            </p>
+            <SectionHeading
+              image={headingImages.h2.homeValue}
+              title="Las Vegas Homes: Your Summerlin West Market Value"
+              subtitle="Get instant property value estimates with our advanced RealScout technology"
+            />
           </div>
           
           {/* RealScout Home Value Widget */}
@@ -190,12 +190,13 @@ export default function MarketDataPage() {
         
         {/* RealScout Advanced Search Widget */}
         <div className="mt-12 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">
-            Real Estate Listings in Las Vegas — Advanced Search
-          </h3>
-          <p className="text-lg text-gray-600 mb-8">
-            Pair homes for sale in Las Vegas with the stats you just reviewed.
-          </p>
+          <SectionHeading
+            as="h3"
+            image={headingImages.h2.search}
+            title="Real Estate Listings in Las Vegas — Advanced Search"
+            subtitle="Pair homes for sale in Las Vegas with the stats you just reviewed."
+            titleClassName="text-2xl font-bold text-gray-900"
+          />
           <div className="flex justify-center">
             <div
               dangerouslySetInnerHTML={{
@@ -207,12 +208,13 @@ export default function MarketDataPage() {
         
         {/* RealScout Simple Search Widget */}
         <div className="mt-12 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">
-            Homes for Sale in Summerlin — Quick Search
-          </h3>
-          <p className="text-lg text-gray-600 mb-8">
-            Jump into Las Vegas homes for sale while market signals are fresh.
-          </p>
+          <SectionHeading
+            as="h3"
+            image={headingImages.h3.search}
+            title="Homes for Sale in Summerlin — Quick Search"
+            subtitle="Jump into Las Vegas homes for sale while market signals are fresh."
+            titleClassName="text-2xl font-bold text-gray-900"
+          />
           <div className="flex justify-center">
             <div
               dangerouslySetInnerHTML={{
@@ -357,11 +359,13 @@ export default function MarketDataPage() {
           </div>
 
           {/* Market Trend */}
-          <div className="mt-8 rounded-xl border border-gray-200 bg-white p-6">
-            <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-xl font-semibold text-gray-900">
-                Market Trend
-              </h3>
+          <div className="mb-4">
+            <MediaThumbHeading
+              image={headingImages.h3.stats}
+              title="Market Trend"
+              titleClassName="text-xl font-semibold text-gray-900"
+            />
+            <div className="mt-2 flex items-center justify-between">
               <div
                 className={cn(
                   'flex items-center space-x-2',
@@ -426,9 +430,10 @@ export default function MarketDataPage() {
       {/* Recent Sales */}
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <h2 className="mb-8 text-center text-3xl font-bold">
-            Recent Sales in Summerlin West
-          </h2>
+          <SectionHeading
+            image={headingImages.h2.selling}
+            title="Recent Sales in Summerlin West"
+          />
           <div className="overflow-hidden rounded-xl bg-white shadow-lg">
             <div className="overflow-x-auto">
               <table className="w-full">
@@ -500,17 +505,20 @@ export default function MarketDataPage() {
       {/* Geographic Focus */}
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <h2 className="mb-8 text-center text-3xl font-bold">
-            Summerlin West Geographic Focus
-          </h2>
+          <SectionHeading
+            image={headingImages.h2.geography}
+            title="Summerlin West Geographic Focus"
+          />
 
           <div className="mx-auto max-w-4xl">
             <div className="rounded-xl bg-white p-8 shadow-lg">
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                 <div>
-                  <h3 className="mb-4 text-xl font-bold text-amber-600">
-                    Boundaries
-                  </h3>
+                  <MediaThumbHeading
+                    image={headingImages.h3.vistas}
+                    title="Boundaries"
+                    titleClassName="mb-4 text-xl font-bold text-amber-600"
+                  />
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center space-x-2">
                       <MapPin className="h-4 w-4 text-amber-500" />
@@ -540,9 +548,11 @@ export default function MarketDataPage() {
                 </div>
 
                 <div>
-                  <h3 className="mb-4 text-xl font-bold text-amber-600">
-                    Coverage
-                  </h3>
+                  <MediaThumbHeading
+                    image={headingImages.h3.stonebridge}
+                    title="Coverage"
+                    titleClassName="mb-4 text-xl font-bold text-amber-600"
+                  />
                   <ul className="space-y-2 text-gray-700">
                     <li>
                       <strong>Primary Zip:</strong> 89135
@@ -570,15 +580,11 @@ export default function MarketDataPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-amber-600 to-orange-600 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">
-            Need Detailed Summerlin West Market Analysis?
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-white/90">
-            Get personalized market reports for specific villages or property
-            types in Summerlin West
-          </p>
+      <OverlayHeadingSection
+        image={headingImages.h2.cta}
+        title="Need Detailed Summerlin West Market Analysis?"
+        subtitle="Get personalized market reports for specific villages or property types in Summerlin West"
+      >
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <button className="rounded-lg bg-white px-8 py-3 font-semibold text-amber-600 transition-all hover:shadow-xl">
               Request Custom Report
@@ -587,20 +593,19 @@ export default function MarketDataPage() {
               Schedule Market Consultation
             </button>
           </div>
-        </div>
-      </section>
+      </OverlayHeadingSection>
 
       {/* RealScout Listings Section */}
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
           <div className="mb-8 text-center">
-            <h3 className="mb-4 text-3xl font-bold">
-              Current Summerlin West Market Listings
-            </h3>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              Explore active properties that reflect current market conditions
-              and pricing trends
-            </p>
+            <SectionHeading
+              as="h3"
+              image={headingImages.h2.featured}
+              title="Current Summerlin West Market Listings"
+              subtitle="Explore active properties that reflect current market conditions and pricing trends"
+              titleClassName="text-3xl font-bold"
+            />
           </div>
           <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">
             {React.createElement('realscout-office-listings', {

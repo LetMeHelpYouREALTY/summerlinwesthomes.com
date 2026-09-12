@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   ChevronRight,
@@ -22,6 +23,11 @@ import { ProgressiveOnboarding } from '@/components/ProgressiveOnboarding';
 import { OnboardingProvider } from '@/components/OnboardingContext';
 import { formatSquareFeet } from '@/lib/utils';
 import type { Property } from '@/types/real-estate';
+import { headingImages } from '@/lib/section-images';
+import {
+  OverlayHeadingSection,
+  SectionHeading,
+} from '@/components/media/heading-media';
 
 export default function SummerlinWestHomes() {
   return (
@@ -55,8 +61,14 @@ function HomePage() {
   function HeroSection() {
     return (
       <section className="relative flex min-h-screen items-end overflow-hidden">
-        {/* Background image */}
-        <div className="luxury-hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat" />
+        <Image
+          src={headingImages.h1.home.src}
+          alt={headingImages.h1.home.alt}
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
         {/* Color and contrast overlays */}
         <div className="absolute inset-0 bg-[#0b1231]/50" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0b1231]/15 via-[#0b1231]/40 to-[#0b1231]/75" />
@@ -132,15 +144,11 @@ function HomeValueWidget() {
   return (
     <section className="bg-[#f6f4ef] py-20">
       <div className="container mx-auto px-4">
-        <div className="mx-auto mb-12 max-w-4xl text-center">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-            Las Vegas Homes: What&apos;s Your Summerlin West Worth?
-          </h2>
-          <p className="mb-8 text-lg text-gray-600">
-            Get an instant, accurate estimate of your Summerlin West
-            property&apos;s current market value
-          </p>
-        </div>
+        <SectionHeading
+          image={headingImages.h2.homeValue}
+          title="Las Vegas Homes: What's Your Summerlin West Worth?"
+          subtitle="Get an instant, accurate estimate of your Summerlin West property's current market value"
+        />
 
         {/* RealScout Home Value Widget */}
         <div className="mx-auto max-w-2xl rounded-2xl border border-[#d8c58e]/40 bg-white p-6 shadow-xl">
@@ -174,15 +182,11 @@ function AdvancedSearchWidget() {
   return (
     <section className="bg-white py-20">
       <div className="container mx-auto px-4">
-        <div className="mx-auto mb-12 max-w-4xl text-center">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-            Real Estate Listings in Las Vegas — Advanced Search
-          </h2>
-          <p className="mb-8 text-lg text-gray-600">
-            Filter homes for sale in Summerlin with the same tools serious west
-            Las Vegas buyers use daily.
-          </p>
-        </div>
+        <SectionHeading
+          image={headingImages.h2.search}
+          title="Real Estate Listings in Las Vegas — Advanced Search"
+          subtitle="Filter homes for sale in Summerlin with the same tools serious west Las Vegas buyers use daily."
+        />
 
         {/* RealScout Advanced Search Widget */}
         <div className="flex justify-center">
@@ -203,15 +207,11 @@ function SimpleSearchWidget() {
   return (
     <section className="bg-[#f7f7fb] py-20">
       <div className="container mx-auto px-4">
-        <div className="mx-auto mb-12 max-w-4xl text-center">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-            Homes for Sale in Summerlin — Quick Search
-          </h2>
-          <p className="mb-8 text-lg text-gray-600">
-            Jump straight into Las Vegas homes for sale with a streamlined search
-            bar.
-          </p>
-        </div>
+        <SectionHeading
+          image={headingImages.h2.listings}
+          title="Homes for Sale in Summerlin — Quick Search"
+          subtitle="Jump straight into Las Vegas homes for sale with a streamlined search bar."
+        />
 
         {/* RealScout Simple Search Widget */}
         <div className="flex justify-center">
@@ -284,15 +284,11 @@ function RealScoutSearchEmbed() {
   return (
     <section className="bg-gray-50 py-16">
       <div className="container mx-auto px-4">
-        <div className="mb-8 text-center">
-          <h2 className="mb-4 text-3xl font-bold">
-            Las Vegas Homes for Sale — Summerlin West Inventory
-          </h2>
-          <p className="mx-auto max-w-2xl text-gray-600">
-            Browse real estate listings in Las Vegas with live MLS feeds through
-            RealScout.
-          </p>
-        </div>
+        <SectionHeading
+          image={headingImages.h2.featured}
+          title="Las Vegas Homes for Sale — Summerlin West Inventory"
+          subtitle="Browse real estate listings in Las Vegas with live MLS feeds through RealScout."
+        />
 
         <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">
           {React.createElement('realscout-office-listings', {
@@ -314,23 +310,23 @@ function FeaturedProperties() {
   return (
     <section className="bg-white py-16">
       <div className="container mx-auto px-4">
-        <div className="mb-12 flex items-center justify-between">
-          <div>
-            <h2 className="text-3xl font-bold">
-              Houses for Sale in Summerlin Las Vegas — Featured Listings
-            </h2>
-            <p className="mt-2 text-gray-600">
-              Premium homes for sale in Las Vegas Summerlin West, refreshed live
-            </p>
+        <div className="mb-12">
+          <SectionHeading
+            className="mb-6"
+            image={headingImages.h2.listings}
+            title="Houses for Sale in Summerlin Las Vegas — Featured Listings"
+            subtitle="Premium homes for sale in Las Vegas Summerlin West, refreshed live"
+          />
+          <div className="text-center">
+            <Link
+              href="/properties/search"
+              prefetch={false}
+              className="inline-flex items-center space-x-2 font-semibold text-amber-600 hover:text-amber-700"
+            >
+              <span>View All Properties</span>
+              <ChevronRight className="h-5 w-5" />
+            </Link>
           </div>
-          <Link
-            href="/properties/search"
-            prefetch={false}
-            className="flex items-center space-x-2 font-semibold text-amber-600 hover:text-amber-700"
-          >
-            <span>View All Properties</span>
-            <ChevronRight className="h-5 w-5" />
-          </Link>
         </div>
 
         <div className="mx-auto max-w-6xl rounded-xl bg-white p-6 shadow-lg">
@@ -360,7 +356,14 @@ function PropertyCard({
 }) {
   return (
     <div className="group overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-2xl">
-      <div className="relative h-64 bg-gradient-to-br from-amber-400 to-orange-500">
+      <div className="relative h-64">
+        <Image
+          src={headingImages.h3.price.src}
+          alt={headingImages.h3.price.alt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
         <div className="absolute inset-0 bg-black opacity-20 transition-opacity group-hover:opacity-10"></div>
         <button
           onClick={onToggleSaved}
@@ -418,15 +421,11 @@ function CommunitiesPreview() {
   return (
     <section className="bg-gray-50 py-16">
       <div className="container mx-auto px-4">
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold">
-            Homes for Sale in Las Vegas Summerlin — Explore Villages
-          </h2>
-          <p className="mx-auto max-w-2xl text-gray-600">
-            Compare village-level inventory while you shop Summerlin homes for
-            sale.
-          </p>
-        </div>
+        <SectionHeading
+          image={headingImages.h2.villages}
+          title="Homes for Sale in Las Vegas Summerlin — Explore Villages"
+          subtitle="Compare village-level inventory while you shop Summerlin homes for sale."
+        />
 
         <div className="mx-auto max-w-6xl rounded-xl bg-white p-6 shadow-lg">
           <div
@@ -477,9 +476,10 @@ function TestimonialsSection() {
   return (
     <section className="bg-white py-16">
       <div className="container mx-auto px-4">
-        <h2 className="mb-12 text-center text-3xl font-bold">
-          What Las Vegas Home Buyers Say About Summerlin West
-        </h2>
+        <SectionHeading
+          image={headingImages.h2.testimonials}
+          title="What Las Vegas Home Buyers Say About Summerlin West"
+        />
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {testimonials.map((testimonial) => (
@@ -510,15 +510,11 @@ function TestimonialsSection() {
 // CTA Section
 function CTASection() {
   return (
-    <section className="bg-gradient-to-br from-amber-600 to-orange-600 py-16">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="mb-4 text-3xl font-bold text-white">
-          Homes for Sale in Las Vegas — Start Your Summerlin West Search
-        </h2>
-        <p className="mx-auto mb-8 max-w-2xl text-white/90">
-          Move from browsing Las Vegas real estate listings to touring the homes
-          that fit your brief.
-        </p>
+    <OverlayHeadingSection
+      image={headingImages.h2.cta}
+      title="Homes for Sale in Las Vegas — Start Your Summerlin West Search"
+      subtitle="Move from browsing Las Vegas real estate listings to touring the homes that fit your brief."
+    >
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <button className="rounded-lg bg-white px-8 py-3 font-semibold text-amber-600 transition-all hover:shadow-xl">
             Start Your Search
@@ -527,8 +523,7 @@ function CTASection() {
             Contact an Agent
           </button>
         </div>
-      </div>
-    </section>
+    </OverlayHeadingSection>
   );
 }
 

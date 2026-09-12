@@ -6,6 +6,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { getSiteUrl } from '@/lib/site-url';
 import GlobalRouteFaq from '@/components/seo/global-route-faq';
 import SiteHeader from '@/components/site-header';
+import { headingImages } from '@/lib/section-images';
+import { SectionHeading } from '@/components/media/heading-media';
 import './globals.css';
 
 declare global {
@@ -421,12 +423,11 @@ export default function RootLayout({
         {children}
         <section className="border-t border-gray-200 bg-[#f8f7f4] px-4 py-12">
           <div className="mx-auto max-w-6xl">
-            <h2 className="mb-3 text-center text-2xl font-semibold text-gray-900 md:text-3xl">
-              Featured Listings
-            </h2>
-            <p className="mb-8 text-center text-gray-600">
-              Browse the newest Summerlin West homes for sale.
-            </p>
+            <SectionHeading
+              image={headingImages.h2.featured}
+              title="Featured Listings"
+              subtitle="Browse the newest Summerlin West homes for sale."
+            />
             <div
               dangerouslySetInnerHTML={{
                 __html:

@@ -1,4 +1,10 @@
 import Link from 'next/link';
+import { headingImages } from '@/lib/section-images';
+import {
+  MediaThumbHeading,
+  PageHero,
+  SectionHeading,
+} from '@/components/media/heading-media';
 
 const faqItems = [
   {
@@ -33,7 +39,12 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white pt-24">
+    <main className="min-h-screen bg-white">
+      <PageHero
+        image={headingImages.h1.schoolsCommute}
+        title="Homes for Sale in Las Vegas Summerlin — Schools, Commute & Amenities"
+        subtitle="Use this local planning guide to narrow neighborhoods before showings. Compare school access, commute tradeoffs, and nearby amenities in one view."
+      />
       <section className="container mx-auto px-4 py-12">
         <script
           type="application/ld+json"
@@ -41,39 +52,39 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
             __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
           }}
         />
-        <h1 className="mb-4 text-4xl font-bold text-gray-900">
-          Homes for Sale in Las Vegas Summerlin — Schools, Commute & Amenities
-        </h1>
-        <p className="mb-10 max-w-3xl text-lg text-gray-600">
-          Use this local planning guide to narrow neighborhoods before showings.
-          Compare school access, commute tradeoffs, and nearby amenities in one
-          view.
-        </p>
-
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-xl border p-5">
-            <h2 className="mb-2 text-2xl font-semibold text-gray-900">
-              Las Vegas Homes & School Fit
-            </h2>
-            <p className="text-gray-700">
+            <MediaThumbHeading
+              as="h2"
+              image={headingImages.schools.high}
+              title="Las Vegas Homes & School Fit"
+              titleClassName="mb-2 text-2xl font-semibold text-gray-900"
+            />
+            <p className="mt-2 text-gray-700">
               Start with zoning, daily drive times, and campus proximity. Then
               compare inventory nearby to reduce weekday friction.
             </p>
           </div>
           <div className="rounded-xl border p-5">
-            <h2 className="mb-2 text-2xl font-semibold text-gray-900">
-              Summerlin Homes for Sale — Commute Planning
-            </h2>
-            <p className="text-gray-700">
+            <MediaThumbHeading
+              as="h2"
+              image={headingImages.h3.highway}
+              title="Summerlin Homes for Sale — Commute Planning"
+              titleClassName="mb-2 text-2xl font-semibold text-gray-900"
+            />
+            <p className="mt-2 text-gray-700">
               Compare major corridors and peak-time patterns by village so your
               weekly schedule matches where you buy.
             </p>
           </div>
           <div className="rounded-xl border p-5">
-            <h2 className="mb-2 text-2xl font-semibold text-gray-900">
-              Real Estate Listings Near Daily Amenities
-            </h2>
-            <p className="text-gray-700">
+            <MediaThumbHeading
+              as="h2"
+              image={headingImages.h2.amenities}
+              title="Real Estate Listings Near Daily Amenities"
+              titleClassName="mb-2 text-2xl font-semibold text-gray-900"
+            />
+            <p className="mt-2 text-gray-700">
               Evaluate parks, trails, golf, retail, and dining access by
               lifestyle priority instead of by ZIP code alone.
             </p>
@@ -81,31 +92,29 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
         </div>
 
         <div className="mt-10 rounded-xl border border-gray-200 bg-white p-6">
-          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
-            Summerlin West Commute and Corridor Planning
-          </h2>
-          <p className="text-gray-700">
-            Compare major travel corridors like West Charleston and West Sahara by
-            your typical departure windows. A route-first approach helps align
-            neighborhood choices with real weekday commute behavior.
-          </p>
+          <SectionHeading
+            image={headingImages.h2.commute}
+            title="Summerlin West Commute and Corridor Planning"
+            subtitle="Compare major travel corridors like West Charleston and West Sahara by your typical departure windows."
+            titleClassName="text-2xl font-semibold text-gray-900"
+          />
         </div>
 
         <div className="mt-8 rounded-xl border border-gray-200 bg-gray-50 p-6">
-          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
-            Everyday Convenience: Internet, Retail, and Services
-          </h2>
-          <p className="text-gray-700">
-            In addition to schools and parks, many buyers prioritize internet
-            reliability, nearby grocery and dining access, and healthcare
-            convenience when comparing Summerlin West villages.
-          </p>
+          <SectionHeading
+            image={headingImages.h3.shopping}
+            title="Everyday Convenience: Internet, Retail, and Services"
+            subtitle="In addition to schools and parks, many buyers prioritize internet reliability, nearby grocery and dining access, and healthcare convenience when comparing Summerlin West villages."
+            titleClassName="text-2xl font-semibold text-gray-900"
+          />
         </div>
 
         <div className="mt-8 rounded-xl border border-gray-200 bg-white p-6">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            Schools, Commute, and Amenities FAQ
-          </h2>
+          <SectionHeading
+            image={headingImages.h2.faq}
+            title="Schools, Commute, and Amenities FAQ"
+            titleClassName="text-2xl font-semibold text-gray-900"
+          />
           <div className="space-y-4">
             {faqItems.map((faq) => (
               <article key={faq.question}>
@@ -117,13 +126,12 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
         </div>
 
         <div className="mt-10 rounded-xl bg-gray-50 p-6">
-          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
-            Build a Shortlist in 15 Minutes
-          </h2>
-          <p className="mb-5 text-gray-600">
-            Use the three core pages below to compare villages, verify current
-            listings, and move from browsing to touring.
-          </p>
+          <SectionHeading
+            image={headingImages.h2.guide}
+            title="Build a Shortlist in 15 Minutes"
+            subtitle="Use the three core pages below to compare villages, verify current listings, and move from browsing to touring."
+            titleClassName="text-2xl font-semibold text-gray-900"
+          />
           <div className="flex flex-wrap gap-3">
             <Link
               href="/schools"

@@ -2,6 +2,8 @@
 
 import { useMemo } from 'react';
 import { usePathname } from 'next/navigation';
+import { headingImages } from '@/lib/section-images';
+import { SectionHeading } from '@/components/media/heading-media';
 
 type FaqItem = {
   question: string;
@@ -251,9 +253,11 @@ export default function GlobalRouteFaq() {
             __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
           }}
         />
-        <h2 className="mb-5 text-center text-3xl font-semibold text-[#050b25]">
-          Summerlin West FAQ
-        </h2>
+        <SectionHeading
+          image={headingImages.h2.faq}
+          title="Summerlin West FAQ"
+          titleClassName="text-3xl font-semibold text-[#050b25]"
+        />
         <div className="grid gap-4 md:grid-cols-2">
           {faqItems.map((faq) => (
             <article

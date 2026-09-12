@@ -1,4 +1,10 @@
 import Link from 'next/link';
+import { headingImages } from '@/lib/section-images';
+import {
+  MediaThumbHeading,
+  PageHero,
+  SectionHeading,
+} from '@/components/media/heading-media';
 
 const villageRows = [
   {
@@ -61,7 +67,12 @@ export default function SummerlinWestVillagesComparisonPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white pt-24">
+    <main className="min-h-screen bg-white">
+      <PageHero
+        image={headingImages.h1.villagesCompare}
+        title="Summerlin Homes for Sale — Villages Comparison Guide"
+        subtitle="Compare Summerlin West villages side by side so you can focus your home search on the communities that match your lifestyle, price point, and daily routine."
+      />
       <section className="container mx-auto px-4 py-12">
         <script
           type="application/ld+json"
@@ -69,15 +80,6 @@ export default function SummerlinWestVillagesComparisonPage() {
             __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
           }}
         />
-        <h1 className="mb-4 text-4xl font-bold text-gray-900">
-          Summerlin Homes for Sale — Villages Comparison Guide
-        </h1>
-        <p className="mb-10 max-w-3xl text-lg text-gray-600">
-          Compare Summerlin West villages side by side so you can focus your
-          home search on the communities that match your lifestyle, price point,
-          and daily routine.
-        </p>
-
         <div className="overflow-x-auto rounded-xl border border-gray-200">
           <table className="w-full text-left">
             <thead className="bg-gray-50">
@@ -108,33 +110,29 @@ export default function SummerlinWestVillagesComparisonPage() {
         </div>
 
         <div className="mt-10 rounded-xl border border-gray-200 bg-white p-6">
-          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
-            Northwest Las Vegas vs Summerlin West: What Buyers Should Compare
-          </h2>
-          <p className="text-gray-700">
-            If you are comparing Northwest Las Vegas vs Summerlin West, focus on
-            HOA structure, village-level amenities, resale velocity, and average
-            closed price per square foot. This side-by-side view helps narrow your
-            shortlist before touring homes for sale in Summerlin West Las Vegas.
-          </p>
+          <SectionHeading
+            image={headingImages.h2.villages}
+            title="Northwest Las Vegas vs Summerlin West: What Buyers Should Compare"
+            subtitle="If you are comparing Northwest Las Vegas vs Summerlin West, focus on HOA structure, village-level amenities, resale velocity, and average closed price per square foot."
+            titleClassName="text-2xl font-semibold text-gray-900"
+          />
         </div>
 
         <div className="mt-8 rounded-xl border border-gray-200 bg-gray-50 p-6">
-          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
-            Summerlin West Association and CC&amp;R Planning Notes
-          </h2>
-          <p className="text-gray-700">
-            Before contract, verify community-specific CC&amp;Rs, design review
-            requirements, rental limitations, and current association dues. Terms
-            differ across Summerlin West villages and can affect long-term ownership
-            costs.
-          </p>
+          <SectionHeading
+            image={headingImages.h2.guide}
+            title="Summerlin West Association and CC&R Planning Notes"
+            subtitle="Before contract, verify community-specific CC&Rs, design review requirements, rental limitations, and current association dues."
+            titleClassName="text-2xl font-semibold text-gray-900"
+          />
         </div>
 
         <div className="mt-8 rounded-xl border border-gray-200 bg-white p-6">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            Frequently Asked Questions About Summerlin West Villages
-          </h2>
+          <SectionHeading
+            image={headingImages.h2.faq}
+            title="Frequently Asked Questions About Summerlin West Villages"
+            titleClassName="text-2xl font-semibold text-gray-900"
+          />
           <div className="space-y-4">
             {faqItems.map((faq) => (
               <article key={faq.question}>
@@ -146,13 +144,12 @@ export default function SummerlinWestVillagesComparisonPage() {
         </div>
 
         <div className="mt-10 rounded-xl bg-gray-50 p-6">
-          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
-            Next Step: Match Villages to Live Inventory
-          </h2>
-          <p className="mb-5 text-gray-600">
-            Use live listings to compare availability and pricing in real time,
-            then book a quick strategy call to prioritize villages.
-          </p>
+          <SectionHeading
+            image={headingImages.h2.featured}
+            title="Next Step: Match Villages to Live Inventory"
+            subtitle="Use live listings to compare availability and pricing in real time, then book a quick strategy call to prioritize villages."
+            titleClassName="text-2xl font-semibold text-gray-900"
+          />
           <div className="flex flex-wrap gap-3">
             <Link
               href="/properties/search"

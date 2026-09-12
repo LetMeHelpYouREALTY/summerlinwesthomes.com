@@ -1,25 +1,35 @@
 import Link from 'next/link';
+import { headingImages } from '@/lib/section-images';
+import {
+  MediaThumbHeading,
+  PageHero,
+  SectionHeading,
+} from '@/components/media/heading-media';
 
 const snapshotSections = [
   {
     title: 'Inventory Direction for Las Vegas Homes',
     detail:
       'Track whether fresh listings are rising or tightening by village so you can set realistic expectations before touring.',
+    image: headingImages.h2.listings,
   },
   {
     title: 'Buyer Competition on Summerlin Listings',
     detail:
       'Watch showing activity and offer speed to decide when stronger terms are needed in competitive pockets.',
+    image: headingImages.h3.timing,
   },
   {
     title: 'Pricing Pressure on Homes for Sale in Summerlin',
     detail:
       'Compare list-price movement and recent closes to avoid overpaying or underpricing.',
+    image: headingImages.h3.price,
   },
   {
     title: 'Timing Strategy for Las Vegas Real Estate Listings',
     detail:
       'Use seasonality and local launch patterns to pick better weeks to list or make offers.',
+    image: headingImages.h2.market,
   },
 ];
 
@@ -56,7 +66,12 @@ export default function SummerlinWestMarketSnapshotPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white pt-24">
+    <main className="min-h-screen bg-white">
+      <PageHero
+        image={headingImages.h1.marketSnapshot}
+        title="Las Vegas Homes for Sale — Summerlin West Market Snapshot"
+        subtitle="A practical local snapshot focused on how to act in the current Summerlin West market, with buyer and seller strategy tied to live listing behavior."
+      />
       <section className="container mx-auto px-4 py-12">
         <script
           type="application/ld+json"
@@ -64,52 +79,44 @@ export default function SummerlinWestMarketSnapshotPage() {
             __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
           }}
         />
-        <h1 className="mb-4 text-4xl font-bold text-gray-900">
-          Las Vegas Homes for Sale — Summerlin West Market Snapshot
-        </h1>
-        <p className="mb-10 max-w-3xl text-lg text-gray-600">
-          A practical local snapshot focused on how to act in the current
-          Summerlin West market, with buyer and seller strategy tied to live
-          listing behavior.
-        </p>
-
         <div className="grid gap-5 md:grid-cols-2">
           {snapshotSections.map((item) => (
             <article key={item.title} className="rounded-xl border p-5">
-              <h2 className="mb-2 text-xl font-semibold text-gray-900">
-                {item.title}
-              </h2>
-              <p className="text-gray-700">{item.detail}</p>
+              <MediaThumbHeading
+                as="h2"
+                image={item.image}
+                title={item.title}
+                titleClassName="mb-2 text-xl font-semibold text-gray-900"
+              />
+              <p className="mt-2 text-gray-700">{item.detail}</p>
             </article>
           ))}
         </div>
 
         <div className="mt-10 rounded-xl border border-gray-200 bg-white p-6">
-          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
-            Summerlin West Las Vegas Houses for Sale: Reading the Signals
-          </h2>
-          <p className="text-gray-700">
-            Track active inventory, median list-to-close spread, and contract speed
-            by village. These three indicators usually reveal whether buyers should
-            move quickly or negotiate harder in the current Summerlin West cycle.
-          </p>
+          <SectionHeading
+            image={headingImages.h2.market}
+            title="Summerlin West Las Vegas Houses for Sale: Reading the Signals"
+            subtitle="Track active inventory, median list-to-close spread, and contract speed by village. These three indicators usually reveal whether buyers should move quickly or negotiate harder in the current Summerlin West cycle."
+            titleClassName="text-2xl font-semibold text-gray-900"
+          />
         </div>
 
         <div className="mt-8 rounded-xl border border-gray-200 bg-gray-50 p-6">
-          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
-            New Homes in Summerlin West Las Vegas vs Existing Homes
-          </h2>
-          <p className="text-gray-700">
-            Compare base pricing, lot premiums, HOA structure, and total monthly
-            carrying cost. This gives a clearer apples-to-apples view between new
-            homes in Summerlin West Las Vegas and established resale options.
-          </p>
+          <SectionHeading
+            image={headingImages.h2.listings}
+            title="New Homes in Summerlin West Las Vegas vs Existing Homes"
+            subtitle="Compare base pricing, lot premiums, HOA structure, and total monthly carrying cost. This gives a clearer apples-to-apples view between new homes in Summerlin West Las Vegas and established resale options."
+            titleClassName="text-2xl font-semibold text-gray-900"
+          />
         </div>
 
         <div className="mt-8 rounded-xl border border-gray-200 bg-white p-6">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-            Summerlin West Market FAQ
-          </h2>
+          <SectionHeading
+            image={headingImages.h2.faq}
+            title="Summerlin West Market FAQ"
+            titleClassName="text-2xl font-semibold text-gray-900"
+          />
           <div className="space-y-4">
             {faqItems.map((faq) => (
               <article key={faq.question}>
@@ -121,9 +128,11 @@ export default function SummerlinWestMarketSnapshotPage() {
         </div>
 
         <div className="mt-10 rounded-xl bg-gray-50 p-6">
-          <h2 className="mb-3 text-2xl font-semibold text-gray-900">
-            Validate With Live Listings
-          </h2>
+          <SectionHeading
+            image={headingImages.h2.featured}
+            title="Validate With Live Listings"
+            titleClassName="text-2xl font-semibold text-gray-900"
+          />
           <p className="mb-5 text-gray-600">
             Pair this snapshot with live RealScout inventory to confirm pricing
             and inventory conditions before choosing next steps.

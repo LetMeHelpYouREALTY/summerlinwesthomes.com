@@ -11,21 +11,22 @@ import {
   Star,
   TrendingUp,
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { headingImages } from '@/lib/section-images';
+import {
+  MediaThumbHeading,
+  OverlayHeadingSection,
+  PageHero,
+  SectionHeading,
+} from '@/components/media/heading-media';
 
 export default function VillagesPage() {
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-red-500 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Homes for Sale in Las Vegas Summerlin — Village Guide
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Discover the unique character and luxury lifestyle of each village
-            in Summerlin West
-          </p>
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        image={headingImages.h1.villages}
+        title="Homes for Sale in Las Vegas Summerlin — Village Guide"
+        subtitle="Discover the unique character and luxury lifestyle of each village in Summerlin West"
+      >
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <span className="rounded-full bg-white/20 px-4 py-2">
               22,500 Acres
@@ -40,21 +41,23 @@ export default function VillagesPage() {
               Red Rock Views
             </span>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Geographic Overview */}
       <section className="bg-white py-12">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="mb-6 text-3xl font-bold">
-              Summerlin Homes for Sale: Geography & Boundaries
-            </h2>
+            <SectionHeading
+              image={headingImages.h2.geography}
+              title="Summerlin Homes for Sale: Geography & Boundaries"
+            />
             <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2">
               <div className="rounded-lg bg-gray-50 p-6">
-                <h3 className="mb-3 font-semibold text-amber-600">
-                  Boundaries
-                </h3>
+                <MediaThumbHeading
+                  image={headingImages.h3.vistas}
+                  title="Boundaries"
+                  titleClassName="mb-3 font-semibold text-amber-600"
+                />
                 <ul className="space-y-2 text-left text-sm">
                   <li>
                     <strong>North:</strong> Sahara Avenue
@@ -71,7 +74,11 @@ export default function VillagesPage() {
                 </ul>
               </div>
               <div className="rounded-lg bg-gray-50 p-6">
-                <h3 className="mb-3 font-semibold text-amber-600">Coverage</h3>
+                <MediaThumbHeading
+                  image={headingImages.h3.stonebridge}
+                  title="Coverage"
+                  titleClassName="mb-3 font-semibold text-amber-600"
+                />
                 <ul className="space-y-2 text-left text-sm">
                   <li>
                     <strong>Primary Zip:</strong> 89135
@@ -100,15 +107,11 @@ export default function VillagesPage() {
       {/* RealScout Home Value Widget Section */}
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
         <div className="container mx-auto px-4">
-          <div className="mx-auto mb-12 max-w-4xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-              Las Vegas Homes: Values Across Summerlin Villages
-            </h2>
-            <p className="mb-8 text-lg text-gray-600">
-              Get instant property value estimates for any village in Summerlin
-              West
-            </p>
-          </div>
+          <SectionHeading
+            image={headingImages.h2.homeValue}
+            title="Las Vegas Homes: Values Across Summerlin Villages"
+            subtitle="Get instant property value estimates for any village in Summerlin West"
+          />
 
           {/* RealScout Home Value Widget */}
           <div className="mx-auto max-w-2xl rounded-lg bg-white p-6 shadow-lg">
@@ -123,12 +126,13 @@ export default function VillagesPage() {
 
         {/* RealScout Advanced Search Widget */}
         <div className="mt-12 text-center">
-          <h3 className="mb-6 text-2xl font-bold text-gray-900">
-            Real Estate Listings in Las Vegas — Village Search
-          </h3>
-          <p className="mb-8 text-lg text-gray-600">
-            Search homes for sale in Summerlin across every village.
-          </p>
+          <SectionHeading
+            as="h3"
+            image={headingImages.h2.search}
+            title="Real Estate Listings in Las Vegas — Village Search"
+            subtitle="Search homes for sale in Summerlin across every village."
+            titleClassName="text-2xl font-bold text-gray-900 md:text-3xl"
+          />
           <div className="flex justify-center">
             <div
               dangerouslySetInnerHTML={{
@@ -140,12 +144,13 @@ export default function VillagesPage() {
 
           {/* RealScout Simple Search Widget */}
           <div className="mt-12 text-center">
-            <h3 className="mb-6 text-2xl font-bold text-gray-900">
-              Homes for Sale in Summerlin — Quick Search
-            </h3>
-            <p className="mb-8 text-lg text-gray-600">
-              Start your search with our simple and intuitive search tool
-            </p>
+            <SectionHeading
+              as="h3"
+              image={headingImages.h3.search}
+              title="Homes for Sale in Summerlin — Quick Search"
+              subtitle="Start your search with our simple and intuitive search tool"
+              titleClassName="text-2xl font-bold text-gray-900 md:text-3xl"
+            />
             <div className="flex justify-center">
               <div
                 dangerouslySetInnerHTML={{
@@ -214,12 +219,11 @@ export default function VillagesPage() {
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold">
-              Explore Summerlin West Villages & Communities
-            </h2>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              Browse live village inventory powered by RealScout MLS data.
-            </p>
+            <SectionHeading
+              image={headingImages.h2.villages}
+              title="Explore Summerlin West Villages & Communities"
+              subtitle="Browse live village inventory powered by RealScout MLS data."
+            />
           </div>
 
           <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">
@@ -236,43 +240,39 @@ export default function VillagesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="mb-4 text-3xl font-bold">
-            Ready to Find Your Perfect Village?
-          </h3>
-          <p className="mx-auto mb-8 max-w-2xl text-gray-600">
-            Let us help you discover the perfect Summerlin West village for your
-            lifestyle and budget
-          </p>
+      <OverlayHeadingSection
+        as="h3"
+        image={headingImages.h2.cta}
+        title="Ready to Find Your Perfect Village?"
+        subtitle="Let us help you discover the perfect Summerlin West village for your lifestyle and budget"
+      >
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               href="/properties/search"
-              className="rounded-lg bg-amber-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-amber-700"
+              className="rounded-lg bg-white px-8 py-3 font-semibold text-amber-600 transition-colors hover:bg-amber-50"
             >
               Search All Properties
             </Link>
             <Link
               href="/contact"
-              className="rounded-lg border-2 border-amber-600 px-8 py-3 font-semibold text-amber-600 transition-colors hover:bg-amber-50"
+              className="rounded-lg border-2 border-white px-8 py-3 font-semibold text-white transition-colors hover:bg-white hover:text-amber-600"
             >
               Schedule Village Tour
             </Link>
           </div>
-        </div>
-      </section>
+      </OverlayHeadingSection>
 
       {/* RealScout Listings Section */}
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
           <div className="mb-8 text-center">
-            <h3 className="mb-4 text-3xl font-bold">
-              Available Properties in Summerlin West
-            </h3>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              Browse current listings in all Summerlin West villages with
-              real-time MLS data
-            </p>
+            <SectionHeading
+              as="h3"
+              image={headingImages.h2.listings}
+              title="Available Properties in Summerlin West"
+              subtitle="Browse current listings in all Summerlin West villages with real-time MLS data"
+              titleClassName="text-3xl font-bold"
+            />
           </div>
           <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">
             {React.createElement('realscout-office-listings', {
