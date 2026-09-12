@@ -19,6 +19,14 @@ export default function SiteNapFooter() {
         {BUSINESS.postalCode}
       </address>
       <p className="mt-2">{BUSINESS.hoursDisplay}</p>
+      <p className="mt-2">
+        <a
+          href={BUSINESS.website}
+          className="font-semibold text-[#0b1231] underline-offset-2 hover:underline"
+        >
+          www.summerlinwesthomes.com
+        </a>
+      </p>
       <div className="mt-3 flex flex-wrap items-center justify-center gap-3 font-semibold text-[#0b1231]">
         <a href={telHref} className="underline-offset-2 hover:underline">
           Call {BUSINESS.phoneDisplay}

@@ -8,7 +8,7 @@ import { CANONICAL_SITE_URL } from '@/lib/site-url';
  * 55+ / active-adult language refers to a Housing for Older Persons Act community.
  * Brokerage brand names are omitted from public copy and schema so Google
  * associates this site with the GBP listing, not a parent company.
- * Website / schema url: summerlinwesthomes.com (not suncityvegas.com).
+ * Website / schema url: https://www.summerlinwesthomes.com (not suncityvegas.com).
  */
 export const BUSINESS = {
   name: 'Sun City Summerlin 55+ Real Estate | Homes by Dr. Jan Duffy',
