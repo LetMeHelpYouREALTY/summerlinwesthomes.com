@@ -1,9 +1,10 @@
-import type { CSSProperties, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import Script from 'next/script';
+import { Geist } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import DeferredCalendly from '@/components/calendly/deferred-calendly';
+import DeferredRealScoutScript from '@/components/realscout/deferred-realscout-script';
 import {
   AREA_SERVED,
   BUSINESS,
@@ -65,11 +66,7 @@ const aggregateRating =
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -130,38 +127,8 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className="scroll-smooth"
-      style={
-        {
-          '--luxury-hero-image': `url('${heroImageUrl}')`,
-        } as CSSProperties
-      }
-    >
+    <html lang="en" className="scroll-smooth">
       <head>
-        {/* Fonts are preloaded for performance */}
-        <link
-          rel="preload"
-          href="/_next/static/media/569ce4b8f30dc480-s.p.woff2"
-          as="font"
-          crossOrigin=""
-          type="font/woff2"
-        />
-
-        {/* RealScout script (load once globally) */}
-        <link
-          rel="preload"
-          href="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          as="script"
-        />
-        <Script
-          id="realscout-widget-js"
-          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          type="module"
-          strategy="afterInteractive"
-        />
-
         {/* RealScout Widget Styles */}
         <style>{`
           realscout-office-listings {
@@ -394,52 +361,12 @@ export default function RootLayout({
             }),
           }}
         />
-        <link
-          href="https://assets.calendly.com/assets/external/widget.css"
-          rel="stylesheet"
-        />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-white text-gray-900 antialiased`}
+        className={`${geistSans.variable} bg-white text-gray-900 antialiased`}
       >
-        
-        <script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          type="text/javascript"
-          async
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function () {
-                function initCalendlyWidgets() {
-                  if (!window.Calendly) return;
-                  window.Calendly.initBadgeWidget({
-                    url: 'https://calendly.com/drjanduffy/appointment',
-                    text: 'Schedule time with me',
-                    color: '#0069ff',
-                    textColor: '#ffffff',
-                    branding: false
-                  });
-                  document.querySelectorAll('[data-calendly-popup="appointment"]').forEach(function (el) {
-                    if (el.dataset.calendlyBound === 'true') return;
-                    el.dataset.calendlyBound = 'true';
-                    el.addEventListener('click', function (event) {
-                      event.preventDefault();
-                      if (window.Calendly) {
-                        window.Calendly.initPopupWidget({
-                          url: 'https://calendly.com/drjanduffy/appointment'
-                        });
-                      }
-                    });
-                  });
-                }
-                window.addEventListener('load', initCalendlyWidgets);
-                setTimeout(initCalendlyWidgets, 1500);
-              })();
-            `,
-          }}
-        />
+        <DeferredRealScoutScript />
+        <DeferredCalendly />
         <SiteHeader />
         {children}
         <GlobalRouteFaq />

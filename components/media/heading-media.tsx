@@ -39,6 +39,8 @@ export function PageHero({
         alt={image.alt}
         fill
         priority
+        fetchPriority="high"
+        quality={70}
         className="object-cover object-center"
         sizes="100vw"
       />

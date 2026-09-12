@@ -1,3 +1,8 @@
+import LazyRealScoutWidget from '@/components/realscout/lazy-realscout-widget';
+
+const OFFICE_LISTINGS_HTML =
+  '<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="500000" price-max="650000"></realscout-office-listings>';
+
 export default function OfficeListingsAfterHero() {
   return (
     <section
@@ -11,11 +16,10 @@ export default function OfficeListingsAfterHero() {
         <p className="mx-auto mb-8 max-w-3xl text-center text-lg text-gray-600">
           Browse Summerlin, Summerlin West, and Las Vegas homes for sale.
         </p>
-        <div
-          dangerouslySetInnerHTML={{
-            __html:
-              '<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="500000" price-max="650000"></realscout-office-listings>',
-          }}
+        <LazyRealScoutWidget
+          html={OFFICE_LISTINGS_HTML}
+          label="Featured Summerlin office listings"
+          minHeightClass="min-h-[28rem]"
         />
       </div>
     </section>

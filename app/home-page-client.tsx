@@ -1,25 +1,17 @@
 'use client';
 
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
   ChevronRight,
   Home,
-  Bed,
-  Bath,
-  Square,
-  Heart,
   Users,
   TrendingUp,
   Map,
 } from 'lucide-react';
 import { BUSINESS, googleReviewsUrl, mapsUrl, telHref } from '@/lib/business';
-import { cn } from '@/lib/utils';
 import { ProgressiveOnboarding } from '@/components/ProgressiveOnboarding';
 import { OnboardingProvider } from '@/components/OnboardingContext';
-import { formatSquareFeet } from '@/lib/utils';
-import type { Property } from '@/types/real-estate';
 import { headingImages } from '@/lib/section-images';
 import {
   OverlayHeadingSection,
@@ -27,13 +19,13 @@ import {
 } from '@/components/media/heading-media';
 import ServiceCards from '@/components/services/service-cards';
 import OfficeListingsAfterHero from '@/components/realscout/office-listings-after-hero';
+import LazyRealScoutWidget from '@/components/realscout/lazy-realscout-widget';
 
 export default function SummerlinWestHomes() {
   return (
     <OnboardingProvider>
       <div className="min-h-screen bg-gray-50">
         <HomePage />
-        <Footer />
       </div>
     </OnboardingProvider>
   );
@@ -48,8 +40,7 @@ function HomePage() {
         <HomeValueWidget />
       <AdvancedSearchWidget />
       <SimpleSearchWidget />
-      <RealScoutSearchEmbed />
-      <FeaturedProperties />
+      <ListingsCtaSection />
       <CommunitiesPreview />
       <ServiceCards />
       <GoogleReviewsSection />
@@ -67,6 +58,8 @@ function HomePage() {
           alt={headingImages.h1.home.alt}
           fill
           priority
+          fetchPriority="high"
+          quality={70}
           className="object-cover"
           sizes="100vw"
         />
@@ -153,11 +146,10 @@ function HomeValueWidget() {
 
         {/* RealScout Home Value Widget */}
         <div className="mx-auto max-w-2xl rounded-2xl border border-[#d8c58e]/40 bg-white p-6 shadow-xl">
-          <div
-            dangerouslySetInnerHTML={{
-              __html:
-                '<realscout-home-value agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-home-value>',
-            }}
+          <LazyRealScoutWidget
+            html='<realscout-home-value agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-home-value>'
+            label="Summerlin West home value tool"
+            minHeightClass="min-h-[10rem]"
           />
         </div>
 
@@ -191,11 +183,10 @@ function AdvancedSearchWidget() {
 
         {/* RealScout Advanced Search Widget */}
         <div className="flex justify-center">
-          <div
-            dangerouslySetInnerHTML={{
-              __html:
-                '<realscout-advanced-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-advanced-search>',
-            }}
+          <LazyRealScoutWidget
+            html='<realscout-advanced-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-advanced-search>'
+            label="Advanced Summerlin home search"
+            minHeightClass="min-h-[16rem]"
           />
         </div>
       </div>
@@ -216,11 +207,10 @@ function SimpleSearchWidget() {
 
         {/* RealScout Simple Search Widget */}
         <div className="flex justify-center">
-          <div
-            dangerouslySetInnerHTML={{
-              __html:
-                '<realscout-simple-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-simple-search>',
-            }}
+          <LazyRealScoutWidget
+            html='<realscout-simple-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-simple-search>'
+            label="Quick Summerlin home search"
+            minHeightClass="min-h-[8rem]"
           />
         </div>
 
@@ -280,140 +270,35 @@ function SimpleSearchWidget() {
   );
 }
 
-// RealScout Office Listings Section
-function RealScoutSearchEmbed() {
-  return (
-    <section className="bg-gray-50 py-16">
-      <div className="container mx-auto px-4">
-        <SectionHeading
-          image={headingImages.h2.featured}
-          title="Las Vegas Homes for Sale — Summerlin West Inventory"
-          subtitle="Browse real estate listings in Las Vegas with live MLS feeds through RealScout."
-        />
-
-        <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">
-          {React.createElement('realscout-office-listings', {
-            'agent-encoded-id': 'QWdlbnQtMjI1MDUw',
-            'sort-order': 'NEWEST',
-            'listing-status': 'For Sale',
-            'property-types': 'SFR,MF,TC',
-            'price-min': '860000',
-            'price-max': '1100000',
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Enhanced Featured Properties with Real Data
-function FeaturedProperties() {
+// Listings CTA — extra RealScout office-listing grids were competing with LCP/TBT.
+function ListingsCtaSection() {
   return (
     <section className="bg-white py-16">
       <div className="container mx-auto px-4">
-        <div className="mb-12">
-          <SectionHeading
-            className="mb-6"
-            image={headingImages.h2.listings}
-            title="Houses for Sale in Summerlin Las Vegas — Featured Listings"
-            subtitle="Premium homes for sale in Las Vegas Summerlin West, refreshed live"
-          />
-          <div className="text-center">
-            <Link
-              href="/properties/search"
-              prefetch={false}
-              className="inline-flex items-center space-x-2 font-semibold text-amber-600 hover:text-amber-700"
-            >
-              <span>View All Properties</span>
-              <ChevronRight className="h-5 w-5" />
-            </Link>
-          </div>
-        </div>
-
-        <div className="mx-auto max-w-6xl rounded-xl bg-white p-6 shadow-lg">
-          {React.createElement('realscout-office-listings', {
-            'agent-encoded-id': 'QWdlbnQtMjI1MDUw',
-            'sort-order': 'NEWEST',
-            'listing-status': 'For Sale',
-            'property-types': 'SFR,MF,TC',
-            'price-min': '900000',
-            'price-max': '1200000',
-          })}
+        <SectionHeading
+          image={headingImages.h2.listings}
+          title="Houses for Sale in Summerlin Las Vegas"
+          subtitle="Live MLS inventory sits under the hero. Search the full office catalog when you are ready to tour."
+        />
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Link
+            href="/listings"
+            prefetch={false}
+            className="inline-flex items-center rounded-lg bg-amber-600 px-8 py-3 font-medium text-white transition-colors hover:bg-amber-700"
+          >
+            View featured listings
+            <ChevronRight className="ml-2 h-5 w-5" />
+          </Link>
+          <Link
+            href="/properties/search"
+            prefetch={false}
+            className="inline-flex items-center rounded-lg border border-[#0b1231] px-8 py-3 font-medium text-[#0b1231] transition-colors hover:bg-[#0b1231] hover:text-white"
+          >
+            Search all properties
+          </Link>
         </div>
       </div>
     </section>
-  );
-}
-
-// Enhanced Property Card Component
-function PropertyCard({
-  property,
-  isSaved,
-  onToggleSaved,
-}: {
-  property: Property;
-  isSaved: boolean;
-  onToggleSaved: () => void;
-}) {
-  return (
-    <div className="group overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-2xl">
-      <div className="relative h-64">
-        <Image
-          src={headingImages.h3.price.src}
-          alt={headingImages.h3.price.alt}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 33vw"
-        />
-        <div className="absolute inset-0 bg-black opacity-20 transition-opacity group-hover:opacity-10"></div>
-        <button
-          onClick={onToggleSaved}
-          aria-label={isSaved ? 'Remove from favorites' : 'Add to favorites'}
-          className="absolute right-4 top-4 rounded-full bg-white/90 p-2 backdrop-blur transition-all duration-200 hover:bg-white"
-        >
-          <Heart
-            className={cn(
-              'h-5 w-5',
-              isSaved ? 'fill-red-500 text-red-500' : 'text-gray-600'
-            )}
-          />
-        </button>
-        <span className="absolute left-4 top-4 rounded-full bg-amber-600 px-3 py-1 text-sm font-semibold text-white">
-          {property.details.status === 'for-sale'
-            ? 'For Sale'
-            : property.details.status}
-        </span>
-      </div>
-
-      <div className="p-6">
-        <h4 className="mb-2 text-2xl font-bold text-amber-600">
-          {property.priceFormatted}
-        </h4>
-        <p className="mb-4 font-medium text-gray-800">{property.title}</p>
-        <p className="mb-4 text-sm text-gray-600">
-          {property.address.fullAddress}
-        </p>
-
-        <div className="mb-6 flex justify-between text-sm text-gray-600">
-          <span className="flex items-center space-x-1">
-            <Bed className="h-4 w-4" />
-            <span>{property.details.bedrooms} Beds</span>
-          </span>
-          <span className="flex items-center space-x-1">
-            <Bath className="h-4 w-4" />
-            <span>{property.details.bathrooms} Baths</span>
-          </span>
-          <span className="flex items-center space-x-1">
-            <Square className="h-4 w-4" />
-            <span>{formatSquareFeet(property.details.squareFeet)} sqft</span>
-          </span>
-        </div>
-
-        <button className="w-full rounded-lg bg-gray-900 py-3 font-medium text-white transition-colors duration-200 hover:bg-amber-600">
-          View Details
-        </button>
-      </div>
-    </div>
   );
 }
 
@@ -427,15 +312,6 @@ function CommunitiesPreview() {
           title="Homes for Sale in Las Vegas Summerlin — Explore Villages"
           subtitle="Compare village-level inventory while you shop Summerlin homes for sale."
         />
-
-        <div className="mx-auto max-w-6xl rounded-xl bg-white p-6 shadow-lg">
-          <div
-            dangerouslySetInnerHTML={{
-              __html:
-                '<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="520000" price-max="880000"></realscout-office-listings>',
-            }}
-          />
-        </div>
 
         <div className="mt-10 text-center">
           <Link
@@ -508,192 +384,3 @@ function CTASection() {
   );
 }
 
-// Footer Component
-function Footer() {
-  return (
-    <footer className="bg-gray-900 py-12 text-white">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          <div>
-            <h4 className="mb-4 font-bold text-amber-400">
-              {BUSINESS.shortName}
-            </h4>
-            <p className="text-sm text-gray-400">
-              Homes by Dr. Jan Duffy. Summerlin, Las Vegas, Henderson, and
-              Clark County representation.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="mb-4 font-bold">Buyer &amp; seller tools</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/services"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Summerlin Real Estate services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/properties/search"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Search Summerlin West homes for sale
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/market-data"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Summerlin West real estate market data
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/buying-guide"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Las Vegas home buying guide
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/sell-your-home"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Sell your Summerlin home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/home-valuation"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Summerlin West home value context
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/mortgage-calculator"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Mortgage payment calculator
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-4 font-bold">Areas &amp; lifestyle</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/office"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Summerlin Real Estate office
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/villages"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Luxury villages &amp; communities overview
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/amenities"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Golf, recreation &amp; Summerlin amenities
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/schools"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Schools serving Summerlin West
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/transportation"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Transportation &amp; Las Vegas access
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/listings"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Featured Summerlin West listings
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/summerlin-west-villages-comparison"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Compare Summerlin West villages by lifestyle
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/summerlin-west-market-snapshot"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Summerlin West market snapshot and trends
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/summerlin-west-schools-commute-amenities"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Schools, commute, and amenities planning guide
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-4 font-bold">Contact Info</h4>
-            <p className="text-sm text-gray-400">
-              {BUSINESS.streetAddress}
-              <br />
-              {BUSINESS.addressLocality}, {BUSINESS.addressRegion}{' '}
-              {BUSINESS.postalCode}
-              <br />
-              <a href={telHref} className="hover:text-white">
-                {BUSINESS.phoneDisplay}
-              </a>
-              <br />
-              <a
-                href={googleReviewsUrl}
-                className="hover:text-white"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                View Google Reviews
-              </a>
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-          <p>
-            Summerlin Real Estate | Homes by Dr. Jan Duffy.
-          </p>
-        </div>
-      </div>
-    </footer>
-  );
-}

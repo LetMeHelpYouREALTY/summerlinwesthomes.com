@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
   /** Avoid tracing from a parent-directory lockfile (breaks `vercel build` lambdas on some setups). */
   outputFileTracingRoot: __dirname,
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: cloudflareImageRemotePatterns(),
   },
   async redirects() {
