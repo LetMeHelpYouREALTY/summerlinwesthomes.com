@@ -26,6 +26,7 @@ import {
   SectionHeading,
 } from '@/components/media/heading-media';
 import ServiceCards from '@/components/services/service-cards';
+import OfficeListingsAfterHero from '@/components/realscout/office-listings-after-hero';
 
 export default function SummerlinWestHomes() {
   return (
@@ -41,6 +42,7 @@ function HomePage() {
       return (
       <>
         <HeroSection />
+        <OfficeListingsAfterHero />
         <ProgressiveOnboarding />
         <StatsBar />
         <HomeValueWidget />

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import type { HeadingImage } from '@/lib/section-images';
+import OfficeListingsAfterHero from '@/components/realscout/office-listings-after-hero';
 
 type PageHeroProps = {
   image: HeadingImage;
@@ -25,6 +26,7 @@ export function PageHero({
   minHeightClass = 'min-h-[22rem] md:min-h-[26rem]',
 }: PageHeroProps) {
   return (
+    <>
     <section
       className={cn(
         'photo-hero relative overflow-hidden text-white',
@@ -63,6 +65,8 @@ export function PageHero({
         </div>
       </div>
     </section>
+    <OfficeListingsAfterHero />
+    </>
   );
 }
 

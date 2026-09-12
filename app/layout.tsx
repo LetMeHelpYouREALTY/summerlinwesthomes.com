@@ -17,8 +17,6 @@ import { getSiteUrl } from '@/lib/site-url';
 import GlobalRouteFaq from '@/components/seo/global-route-faq';
 import SiteHeader from '@/components/site-header';
 import SiteNapFooter from '@/components/site-nap-footer';
-import { headingImages } from '@/lib/section-images';
-import { SectionHeading } from '@/components/media/heading-media';
 import './globals.css';
 
 declare global {
@@ -444,21 +442,6 @@ export default function RootLayout({
         />
         <SiteHeader />
         {children}
-        <section className="border-t border-gray-200 bg-[#f8f7f4] px-4 py-12">
-          <div className="mx-auto max-w-6xl">
-            <SectionHeading
-              image={headingImages.h2.featured}
-              title="Featured Listings"
-              subtitle="Browse Summerlin, Summerlin West, and Las Vegas homes for sale."
-            />
-            <div
-              dangerouslySetInnerHTML={{
-                __html:
-                  '<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="500000" price-max="650000"></realscout-office-listings>',
-              }}
-            />
-          </div>
-        </section>
         <GlobalRouteFaq />
         <SiteNapFooter />
 
