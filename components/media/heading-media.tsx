@@ -41,24 +41,26 @@ export function PageHero({
         sizes="100vw"
       />
       <div
-        className={cn('absolute inset-0 bg-[#050b25]/75', overlayClassName)}
+        className={cn('absolute inset-0 bg-[#050b25]/20', overlayClassName)}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#050b25]/90 via-[#050b25]/55 to-[#050b25]/35" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#050b25]/40 via-transparent to-[#050b25]/10" />
       <div
         className={cn(
           'relative z-10 mx-auto flex min-h-[inherit] max-w-6xl flex-col items-center justify-center px-4 py-16 text-center md:py-20',
           contentClassName,
         )}
       >
-        <h1 className="photo-hero-title mb-6 max-w-5xl text-balance text-4xl font-bold text-white md:text-6xl">
-          {title}
-        </h1>
-        {subtitle ? (
-          <p className="photo-hero-copy mx-auto mb-8 max-w-3xl text-xl font-medium text-white md:text-2xl">
-            {subtitle}
-          </p>
-        ) : null}
-        {children}
+        <div className="photo-hero-panel w-full max-w-5xl rounded-3xl px-6 py-8 md:px-10 md:py-10">
+          <h1 className="photo-hero-title mb-6 max-w-5xl text-balance text-4xl font-bold text-white md:text-6xl">
+            {title}
+          </h1>
+          {subtitle ? (
+            <p className="photo-hero-copy mx-auto mb-8 max-w-3xl text-xl font-medium text-white md:text-2xl">
+              {subtitle}
+            </p>
+          ) : null}
+          {children}
+        </div>
       </div>
     </section>
   );
@@ -142,17 +144,20 @@ export function OverlayHeadingSection({
         className="object-cover object-center"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-[#050b25]/80" />
+      <div className="absolute inset-0 bg-[#050b25]/15" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#050b25]/45 via-transparent to-transparent" />
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <Tag className="photo-hero-title mb-4 text-3xl font-bold text-white md:text-4xl">
-          {title}
-        </Tag>
-        {subtitle ? (
-          <p className="photo-hero-copy mx-auto mb-8 max-w-2xl font-medium text-white">
-            {subtitle}
-          </p>
-        ) : null}
-        {children}
+        <div className="photo-hero-panel mx-auto max-w-4xl rounded-3xl px-6 py-8 md:px-10">
+          <Tag className="photo-hero-title mb-4 text-3xl font-bold text-white md:text-4xl">
+            {title}
+          </Tag>
+          {subtitle ? (
+            <p className="photo-hero-copy mx-auto mb-8 max-w-2xl font-medium text-white">
+              {subtitle}
+            </p>
+          ) : null}
+          {children}
+        </div>
       </div>
     </section>
   );

@@ -68,11 +68,12 @@ function HomePage() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[#050b25]/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050b25] via-[#050b25]/70 to-[#050b25]/25" />
+        <div className="absolute inset-0 bg-[#050b25]/15" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050b25]/50 via-[#050b25]/15 to-transparent" />
 
         {/* Hero content */}
         <div className="relative z-10 mx-auto w-full max-w-5xl px-6 pb-16 pt-32 text-center text-white md:pb-24 md:pt-40">
+          <div className="photo-hero-panel rounded-3xl px-6 py-8 md:px-10 md:py-10">
           <h1 className="luxury-hero-title mx-auto mb-6 max-w-4xl text-balance text-5xl leading-[0.92] text-white md:text-7xl">
             <span className="mb-4 block text-base font-semibold uppercase tracking-[0.14em] text-white md:text-xl">
               Summerlin Real Estate · Las Vegas
@@ -96,6 +97,7 @@ function HomePage() {
           >
             Explore Listings
           </button>
+          </div>
         </div>
 
         {/* Scroll indicator */}
