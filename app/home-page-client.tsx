@@ -81,7 +81,8 @@ function HomePage() {
           </h1>
           <p className="luxury-hero-copy mx-auto mb-10 max-w-3xl text-lg font-medium text-white md:text-3xl">
             Buyers, sellers, and investors across Summerlin, Las Vegas,
-            Henderson, and Clark County. Call {BUSINESS.phoneDisplay}.
+            Henderson, and Clark County. Call{' '}
+            <span className="whitespace-nowrap">{BUSINESS.phoneDisplay}</span>.
           </p>
           <button
             onClick={() =>
