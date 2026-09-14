@@ -17,6 +17,7 @@ import {
   CreditCard,
   Info,
 } from 'lucide-react';
+import PageHero from '@/components/media/page-hero';
 
 export default function TransportationPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -188,32 +189,17 @@ export default function TransportationPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Summerlin West Commutes & Las Vegas Corridor Access
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Navigate Summerlin West with ease through our comprehensive
-            transportation guide
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Major Highways
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Public Transit
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Airport Access
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Scenic Routes
-            </span>
-          </div>
+      <PageHero
+        imageId="hero-transportation"
+        title="Summerlin West Commutes & Las Vegas Corridor Access"
+        subtitle="Drive times, beltway access, and airport routes from Summerlin West"
+      >
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <span className="rounded-full bg-white/20 px-4 py-2">215 Beltway</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Harry Reid Airport</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Red Rock access</span>
         </div>
-      </section>
+      </PageHero>
 
       {/* Quick Access Info */}
       <section className="bg-white py-12">

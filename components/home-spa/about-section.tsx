@@ -2,23 +2,31 @@
 
 import React from 'react';
 import { Users, Shield, TrendingUp } from 'lucide-react';
+import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
+import { BUSINESS } from '@/lib/business';
 
 export default function AboutSection() {
   return (
-    <section className="py-24">
-      <div className="container mx-auto px-4">
+    <section className="py-0">
+      <PageHero
+        imageId="hero-about"
+        title="Summerlin West Real Estate Listings & Local Expertise"
+        subtitle={`${BUSINESS.gbpTitle} — ${BUSINESS.streetAddress}, ${BUSINESS.addressLocality}, ${BUSINESS.addressRegion} ${BUSINESS.postalCode}`}
+      />
+      <div className="container mx-auto px-4 py-16">
         <div className="mx-auto max-w-4xl">
-          <h1 className="mb-8 text-center text-3xl font-bold md:text-4xl">
-            Summerlin West Real Estate Listings & Local Expertise
-          </h1>
+          <SectionImage
+            imageId="section-downtown-summerlin"
+            caption={`${BUSINESS.gbpTitle} serves buyers and sellers from ${BUSINESS.streetAddress}.`}
+            className="mb-10"
+          />
 
           <div className="prose prose-lg mx-auto text-gray-600">
             <p className="mb-6">
-              Summerlin West represents the pinnacle of luxury living in Las
-              Vegas. As the western portion of the master-planned community of
-              Summerlin, this area encompasses over 22,500 acres of stunning
-              desert landscape transformed into one of the nation&apos;s premier
-              residential developments.
+              Summerlin West is the western portion of the Summerlin master plan,
+              near Red Rock Canyon. Confirm village boundaries, HOA terms, and
+              current listings before you tour.
             </p>
 
             <div className="my-12 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -46,8 +54,10 @@ export default function AboutSection() {
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
                   <TrendingUp className="h-8 w-8 text-amber-600" />
                 </div>
-                <h4 className="mb-2 font-bold">Market Leaders</h4>
-                <p className="text-sm">#1 in luxury home sales in Las Vegas</p>
+                <h4 className="mb-2 font-bold">Local market work</h4>
+                <p className="text-sm">
+                  Village-level guidance for Summerlin West buyers and sellers
+                </p>
               </div>
             </div>
 

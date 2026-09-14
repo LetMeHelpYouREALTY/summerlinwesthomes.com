@@ -7,5 +7,5 @@ export function getSiteUrl(): string {
   if (raw) {
     return raw.replace(/\/+$/, '');
   }
-  return 'https://summerlinwesthomes.com';
+  return 'https://www.summerlinwesthomes.com';
 }

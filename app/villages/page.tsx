@@ -11,37 +11,23 @@ import {
   Star,
   TrendingUp,
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
 
 export default function VillagesPage() {
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-red-500 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Homes for Sale in Las Vegas Summerlin — Village Guide
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Discover the unique character and luxury lifestyle of each village
-            in Summerlin West
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              22,500 Acres
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              10 Unique Villages
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Guard Gated
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Red Rock Views
-            </span>
-          </div>
+      <PageHero
+        imageId="hero-villages"
+        title="Homes for Sale in Las Vegas Summerlin — Village Guide"
+        subtitle="Discover the unique character and luxury lifestyle of each village in Summerlin West"
+      >
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <span className="rounded-full bg-white/20 px-4 py-2">Red Rock views</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Master-planned villages</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">ZIP 89135</span>
         </div>
-      </section>
+      </PageHero>
 
       {/* Geographic Overview */}
       <section className="bg-white py-12">
@@ -50,6 +36,11 @@ export default function VillagesPage() {
             <h2 className="mb-6 text-3xl font-bold">
               Summerlin Homes for Sale: Geography & Boundaries
             </h2>
+            <SectionImage
+              imageId="section-red-rock"
+              caption="Summerlin West sits west of the 215 Beltway toward Red Rock Canyon."
+              className="mb-8"
+            />
             <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2">
               <div className="rounded-lg bg-gray-50 p-6">
                 <h3 className="mb-3 font-semibold text-amber-600">

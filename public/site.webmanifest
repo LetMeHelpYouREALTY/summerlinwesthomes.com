@@ -1,0 +1,16 @@
+{
+  "name": "Summerlin Real Estate | Homes by Dr. Jan Duffy",
+  "short_name": "Summerlin West Homes",
+  "description": "Summerlin West homes for sale in Las Vegas. Call (702) 842-0410.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1231",
+  "theme_color": "#0b1231",
+  "icons": [
+    {
+      "src": "/images/og-image-summerlin-west-homes.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg"
+    }
+  ]
+}

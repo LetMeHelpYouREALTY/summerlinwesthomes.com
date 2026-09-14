@@ -17,6 +17,8 @@ import {
   Users,
   Award,
 } from 'lucide-react';
+import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
 
 export default function AmenitiesPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -209,32 +211,17 @@ export default function AmenitiesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-600 via-green-700 to-emerald-800 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Las Vegas Homes Near Summerlin West Amenities
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Discover world-class golf courses, shopping, dining, and outdoor
-            recreation in Summerlin West
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Golf Courses
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Shopping & Dining
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Outdoor Recreation
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Healthcare
-            </span>
-          </div>
+      <PageHero
+        imageId="hero-amenities"
+        title="Las Vegas Homes Near Summerlin West Amenities"
+        subtitle="Golf courses, shopping, dining, and outdoor recreation around Summerlin West"
+      >
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <span className="rounded-full bg-white/20 px-4 py-2">Golf courses</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Shopping & dining</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Outdoor recreation</span>
         </div>
-      </section>
+      </PageHero>
 
       {/* Category Filter */}
       <section className="bg-white py-8">
@@ -366,8 +353,13 @@ export default function AmenitiesPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="mb-8 text-3xl font-bold">
-              Why Choose Summerlin West for Your Lifestyle?
+              Summerlin West golf, trails, and Downtown Summerlin
             </h2>
+            <div className="mb-10 grid gap-6 md:grid-cols-3">
+              <SectionImage imageId="section-golf" caption="Golf in Summerlin West" />
+              <SectionImage imageId="section-red-rock" caption="Red Rock Canyon access" />
+              <SectionImage imageId="section-downtown-summerlin" caption="Downtown Summerlin dining and retail" />
+            </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <div className="text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">

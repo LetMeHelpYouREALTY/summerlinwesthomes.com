@@ -13,6 +13,7 @@ import {
   Shield,
   TrendingUp,
 } from 'lucide-react';
+import PageHero from '@/components/media/page-hero';
 
 export default function SchoolsPage() {
   const [selectedSchoolType, setSelectedSchoolType] = useState('all');
@@ -168,32 +169,17 @@ export default function SchoolsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Las Vegas Homes Near Top Schools — Summerlin West Guide
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Discover top-rated public and private schools serving the Summerlin
-            West community
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Top-Rated Schools
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Public & Private Options
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              College Preparation
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              STEM Excellence
-            </span>
-          </div>
+      <PageHero
+        imageId="hero-schools"
+        title="Schools Serving Summerlin West Las Vegas"
+        subtitle="Compare school names, grade spans, and commute times. Confirm current zoning during due diligence."
+      >
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <span className="rounded-full bg-white/20 px-4 py-2">Public campuses</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Private options</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Verify zoning</span>
         </div>
-      </section>
+      </PageHero>
 
       {/* School District Information */}
       <section className="bg-white py-12">

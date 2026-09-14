@@ -11,6 +11,7 @@ import {
   Users,
 } from 'lucide-react';
 import CalendlyInlineSection from '@/components/calendly-inline-section';
+import PageHero from '@/components/media/page-hero';
 
 export default function HomeValuationPage() {
   const [formData, setFormData] = useState({
@@ -47,41 +48,11 @@ export default function HomeValuationPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-900 to-indigo-800 py-20 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Las Vegas Homes — Summerlin West Value & Pricing
-          </h1>
-          <p className="mb-8 text-xl text-blue-100 md:text-2xl">
-            Professional valuation context before you list or buy a home in Vegas
-            for sale.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <div className="flex items-center gap-2">
-              <Calculator className="h-5 w-5" />
-              <span>Instant Estimates</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <TrendingUp className="h-5 w-5" />
-              <span>Market Analysis</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="h-5 w-5" />
-              <span>Local Expertise</span>
-            </div>
-          </div>
-          <div className="mt-8">
-            <a
-              href="https://calendly.com/drjanduffy/appointment"
-              data-calendly-popup="appointment"
-              className="inline-flex items-center rounded-full border border-white/40 bg-white/95 px-8 py-3 font-semibold text-blue-900 shadow-lg backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:bg-white"
-            >
-              Book a Valuation Review Call
-            </a>
-          </div>
-        </div>
-      </div>
+      <PageHero
+        imageId="hero-valuation"
+        title="Las Vegas Homes — Summerlin West Value & Pricing"
+        subtitle="Professional valuation context before you list or buy. Live estimates plus a CMA from Dr. Jan Duffy."
+      />
 
       {/* RealScout Home Value Widget Section */}
       <div className="bg-white py-16">
@@ -229,7 +200,7 @@ export default function HomeValuationPage() {
                       onChange={handleChange}
                       required
                       className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-blue-500"
-                      placeholder="123 Luxury Lane"
+                      placeholder="10777 West Twain Avenue # 333"
                     />
                   </div>
 
@@ -556,11 +527,11 @@ export default function HomeValuationPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="tel:+1-702-555-0100"
+              href="tel:+17028420410"
               className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold text-blue-900 transition-colors duration-200 hover:bg-blue-50"
             >
               <Phone className="h-5 w-5" />
-              Call (702) 555-0100
+              Call (702) 842-0410
             </a>
             <a
               href="mailto:info@summerlinwesthomes.com"

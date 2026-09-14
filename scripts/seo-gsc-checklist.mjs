@@ -8,7 +8,7 @@
  */
 const raw =
   process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, '') ||
-  'https://summerlinwesthomes.com';
+  'https://www.summerlinwesthomes.com';
 
 // Keep aligned with app/sitemap.ts
 const paths = [

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Calculator, Home, DollarSign, TrendingUp, Phone, Mail, Download } from 'lucide-react';
+import PageHero from '@/components/media/page-hero';
 
 export default function MortgageCalculatorPage() {
   const [formData, setFormData] = useState({
@@ -151,24 +152,13 @@ export default function MortgageCalculatorPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        imageId="hero-mortgage"
+        title="Mortgage Calculator for Las Vegas Homes & Summerlin West"
+        subtitle="Estimate principal, interest, taxes, insurance, and HOA after you shortlist listings."
+      />
       <div className="container mx-auto px-4 py-12">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <div className="mb-6 flex justify-center">
-            <div className="rounded-full bg-amber-100 p-4">
-              <Calculator className="h-12 w-12 text-amber-600" />
-            </div>
-          </div>
-          <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-6xl">
-            Mortgage Calculator for Las Vegas Homes & Summerlin West
-          </h1>
-          <p className="mx-auto max-w-4xl text-xl text-gray-600">
-            Stress-test monthly payments for a home in Vegas for sale—include
-            taxes, insurance, and HOA after you shortlist real estate listings in
-            Las Vegas.
-          </p>
-        </div>
 
         <section className="mb-12 rounded-xl bg-white p-6 shadow-lg">
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
@@ -482,7 +472,7 @@ export default function MortgageCalculatorPage() {
                 <div className="space-y-3">
                   <div className="flex items-center justify-center space-x-3">
                     <Phone className="h-5 w-5 text-amber-600" />
-                    <span className="text-gray-700">(702) 555-0100</span>
+                    <span className="text-gray-700">(702) 842-0410</span>
                   </div>
                   <div className="flex items-center justify-center space-x-3">
                     <Mail className="h-5 w-5 text-amber-600" />

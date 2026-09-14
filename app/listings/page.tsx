@@ -2,23 +2,20 @@
 
 import React from 'react';
 import { Home, Filter } from 'lucide-react';
+import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
 
 export default function ListingsPage() {
   const agentId = 'QWdlbnQtMjI1MDUw';
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="mb-4 text-4xl font-bold text-gray-900">
-            Summerlin Homes for Sale | Real Estate Listings in Las Vegas
-          </h1>
-          <p className="max-w-3xl text-xl text-gray-600">
-            Browse homes for sale in Summerlin and wider Las Vegas MLS inventory.
-            Compare live real estate listings before you tour.
-          </p>
-        </div>
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        imageId="hero-listings"
+        title="Summerlin Homes for Sale | Real Estate Listings in Las Vegas"
+        subtitle="Browse homes for sale in Summerlin and wider Las Vegas MLS inventory. Compare live listings before you tour."
+      />
+      <div className="container mx-auto px-4 py-8">
 
         {/* RealScout Home Value Widget Section */}
         <div className="mb-12">
@@ -26,6 +23,11 @@ export default function ListingsPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Las Vegas Homes: Summerlin West Value Check
             </h2>
+            <SectionImage
+              imageId="section-luxury-interior"
+              caption="Pair live listings with a village-level value check before you write an offer."
+              className="mb-8"
+            />
             <p className="text-lg text-gray-600 mb-8">
               Get instant property value estimates while browsing our listings
             </p>

@@ -12,6 +12,7 @@ import {
   MapPin,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import PageHero from '@/components/media/page-hero';
 
 export default function MarketDataPage() {
   const [selectedVillage, setSelectedVillage] = useState('all');
@@ -139,32 +140,16 @@ export default function MarketDataPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-red-500 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Las Vegas Homes & Summerlin West Market Data
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Track trends behind homes for sale in Summerlin with village-level
-            context for west Las Vegas buyers and sellers.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Real-time MLS Data
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Village-Specific Analysis
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Price Trends
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Inventory Levels
-            </span>
-          </div>
+      <PageHero
+        imageId="hero-market"
+        title="Las Vegas Homes & Summerlin West Market Data"
+        subtitle="Use live MLS widgets for current inventory. Village averages below are examples only and need verification."
+      >
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <span className="rounded-full bg-white/20 px-4 py-2">Live MLS search</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Ask for a CMA</span>
         </div>
-      </section>
+      </PageHero>
 
       {/* RealScout Home Value Widget Section */}
       <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">

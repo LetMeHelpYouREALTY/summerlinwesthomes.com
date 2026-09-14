@@ -4,8 +4,11 @@ import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { getSiteUrl } from '@/lib/site-url';
+import { BUSINESS } from '@/lib/business';
 import GlobalRouteFaq from '@/components/seo/global-route-faq';
 import SiteHeader from '@/components/site-header';
+import SiteFooter from '@/components/site-footer';
+import LocalBusinessJsonLd from '@/components/gbp/local-business-jsonld';
 import './globals.css';
 
 declare global {
@@ -27,22 +30,6 @@ const siteUrl = getSiteUrl();
 const googleSiteVerification =
   process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
 
-const aggregateRatingValue =
-  process.env.NEXT_PUBLIC_GBP_AGGREGATE_RATING_VALUE?.trim();
-const aggregateRatingCount =
-  process.env.NEXT_PUBLIC_GBP_AGGREGATE_RATING_COUNT?.trim();
-const aggregateRatingBest =
-  process.env.NEXT_PUBLIC_GBP_AGGREGATE_RATING_BEST?.trim() ?? '5';
-const aggregateRating =
-  aggregateRatingValue && aggregateRatingCount
-    ? {
-        '@type': 'AggregateRating',
-        ratingValue: aggregateRatingValue,
-        reviewCount: aggregateRatingCount,
-        bestRating: aggregateRatingBest,
-      }
-    : undefined;
-
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -56,29 +43,29 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    template: '%s | Summerlin West Homes',
-    default: 'Luxury Real Estate in Summerlin West, Las Vegas',
+    template: `%s | ${BUSINESS.shortName}`,
+    default: 'Summerlin Homes for Sale | Las Vegas Real Estate Listings',
   },
   description:
-    'Luxury Summerlin West real estate: homes for sale, local market insight, villages, amenities, schools, and buying or selling guidance in Las Vegas, Nevada.',
+    'Summerlin Real Estate | Homes by Dr. Jan Duffy. Search Summerlin West homes for sale, tour listings, and get local buyer guidance in Las Vegas, Nevada.',
   keywords: [
     'Summerlin West Homes',
+    'Summerlin homes for sale',
     'Las Vegas Real Estate',
-    'Luxury Homes',
-    'Summerlin Properties',
-    'Nevada Real Estate',
-    'Las Vegas Homes for Sale',
+    'Dr. Jan Duffy',
+    '89135 homes',
+    'Summerlin West listings',
   ],
-  authors: [{ name: 'Summerlin West Homes' }],
-  creator: 'Summerlin West Homes',
-  publisher: 'Summerlin West Homes',
+  authors: [{ name: BUSINESS.agentName }],
+  creator: BUSINESS.gbpTitle,
+  publisher: BUSINESS.brokerage,
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   openGraph: {
-    siteName: 'Summerlin West Homes',
+    siteName: BUSINESS.gbpTitle,
     locale: 'en_US',
     type: 'website',
     images: [
@@ -86,15 +73,8 @@ export const metadata: Metadata = {
         url: '/images/og-image-summerlin-west-homes.jpg',
         width: 1200,
         height: 630,
-        alt: 'Summerlin West Homes - Luxury Real Estate in Las Vegas',
+        alt: 'Summerlin West homes with Red Rock Canyon views — Homes by Dr. Jan Duffy',
         type: 'image/jpeg',
-      },
-      {
-        url: '/images/og-image-summerlin-west-homes.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Summerlin West Homes - Luxury Real Estate in Las Vegas',
-        type: 'image/webp',
       },
     ],
   },
@@ -105,7 +85,7 @@ export const metadata: Metadata = {
         url: '/images/twitter-image-summerlin-west-homes.jpg',
         width: 1200,
         height: 630,
-        alt: 'Summerlin West Homes - Luxury Real Estate in Las Vegas',
+        alt: 'Summerlin West homes with Red Rock Canyon views — Homes by Dr. Jan Duffy',
       },
     ],
   },
@@ -180,197 +160,6 @@ export default function RootLayout({
           }
         `}</style>
 
-        {/* Enhanced Local Business Schema Markup */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'RealEstateAgent',
-              '@id': `${siteUrl}/#organization`,
-              name: 'Summerlin West Homes',
-              alternateName: 'Summerlin West Luxury Real Estate',
-              description:
-                'Premier luxury real estate agency specializing in Summerlin West, Las Vegas. Expert agents with deep local market knowledge and personalized service for discerning buyers and sellers.',
-              url: siteUrl,
-              logo: {
-                '@type': 'ImageObject',
-                url: `${siteUrl}/images/logo-summerlin-west-homes.png`,
-                width: 300,
-                height: 100,
-              },
-              image: {
-                '@type': 'ImageObject',
-                url: `${siteUrl}/images/hero-summerlin-west-luxury-homes.jpg`,
-                width: 1200,
-                height: 630,
-              },
-              telephone: '+1-702-555-0100',
-              email: 'info@summerlinwesthomes.com',
-              address: {
-                '@type': 'PostalAddress',
-                streetAddress: '123 Luxury Lane',
-                addressLocality: 'Las Vegas',
-                addressRegion: 'NV',
-                postalCode: '89135',
-                addressCountry: 'US',
-              },
-              geo: {
-                '@type': 'GeoCoordinates',
-                latitude: 36.1699,
-                longitude: -115.1398,
-              },
-              areaServed: [
-                {
-                  '@type': 'City',
-                  name: 'Las Vegas',
-                  sameAs: 'https://en.wikipedia.org/wiki/Las_Vegas',
-                },
-                {
-                  '@type': 'Place',
-                  name: 'Summerlin West',
-                  description: 'Premier master-planned community in Las Vegas',
-                },
-              ],
-              serviceArea: {
-                '@type': 'GeoCircle',
-                geoMidpoint: {
-                  '@type': 'GeoCoordinates',
-                  latitude: 36.1699,
-                  longitude: -115.1398,
-                },
-                geoRadius: '15000',
-              },
-              openingHours: [
-                'Mo-Fr 09:00-18:00',
-                'Sa 10:00-16:00',
-                'Su 12:00-16:00',
-              ],
-              contactPoint: [
-                {
-                  '@type': 'ContactPoint',
-                  telephone: '+1-702-555-0100',
-                  contactType: 'customer service',
-                  availableLanguage: 'English',
-                  hoursAvailable: {
-                    '@type': 'OpeningHoursSpecification',
-                    dayOfWeek: [
-                      'Monday',
-                      'Tuesday',
-                      'Wednesday',
-                      'Thursday',
-                      'Friday',
-                    ],
-                    opens: '09:00',
-                    closes: '18:00',
-                  },
-                },
-                {
-                  '@type': 'ContactPoint',
-                  telephone: '+1-702-555-0101',
-                  contactType: 'sales',
-                  availableLanguage: 'English',
-                },
-              ],
-              sameAs: [
-                'https://www.facebook.com/summerlinwesthomes',
-                'https://www.instagram.com/summerlinwesthomes',
-                'https://www.linkedin.com/company/summerlin-west-homes',
-                'https://www.youtube.com/@summerlinwesthomes',
-              ],
-              hasOfferCatalog: {
-                '@type': 'OfferCatalog',
-                name: 'Luxury Properties in Summerlin West',
-                itemListElement: [
-                  {
-                    '@type': 'Offer',
-                    itemOffered: {
-                      '@type': 'Service',
-                      name: 'Luxury Home Buyer & Seller Representation',
-                      description:
-                        'Buyer and seller representation for luxury homes across Summerlin West villages including The Ridges, The Summit, and Red Rock Country Club.',
-                      areaServed: [
-                        { '@type': 'City', name: 'Las Vegas' },
-                        { '@type': 'Place', name: 'Summerlin West' },
-                      ],
-                      provider: { '@id': `${siteUrl}/#organization` },
-                    },
-                  },
-                  {
-                    '@type': 'Offer',
-                    itemOffered: {
-                      '@type': 'Service',
-                      name: 'Real Estate Consultation',
-                      description:
-                        'Expert guidance for luxury property transactions in Summerlin West and the Las Vegas valley.',
-                      areaServed: [
-                        { '@type': 'City', name: 'Las Vegas' },
-                        { '@type': 'Place', name: 'Summerlin West' },
-                      ],
-                      provider: { '@id': `${siteUrl}/#organization` },
-                    },
-                  },
-                ],
-              },
-              ...(aggregateRating ? { aggregateRating } : {}),
-              priceRange: '$$$',
-              currenciesAccepted: 'USD',
-              paymentAccepted: [
-                'Cash',
-                'Credit Card',
-                'Check',
-                'Wire Transfer',
-              ],
-              knowsAbout: [
-                'Summerlin West Real Estate Market',
-                'Luxury Home Sales',
-                'Golf Course Properties',
-                'New Construction',
-                'Investment Properties',
-                'Las Vegas Luxury Market',
-              ],
-              communities: [
-                {
-                  '@type': 'Place',
-                  name: 'The Ridges',
-                  description: 'Luxury golf community in Summerlin West',
-                },
-                {
-                  '@type': 'Place',
-                  name: 'The Summit',
-                  description: 'Mountain living community',
-                },
-                {
-                  '@type': 'Place',
-                  name: 'Red Rock Country Club',
-                  description: 'Private golf club community',
-                },
-              ],
-            }),
-          }}
-        />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebSite',
-              '@id': `${siteUrl}/#website`,
-              url: siteUrl,
-              name: 'Summerlin West Homes',
-              publisher: { '@id': `${siteUrl}/#organization` },
-              potentialAction: {
-                '@type': 'SearchAction',
-                target: {
-                  '@type': 'EntryPoint',
-                  urlTemplate: `${siteUrl}/properties/search?q={search_term_string}`,
-                },
-                'query-input': 'required name=search_term_string',
-              },
-            }),
-          }}
-        />
         <link
           href="https://assets.calendly.com/assets/external/widget.css"
           rel="stylesheet"
@@ -417,62 +206,27 @@ export default function RootLayout({
             `,
           }}
         />
+        <LocalBusinessJsonLd />
         <SiteHeader />
         {children}
         <section className="border-t border-gray-200 bg-[#f8f7f4] px-4 py-12">
           <div className="mx-auto max-w-6xl">
             <h2 className="mb-3 text-center text-2xl font-semibold text-gray-900 md:text-3xl">
-              Featured Listings
+              Featured Summerlin West listings
             </h2>
             <p className="mb-8 text-center text-gray-600">
-              Browse the newest Summerlin West homes for sale.
+              Browse live MLS homes for sale, then call {BUSINESS.phoneDisplay} to tour.
             </p>
             <div
               dangerouslySetInnerHTML={{
                 __html:
-                  '<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="500000" price-max="650000"></realscout-office-listings>',
+                  `<realscout-office-listings agent-encoded-id="${BUSINESS.realScoutAgentId}" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="500000" price-max="650000"></realscout-office-listings>`,
               }}
             />
           </div>
         </section>
         <GlobalRouteFaq />
-        <footer className="border-t border-gray-200 bg-white px-4 py-5 text-center text-xs text-gray-600">
-          <p>Summerlin West | Homes by Dr. Jan Duffy. All rights reserved. © 2026</p>
-          <p className="mt-1">
-            Berkshire Hathaway HomeServices Nevada Properties | S.0197614.LLC
-          </p>
-          <p className="mt-3">
-            <a
-              href="https://calendly.com/drjanduffy/appointment"
-              data-calendly-popup="appointment"
-              className="font-semibold text-[#0b1231] underline-offset-2 hover:underline"
-            >
-              Schedule time with me
-            </a>
-          </p>
-          <div className="mt-3 flex flex-wrap items-center justify-center gap-3 text-[11px]">
-            <a
-              href="/summerlin-west-villages-comparison"
-              className="text-[#0b1231] underline-offset-2 hover:underline"
-            >
-              Compare Summerlin West villages
-            </a>
-            <span aria-hidden="true">|</span>
-            <a
-              href="/summerlin-west-market-snapshot"
-              className="text-[#0b1231] underline-offset-2 hover:underline"
-            >
-              Summerlin West market snapshot
-            </a>
-            <span aria-hidden="true">|</span>
-            <a
-              href="/summerlin-west-schools-commute-amenities"
-              className="text-[#0b1231] underline-offset-2 hover:underline"
-            >
-              Schools, commute, and amenities guide
-            </a>
-          </div>
-        </footer>
+        <SiteFooter />
 
         {/* Vercel Analytics and Performance Monitoring */}
         <Analytics />

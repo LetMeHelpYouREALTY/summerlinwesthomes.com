@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
+import { BUSINESS, telHref } from '@/lib/business';
 
 const villageRows = [
   {
@@ -19,7 +22,7 @@ const villageRows = [
   {
     name: 'The Vistas',
     fit: 'Established village with strong amenities',
-    bestFor: 'Families wanting schools, parks, and trails',
+    bestFor: 'Buyers prioritizing parks, trails, and school-zoned inventory',
   },
   {
     name: 'Stonebridge and nearby villages',
@@ -61,7 +64,12 @@ export default function SummerlinWestVillagesComparisonPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white pt-24">
+    <main className="min-h-screen bg-white">
+      <PageHero
+        imageId="hero-villages-comparison"
+        title="Summerlin Homes for Sale — Villages Comparison Guide"
+        subtitle="Compare Summerlin West villages by home style, amenities, and daily commute patterns."
+      />
       <section className="container mx-auto px-4 py-12">
         <script
           type="application/ld+json"
@@ -69,14 +77,11 @@ export default function SummerlinWestVillagesComparisonPage() {
             __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
           }}
         />
-        <h1 className="mb-4 text-4xl font-bold text-gray-900">
-          Summerlin Homes for Sale — Villages Comparison Guide
-        </h1>
-        <p className="mb-10 max-w-3xl text-lg text-gray-600">
-          Compare Summerlin West villages side by side so you can focus your
-          home search on the communities that match your lifestyle, price point,
-          and daily routine.
-        </p>
+        <SectionImage
+          imageId="section-new-construction"
+          caption="Compare newer Summerlin West villages with established streets before you tour."
+          className="mb-10"
+        />
 
         <div className="overflow-x-auto rounded-xl border border-gray-200">
           <table className="w-full text-left">
@@ -161,10 +166,10 @@ export default function SummerlinWestVillagesComparisonPage() {
               View Live Listings
             </Link>
             <a
-              href="tel:+17025550100"
+              href={telHref()}
               className="rounded-lg border border-amber-600 px-5 py-3 font-semibold text-amber-700 hover:bg-amber-50"
             >
-              Call (702) 555-0100
+              Call {BUSINESS.phoneDisplay}
             </a>
           </div>
         </div>

@@ -2,19 +2,17 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ChevronRight,
   Home,
   Phone,
-  Mail,
   MapPin,
   Bed,
   Bath,
   Square,
   Heart,
   Star,
-  Users,
-  TrendingUp,
   Map,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -22,13 +20,15 @@ import { ProgressiveOnboarding } from '@/components/ProgressiveOnboarding';
 import { OnboardingProvider } from '@/components/OnboardingContext';
 import { formatSquareFeet } from '@/lib/utils';
 import type { Property } from '@/types/real-estate';
+import { BUSINESS, telHref } from '@/lib/business';
+import { imageMeta, imageSrc } from '@/lib/images';
+import SectionImage from '@/components/media/section-image';
 
 export default function SummerlinWestHomes() {
   return (
     <OnboardingProvider>
       <div className="min-h-screen bg-gray-50">
         <HomePage />
-        <Footer />
       </div>
     </OnboardingProvider>
   );
@@ -45,7 +45,7 @@ function HomePage() {
       <RealScoutSearchEmbed />
       <FeaturedProperties />
       <CommunitiesPreview />
-      <TestimonialsSection />
+      <GoogleReviewsCta />
       <CTASection />
     </>
   );
@@ -53,15 +53,20 @@ function HomePage() {
 
   // Hero Section with Enhanced Visual Appeal
   function HeroSection() {
+    const hero = imageMeta('hero-home');
     return (
       <section className="relative flex min-h-screen items-end overflow-hidden">
-        {/* Background image */}
-        <div className="luxury-hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat" />
-        {/* Color and contrast overlays */}
+        <Image
+          src={imageSrc('hero-home')}
+          alt={hero.alt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-[#0b1231]/50" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0b1231]/15 via-[#0b1231]/40 to-[#0b1231]/75" />
 
-        {/* Hero content */}
         <div className="relative z-10 mx-auto w-full max-w-5xl px-6 pb-16 pt-32 text-center text-white md:pb-24 md:pt-40">
           <h1
             className="luxury-hero-title mx-auto mb-6 max-w-4xl text-balance text-5xl leading-[0.92] md:text-7xl"
@@ -72,24 +77,30 @@ function HomePage() {
             YOUR SUMMERLIN LEGACY.
           </h1>
           <p className="mx-auto mb-10 max-w-3xl text-lg font-medium text-white/90 md:text-3xl">
-            Leverage our specialized market expertise to own the season in
-            Summerlin West—live Las Vegas homes inventory at your fingertips.
+            Search live Summerlin West inventory, then call {BUSINESS.phoneDisplay} to tour with {BUSINESS.agentName}.
           </p>
-          <button
-            onClick={() =>
-              window.open(
-                'https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay05NTMy',
-                '_blank',
-                'noopener,noreferrer'
-              )
-            }
-            className="inline-flex items-center justify-center rounded-full bg-[#0b1231] px-10 py-4 text-xl font-semibold tracking-tight text-white shadow-2xl ring-1 ring-white/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#101c49]"
-          >
-            Explore Listings
-          </button>
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <button
+              onClick={() =>
+                window.open(
+                  'https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay05NTMy',
+                  '_blank',
+                  'noopener,noreferrer'
+                )
+              }
+              className="inline-flex items-center justify-center rounded-full bg-[#0b1231] px-10 py-4 text-xl font-semibold tracking-tight text-white shadow-2xl ring-1 ring-white/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#101c49]"
+            >
+              Explore Listings
+            </button>
+            <a
+              href={telHref()}
+              className="inline-flex items-center justify-center rounded-full bg-[#d8c58e] px-10 py-4 text-xl font-semibold tracking-tight text-[#0b1231] shadow-2xl transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Call {BUSINESS.phoneDisplay}
+            </a>
+          </div>
         </div>
 
-        {/* Scroll indicator */}
         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 transform animate-bounce">
           <ChevronRight className="h-7 w-7 rotate-90 text-white/85" />
         </div>
@@ -100,10 +111,10 @@ function HomePage() {
 // Enhanced Stats Bar with Real Data
 function StatsBar() {
   const stats = [
-    { value: '2,500+', label: 'Luxury Homes', icon: Home },
-    { value: '22,500', label: 'Acres', icon: Map },
-    { value: '30+', label: 'Communities', icon: Users },
-    { value: '$1.2M', label: 'Avg Home Price', icon: TrendingUp },
+    { value: '89135', label: 'Primary ZIP', icon: MapPin },
+    { value: 'Red Rock', label: 'Canyon access', icon: Map },
+    { value: 'Live MLS', label: 'Inventory search', icon: Home },
+    { value: BUSINESS.phoneDisplay, label: 'Call to tour', icon: Phone },
   ];
 
   return (
@@ -140,6 +151,11 @@ function HomeValueWidget() {
             Get an instant, accurate estimate of your Summerlin West
             property&apos;s current market value
           </p>
+          <SectionImage
+            imageId="hero-valuation"
+            caption="Ask for a village-level CMA before you price a Summerlin West home."
+            className="mb-8"
+          />
         </div>
 
         {/* RealScout Home Value Widget */}
@@ -426,6 +442,11 @@ function CommunitiesPreview() {
             Compare village-level inventory while you shop Summerlin homes for
             sale.
           </p>
+          <SectionImage
+            imageId="hero-villages"
+            caption="Summerlin West villages sit between the 215 Beltway and Red Rock Canyon."
+            className="mx-auto mt-8 max-w-5xl"
+          />
         </div>
 
         <div className="mx-auto max-w-6xl rounded-xl bg-white p-6 shadow-lg">
@@ -451,56 +472,34 @@ function CommunitiesPreview() {
   );
 }
 
-// Testimonials Section
-function TestimonialsSection() {
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      role: 'Homeowner',
-      text: 'The team made our dream of owning in Summerlin West a reality. Exceptional service!',
-      rating: 5,
-    },
-    {
-      name: 'Michael Chen',
-      role: 'Investor',
-      text: 'Professional, knowledgeable, and always available. Best real estate experience.',
-      rating: 5,
-    },
-    {
-      name: 'The Williams Family',
-      role: 'New Residents',
-      text: "They found us the perfect home in The Ridges. Couldn't be happier!",
-      rating: 5,
-    },
-  ];
-
+function GoogleReviewsCta() {
   return (
     <section className="bg-white py-16">
-      <div className="container mx-auto px-4">
-        <h2 className="mb-12 text-center text-3xl font-bold">
-          What Las Vegas Home Buyers Say About Summerlin West
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="mb-4 text-3xl font-bold">
+          Read Google reviews for {BUSINESS.gbpTitle}
         </h2>
-
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.name} className="rounded-xl bg-gray-50 p-6">
-              <div className="mb-4 flex">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="h-5 w-5 fill-amber-400 text-amber-400"
-                  />
-                ))}
-              </div>
-              <p className="mb-4 italic text-gray-600">
-                &ldquo;{testimonial.text}&rdquo;
-              </p>
-              <div>
-                <p className="font-semibold">{testimonial.name}</p>
-                <p className="text-sm text-gray-500">{testimonial.role}</p>
-              </div>
-            </div>
-          ))}
+        <p className="mx-auto mb-8 max-w-2xl text-gray-600">
+          Reviews live on Google Maps, not on this page. Open the Business
+          Profile to read verified buyer and seller feedback before you tour.
+        </p>
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href={BUSINESS.reviewsUri}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-amber-600 px-8 py-3 font-semibold text-white hover:bg-amber-700"
+          >
+            <Star className="h-5 w-5" aria-hidden />
+            View Google Reviews
+          </a>
+          <a
+            href={telHref()}
+            className="inline-flex items-center gap-2 rounded-lg border border-[#0b1231] px-8 py-3 font-semibold text-[#0b1231]"
+          >
+            <Phone className="h-5 w-5" aria-hidden />
+            Call {BUSINESS.phoneDisplay}
+          </a>
         </div>
       </div>
     </section>
@@ -520,175 +519,21 @@ function CTASection() {
           that fit your brief.
         </p>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <button className="rounded-lg bg-white px-8 py-3 font-semibold text-amber-600 transition-all hover:shadow-xl">
+          <Link
+            href="/properties/search"
+            prefetch={false}
+            className="rounded-lg bg-white px-8 py-3 font-semibold text-amber-600 transition-all hover:shadow-xl"
+          >
             Start Your Search
-          </button>
-          <button className="rounded-lg border-2 border-white px-8 py-3 font-semibold text-white transition-all hover:bg-white hover:text-amber-600">
-            Contact an Agent
-          </button>
+          </Link>
+          <a
+            href={telHref()}
+            className="rounded-lg border-2 border-white px-8 py-3 font-semibold text-white transition-all hover:bg-white hover:text-amber-600"
+          >
+            Call {BUSINESS.phoneDisplay}
+          </a>
         </div>
       </div>
     </section>
-  );
-}
-
-// Footer Component
-function Footer() {
-  return (
-    <footer className="bg-gray-900 py-12 text-white">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          <div>
-            <h4 className="mb-4 font-bold text-amber-400">
-              Summerlin West Homes
-            </h4>
-            <p className="text-sm text-gray-400">
-              Your trusted partner in luxury real estate
-            </p>
-          </div>
-
-          <div>
-            <h4 className="mb-4 font-bold">Buyer &amp; seller tools</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href="/properties/search"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Search Summerlin West homes for sale
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/market-data"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Summerlin West real estate market data
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/buying-guide"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Las Vegas home buying guide
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/sell-your-home"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Sell your Summerlin home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/home-valuation"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Summerlin West home value context
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/mortgage-calculator"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Mortgage payment calculator
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-4 font-bold">Areas &amp; lifestyle</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href="/villages"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Luxury villages &amp; communities overview
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/amenities"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Golf, recreation &amp; Summerlin amenities
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/schools"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Schools serving Summerlin West
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/transportation"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Transportation &amp; Las Vegas access
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/listings"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Featured Summerlin West listings
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/summerlin-west-villages-comparison"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Compare Summerlin West villages by lifestyle
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/summerlin-west-market-snapshot"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Summerlin West market snapshot and trends
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/summerlin-west-schools-commute-amenities"
-                  className="text-gray-400 transition-colors hover:text-white"
-                >
-                  Schools, commute, and amenities planning guide
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-4 font-bold">Contact Info</h4>
-            <p className="text-sm text-gray-400">
-              1980 Festival Plaza Dr
-              <br />
-              Suite 300
-              <br />
-              Las Vegas, NV 89135
-              <br />
-              (702) 555-0100
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-          <p>Local experts for Summerlin West real estate and relocation support.</p>
-        </div>
-      </div>
-    </footer>
   );
 }
