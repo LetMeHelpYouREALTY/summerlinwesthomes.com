@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Calculator, Home, DollarSign, TrendingUp, Phone, Mail, Download } from 'lucide-react';
+import { Calculator, Home, DollarSign, Phone } from 'lucide-react';
 import PageHero from '@/components/media/page-hero';
+import ImageCta from '@/components/media/image-cta';
+import { BUSINESS, telHref } from '@/lib/business';
 
 export default function MortgageCalculatorPage() {
   const [formData, setFormData] = useState({
@@ -472,12 +474,17 @@ export default function MortgageCalculatorPage() {
                 <div className="space-y-3">
                   <div className="flex items-center justify-center space-x-3">
                     <Phone className="h-5 w-5 text-amber-600" />
-                    <span className="text-gray-700">(702) 842-0410</span>
+                    <a href={telHref()} className="font-semibold text-gray-700">
+                      {BUSINESS.phoneDisplay}
+                    </a>
                   </div>
-                  <div className="flex items-center justify-center space-x-3">
-                    <Mail className="h-5 w-5 text-amber-600" />
-                    <span className="text-gray-700">info@summerlinwesthomes.com</span>
-                  </div>
+                  <a
+                    href={BUSINESS.calendlyUrl}
+                    data-calendly-popup="appointment"
+                    className="inline-block font-semibold text-amber-700 underline-offset-2 hover:underline"
+                  >
+                    Schedule a payment review
+                  </a>
                 </div>
               </div>
             </div>
@@ -576,41 +583,43 @@ export default function MortgageCalculatorPage() {
                 </div>
                 
                 <div className="mt-4 text-center">
-                  <button className="inline-flex items-center space-x-2 rounded-lg bg-amber-600 px-4 py-2 text-sm font-medium text-white hover:bg-amber-700 transition-colors">
-                    <Download className="h-4 w-4" />
-                    <span>Download Full Schedule</span>
+                  <button
+                    type="button"
+                    onClick={() => window.print()}
+                    className="inline-flex items-center space-x-2 rounded-lg bg-amber-600 px-4 py-2 text-sm font-medium text-white hover:bg-amber-700 transition-colors"
+                  >
+                    <span>Print this schedule</span>
                   </button>
                 </div>
               </div>
 
               {/* Market Insights */}
               <div className="rounded-xl bg-amber-50 p-8">
-                <h3 className="mb-6 text-2xl font-bold text-gray-900">
-                  Summerlin West Market Insights
+                <h3 className="mb-4 text-2xl font-bold text-gray-900">
+                  Use a lender quote, not a website average
                 </h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700">Average Home Price</span>
-                    <span className="font-semibold text-gray-900">$1,247,000</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700">Average Down Payment</span>
-                    <span className="font-semibold text-gray-900">$249,400 (20%)</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700">Current Interest Rates</span>
-                    <span className="font-semibold text-gray-900">6.5% - 7.2%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700">Property Tax Rate</span>
-                    <span className="font-semibold text-gray-900">0.64%</span>
-                  </div>
-                </div>
+                <p className="mb-6 text-gray-700">
+                  Payment math here is an estimate from the inputs you enter.
+                  Ask your lender for current rates, taxes, HOA dues, and
+                  insurance. Call {BUSINESS.phoneDisplay} for a village-level CMA.
+                </p>
+                <a
+                  href={telHref()}
+                  className="inline-block rounded-lg bg-[#0b1231] px-5 py-3 font-semibold text-white"
+                >
+                  Call {BUSINESS.phoneDisplay}
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <ImageCta
+        imageId="hero-mortgage"
+        title="Want a payment plan that matches a real listing?"
+        subtitle="Call (702) 842-0410. Pair this calculator with a lender quote and a village-level CMA."
+        primary={{ href: telHref(), label: `Call ${BUSINESS.phoneDisplay}` }}
+      />
     </div>
   );
 }

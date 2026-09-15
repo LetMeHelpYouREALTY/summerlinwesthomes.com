@@ -26,6 +26,16 @@ export type SiteImageId =
   | 'section-downtown-summerlin'
   | 'section-luxury-interior'
   | 'section-new-construction'
+  | 'h3-downtown-skyline'
+  | 'h3-airport'
+  | 'h3-pool-patio'
+  | 'h3-trail'
+  | 'h3-office'
+  | 'h3-entry'
+  | 'h3-hospital'
+  | 'h3-casino'
+  | 'h3-library'
+  | 'h3-school'
   | 'og-default';
 
 export type SiteImageMeta = {
@@ -200,6 +210,86 @@ export const SITE_IMAGES: Record<SiteImageId, SiteImageMeta> = {
     heading: 'Newer Summerlin West villages and construction',
     alt: 'Newer construction luxury homes in a Summerlin West village',
     localPath: '/images/section-new-construction.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-downtown-skyline': {
+    id: 'h3-downtown-skyline',
+    heading: 'Commute from Summerlin West to Downtown Las Vegas',
+    alt: 'Las Vegas skyline at dusk seen from the west valley',
+    localPath: '/images/h3-downtown-skyline.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-airport': {
+    id: 'h3-airport',
+    heading: 'Airport access from Summerlin West',
+    alt: 'Desert airport terminal exterior in Las Vegas at golden hour',
+    localPath: '/images/h3-airport.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-pool-patio': {
+    id: 'h3-pool-patio',
+    heading: 'Tour a Summerlin West backyard and patio',
+    alt: 'Luxury Summerlin West pool and covered patio at twilight',
+    localPath: '/images/h3-pool-patio.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-trail': {
+    id: 'h3-trail',
+    heading: 'Trails and Red Rock recreation near Summerlin West',
+    alt: 'Desert hiking trail toward Red Rock Canyon sandstone cliffs',
+    localPath: '/images/h3-trail.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-office': {
+    id: 'h3-office',
+    heading: 'Google Business Profile office on West Twain Avenue',
+    alt: 'Mixed-use office plaza in Downtown Summerlin at evening',
+    localPath: '/images/h3-office.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-entry': {
+    id: 'h3-entry',
+    heading: 'Summerlin West home entry and desert landscaping',
+    alt: 'Stone entry and desert plants at a Summerlin West luxury home',
+    localPath: '/images/h3-entry.jpg',
+    width: 1152,
+    height: 864,
+  },
+  'h3-hospital': {
+    id: 'h3-hospital',
+    heading: 'Healthcare access from Summerlin West',
+    alt: 'Desert hospital campus in west Las Vegas with mountain views',
+    localPath: '/images/h3-hospital.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-casino': {
+    id: 'h3-casino',
+    heading: 'Red Rock resort and entertainment near Summerlin West',
+    alt: 'Desert casino-resort hotel exterior in west Las Vegas at dusk',
+    localPath: '/images/h3-casino.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-library': {
+    id: 'h3-library',
+    heading: 'Library and civic amenities in Summerlin West',
+    alt: 'Contemporary public library exterior in Summerlin West Las Vegas',
+    localPath: '/images/h3-library.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-school': {
+    id: 'h3-school',
+    heading: 'Campuses serving Summerlin West homes',
+    alt: 'Modern west Las Vegas school campus with desert landscaping',
+    localPath: '/images/h3-school.jpg',
     width: 1280,
     height: 720,
   },

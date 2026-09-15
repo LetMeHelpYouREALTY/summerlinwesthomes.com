@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import CalendlyInlineSection from '@/components/calendly-inline-section';
 import PageHero from '@/components/media/page-hero';
+import ImageCta from '@/components/media/image-cta';
 
 export default function SellYourHomePage() {
   const [formData, setFormData] = useState({
@@ -636,26 +637,12 @@ export default function SellYourHomePage() {
                 </form>
               </div>
 
-              {/* CTA Box */}
-              <div className="rounded-xl bg-gradient-to-br from-amber-600 to-orange-600 p-8 text-white">
-                <h3 className="mb-4 text-2xl font-bold">
-                  Ready to Get Started?
-                </h3>
-                <p className="mb-6 text-amber-100">
-                  Schedule a free consultation to discuss your selling strategy
-                  and timeline.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <Phone className="h-5 w-5" />
-                    <span>(702) 842-0410</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Mail className="h-5 w-5" />
-                    <span>info@summerlinwesthomes.com</span>
-                  </div>
-                </div>
-              </div>
+              <ImageCta
+                imageId="hero-sell"
+                title="Ready to list your Summerlin West home?"
+                subtitle="Call (702) 842-0410 or book a seller consultation. GBP does not list a public email."
+                primary={{ href: 'tel:+17028420410', label: 'Call (702) 842-0410' }}
+              />
             </div>
           </div>
         </div>

@@ -12,6 +12,8 @@ import {
 } from 'lucide-react';
 import CalendlyInlineSection from '@/components/calendly-inline-section';
 import PageHero from '@/components/media/page-hero';
+import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 
 export default function HomeValuationPage() {
   const [formData, setFormData] = useState({
@@ -387,7 +389,7 @@ export default function HomeValuationPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-blue-500"
-                      placeholder="(702) 555-0123"
+                      placeholder="(702) 842-0410"
                     />
                   </div>
                 </div>
@@ -471,78 +473,35 @@ export default function HomeValuationPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
-                  <TrendingUp className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-semibold text-gray-900">
-                  Market Expertise
-                </h3>
-                <p className="text-gray-600">
-                  Deep understanding of Summerlin West market trends and
-                  property values
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                  <Calculator className="h-8 w-8 text-green-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-semibold text-gray-900">
-                  Advanced Analytics
-                </h3>
-                <p className="text-gray-600">
-                  Data-driven insights using the latest real estate technology
-                  and market data
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-purple-100">
-                  <Users className="h-8 w-8 text-purple-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-semibold text-gray-900">
-                  Personalized Service
-                </h3>
-                <p className="text-gray-600">
-                  One-on-one consultation and ongoing support throughout your
-                  selling journey
-                </p>
-              </div>
-            </div>
+            <HeadingPhotoGrid
+              items={[
+                {
+                  imageId: 'h3-office',
+                  heading: 'Market expertise',
+                  text: 'Village-level pricing notes for Summerlin West, tied to live MLS — not a website average.',
+                },
+                {
+                  imageId: 'hero-market',
+                  heading: 'Current listing context',
+                  text: 'Pair this form with a CMA from Dr. Jan Duffy before you price a sale or offer.',
+                },
+                {
+                  imageId: 'h3-entry',
+                  heading: 'On-site walkthrough',
+                  text: 'Call (702) 842-0410 to schedule a property walkthrough and valuation review.',
+                },
+              ]}
+            />
           </div>
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="bg-gradient-to-r from-blue-900 to-indigo-800 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-            Ready to Discover Your Home&apos;s True Value?
-          </h2>
-          <p className="mb-8 text-xl text-blue-100">
-            Get started with our instant valuation tool above, or contact us for
-            a comprehensive analysis
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="tel:+17028420410"
-              className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold text-blue-900 transition-colors duration-200 hover:bg-blue-50"
-            >
-              <Phone className="h-5 w-5" />
-              Call (702) 842-0410
-            </a>
-            <a
-              href="mailto:info@summerlinwesthomes.com"
-              className="flex items-center gap-2 rounded-lg border-2 border-white px-6 py-3 font-semibold text-white transition-colors duration-200 hover:bg-white hover:text-blue-900"
-            >
-              <Mail className="h-5 w-5" />
-              Email Us
-            </a>
-          </div>
-        </div>
-      </div>
+      <ImageCta
+        imageId="hero-valuation"
+        title="Ready to review your Summerlin West home value?"
+        subtitle="Submit the form above or call (702) 842-0410. Schedule a valuation review on Calendly — GBP does not list a public email."
+        primary={{ href: 'tel:+17028420410', label: 'Call (702) 842-0410' }}
+      />
       <CalendlyInlineSection
         title="Schedule a Valuation Review"
         description="Walk through your valuation report and next steps with Dr. Jan Duffy."

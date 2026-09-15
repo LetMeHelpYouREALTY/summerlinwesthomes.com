@@ -4,6 +4,8 @@ import React from 'react';
 import { Home, Filter } from 'lucide-react';
 import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
+import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 
 export default function ListingsPage() {
   const agentId = 'QWdlbnQtMjI1MDUw';
@@ -167,39 +169,33 @@ export default function ListingsPage() {
             before scheduling tours. Focusing on live data helps buyers avoid stale
             assumptions and spot stronger opportunities earlier.
           </p>
-          <div className="grid gap-4 md:grid-cols-3">
-            <article>
-              <h3 className="text-lg font-semibold text-gray-900">
-                Las Vegas Home Price Positioning
-              </h3>
-              <p className="mt-1 text-gray-700">
-                Compare active asking prices with recent closes to understand where
-                negotiation room may exist.
-              </p>
-            </article>
-            <article>
-              <h3 className="text-lg font-semibold text-gray-900">
-                Homes for Sale in Summerlin — Village Fit
-              </h3>
-              <p className="mt-1 text-gray-700">
-                Filter by location and home type to narrow inventory to villages
-                that match your lifestyle and commute needs.
-              </p>
-            </article>
-            <article>
-              <h3 className="text-lg font-semibold text-gray-900">
-                Offer Timing on Las Vegas Listings
-              </h3>
-              <p className="mt-1 text-gray-700">
-                Watch listing freshness and activity trends to decide when to move
-                quickly or when to negotiate more aggressively.
-              </p>
-            </article>
-          </div>
+          <HeadingPhotoGrid
+            items={[
+              {
+                imageId: 'hero-market',
+                heading: 'Las Vegas home price positioning',
+                text: 'Compare active asking prices with recent closes to understand where negotiation room may exist.',
+              },
+              {
+                imageId: 'hero-villages',
+                heading: 'Village fit for homes in Summerlin',
+                text: 'Filter by location and home type to narrow inventory to villages that match your commute.',
+              },
+              {
+                imageId: 'h3-entry',
+                heading: 'Offer timing on Las Vegas listings',
+                text: 'Watch listing freshness and activity before you tour or write an offer.',
+              },
+            ]}
+          />
         </section>
-
-
       </div>
+      <ImageCta
+        imageId="hero-listings"
+        title="Tour a Summerlin West listing this week"
+        subtitle="Call (702) 842-0410 after you shortlist live MLS homes. Directions and Google reviews are in the footer."
+        primary={{ href: '/properties/search', label: 'Open live search' }}
+      />
     </div>
   );
 }

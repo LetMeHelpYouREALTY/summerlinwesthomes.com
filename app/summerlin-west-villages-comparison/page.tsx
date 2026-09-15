@@ -2,6 +2,7 @@ import Link from 'next/link';
 import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import { BUSINESS, telHref } from '@/lib/business';
+import ImageCta from '@/components/media/image-cta';
 
 const villageRows = [
   {
@@ -174,6 +175,12 @@ export default function SummerlinWestVillagesComparisonPage() {
           </div>
         </div>
       </section>
+      <ImageCta
+        imageId="hero-villages-comparison"
+        title="Match a village to live inventory"
+        subtitle="Call (702) 842-0410 after you compare The Ridges, The Summit, and nearby villages."
+        primary={{ href: '/properties/search', label: 'View live listings' }}
+      />
     </main>
   );
 }

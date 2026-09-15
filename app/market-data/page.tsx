@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PageHero from '@/components/media/page-hero';
+import ImageCta from '@/components/media/image-cta';
 
 export default function MarketDataPage() {
   const [selectedVillage, setSelectedVillage] = useState('all');
@@ -150,6 +151,10 @@ export default function MarketDataPage() {
           <span className="rounded-full bg-white/20 px-4 py-2">Ask for a CMA</span>
         </div>
       </PageHero>
+      <p className="mx-auto max-w-4xl px-4 py-4 text-center text-sm text-amber-900">
+        Sample village figures below are illustrations for layout only. They are
+        not current MLS statistics. Use the live widgets and call for a CMA.
+      </p>
 
       {/* RealScout Home Value Widget Section */}
       <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -554,26 +559,12 @@ export default function MarketDataPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-amber-600 to-orange-600 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">
-            Need Detailed Summerlin West Market Analysis?
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-white/90">
-            Get personalized market reports for specific villages or property
-            types in Summerlin West
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <button className="rounded-lg bg-white px-8 py-3 font-semibold text-amber-600 transition-all hover:shadow-xl">
-              Request Custom Report
-            </button>
-            <button className="rounded-lg border-2 border-white px-8 py-3 font-semibold text-white transition-all hover:bg-white hover:text-amber-600">
-              Schedule Market Consultation
-            </button>
-          </div>
-        </div>
-      </section>
+      <ImageCta
+        imageId="hero-market"
+        title="Need a village-level CMA for Summerlin West?"
+        subtitle="Figures on this page are examples only. Call (702) 842-0410 for a current comparative market analysis tied to live MLS."
+        primary={{ href: '/properties/search', label: 'Search live listings' }}
+      />
 
       {/* RealScout Listings Section */}
       <section className="bg-gray-50 py-16">

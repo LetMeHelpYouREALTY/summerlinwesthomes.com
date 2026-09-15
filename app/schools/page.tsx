@@ -14,6 +14,9 @@ import {
   TrendingUp,
 } from 'lucide-react';
 import PageHero from '@/components/media/page-hero';
+import ImageCta from '@/components/media/image-cta';
+import HeadingCardPhoto from '@/components/media/heading-card-photo';
+import type { SiteImageId } from '@/lib/images';
 
 export default function SchoolsPage() {
   const [selectedSchoolType, setSelectedSchoolType] = useState('all');
@@ -23,7 +26,7 @@ export default function SchoolsPage() {
       name: 'Palo Verde High School',
       type: 'Public High School',
       grade: '9-12',
-      rating: 9.2,
+      imageId: 'h3-school' as SiteImageId,
       address: '333 S Pavilion Center Dr, Las Vegas, NV 89144',
       distance: '2.1 miles',
       enrollment: '2,847',
@@ -32,23 +35,23 @@ export default function SchoolsPage() {
         'International Baccalaureate',
         'STEM Academy',
         'Arts & Music Programs',
-        'Athletics Excellence',
+        'Athletics programs',
       ],
       achievements: [
-        'National Blue Ribbon School',
-        'Nevada High School of Excellence',
-        'Top 10% in Nevada',
+        'Confirm current programs on the campus website',
+        'Verify CCSD zoning during due diligence',
+        'Tour commute windows before you write an offer',
       ],
       phone: '(702) 799-1450',
       website: 'https://www.paloverde.ccsd.net',
       description:
-        'Premier public high school serving Summerlin West with exceptional academic programs and college preparation.',
+        'Public high school serving parts of west Las Vegas. Confirm current CCSD zoning for any address you tour.',
     },
     {
       name: 'Sig Rogich Middle School',
       type: 'Public Middle School',
       grade: '6-8',
-      rating: 8.8,
+      imageId: 'hero-schools' as SiteImageId,
       address: '1050 N Hualapai Way, Las Vegas, NV 89144',
       distance: '1.8 miles',
       enrollment: '1,234',
@@ -60,45 +63,45 @@ export default function SchoolsPage() {
         'Technology Integration',
       ],
       achievements: [
-        'Nevada Middle School of Excellence',
-        'STEM Recognition',
-        'High Academic Performance',
+        'Confirm current programs on the campus website',
+        'Verify CCSD zoning during due diligence',
+        'Tour commute windows before you write an offer',
       ],
       phone: '(702) 799-1220',
       website: 'https://www.sigrogich.ccsd.net',
       description:
-        'Excellence in middle school education with strong focus on STEM and gifted programs.',
+        'Public middle school in west Las Vegas. Confirm current CCSD zoning for any address you tour.',
     },
     {
       name: 'Walter V. Long Elementary',
       type: 'Public Elementary',
       grade: 'K-5',
-      rating: 9.0,
+      imageId: 'h3-school' as SiteImageId,
       address: '5850 N Tenaya Way, Las Vegas, NV 89149',
       distance: '0.9 miles',
       enrollment: '756',
       features: [
         'Early Childhood Education',
-        'Reading Excellence',
+        'Reading programs',
         'Math & Science Focus',
         'Arts Integration',
         'Parent Involvement',
       ],
       achievements: [
-        'Nevada Elementary School of Excellence',
-        'Reading Achievement Award',
-        'High Parent Satisfaction',
+        'Confirm current programs on the campus website',
+        'Verify CCSD zoning during due diligence',
+        'Tour commute windows before you write an offer',
       ],
       phone: '(702) 799-1220',
       website: 'https://www.waltervlong.ccsd.net',
       description:
-        'Outstanding elementary education with strong foundation in reading and mathematics.',
+        'Public elementary campus in northwest Las Vegas. Confirm current CCSD zoning for any address you tour.',
     },
     {
       name: 'Faith Lutheran Middle & High School',
       type: 'Private Christian School',
       grade: '6-12',
-      rating: 9.5,
+      imageId: 'hero-schools' as SiteImageId,
       address: '2015 S Hualapai Way, Las Vegas, NV 89117',
       distance: '3.2 miles',
       enrollment: '1,200',
@@ -107,23 +110,23 @@ export default function SchoolsPage() {
         'College Preparatory',
         'Advanced Placement',
         'Fine Arts Programs',
-        'Athletics Excellence',
+        'Athletics programs',
       ],
       achievements: [
-        'National Blue Ribbon School',
-        'Top Private School in Nevada',
-        '100% College Acceptance',
+        'Confirm current programs on the campus website',
+        'Ask about admissions and tuition directly',
+        'Tour commute windows before you write an offer',
       ],
       phone: '(702) 804-4400',
       website: 'https://www.faithlutheranlv.org',
       description:
-        'Premier private Christian education with exceptional academic and spiritual development.',
+        'Private campus west of the Strip corridor. Confirm admissions, tuition, and commute independently.',
     },
     {
       name: 'The Meadows School',
       type: 'Private College Prep',
       grade: 'PK-12',
-      rating: 9.8,
+      imageId: 'h3-school' as SiteImageId,
       address: '8601 Scholar Ln, Las Vegas, NV 89128',
       distance: '4.1 miles',
       enrollment: '800',
@@ -135,14 +138,14 @@ export default function SchoolsPage() {
         'Global Education',
       ],
       achievements: [
-        'Top Private School in Nevada',
-        'International Baccalaureate World School',
-        'Excellence in College Preparation',
+        'Confirm current programs on the campus website',
+        'Ask about admissions and tuition directly',
+        'Tour commute windows before you write an offer',
       ],
       phone: '(702) 254-1610',
       website: 'https://www.themeadowsschool.org',
       description:
-        'Elite private education with world-class college preparation and global perspective.',
+        'Private PK-12 campus in Las Vegas. Confirm admissions, tuition, and commute independently.',
     },
   ];
 
@@ -194,11 +197,11 @@ export default function SchoolsPage() {
                   <Shield className="h-12 w-12 text-blue-600" />
                 </div>
                 <h3 className="mb-2 text-xl font-bold text-blue-900">
-                  District Excellence
+                  CCSD zoning
                 </h3>
                 <p className="text-blue-700">
-                  Nationally recognized school district serving over 300,000
-                  students
+                  Confirm current Clark County School District boundaries during
+                  due diligence. Zoning can change.
                 </p>
               </div>
               <div className="rounded-lg bg-green-50 p-6">
@@ -206,10 +209,11 @@ export default function SchoolsPage() {
                   <TrendingUp className="h-12 w-12 text-green-600" />
                 </div>
                 <h3 className="mb-2 text-xl font-bold text-green-900">
-                  Academic Achievement
+                  Program notes
                 </h3>
                 <p className="text-green-700">
-                  High graduation rates and college acceptance percentages
+                  Ask each campus for current programs, calendars, and enrollment
+                  details. Do not rely on third-party ratings.
                 </p>
               </div>
               <div className="rounded-lg bg-purple-50 p-6">
@@ -260,8 +264,8 @@ export default function SchoolsPage() {
               {filteredSchools.length} Schools Near Homes for Sale in Summerlin
             </h2>
             <p className="mx-auto max-w-2xl text-gray-600">
-              Each school offers unique programs and opportunities for your
-              child&apos;s education
+              Use campus names and addresses as a starting point, then confirm
+              current Clark County School District zoning for the home you tour.
             </p>
           </div>
 
@@ -271,25 +275,11 @@ export default function SchoolsPage() {
                 key={school.name}
                 className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
               >
-                <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-6 text-white">
-                  <div className="mb-4 flex items-center justify-between">
-                    <h3 className="text-2xl font-bold">{school.name}</h3>
-                    <div className="flex items-center space-x-1">
-                      <Star className="h-5 w-5 fill-yellow-300 text-yellow-300" />
-                      <span className="text-lg font-semibold">
-                        {school.rating}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="mb-2 flex items-center space-x-2">
-                    <GraduationCap className="h-4 w-4" />
-                    <span>{school.type}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <BookOpen className="h-4 w-4" />
-                    <span>Grades {school.grade}</span>
-                  </div>
-                </div>
+                <HeadingCardPhoto
+                  imageId={school.imageId}
+                  title={school.name}
+                  subtitle={`${school.type} · Grades ${school.grade}`}
+                />
 
                 <div className="p-6">
                   <div className="mb-4 flex items-center space-x-2 text-gray-600">
@@ -324,7 +314,7 @@ export default function SchoolsPage() {
 
                   <div className="mb-4">
                     <h4 className="mb-2 font-semibold text-gray-900">
-                      Achievements:
+                      Due diligence:
                     </h4>
                     <ul className="space-y-1">
                       {school.achievements
@@ -371,26 +361,12 @@ export default function SchoolsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-indigo-700 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">
-            Need Help Finding the Right School?
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-white/90">
-            Our team can help you understand school boundaries, programs, and
-            enrollment options in Summerlin West
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <button className="rounded-lg bg-white px-8 py-3 font-semibold text-blue-600 transition-all hover:shadow-xl">
-              School Consultation
-            </button>
-            <button className="rounded-lg border-2 border-white px-8 py-3 font-semibold text-white transition-all hover:bg-white hover:text-blue-600">
-              Download School Guide
-            </button>
-          </div>
-        </div>
-      </section>
+      <ImageCta
+        imageId="hero-schools"
+        title="Confirm school zoning before you tour"
+        subtitle="Call Dr. Jan Duffy for commute times and current zoning notes while you shop Summerlin West listings."
+        primary={{ href: '/properties/search', label: 'Search homes for sale' }}
+      />
     </div>
   );
 }

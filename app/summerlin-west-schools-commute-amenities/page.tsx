@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
+import ImageCta from '@/components/media/image-cta';
 
 const faqItems = [
   {
@@ -150,6 +151,12 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
           </div>
         </div>
       </section>
+      <ImageCta
+        imageId="hero-schools-commute"
+        title="Plan schools, commute, and amenities together"
+        subtitle="Confirm CCSD zoning independently, then call (702) 842-0410 to tour villages that fit your weekday map."
+        primary={{ href: '/schools', label: 'Review school notes' }}
+      />
     </main>
   );
 }

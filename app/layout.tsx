@@ -6,6 +6,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { getSiteUrl } from '@/lib/site-url';
 import { BUSINESS } from '@/lib/business';
 import GlobalRouteFaq from '@/components/seo/global-route-faq';
+import BreadcrumbTrail from '@/components/seo/breadcrumb-trail';
 import SiteHeader from '@/components/site-header';
 import SiteFooter from '@/components/site-footer';
 import LocalBusinessJsonLd from '@/components/gbp/local-business-jsonld';
@@ -208,6 +209,7 @@ export default function RootLayout({
         />
         <LocalBusinessJsonLd />
         <SiteHeader />
+        <BreadcrumbTrail />
         {children}
         <section className="border-t border-gray-200 bg-[#f8f7f4] px-4 py-12">
           <div className="mx-auto max-w-6xl">

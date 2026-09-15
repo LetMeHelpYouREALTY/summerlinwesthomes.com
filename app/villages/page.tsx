@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import {
   Map,
   Home,
@@ -13,6 +12,8 @@ import {
 } from 'lucide-react';
 import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
+import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 
 export default function VillagesPage() {
   return (
@@ -226,32 +227,38 @@ export default function VillagesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="mb-4 text-3xl font-bold">
-            Ready to Find Your Perfect Village?
-          </h3>
-          <p className="mx-auto mb-8 max-w-2xl text-gray-600">
-            Let us help you discover the perfect Summerlin West village for your
-            lifestyle and budget
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              href="/properties/search"
-              className="rounded-lg bg-amber-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-amber-700"
-            >
-              Search All Properties
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-lg border-2 border-amber-600 px-8 py-3 font-semibold text-amber-600 transition-colors hover:bg-amber-50"
-            >
-              Schedule Village Tour
-            </Link>
-          </div>
+      <section className="bg-white px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="mb-8 text-center text-3xl font-bold">
+            Match a village to the way you live
+          </h2>
+            <HeadingPhotoGrid
+              items={[
+                {
+                  imageId: 'section-golf',
+                  heading: 'Golf-course villages',
+                  text: 'The Ridges and Red Rock Country Club pair estate homes with golf and mountain views.',
+                },
+                {
+                  imageId: 'section-new-construction',
+                  heading: 'Newer villages',
+                  text: 'Stonebridge and nearby villages often have newer plans and lower-maintenance lots.',
+                },
+                {
+                  imageId: 'h3-trail',
+                  heading: 'Trail-oriented streets',
+                  text: 'The Vistas and The Paseos sit near parks and desert trail connections.',
+                },
+              ]}
+            />
         </div>
       </section>
+      <ImageCta
+        imageId="hero-villages"
+        title="Ready to find your Summerlin West village?"
+        subtitle="Search live inventory, then call (702) 842-0410 to tour The Ridges, The Paseos, The Crossing, and nearby villages."
+        primary={{ href: '/properties/search', label: 'Search all properties' }}
+      />
 
       {/* RealScout Listings Section */}
       <section className="bg-gray-50 py-16">

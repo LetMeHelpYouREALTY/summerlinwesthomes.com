@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Users, Shield, TrendingUp } from 'lucide-react';
 import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
+import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 import { BUSINESS } from '@/lib/business';
 
 export default function AboutSection() {
@@ -29,37 +30,25 @@ export default function AboutSection() {
               current listings before you tour.
             </p>
 
-            <div className="my-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
-                  <Users className="h-8 w-8 text-amber-600" />
-                </div>
-                <h4 className="mb-2 font-bold">Expert Team</h4>
-                <p className="text-sm">
-                  Dedicated professionals with deep local knowledge
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
-                  <Shield className="h-8 w-8 text-amber-600" />
-                </div>
-                <h4 className="mb-2 font-bold">Trusted Service</h4>
-                <p className="text-sm">
-                  20+ years serving the Summerlin community
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
-                  <TrendingUp className="h-8 w-8 text-amber-600" />
-                </div>
-                <h4 className="mb-2 font-bold">Local market work</h4>
-                <p className="text-sm">
-                  Village-level guidance for Summerlin West buyers and sellers
-                </p>
-              </div>
-            </div>
+            <HeadingPhotoGrid
+              items={[
+                {
+                  imageId: 'h3-office',
+                  heading: 'Local office on West Twain',
+                  text: `${BUSINESS.gbpTitle} at ${BUSINESS.streetAddress}. Call ${BUSINESS.phoneDisplay}.`,
+                },
+                {
+                  imageId: 'section-downtown-summerlin',
+                  heading: 'Downtown Summerlin service area',
+                  text: 'Buyer and seller representation across Summerlin West villages near ZIP 89135.',
+                },
+                {
+                  imageId: 'h3-entry',
+                  heading: 'Tour-ready listings',
+                  text: 'Search live MLS, then book a showing. Hours: Daily 6:00 AM – 9:00 PM.',
+                },
+              ]}
+            />
 
             <p>
               Our team specializes in connecting discerning buyers with
@@ -95,6 +84,12 @@ export default function AboutSection() {
           </div>
         </div>
       </section>
+      <ImageCta
+        imageId="hero-about"
+        title="Meet at the West Twain Avenue office"
+        subtitle={`${BUSINESS.gbpTitle}. ${BUSINESS.streetAddress}, ${BUSINESS.addressLocality}, ${BUSINESS.addressRegion} ${BUSINESS.postalCode}. Hours: ${BUSINESS.hoursLabel}.`}
+        primary={{ href: `tel:${BUSINESS.phoneTel}`, label: `Call ${BUSINESS.phoneDisplay}` }}
+      />
     </section>
   );
 }

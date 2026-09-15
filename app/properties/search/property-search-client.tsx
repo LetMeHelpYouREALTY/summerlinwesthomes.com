@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PageHero from '@/components/media/page-hero';
+import ImageCta from '@/components/media/image-cta';
+import { BUSINESS, telHref } from '@/lib/business';
 
 export default function PropertySearchPage() {
   const [searchParams, setSearchParams] = useState({
@@ -510,6 +512,12 @@ export default function PropertySearchPage() {
           </div>
         </div>
       </section>
+      <ImageCta
+        imageId="hero-search"
+        title="Filter Summerlin West homes, then book a tour"
+        subtitle="Call (702) 842-0410 after you shortlist. Office: 10777 West Twain Avenue # 333, Las Vegas, NV 89135."
+        primary={{ href: telHref(), label: `Call ${BUSINESS.phoneDisplay}` }}
+      />
     </div>
   );
 }

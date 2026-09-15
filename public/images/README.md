@@ -12,6 +12,8 @@ CLOUDFLARE_ACCOUNT_ID=... CLOUDFLARE_API_TOKEN=... node scripts/upload-cloudflar
 
 Then set `NEXT_PUBLIC_CLOUDFLARE_IMAGES_HASH` on Vercel and map IDs in `lib/images.ts`.
 
+Heading-matched H3 stills (`h3-*.jpg` / `.webp`) cover commute, airport, office, trails, hospital, library, casino, and campus scenes used on interior pages. Git remains the live source until Cloudflare credentials are configured.
+
 ## Required social files
 
 - `og-image-summerlin-west-homes.jpg` (1200x630)

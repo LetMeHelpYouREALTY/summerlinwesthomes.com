@@ -23,6 +23,7 @@ import type { Property } from '@/types/real-estate';
 import { BUSINESS, telHref } from '@/lib/business';
 import { imageMeta, imageSrc } from '@/lib/images';
 import SectionImage from '@/components/media/section-image';
+import ImageCta from '@/components/media/image-cta';
 
 export default function SummerlinWestHomes() {
   return (
@@ -509,31 +510,11 @@ function GoogleReviewsCta() {
 // CTA Section
 function CTASection() {
   return (
-    <section className="bg-gradient-to-br from-amber-600 to-orange-600 py-16">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="mb-4 text-3xl font-bold text-white">
-          Homes for Sale in Las Vegas — Start Your Summerlin West Search
-        </h2>
-        <p className="mx-auto mb-8 max-w-2xl text-white/90">
-          Move from browsing Las Vegas real estate listings to touring the homes
-          that fit your brief.
-        </p>
-        <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <Link
-            href="/properties/search"
-            prefetch={false}
-            className="rounded-lg bg-white px-8 py-3 font-semibold text-amber-600 transition-all hover:shadow-xl"
-          >
-            Start Your Search
-          </Link>
-          <a
-            href={telHref()}
-            className="rounded-lg border-2 border-white px-8 py-3 font-semibold text-white transition-all hover:bg-white hover:text-amber-600"
-          >
-            Call {BUSINESS.phoneDisplay}
-          </a>
-        </div>
-      </div>
-    </section>
+    <ImageCta
+      imageId="hero-home"
+      title="Homes for sale in Las Vegas — start your Summerlin West search"
+      subtitle="Move from browsing listings to touring the homes that fit your brief. Call (702) 842-0410."
+      primary={{ href: '/properties/search', label: 'Start your search' }}
+    />
   );
 }

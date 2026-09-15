@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
+import ImageCta from '@/components/media/image-cta';
 
 const snapshotSections = [
   {
@@ -148,6 +149,12 @@ export default function SummerlinWestMarketSnapshotPage() {
           </div>
         </div>
       </section>
+      <ImageCta
+        imageId="hero-market"
+        title="Get a current Summerlin West CMA"
+        subtitle="This snapshot is a planning guide. Call (702) 842-0410 for live pricing tied to MLS."
+        primary={{ href: '/properties/search', label: 'Search listings' }}
+      />
     </main>
   );
 }
