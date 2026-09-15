@@ -14,6 +14,8 @@ import {
   Star,
 } from 'lucide-react';
 import CalendlyInlineSection from '@/components/calendly-inline-section';
+import PageHero from '@/components/media/page-hero';
+import ImageCta from '@/components/media/image-cta';
 
 export default function BuyingGuidePage() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -190,32 +192,13 @@ export default function BuyingGuidePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        imageId="hero-buying"
+        title="Houses for Sale in Summerlin Las Vegas — Buyer's Guide"
+        subtitle="Financing, inspections, and offer strategy for Summerlin West — then call to tour."
+      />
       <div className="container mx-auto px-4 py-12">
-        {/* Hero Section */}
-        <div className="mb-16 text-center">
-          <div className="mb-6 flex justify-center">
-            <div className="rounded-full bg-amber-100 p-4">
-              <Home className="h-12 w-12 text-amber-600" />
-            </div>
-          </div>
-          <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-6xl">
-            Houses for Sale in Summerlin Las Vegas — Buyer&apos;s Guide
-          </h1>
-          <p className="mx-auto max-w-4xl text-xl text-gray-600">
-            Everything you need to buy a home in Vegas for sale within Summerlin
-            West—financing, inspections, and competitive offers in Las Vegas.
-          </p>
-          <div className="mt-8">
-            <a
-              href="https://calendly.com/drjanduffy/appointment"
-              data-calendly-popup="appointment"
-              className="inline-flex items-center rounded-full bg-gradient-to-r from-amber-600 to-orange-600 px-8 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:from-amber-700 hover:to-orange-700"
-            >
-              Book Your Buyer Consultation
-            </a>
-          </div>
-        </div>
 
         {/* RealScout Advanced Search Widget */}
         <div className="mb-16">
@@ -729,36 +712,12 @@ export default function BuyingGuidePage() {
           )}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-16 text-center">
-          <div className="mx-auto max-w-4xl rounded-xl bg-gradient-to-br from-amber-600 to-orange-600 p-12 text-white">
-            <h2 className="mb-6 text-3xl font-bold">
-              Ready to Start Your Home Search?
-            </h2>
-            <p className="mb-8 text-xl text-amber-100">
-              Our expert team is here to guide you through every step of the
-              buying process.
-            </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <button className="rounded-lg bg-white px-8 py-4 font-semibold text-amber-600 transition-colors hover:bg-gray-100">
-                Start Your Search
-              </button>
-              <button className="rounded-lg border-2 border-white px-8 py-4 font-semibold text-white transition-colors hover:bg-white hover:text-amber-600">
-                Contact Our Team
-              </button>
-            </div>
-            <div className="mt-8 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
-              <div className="flex items-center space-x-2">
-                <Phone className="h-5 w-5" />
-                <span>(702) 555-0100</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="h-5 w-5" />
-                <span>info@summerlinwesthomes.com</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ImageCta
+          imageId="hero-buying"
+          title="Ready to start your Summerlin West home search?"
+          subtitle="Call Dr. Jan Duffy at (702) 842-0410 or search live MLS inventory, then book a buyer strategy call."
+          primary={{ href: '/properties/search', label: 'Start your search' }}
+        />
       </div>
       <CalendlyInlineSection
         title="Book a Buyer Strategy Call"

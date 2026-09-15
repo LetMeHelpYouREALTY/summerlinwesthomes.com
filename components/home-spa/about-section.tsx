@@ -1,55 +1,54 @@
 'use client';
 
 import React from 'react';
-import { Users, Shield, TrendingUp } from 'lucide-react';
+import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
+import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
+import { BUSINESS } from '@/lib/business';
 
 export default function AboutSection() {
   return (
-    <section className="py-24">
-      <div className="container mx-auto px-4">
+    <section className="py-0">
+      <PageHero
+        imageId="hero-about"
+        title="Summerlin West Real Estate Listings & Local Expertise"
+        subtitle={`${BUSINESS.gbpTitle} — ${BUSINESS.streetAddress}, ${BUSINESS.addressLocality}, ${BUSINESS.addressRegion} ${BUSINESS.postalCode}`}
+      />
+      <div className="container mx-auto px-4 py-16">
         <div className="mx-auto max-w-4xl">
-          <h1 className="mb-8 text-center text-3xl font-bold md:text-4xl">
-            Summerlin West Real Estate Listings & Local Expertise
-          </h1>
+          <SectionImage
+            imageId="section-downtown-summerlin"
+            caption={`${BUSINESS.gbpTitle} serves buyers and sellers from ${BUSINESS.streetAddress}.`}
+            className="mb-10"
+          />
 
           <div className="prose prose-lg mx-auto text-gray-600">
             <p className="mb-6">
-              Summerlin West represents the pinnacle of luxury living in Las
-              Vegas. As the western portion of the master-planned community of
-              Summerlin, this area encompasses over 22,500 acres of stunning
-              desert landscape transformed into one of the nation&apos;s premier
-              residential developments.
+              Summerlin West is the western portion of the Summerlin master plan,
+              near Red Rock Canyon. Confirm village boundaries, HOA terms, and
+              current listings before you tour.
             </p>
 
-            <div className="my-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
-                  <Users className="h-8 w-8 text-amber-600" />
-                </div>
-                <h4 className="mb-2 font-bold">Expert Team</h4>
-                <p className="text-sm">
-                  Dedicated professionals with deep local knowledge
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
-                  <Shield className="h-8 w-8 text-amber-600" />
-                </div>
-                <h4 className="mb-2 font-bold">Trusted Service</h4>
-                <p className="text-sm">
-                  20+ years serving the Summerlin community
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
-                  <TrendingUp className="h-8 w-8 text-amber-600" />
-                </div>
-                <h4 className="mb-2 font-bold">Market Leaders</h4>
-                <p className="text-sm">#1 in luxury home sales in Las Vegas</p>
-              </div>
-            </div>
+            <HeadingPhotoGrid
+              items={[
+                {
+                  imageId: 'h3-office',
+                  heading: 'Local office on West Twain',
+                  text: `${BUSINESS.gbpTitle} at ${BUSINESS.streetAddress}. Call ${BUSINESS.phoneDisplay}.`,
+                },
+                {
+                  imageId: 'section-downtown-summerlin',
+                  heading: 'Downtown Summerlin service area',
+                  text: 'Buyer and seller representation across Summerlin West villages near ZIP 89135.',
+                },
+                {
+                  imageId: 'h3-entry',
+                  heading: 'Tour-ready listings',
+                  text: 'Search live MLS, then book a showing. Hours: Daily 6:00 AM – 9:00 PM.',
+                },
+              ]}
+            />
 
             <p>
               Our team specializes in connecting discerning buyers with
@@ -85,6 +84,12 @@ export default function AboutSection() {
           </div>
         </div>
       </section>
+      <ImageCta
+        imageId="hero-about"
+        title="Meet at the West Twain Avenue office"
+        subtitle={`${BUSINESS.gbpTitle}. ${BUSINESS.streetAddress}, ${BUSINESS.addressLocality}, ${BUSINESS.addressRegion} ${BUSINESS.postalCode}. Hours: ${BUSINESS.hoursLabel}.`}
+        primary={{ href: `tel:${BUSINESS.phoneTel}`, label: `Call ${BUSINESS.phoneDisplay}` }}
+      />
     </section>
   );
 }

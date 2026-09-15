@@ -17,6 +17,12 @@ import {
   Users,
   Award,
 } from 'lucide-react';
+import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
+import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
+import HeadingCardPhoto from '@/components/media/heading-card-photo';
+import type { SiteImageId } from '@/lib/images';
 
 export default function AmenitiesPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -30,7 +36,7 @@ export default function AmenitiesPage() {
       address: '9851 Canyon Run Dr, Las Vegas, NV 89144',
       distance: '0.8 miles',
       description:
-        'World-class PGA Tour golf course with stunning Red Rock Canyon views',
+        'PGA Tour golf course with Red Rock Canyon views, used by many Summerlin West residents',
       features: [
         '18-hole Championship Course',
         'PGA Tour Venue',
@@ -41,7 +47,7 @@ export default function AmenitiesPage() {
       hours: '6:00 AM - 6:00 PM',
       phone: '(702) 256-2000',
       website: 'https://tpc.com/lasvegas',
-      image: '/amenities/tpc-golf.jpg',
+      imageId: 'section-golf' as SiteImageId,
     },
     {
       name: 'Red Rock Canyon National Conservation Area',
@@ -62,7 +68,7 @@ export default function AmenitiesPage() {
       hours: '6:00 AM - 8:00 PM',
       phone: '(702) 515-5350',
       website: 'https://www.nps.gov/redr',
-      image: '/amenities/red-rock.jpg',
+      imageId: 'section-red-rock' as SiteImageId,
     },
     {
       name: 'Downtown Summerlin',
@@ -72,18 +78,18 @@ export default function AmenitiesPage() {
       address: '1980 Festival Plaza Dr, Las Vegas, NV 89135',
       distance: '1.2 miles',
       description:
-        'Premier outdoor shopping destination with retail, dining, and entertainment',
+        'Outdoor shopping destination with retail, dining, and entertainment near ZIP 89135',
       features: [
         '150+ Retail Stores',
         'Fine Dining',
         'Entertainment Venues',
-        'Family Activities',
+        'Events plaza',
         'Events & Festivals',
       ],
       hours: '10:00 AM - 9:00 PM',
       phone: '(702) 570-8000',
       website: 'https://downtownsummerlin.com',
-      image: '/amenities/downtown-summerlin.jpg',
+      imageId: 'section-downtown-summerlin' as SiteImageId,
     },
     {
       name: 'The Ridges Golf Club',
@@ -104,7 +110,7 @@ export default function AmenitiesPage() {
       hours: 'Members Only',
       phone: '(702) 256-2000',
       website: 'https://theridgesgolfclub.com',
-      image: '/amenities/ridges-golf.jpg',
+      imageId: 'section-golf' as SiteImageId,
     },
     {
       name: 'Summerlin Hospital Medical Center',
@@ -125,7 +131,7 @@ export default function AmenitiesPage() {
       hours: '24/7 Emergency',
       phone: '(702) 233-7000',
       website: 'https://summerlinhospital.com',
-      image: '/amenities/summerlin-hospital.jpg',
+      imageId: 'h3-hospital' as SiteImageId,
     },
     {
       name: 'Red Rock Casino Resort & Spa',
@@ -146,7 +152,7 @@ export default function AmenitiesPage() {
       hours: '24/7 Gaming',
       phone: '(702) 797-7777',
       website: 'https://redrock.sclv.com',
-      image: '/amenities/red-rock-casino.jpg',
+      imageId: 'h3-casino' as SiteImageId,
     },
     {
       name: 'Summerlin Library',
@@ -161,13 +167,13 @@ export default function AmenitiesPage() {
         'Book Collections',
         'Digital Resources',
         'Study Rooms',
-        "Children's Programs",
+        'Community programs',
         'Community Events',
       ],
       hours: '10:00 AM - 8:00 PM',
       phone: '(702) 507-6300',
       website: 'https://lvccld.org',
-      image: '/amenities/summerlin-library.jpg',
+      imageId: 'h3-library' as SiteImageId,
     },
     {
       name: 'The Summit Club',
@@ -188,7 +194,7 @@ export default function AmenitiesPage() {
       hours: '5:00 PM - 10:00 PM',
       phone: '(702) 256-2000',
       website: 'https://thesummitclub.com',
-      image: '/amenities/summit-club.jpg',
+      imageId: 'h3-pool-patio' as SiteImageId,
     },
   ];
 
@@ -209,32 +215,17 @@ export default function AmenitiesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-600 via-green-700 to-emerald-800 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Las Vegas Homes Near Summerlin West Amenities
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Discover world-class golf courses, shopping, dining, and outdoor
-            recreation in Summerlin West
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Golf Courses
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Shopping & Dining
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Outdoor Recreation
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Healthcare
-            </span>
-          </div>
+      <PageHero
+        imageId="hero-amenities"
+        title="Las Vegas Homes Near Summerlin West Amenities"
+        subtitle="Golf courses, shopping, dining, and outdoor recreation around Summerlin West"
+      >
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <span className="rounded-full bg-white/20 px-4 py-2">Golf courses</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Shopping & dining</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Outdoor recreation</span>
         </div>
-      </section>
+      </PageHero>
 
       {/* Category Filter */}
       <section className="bg-white py-8">
@@ -283,25 +274,11 @@ export default function AmenitiesPage() {
                 key={amenity.name}
                 className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
               >
-                <div className="bg-gradient-to-br from-green-500 to-emerald-600 p-6 text-white">
-                  <div className="mb-4 flex items-center justify-between">
-                    <h3 className="text-2xl font-bold">{amenity.name}</h3>
-                    <div className="flex items-center space-x-1">
-                      <Star className="h-5 w-5 fill-yellow-300 text-yellow-300" />
-                      <span className="text-lg font-semibold">
-                        {amenity.rating}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="mb-2 flex items-center space-x-2">
-                    <Award className="h-4 w-4" />
-                    <span>{amenity.type}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <MapPin className="h-4 w-4" />
-                    <span>{amenity.distance}</span>
-                  </div>
-                </div>
+                <HeadingCardPhoto
+                  imageId={amenity.imageId}
+                  title={amenity.name}
+                  subtitle={`${amenity.type} · ${amenity.distance}`}
+                />
 
                 <div className="p-6">
                   <p className="mb-4 text-gray-700">{amenity.description}</p>
@@ -366,63 +343,42 @@ export default function AmenitiesPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="mb-8 text-3xl font-bold">
-              Why Choose Summerlin West for Your Lifestyle?
+              Summerlin West golf, trails, and Downtown Summerlin
             </h2>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                  <Flag className="h-8 w-8 text-green-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold">Golf Paradise</h3>
-                <p className="text-gray-600">
-                  Access to world-class golf courses including TPC Las Vegas and
-                  The Ridges
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
-                  <Mountain className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold">Outdoor Recreation</h3>
-                <p className="text-gray-600">
-                  Red Rock Canyon access for hiking, climbing, and scenic drives
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-purple-100">
-                  <ShoppingBag className="h-8 w-8 text-purple-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold">Shopping & Dining</h3>
-                <p className="text-gray-600">
-                  Downtown Summerlin offers premium retail and fine dining
-                  options
-                </p>
-              </div>
+            <div className="mb-10 grid gap-6 md:grid-cols-3">
+              <SectionImage imageId="section-golf" caption="Golf in Summerlin West" />
+              <SectionImage imageId="section-red-rock" caption="Red Rock Canyon access" />
+              <SectionImage imageId="section-downtown-summerlin" caption="Downtown Summerlin dining and retail" />
             </div>
+            <HeadingPhotoGrid
+              items={[
+                {
+                  imageId: 'section-golf',
+                  heading: 'Golf in Summerlin West',
+                  text: 'TPC Las Vegas and village courses sit minutes from many Summerlin West streets. Confirm club access and guest policies before you tour.',
+                },
+                {
+                  imageId: 'h3-trail',
+                  heading: 'Outdoor recreation',
+                  text: 'Red Rock Canyon trails, scenic drives, and desert parks sit west of the 215 Beltway.',
+                },
+                {
+                  imageId: 'section-downtown-summerlin',
+                  heading: 'Shopping and dining',
+                  text: 'Downtown Summerlin retail and dining is the daily errand hub for ZIP 89135.',
+                },
+              ]}
+            />
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-green-600 to-emerald-700 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">
-            Ready to Experience Summerlin West Living?
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-white/90">
-            Let us show you how these amenities enhance your quality of life in
-            Summerlin West
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <button className="rounded-lg bg-white px-8 py-3 font-semibold text-green-600 transition-all hover:shadow-xl">
-              Schedule a Tour
-            </button>
-            <button className="rounded-lg border-2 border-white px-8 py-3 font-semibold text-white transition-all hover:bg-white hover:text-green-600">
-              Download Amenities Guide
-            </button>
-          </div>
-        </div>
-      </section>
+      <ImageCta
+        imageId="hero-amenities"
+        title="Tour Summerlin West golf, trails, and Downtown Summerlin"
+        subtitle="Call (702) 842-0410 to schedule showings near the amenities that match your day-to-day."
+        primary={{ href: '/listings', label: 'Browse listings' }}
+      />
     </div>
   );
 }

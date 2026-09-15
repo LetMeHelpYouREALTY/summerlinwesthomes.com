@@ -22,6 +22,18 @@ const FALLBACK_FAQ: FaqItem[] = [
 ];
 
 const FAQ_BY_ROUTE: Record<string, FaqItem[]> = {
+  '/about': [
+    {
+      question: 'Who is the listing agent for Summerlin West Homes?',
+      answer:
+        'Dr. Jan Duffy with Berkshire Hathaway HomeServices Nevada Properties (S.0197614.LLC). The Google Business Profile lists Summerlin Real Estate | Homes by Dr. Jan Duffy.',
+    },
+    {
+      question: 'Where is the Summerlin West office?',
+      answer:
+        '10777 West Twain Avenue # 333, Las Vegas, NV 89135. Hours are daily 6:00 AM to 9:00 PM. Call (702) 842-0410 for tours.',
+    },
+  ],
   '/': [
     {
       question: 'Are there homes for sale in Summerlin West Las Vegas today?',

@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
+import ImageCta from '@/components/media/image-cta';
 
 const faqItems = [
   {
@@ -33,7 +36,12 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white pt-24">
+    <main className="min-h-screen bg-white">
+      <PageHero
+        imageId="hero-schools-commute"
+        title="Homes for Sale in Las Vegas Summerlin — Schools, Commute & Amenities"
+        subtitle="Compare school access, commute tradeoffs, and nearby amenities before showings. Confirm zoning independently."
+      />
       <section className="container mx-auto px-4 py-12">
         <script
           type="application/ld+json"
@@ -41,14 +49,11 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
             __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
           }}
         />
-        <h1 className="mb-4 text-4xl font-bold text-gray-900">
-          Homes for Sale in Las Vegas Summerlin — Schools, Commute & Amenities
-        </h1>
-        <p className="mb-10 max-w-3xl text-lg text-gray-600">
-          Use this local planning guide to narrow neighborhoods before showings.
-          Compare school access, commute tradeoffs, and nearby amenities in one
-          view.
-        </p>
+        <SectionImage
+          imageId="section-red-rock"
+          caption="Plan commute windows and Red Rock access together with school zoning."
+          className="mb-10"
+        />
 
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-xl border p-5">
@@ -146,6 +151,12 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
           </div>
         </div>
       </section>
+      <ImageCta
+        imageId="hero-schools-commute"
+        title="Plan schools, commute, and amenities together"
+        subtitle="Confirm CCSD zoning independently, then call (702) 842-0410 to tour villages that fit your weekday map."
+        primary={{ href: '/schools', label: 'Review school notes' }}
+      />
     </main>
   );
 }

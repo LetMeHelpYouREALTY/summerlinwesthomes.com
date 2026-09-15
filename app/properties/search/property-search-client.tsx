@@ -14,6 +14,9 @@ import {
   Sliders,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import PageHero from '@/components/media/page-hero';
+import ImageCta from '@/components/media/image-cta';
+import { BUSINESS, telHref } from '@/lib/business';
 
 export default function PropertySearchPage() {
   const [searchParams, setSearchParams] = useState({
@@ -80,32 +83,17 @@ export default function PropertySearchPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-600 via-orange-500 to-red-500 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Las Vegas Homes for Sale — Summerlin West Property Search
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Search homes for sale in Summerlin and compare Las Vegas real estate
-            listings side by side—from move-up homes to luxury estates.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Exclusive to Summerlin West
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Real-time MLS Data
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Guard Gated Communities
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Red Rock Canyon Views
-            </span>
-          </div>
+      <PageHero
+        imageId="hero-search"
+        title="Las Vegas Homes for Sale — Summerlin West Property Search"
+        subtitle="Search homes for sale in Summerlin and compare live Las Vegas MLS listings"
+      >
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <span className="rounded-full bg-white/20 px-4 py-2">Live MLS</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Village filters</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Red Rock views</span>
         </div>
-      </section>
+      </PageHero>
 
       {/* Search Form */}
       <section className="relative z-20 -mt-8 bg-white py-8 shadow-lg">
@@ -524,6 +512,12 @@ export default function PropertySearchPage() {
           </div>
         </div>
       </section>
+      <ImageCta
+        imageId="hero-search"
+        title="Filter Summerlin West homes, then book a tour"
+        subtitle="Call (702) 842-0410 after you shortlist. Office: 10777 West Twain Avenue # 333, Las Vegas, NV 89135."
+        primary={{ href: telHref(), label: `Call ${BUSINESS.phoneDisplay}` }}
+      />
     </div>
   );
 }

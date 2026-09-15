@@ -17,6 +17,10 @@ import {
   CreditCard,
   Info,
 } from 'lucide-react';
+import PageHero from '@/components/media/page-hero';
+import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
+import { BUSINESS, directionsHref, telHref } from '@/lib/business';
 
 export default function TransportationPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -188,32 +192,17 @@ export default function TransportationPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-            Summerlin West Commutes & Las Vegas Corridor Access
-          </h1>
-          <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
-            Navigate Summerlin West with ease through our comprehensive
-            transportation guide
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Major Highways
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Public Transit
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Airport Access
-            </span>
-            <span className="rounded-full bg-white/20 px-4 py-2">
-              Scenic Routes
-            </span>
-          </div>
+      <PageHero
+        imageId="hero-transportation"
+        title="Summerlin West Commutes & Las Vegas Corridor Access"
+        subtitle="Drive times, beltway access, and airport routes from Summerlin West"
+      >
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <span className="rounded-full bg-white/20 px-4 py-2">215 Beltway</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Harry Reid Airport</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Red Rock access</span>
         </div>
-      </section>
+      </PageHero>
 
       {/* Quick Access Info */}
       <section className="bg-white py-12">
@@ -410,26 +399,36 @@ export default function TransportationPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-purple-600 to-indigo-700 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">
-            Need Help Navigating Summerlin West?
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-white/90">
-            Our team can provide detailed directions and transportation
-            recommendations for your visit
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <button className="rounded-lg bg-white px-8 py-3 font-semibold text-purple-600 transition-all hover:shadow-xl">
-              Get Directions
-            </button>
-            <button className="rounded-lg border-2 border-white px-8 py-3 font-semibold text-white transition-all hover:bg-white hover:text-purple-600">
-              Download Transportation Guide
-            </button>
-          </div>
-        </div>
-      </section>
+      <HeadingPhotoGrid
+        items={[
+          {
+            imageId: 'h3-downtown-skyline',
+            heading: 'Downtown Las Vegas',
+            text: 'Use the 215 Beltway toward downtown and the Strip. Drive times shift with the commute window — confirm before you tour.',
+          },
+          {
+            imageId: 'h3-airport',
+            heading: 'Harry Reid Airport',
+            text: 'Harry Reid International Airport is the commercial airport for Summerlin West. Time the drive from the village you are considering.',
+          },
+          {
+            imageId: 'h3-trail',
+            heading: 'Red Rock Canyon',
+            text: 'Scenic Loop Drive and trailheads sit west of Summerlin West — often a short hop from The Ridges and The Crossing.',
+          },
+        ]}
+      />
+      <ImageCta
+        imageId="hero-transportation"
+        title="Plan a tour around your commute"
+        subtitle="Call Dr. Jan Duffy at (702) 842-0410. She maps drive times from Summerlin West villages to work, airport, and trailheads."
+        primary={{ href: telHref(), label: `Call ${BUSINESS.phoneDisplay}` }}
+        secondary={{
+          href: directionsHref(),
+          label: 'Get Google Maps directions',
+          external: true,
+        }}
+      />
     </div>
   );
 }

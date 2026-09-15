@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
+import ImageCta from '@/components/media/image-cta';
 
 const snapshotSections = [
   {
@@ -56,7 +59,12 @@ export default function SummerlinWestMarketSnapshotPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white pt-24">
+    <main className="min-h-screen bg-white">
+      <PageHero
+        imageId="hero-market"
+        title="Las Vegas Homes for Sale — Summerlin West Market Snapshot"
+        subtitle="A practical local snapshot tied to live listing behavior. Call for a current CMA — do not treat sample figures as MLS statistics."
+      />
       <section className="container mx-auto px-4 py-12">
         <script
           type="application/ld+json"
@@ -64,14 +72,11 @@ export default function SummerlinWestMarketSnapshotPage() {
             __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
           }}
         />
-        <h1 className="mb-4 text-4xl font-bold text-gray-900">
-          Las Vegas Homes for Sale — Summerlin West Market Snapshot
-        </h1>
-        <p className="mb-10 max-w-3xl text-lg text-gray-600">
-          A practical local snapshot focused on how to act in the current
-          Summerlin West market, with buyer and seller strategy tied to live
-          listing behavior.
-        </p>
+        <SectionImage
+          imageId="section-luxury-interior"
+          caption="Use live MLS widgets and a CMA from Dr. Jan Duffy before you price an offer."
+          className="mb-10"
+        />
 
         <div className="grid gap-5 md:grid-cols-2">
           {snapshotSections.map((item) => (
@@ -144,6 +149,12 @@ export default function SummerlinWestMarketSnapshotPage() {
           </div>
         </div>
       </section>
+      <ImageCta
+        imageId="hero-market"
+        title="Get a current Summerlin West CMA"
+        subtitle="This snapshot is a planning guide. Call (702) 842-0410 for live pricing tied to MLS."
+        primary={{ href: '/properties/search', label: 'Search listings' }}
+      />
     </main>
   );
 }

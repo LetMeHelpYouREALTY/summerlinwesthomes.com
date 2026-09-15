@@ -13,6 +13,8 @@ import {
   CheckCircle,
 } from 'lucide-react';
 import CalendlyInlineSection from '@/components/calendly-inline-section';
+import PageHero from '@/components/media/page-hero';
+import ImageCta from '@/components/media/image-cta';
 
 export default function SellYourHomePage() {
   const [formData, setFormData] = useState({
@@ -112,47 +114,13 @@ export default function SellYourHomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        imageId="hero-sell"
+        title="Homes for Sale in Las Vegas — List Your Summerlin West Home"
+        subtitle="Position your listing against current Summerlin West inventory with a pricing and marketing plan from Dr. Jan Duffy."
+      />
       <div className="container mx-auto px-4 py-12">
-        {/* Hero Section */}
-        <div className="mb-16 text-center">
-          <div className="mb-6 flex justify-center">
-            <div className="rounded-full bg-amber-100 p-4">
-              <Home className="h-12 w-12 text-amber-600" />
-            </div>
-          </div>
-          <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-6xl">
-            Homes for Sale in Las Vegas — List Your Summerlin West Home
-          </h1>
-          <p className="mx-auto mb-8 max-w-4xl text-xl text-gray-600">
-            Position your listing alongside active Las Vegas real estate listings
-            with a Summerlin West-focused marketing plan.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 text-center">
-            <div className="rounded-lg bg-white px-6 py-4 shadow-lg">
-              <div className="text-2xl font-bold text-amber-600">8.2%</div>
-              <div className="text-sm text-gray-600">Higher Sale Price</div>
-            </div>
-            <div className="rounded-lg bg-white px-6 py-4 shadow-lg">
-              <div className="text-2xl font-bold text-amber-600">23%</div>
-              <div className="text-sm text-gray-600">Faster Sale</div>
-            </div>
-            <div className="rounded-lg bg-white px-6 py-4 shadow-lg">
-              <div className="text-2xl font-bold text-amber-600">$2.1M</div>
-              <div className="text-sm text-gray-600">Average Sale Price</div>
-            </div>
-          </div>
-          <div className="mt-8">
-            <a
-              href="https://calendly.com/drjanduffy/appointment"
-              data-calendly-popup="appointment"
-              className="inline-flex items-center rounded-full bg-gradient-to-r from-amber-600 to-orange-600 px-8 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:from-amber-700 hover:to-orange-700"
-            >
-              Book Your Seller Consultation
-            </a>
-          </div>
-        </div>
-
         {/* RealScout Home Value Widget Section */}
         <div className="mx-auto mb-16 max-w-4xl">
           <div className="mb-8 text-center">
@@ -384,7 +352,7 @@ export default function SellYourHomePage() {
                         value={formData.address}
                         onChange={handleChange}
                         className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200"
-                        placeholder="12345 Luxury Lane"
+                        placeholder="10777 West Twain Avenue # 333"
                       />
                     </div>
 
@@ -587,7 +555,7 @@ export default function SellYourHomePage() {
                           value={formData.phone}
                           onChange={handleChange}
                           className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200"
-                          placeholder="(702) 555-0100"
+                          placeholder="(702) 842-0410"
                         />
                       </div>
                     </div>
@@ -669,26 +637,12 @@ export default function SellYourHomePage() {
                 </form>
               </div>
 
-              {/* CTA Box */}
-              <div className="rounded-xl bg-gradient-to-br from-amber-600 to-orange-600 p-8 text-white">
-                <h3 className="mb-4 text-2xl font-bold">
-                  Ready to Get Started?
-                </h3>
-                <p className="mb-6 text-amber-100">
-                  Schedule a free consultation to discuss your selling strategy
-                  and timeline.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <Phone className="h-5 w-5" />
-                    <span>(702) 555-0100</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Mail className="h-5 w-5" />
-                    <span>info@summerlinwesthomes.com</span>
-                  </div>
-                </div>
-              </div>
+              <ImageCta
+                imageId="hero-sell"
+                title="Ready to list your Summerlin West home?"
+                subtitle="Call (702) 842-0410 or book a seller consultation. GBP does not list a public email."
+                primary={{ href: 'tel:+17028420410', label: 'Call (702) 842-0410' }}
+              />
             </div>
           </div>
         </div>
