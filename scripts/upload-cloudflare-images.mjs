@@ -1,71 +1,174 @@
 #!/usr/bin/env node
 /**
- * Upload git-backed images in public/images to Cloudflare Images.
- * Primary CDN: imagedelivery.net. Git remains the backup.
+ * Upload git-backed JPEGs in public/images to Cloudflare Images (hosted).
+ * Primary CDN: https://imagedelivery.net/<ACCOUNT_HASH>/<IMAGE_ID>/public
+ * Git remains the always-on backup.
  *
- * Required env:
- *   CLOUDFLARE_ACCOUNT_ID
- *   CLOUDFLARE_API_TOKEN  (Account.Cloudflare Images:Edit)
+ * Docs:
+ *   https://developers.cloudflare.com/images/optimization/hosted-images/serve-uploaded-images/
+ *   https://developers.cloudflare.com/images/storage/upload-images/upload-custom-path/
+ *   https://developers.cloudflare.com/images/storage/upload-images/upload-url/
+ *
+ * Required:
+ *   CLOUDFLARE_API_TOKEN  (Account → Cloudflare Images → Edit)
+ *
+ * Optional:
+ *   CLOUDFLARE_ACCOUNT_ID  (defaults to this project's Images account)
  *
  * Usage: npm run images:upload-cf
  */
-import { readdir, readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID?.trim();
+const ACCOUNT_ID =
+  process.env.CLOUDFLARE_ACCOUNT_ID?.trim() ||
+  '2cc579c1ec9e426ed585e933ebf4753b';
 const TOKEN = process.env.CLOUDFLARE_API_TOKEN?.trim();
+const HASH =
+  process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_HASH?.trim() ||
+  'byE6BTe9lNqo21V57n4aPQ';
+const ORIGIN =
+  process.env.SITE_ORIGIN?.trim() || 'https://www.summerlinwesthomes.com';
 const IMAGES_DIR = path.join(process.cwd(), 'public', 'images');
 const OUT_FILE = path.join(process.cwd(), 'lib', 'cloudflare-image-ids.json');
 
-if (!ACCOUNT_ID || !TOKEN) {
+/** SiteImageId → git backup filename (JPEG only; Cloudflare transcodes to AVIF/WebP). */
+const UPLOADS = {
+  'hero-home': 'hero-home.jpg',
+  'hero-about': 'hero-about.jpg',
+  'hero-villages': 'hero-villages.jpg',
+  'hero-listings': 'hero-listings.jpg',
+  'hero-search': 'hero-search.jpg',
+  'hero-market': 'hero-market.jpg',
+  'hero-valuation': 'hero-valuation.jpg',
+  'hero-sell': 'hero-sell.jpg',
+  'hero-buying': 'hero-buying.jpg',
+  'hero-mortgage': 'hero-mortgage.jpg',
+  'hero-schools': 'hero-schools.jpg',
+  'hero-amenities': 'hero-amenities.jpg',
+  'hero-transportation': 'hero-transportation.jpg',
+  'hero-villages-comparison': 'hero-villages-comparison.jpg',
+  'hero-schools-commute': 'hero-schools-commute.jpg',
+  'section-red-rock': 'section-red-rock.jpg',
+  'section-golf': 'section-golf.jpg',
+  'section-downtown-summerlin': 'section-downtown-summerlin.jpg',
+  'section-luxury-interior': 'section-luxury-interior.jpg',
+  'section-new-construction': 'section-new-construction.jpg',
+  'h3-downtown-skyline': 'h3-downtown-skyline.jpg',
+  'h3-airport': 'h3-airport.jpg',
+  'h3-pool-patio': 'h3-pool-patio.jpg',
+  'h3-trail': 'h3-trail.jpg',
+  'h3-office': 'h3-office.jpg',
+  'h3-entry': 'h3-entry.jpg',
+  'h3-hospital': 'h3-hospital.jpg',
+  'h3-casino': 'h3-casino.jpg',
+  'h3-library': 'h3-library.jpg',
+  'h3-school': 'h3-school.jpg',
+  'og-default': 'og-image-summerlin-west-homes.jpg',
+};
+
+if (!TOKEN) {
   console.error(
-    'Missing CLOUDFLARE_ACCOUNT_ID or CLOUDFLARE_API_TOKEN. Git-backed images in public/images will still deploy on Vercel.',
+    'Missing CLOUDFLARE_API_TOKEN. Create a token with Account.Cloudflare Images:Edit, then rerun npm run images:upload-cf. Git-backed files in public/images still deploy on Vercel.',
   );
   process.exit(1);
 }
 
-const files = (await readdir(IMAGES_DIR)).filter((name) =>
-  /\.(jpe?g|png|webp)$/i.test(name),
-);
+const api = (suffix) =>
+  `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}${suffix}`;
+
+async function cfForm(suffix, form) {
+  const response = await fetch(api(suffix), {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${TOKEN}` },
+    body: form,
+  });
+  return { status: response.status, json: await response.json() };
+}
+
+function alreadyExists(json) {
+  const errors = Array.isArray(json?.errors) ? json.errors : [];
+  return errors.some(
+    (error) =>
+      String(error.code) === '5409' ||
+      String(error.code) === '5410' ||
+      /already exists/i.test(String(error.message ?? '')),
+  );
+}
+
+async function imageExists(id) {
+  const response = await fetch(api(`/images/v1/${encodeURIComponent(id)}`), {
+    headers: { Authorization: `Bearer ${TOKEN}` },
+  });
+  if (!response.ok) return false;
+  const json = await response.json();
+  return Boolean(json?.success && json?.result?.id);
+}
+
+async function uploadOne(customId, filename) {
+  if (await imageExists(customId)) {
+    console.log(`Exists ${customId}`);
+    return customId;
+  }
+
+  const bytes = await readFile(path.join(IMAGES_DIR, filename));
+  const fileForm = new FormData();
+  fileForm.set('id', customId);
+  fileForm.set('requireSignedURLs', 'false');
+  fileForm.set(
+    'file',
+    new Blob([bytes], { type: 'image/jpeg' }),
+    filename,
+  );
+
+  let { json } = await cfForm('/images/v1', fileForm);
+  if (json?.success) {
+    console.log(`Uploaded ${filename} → ${json.result.id}`);
+    return json.result.id;
+  }
+  if (alreadyExists(json)) {
+    console.log(`Exists ${customId}`);
+    return customId;
+  }
+
+  const urlForm = new FormData();
+  urlForm.set('id', customId);
+  urlForm.set('requireSignedURLs', 'false');
+  urlForm.set('url', `${ORIGIN}/images/${filename}`);
+  ({ json } = await cfForm('/images/v1', urlForm));
+  if (json?.success) {
+    console.log(`Imported ${filename} from ${ORIGIN} → ${json.result.id}`);
+    return json.result.id;
+  }
+  if (alreadyExists(json)) {
+    console.log(`Exists ${customId}`);
+    return customId;
+  }
+
+  console.warn(`Skip ${filename}:`, json.errors ?? json);
+  return null;
+}
 
 /** @type {Record<string, string>} */
 const ids = {};
+let uploaded = 0;
+let skipped = 0;
 
-for (const file of files) {
-  const id = file.replace(/\.(jpe?g|png|webp)$/i, '');
-  const bytes = await readFile(path.join(IMAGES_DIR, file));
-  const form = new FormData();
-  form.set('id', id);
-  form.set(
-    'file',
-    new Blob([bytes], {
-      type: file.endsWith('.webp')
-        ? 'image/webp'
-        : file.endsWith('.png')
-          ? 'image/png'
-          : 'image/jpeg',
-    }),
-    file,
-  );
-  const response = await fetch(
-    `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/images/v1`,
-    {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${TOKEN}` },
-      body: form,
-    },
-  );
-  const json = await response.json();
-  if (!json.success) {
-    console.warn(`Skip ${file}:`, json.errors ?? json);
-    continue;
+for (const [customId, filename] of Object.entries(UPLOADS)) {
+  const result = await uploadOne(customId, filename);
+  if (result) {
+    ids[customId] = result;
+    uploaded += 1;
+  } else {
+    skipped += 1;
   }
-  ids[id] = json.result.id;
-  console.log(`Uploaded ${file} → ${json.result.filename || json.result.id}`);
 }
 
 await writeFile(OUT_FILE, `${JSON.stringify(ids, null, 2)}\n`);
-console.log(`Wrote ${OUT_FILE}`);
+console.log(`Wrote ${OUT_FILE} (${uploaded} mapped, ${skipped} skipped)`);
 console.log(
-  'Set NEXT_PUBLIC_CLOUDFLARE_IMAGES_HASH in Vercel to your Images account hash, then map IDs in lib/images.ts CLOUDFLARE_IMAGE_IDS.',
+  `Delivery example: https://imagedelivery.net/${HASH}/hero-home/public`,
+);
+console.log(
+  'Set NEXT_PUBLIC_CLOUDFLARE_IMAGES_HASH on Vercel if it is not already the account hash baked into lib/images.ts.',
 );
