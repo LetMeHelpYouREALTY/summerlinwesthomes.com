@@ -1,20 +1,32 @@
-# Site images (git backup)
+# Site images: Cloudflare Images + git backup
 
-Heading-matched photography lives here as the **git backup**. Cloudflare Images is the primary CDN when `NEXT_PUBLIC_CLOUDFLARE_IMAGES_HASH` and `CLOUDFLARE_IMAGE_IDS` are set (`lib/images.ts`).
+Hosted Cloudflare Images is the **primary CDN**. Git files in this folder are the **backup** Vercel can still serve.
 
-Do **not** orange-cloud the Vercel production hostname. Serve media from `imagedelivery.net` (or a dedicated images subdomain) so SSL stays on Vercel.
+Do **not** orange-cloud the Vercel production hostname. Deliver media from `imagedelivery.net` so SSL stays on Vercel.
 
-## Upload to Cloudflare Images
+## Account (hosted Images)
+
+- Account hash: `byE6BTe9lNqo21V57n4aPQ`
+- Delivery URL: `https://imagedelivery.net/byE6BTe9lNqo21V57n4aPQ/<image_id>/<variant_name>`
+- Default variant: `public` (Cloudflare transcodes JPEG to AVIF/WebP from `Accept` headers)
+
+The hash is public (it appears in every image URL). It is baked into `lib/images.ts` as `CLOUDFLARE_IMAGES_ACCOUNT_HASH`.
+
+## Upload git backups to Images
+
+Create an API token with **Account.Cloudflare Images:Edit**, then:
 
 ```bash
-CLOUDFLARE_ACCOUNT_ID=... CLOUDFLARE_API_TOKEN=... node scripts/upload-cloudflare-images.mjs
+CLOUDFLARE_API_TOKEN=... npm run images:upload-cf
 ```
 
-Then set `NEXT_PUBLIC_CLOUDFLARE_IMAGES_HASH` on Vercel and map IDs in `lib/images.ts`.
+The script:
 
-Heading-matched H3 stills (`h3-*.jpg` / `.webp`) cover commute, airport, office, trails, hospital, library, casino, and campus scenes used on interior pages. Git remains the live source until Cloudflare credentials are configured.
+1. Uploads each heading JPEG with a **custom ID** matching the site image id (`hero-home`, `h3-trail`, …).
+2. Falls back to URL import from `https://www.summerlinwesthomes.com/images/...` if the local POST fails.
+3. Writes `lib/cloudflare-image-ids.json`. Once that file has IDs, `imageSrc()` serves `imagedelivery.net`. Until then, Next.js uses the git files here.
 
-## Required social files
+## Required social files (git backup)
 
 - `og-image-summerlin-west-homes.jpg` (1200x630)
 - `twitter-image-summerlin-west-homes.jpg` (1200x630)

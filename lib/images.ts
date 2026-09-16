@@ -1,10 +1,15 @@
 /**
- * Image delivery: Cloudflare Images is primary when configured;
- * git-backed files in /public/images are the always-on fallback.
+ * Image delivery: Cloudflare Images (hosted) is primary when an image ID
+ * has been uploaded; git-backed files in /public/images are the fallback.
+ *
+ * Delivery URL (Cloudflare Images docs, hosted images):
+ * https://imagedelivery.net/<ACCOUNT_HASH>/<IMAGE_ID>/<VARIANT_NAME>
  *
  * Do not orange-cloud the Vercel apex. Serve optimized media from
- * imagedelivery.net (Cloudflare Images) while the app stays on Vercel.
+ * imagedelivery.net while the app stays on Vercel.
  */
+import uploadedCloudflareIds from '@/lib/cloudflare-image-ids.json';
+
 export type SiteImageId =
   | 'hero-home'
   | 'hero-about'
@@ -47,10 +52,16 @@ export type SiteImageMeta = {
   height: number;
 };
 
-/** Optional Cloudflare Images IDs, populated after `npm run images:upload-cf`. */
-export const CLOUDFLARE_IMAGE_IDS: Partial<Record<SiteImageId, string>> = {
-  // Example after upload: 'hero-home': 'summerlin-hero-home',
-};
+/**
+ * Public Images account hash from the Cloudflare dashboard Developer Resources.
+ * Safe to ship in the client bundle — it is already in every delivery URL.
+ * Override with NEXT_PUBLIC_CLOUDFLARE_IMAGES_HASH if the account changes.
+ */
+export const CLOUDFLARE_IMAGES_ACCOUNT_HASH = 'byE6BTe9lNqo21V57n4aPQ';
+
+/** Custom IDs written by `npm run images:upload-cf`. Empty until upload succeeds. */
+export const CLOUDFLARE_IMAGE_IDS: Partial<Record<SiteImageId, string>> =
+  uploadedCloudflareIds as Partial<Record<SiteImageId, string>>;
 
 export const SITE_IMAGES: Record<SiteImageId, SiteImageMeta> = {
   'hero-home': {
@@ -304,17 +315,30 @@ export const SITE_IMAGES: Record<SiteImageId, SiteImageMeta> = {
 };
 
 export function cloudflareImagesHash(): string {
-  return process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_HASH?.trim() ?? '';
+  return (
+    process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_HASH?.trim() ||
+    CLOUDFLARE_IMAGES_ACCOUNT_HASH
+  );
+}
+
+export function cloudflareImageUrl(
+  imageId: string,
+  variant: 'public' | `w=${number}` = 'public',
+): string {
+  const encodedId = imageId
+    .split('/')
+    .map((segment) => encodeURIComponent(segment))
+    .join('/');
+  return `https://imagedelivery.net/${cloudflareImagesHash()}/${encodedId}/${variant}`;
 }
 
 export function imageSrc(
   id: SiteImageId,
   variant: 'public' | `w=${number}` = 'public',
 ): string {
-  const hash = cloudflareImagesHash();
   const cfId = CLOUDFLARE_IMAGE_IDS[id];
-  if (hash && cfId) {
-    return `https://imagedelivery.net/${hash}/${cfId}/${variant}`;
+  if (cfId) {
+    return cloudflareImageUrl(cfId, variant);
   }
   return SITE_IMAGES[id].localPath;
 }
