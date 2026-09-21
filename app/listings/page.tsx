@@ -51,6 +51,11 @@ export default function ListingsPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Real Estate Listings in Las Vegas — Advanced Filters
             </h2>
+            <SectionImage
+              imageId="hero-search"
+              caption="Filter Summerlin West inventory by price, beds, and village before you tour."
+              className="mb-8"
+            />
             <p className="text-lg text-gray-600 mb-8">
               Use our powerful search tools to find specific properties
             </p>
@@ -72,6 +77,11 @@ export default function ListingsPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Homes for Sale in Summerlin — Quick Search
             </h2>
+            <SectionImage
+              imageId="h3-sold-home"
+              caption="Start with live MLS, then call (702) 842-0410 to schedule showings."
+              className="mb-8"
+            />
             <p className="text-lg text-gray-600 mb-8">
               Start your search with our simple and intuitive search tool
             </p>

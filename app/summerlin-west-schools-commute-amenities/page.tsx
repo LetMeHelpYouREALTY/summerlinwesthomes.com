@@ -2,6 +2,7 @@ import Link from 'next/link';
 import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 
 const faqItems = [
   {
@@ -55,40 +56,35 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
           className="mb-10"
         />
 
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-xl border p-5">
-            <h2 className="mb-2 text-2xl font-semibold text-gray-900">
-              Las Vegas Homes & School Fit
-            </h2>
-            <p className="text-gray-700">
-              Start with zoning, daily drive times, and campus proximity. Then
-              compare inventory nearby to reduce weekday friction.
-            </p>
-          </div>
-          <div className="rounded-xl border p-5">
-            <h2 className="mb-2 text-2xl font-semibold text-gray-900">
-              Summerlin Homes for Sale — Commute Planning
-            </h2>
-            <p className="text-gray-700">
-              Compare major corridors and peak-time patterns by village so your
-              weekly schedule matches where you buy.
-            </p>
-          </div>
-          <div className="rounded-xl border p-5">
-            <h2 className="mb-2 text-2xl font-semibold text-gray-900">
-              Real Estate Listings Near Daily Amenities
-            </h2>
-            <p className="text-gray-700">
-              Evaluate parks, trails, golf, retail, and dining access by
-              lifestyle priority instead of by ZIP code alone.
-            </p>
-          </div>
-        </div>
+        <HeadingPhotoGrid
+          items={[
+            {
+              imageId: 'h3-school',
+              heading: 'Las Vegas homes and school fit',
+              text: 'Start with zoning, daily drive times, and campus proximity. Then compare inventory nearby.',
+            },
+            {
+              imageId: 'h3-beltway',
+              heading: 'Summerlin commute planning',
+              text: 'Compare the 215 Beltway, Charleston, and Sahara windows by village before you tour.',
+            },
+            {
+              imageId: 'section-downtown-summerlin',
+              heading: 'Listings near daily amenities',
+              text: 'Downtown Summerlin retail, parks, and trailheads sit close to many Summerlin West streets.',
+            },
+          ]}
+        />
 
         <div className="mt-10 rounded-xl border border-gray-200 bg-white p-6">
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
             Summerlin West Commute and Corridor Planning
           </h2>
+          <SectionImage
+            imageId="h3-beltway"
+            caption="Compare 215 Beltway, Charleston, and Sahara windows by village before you tour."
+            className="mb-4"
+          />
           <p className="text-gray-700">
             Compare major travel corridors like West Charleston and West Sahara by
             your typical departure windows. A route-first approach helps align
@@ -100,6 +96,11 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
             Everyday Convenience: Internet, Retail, and Services
           </h2>
+          <SectionImage
+            imageId="section-downtown-summerlin"
+            caption="Downtown Summerlin retail and daily errands sit close to many 89135 streets."
+            className="mb-4"
+          />
           <p className="text-gray-700">
             In addition to schools and parks, many buyers prioritize internet
             reliability, nearby grocery and dining access, and healthcare

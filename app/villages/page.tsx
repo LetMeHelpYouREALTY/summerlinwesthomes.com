@@ -1,15 +1,6 @@
 'use client';
 
 import React from 'react';
-import {
-  Map,
-  Home,
-  Mountain,
-  Shield,
-  Users,
-  Star,
-  TrendingUp,
-} from 'lucide-react';
 import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
@@ -96,6 +87,11 @@ export default function VillagesPage() {
             <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
               Las Vegas Homes: Values Across Summerlin Villages
             </h2>
+            <SectionImage
+              imageId="h3-village-street"
+              caption="Compare village-level values on live MLS, then tour The Ridges, The Paseos, and nearby streets."
+              className="mb-8"
+            />
             <p className="mb-8 text-lg text-gray-600">
               Get instant property value estimates for any village in Summerlin
               West
@@ -209,6 +205,11 @@ export default function VillagesPage() {
             <h2 className="mb-4 text-3xl font-bold">
               Explore Summerlin West Villages & Communities
             </h2>
+            <SectionImage
+              imageId="h3-village-park"
+              caption="Browse live village inventory powered by RealScout MLS data."
+              className="mx-auto mb-6 max-w-4xl"
+            />
             <p className="mx-auto max-w-2xl text-gray-600">
               Browse live village inventory powered by RealScout MLS data.
             </p>

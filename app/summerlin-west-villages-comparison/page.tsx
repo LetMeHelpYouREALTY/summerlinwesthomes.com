@@ -3,6 +3,7 @@ import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import { BUSINESS, telHref } from '@/lib/business';
 import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 
 const villageRows = [
   {
@@ -113,10 +114,37 @@ export default function SummerlinWestVillagesComparisonPage() {
           </table>
         </div>
 
+        <div className="mt-10">
+          <HeadingPhotoGrid
+            items={[
+              {
+                imageId: 'section-golf',
+                heading: 'Golf-course villages',
+                text: 'The Ridges and Red Rock Country Club pair estate homes with golf and mountain views.',
+              },
+              {
+                imageId: 'section-new-construction',
+                heading: 'Newer villages',
+                text: 'Stonebridge and nearby villages often have newer plans and lower-maintenance lots.',
+              },
+              {
+                imageId: 'h3-village-park',
+                heading: 'Trail-oriented streets',
+                text: 'The Vistas and The Paseos sit near parks and desert trail connections.',
+              },
+            ]}
+          />
+        </div>
+
         <div className="mt-10 rounded-xl border border-gray-200 bg-white p-6">
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
             Northwest Las Vegas vs Summerlin West: What Buyers Should Compare
           </h2>
+          <SectionImage
+            imageId="h3-village-street"
+            caption="Compare HOA terms, amenities, and live inventory — not a website average."
+            className="mb-4"
+          />
           <p className="text-gray-700">
             If you are comparing Northwest Las Vegas vs Summerlin West, focus on
             HOA structure, village-level amenities, resale velocity, and average
@@ -129,6 +157,11 @@ export default function SummerlinWestVillagesComparisonPage() {
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
             Summerlin West Association and CC&amp;R Planning Notes
           </h2>
+          <SectionImage
+            imageId="h3-cma-review"
+            caption="Review HOA disclosures, dues, and use restrictions before you write an offer."
+            className="mb-4"
+          />
           <p className="text-gray-700">
             Before contract, verify community-specific CC&amp;Rs, design review
             requirements, rental limitations, and current association dues. Terms

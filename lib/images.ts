@@ -41,6 +41,18 @@ export type SiteImageId =
   | 'h3-casino'
   | 'h3-library'
   | 'h3-school'
+  | 'h3-beltway'
+  | 'h3-transit'
+  | 'h3-charleston'
+  | 'h3-buyer-keys'
+  | 'h3-kitchen'
+  | 'h3-village-street'
+  | 'h3-closing-table'
+  | 'h3-village-park'
+  | 'h3-showing'
+  | 'h3-staging'
+  | 'h3-sold-home'
+  | 'h3-cma-review'
   | 'og-default';
 
 export type SiteImageMeta = {
@@ -301,6 +313,102 @@ export const SITE_IMAGES: Record<SiteImageId, SiteImageMeta> = {
     heading: 'Campuses serving Summerlin West homes',
     alt: 'Modern west Las Vegas school campus with desert landscaping',
     localPath: '/images/h3-school.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-beltway': {
+    id: 'h3-beltway',
+    heading: '215 Beltway access from Summerlin West',
+    alt: 'West Las Vegas 215 Beltway curving toward Red Rock Canyon at golden hour',
+    localPath: '/images/h3-beltway.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-transit': {
+    id: 'h3-transit',
+    heading: 'Public transit near Downtown Summerlin',
+    alt: 'Modern desert transit plaza near mixed-use buildings in west Las Vegas',
+    localPath: '/images/h3-transit.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-charleston': {
+    id: 'h3-charleston',
+    heading: 'Charleston Boulevard corridor to Red Rock',
+    alt: 'Charleston Boulevard heading west toward Red Rock Canyon through desert landscaping',
+    localPath: '/images/h3-charleston.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-buyer-keys': {
+    id: 'h3-buyer-keys',
+    heading: 'Tour a Summerlin West home before you write an offer',
+    alt: 'Adult buyers at the stone entry of a luxury Summerlin West Las Vegas home',
+    localPath: '/images/h3-buyer-keys.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-kitchen': {
+    id: 'h3-kitchen',
+    heading: 'Luxury kitchens in Summerlin West homes for sale',
+    alt: 'Luxury Summerlin West kitchen with desert patio and mountain views',
+    localPath: '/images/h3-kitchen.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-village-street': {
+    id: 'h3-village-street',
+    heading: 'Summerlin West village streets and homes',
+    alt: 'Quiet Summerlin West village street with desert-modern homes and mountain backdrop',
+    localPath: '/images/h3-village-street.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-closing-table': {
+    id: 'h3-closing-table',
+    heading: 'Buyer strategy and valuation review',
+    alt: 'Real estate consultation table in a Las Vegas office with desert mountain window light',
+    localPath: '/images/h3-closing-table.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-village-park': {
+    id: 'h3-village-park',
+    heading: 'Parks and paths in Summerlin West villages',
+    alt: 'Desert neighborhood walking path in Summerlin West with Red Rock Canyon in the distance',
+    localPath: '/images/h3-village-park.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-showing': {
+    id: 'h3-showing',
+    heading: 'Tour a Summerlin West home before you write an offer',
+    alt: 'Adult buyers touring a luxury Summerlin West living room with Red Rock Canyon views',
+    localPath: '/images/h3-showing.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-staging': {
+    id: 'h3-staging',
+    heading: 'Stage a Summerlin West home before listing',
+    alt: 'Professionally staged Summerlin West living room opening to a pool and desert mountains',
+    localPath: '/images/h3-staging.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-sold-home': {
+    id: 'h3-sold-home',
+    heading: 'Closed Summerlin West homes and village inventory',
+    alt: 'Luxury Summerlin West home exterior at dusk with desert landscaping and mountain backdrop',
+    localPath: '/images/h3-sold-home.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-cma-review': {
+    id: 'h3-cma-review',
+    heading: 'Comparative market analysis for Summerlin West',
+    alt: 'Realtor reviewing listing photos with adult buyers in a Las Vegas office overlooking desert mountains',
+    localPath: '/images/h3-cma-review.jpg',
     width: 1280,
     height: 720,
   },

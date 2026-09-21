@@ -64,6 +64,18 @@ const UPLOADS = {
   'h3-casino': 'h3-casino.jpg',
   'h3-library': 'h3-library.jpg',
   'h3-school': 'h3-school.jpg',
+  'h3-beltway': 'h3-beltway.jpg',
+  'h3-transit': 'h3-transit.jpg',
+  'h3-charleston': 'h3-charleston.jpg',
+  'h3-buyer-keys': 'h3-buyer-keys.jpg',
+  'h3-kitchen': 'h3-kitchen.jpg',
+  'h3-village-street': 'h3-village-street.jpg',
+  'h3-closing-table': 'h3-closing-table.jpg',
+  'h3-village-park': 'h3-village-park.jpg',
+  'h3-showing': 'h3-showing.jpg',
+  'h3-staging': 'h3-staging.jpg',
+  'h3-sold-home': 'h3-sold-home.jpg',
+  'h3-cma-review': 'h3-cma-review.jpg',
   'og-default': 'og-image-summerlin-west-homes.jpg',
 };
 

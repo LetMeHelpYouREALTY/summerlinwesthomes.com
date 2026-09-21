@@ -13,7 +13,9 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 
 export default function MarketDataPage() {
   const [selectedVillage, setSelectedVillage] = useState('all');
@@ -163,6 +165,11 @@ export default function MarketDataPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Las Vegas Homes: Your Summerlin West Market Value
             </h2>
+            <SectionImage
+              imageId="h3-cma-review"
+              caption="Use live MLS widgets for current inventory. Village averages below are examples only."
+              className="mb-8"
+            />
             <p className="text-lg text-gray-600 mb-8">
               Get instant property value estimates with our advanced RealScout technology
             </p>
@@ -419,6 +426,11 @@ export default function MarketDataPage() {
           <h2 className="mb-8 text-center text-3xl font-bold">
             Recent Sales in Summerlin West
           </h2>
+          <SectionImage
+            imageId="h3-sold-home"
+            caption="Sample rows below are layout examples only — not current MLS closings."
+            className="mx-auto mb-8 max-w-4xl"
+          />
           <div className="overflow-hidden rounded-xl bg-white shadow-lg">
             <div className="overflow-x-auto">
               <table className="w-full">
@@ -493,6 +505,25 @@ export default function MarketDataPage() {
           <h2 className="mb-8 text-center text-3xl font-bold">
             Summerlin West Geographic Focus
           </h2>
+          <HeadingPhotoGrid
+            items={[
+              {
+                imageId: 'h3-beltway',
+                heading: 'East: 215 Beltway',
+                text: 'Summerlin West sits west of the Beltway toward Red Rock Canyon.',
+              },
+              {
+                imageId: 'h3-charleston',
+                heading: 'South: Charleston Boulevard',
+                text: 'Charleston (SR 159) is the west corridor toward Red Rock Canyon.',
+              },
+              {
+                imageId: 'section-red-rock',
+                heading: 'West: Red Rock Canyon',
+                text: 'Primary coverage is ZIP 89135, with 89138 portions only.',
+              },
+            ]}
+          />
 
           <div className="mx-auto max-w-4xl">
             <div className="rounded-xl bg-white p-8 shadow-lg">
@@ -573,6 +604,11 @@ export default function MarketDataPage() {
             <h3 className="mb-4 text-3xl font-bold">
               Current Summerlin West Market Listings
             </h3>
+            <SectionImage
+              imageId="hero-listings"
+              caption="Live RealScout MLS inventory — not the sample figures above."
+              className="mx-auto mb-6 max-w-4xl"
+            />
             <p className="mx-auto max-w-2xl text-gray-600">
               Explore active properties that reflect current market conditions
               and pricing trends

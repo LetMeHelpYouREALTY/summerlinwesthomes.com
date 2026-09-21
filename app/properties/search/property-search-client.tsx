@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import { BUSINESS, telHref } from '@/lib/business';
 
@@ -343,6 +344,11 @@ export default function PropertySearchPage() {
             <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
               Las Vegas Homes: Summerlin West Value Estimates
             </h2>
+            <SectionImage
+              imageId="h3-cma-review"
+              caption="Pair live search with a village-level value check before you tour."
+              className="mb-8"
+            />
             <p className="mb-8 text-lg text-gray-600">
               Get instant property value estimates while you search for your
               dream home
@@ -458,6 +464,11 @@ export default function PropertySearchPage() {
               <h2 className="mb-2 text-3xl font-bold text-gray-900">
                 Summerlin Homes for Sale — Search Results
               </h2>
+              <SectionImage
+                imageId="hero-listings"
+                caption="Live Las Vegas real estate listings via RealScout MLS data."
+                className="mb-4 max-w-3xl"
+              />
               <p className="text-gray-600">
                 Live Las Vegas real estate listings via RealScout MLS data
               </p>

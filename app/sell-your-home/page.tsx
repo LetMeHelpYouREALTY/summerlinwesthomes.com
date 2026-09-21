@@ -1,20 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import {
-  Home,
-  DollarSign,
-  TrendingUp,
-  Clock,
-  Award,
-  Phone,
-  Mail,
-  MapPin,
-  CheckCircle,
-} from 'lucide-react';
 import CalendlyInlineSection from '@/components/calendly-inline-section';
 import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 
 export default function SellYourHomePage() {
   const [formData, setFormData] = useState({
@@ -52,67 +43,6 @@ export default function SellYourHomePage() {
     });
   };
 
-  const sellingProcess = [
-    {
-      step: 1,
-      title: 'Free Consultation',
-      description:
-        'Schedule a no-obligation meeting to discuss your selling goals and timeline',
-      icon: Phone,
-    },
-    {
-      step: 2,
-      title: 'Market Analysis',
-      description:
-        'Receive a comprehensive market analysis and recommended listing price',
-      icon: TrendingUp,
-    },
-    {
-      step: 3,
-      title: 'Property Preparation',
-      description:
-        'Get expert advice on staging, repairs, and improvements to maximize value',
-      icon: Home,
-    },
-    {
-      step: 4,
-      title: 'Marketing Strategy',
-      description:
-        'Professional photography, virtual tours, and targeted marketing campaigns',
-      icon: Award,
-    },
-    {
-      step: 5,
-      title: 'Showings & Offers',
-      description:
-        'Manage showings, negotiate offers, and guide you through the closing process',
-      icon: CheckCircle,
-    },
-  ];
-
-  const whyChooseUs = [
-    {
-      icon: TrendingUp,
-      title: 'Higher Sale Prices',
-      description: 'Our properties sell for 8.2% more than the market average',
-    },
-    {
-      icon: Clock,
-      title: 'Faster Sales',
-      description: 'Homes sell 23% faster with our marketing strategies',
-    },
-    {
-      icon: Award,
-      title: 'Expert Negotiation',
-      description: 'Professional negotiation to maximize your return',
-    },
-    {
-      icon: MapPin,
-      title: 'Local Market Mastery',
-      description: 'Deep knowledge of Summerlin West market trends',
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50">
       <PageHero
@@ -127,6 +57,11 @@ export default function SellYourHomePage() {
             <h2 className="mb-4 text-3xl font-bold text-gray-900">
               Las Vegas Homes: Know Your Value Before You List
             </h2>
+            <SectionImage
+              imageId="h3-cma-review"
+              caption="Ask for a village-level CMA before you set a Summerlin West list price."
+              className="mb-6"
+            />
             <p className="text-lg text-gray-600">
               Discover what your Summerlin West property is worth before you
               sell
@@ -148,6 +83,11 @@ export default function SellYourHomePage() {
             <h3 className="mb-6 text-2xl font-bold text-gray-900">
               Compare Homes for Sale in Summerlin While You Prep
             </h3>
+            <SectionImage
+              imageId="h3-sold-home"
+              caption="Compare live Summerlin West inventory while you prep your listing."
+              className="mb-6"
+            />
             <p className="mb-8 text-lg text-gray-600">
               Explore the market while you learn about selling your home
             </p>
@@ -241,81 +181,89 @@ export default function SellYourHomePage() {
                 <h2 className="mb-8 text-3xl font-bold text-gray-900">
                   Why Choose Summerlin West Homes?
                 </h2>
-                <div className="grid gap-6 md:grid-cols-2">
-                  {whyChooseUs.map((item, index) => (
-                    <div
-                      key={index}
-                      className="rounded-lg bg-white p-6 shadow-lg"
-                    >
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-amber-100">
-                        <item.icon className="h-6 w-6 text-amber-600" />
-                      </div>
-                      <h3 className="mb-2 text-lg font-semibold text-gray-900">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-gray-600">
-                        {item.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <HeadingPhotoGrid
+                  columns={2}
+                  items={[
+                    {
+                      imageId: 'h3-kitchen',
+                      heading: 'Pricing from live comps',
+                      text: 'Ask for a village-level CMA. Do not use website averages to set a list price.',
+                    },
+                    {
+                      imageId: 'h3-entry',
+                      heading: 'Prep before you list',
+                      text: 'Stage, photograph, and time the launch around current Summerlin West inventory.',
+                    },
+                    {
+                      imageId: 'h3-closing-table',
+                      heading: 'Offer review',
+                      text: 'Walk terms, timing, and contingencies with Dr. Jan Duffy at (702) 842-0410.',
+                    },
+                    {
+                      imageId: 'h3-village-street',
+                      heading: 'Local village knowledge',
+                      text: 'The Ridges, The Paseos, The Crossing, and nearby villages each price differently.',
+                    },
+                  ]}
+                />
               </div>
 
               {/* Our Selling Process */}
               <div>
                 <h2 className="mb-8 text-3xl font-bold text-gray-900">
-                  Our Proven 5-Step Selling Process
+                  Our 5-Step Selling Process
                 </h2>
-                <div className="space-y-6">
-                  {sellingProcess.map((step, index) => (
-                    <div key={index} className="flex items-start space-x-4">
-                      <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-amber-600 font-bold text-white">
-                        {step.step}
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900">
-                          {step.title}
-                        </h3>
-                        <p className="text-gray-600">{step.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                <HeadingPhotoGrid
+                  items={[
+                    {
+                      imageId: 'h3-cma-review',
+                      heading: '1. Consultation',
+                      text: 'Schedule a no-obligation call to discuss timeline, HOA terms, and listing goals.',
+                    },
+                    {
+                      imageId: 'hero-market',
+                      heading: '2. Market analysis',
+                      text: 'Get a CMA tied to live MLS comps for your village — not a website average.',
+                    },
+                    {
+                      imageId: 'h3-staging',
+                      heading: '3. Property prep',
+                      text: 'Staging, repairs, and photography before the listing goes live.',
+                    },
+                    {
+                      imageId: 'h3-kitchen',
+                      heading: '4. Marketing',
+                      text: 'Professional photos and listing copy go live only after the home is ready to show.',
+                    },
+                    {
+                      imageId: 'h3-showing',
+                      heading: '5. Showings and offers',
+                      text: 'Walk terms, timing, and contingencies with Dr. Jan Duffy at (702) 842-0410.',
+                    },
+                  ]}
+                />
               </div>
 
               {/* Market Insights */}
-              <div className="rounded-xl bg-amber-50 p-8">
+              <div>
                 <h3 className="mb-6 text-2xl font-bold text-gray-900">
                   Summerlin West Market Insights
                 </h3>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div className="rounded-lg bg-white p-4">
-                    <div className="text-2xl font-bold text-amber-600">
-                      $1,247
-                    </div>
-                    <div className="text-sm text-gray-600">Price per sq ft</div>
-                  </div>
-                  <div className="rounded-lg bg-white p-4">
-                    <div className="text-2xl font-bold text-amber-600">45</div>
-                    <div className="text-sm text-gray-600">Days on market</div>
-                  </div>
-                  <div className="rounded-lg bg-white p-4">
-                    <div className="text-2xl font-bold text-amber-600">
-                      98.7%
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      List to sale ratio
-                    </div>
-                  </div>
-                  <div className="rounded-lg bg-white p-4">
-                    <div className="text-2xl font-bold text-amber-600">
-                      +12.3%
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      Year over year growth
-                    </div>
-                  </div>
-                </div>
+                <HeadingPhotoGrid
+                  columns={2}
+                  items={[
+                    {
+                      imageId: 'h3-sold-home',
+                      heading: 'Price from live comps',
+                      text: 'Ask for a CMA. Website averages are not current MLS statistics.',
+                    },
+                    {
+                      imageId: 'h3-cma-review',
+                      heading: 'Village-level review',
+                      text: 'The Ridges, The Paseos, and The Crossing each price differently. Call (702) 842-0410.',
+                    },
+                  ]}
+                />
               </div>
             </div>
 

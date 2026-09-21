@@ -67,6 +67,11 @@ export default function AboutSection() {
             <h3 className="mb-4 text-3xl font-bold">
               A Home in Vegas for Sale — Featured Summerlin West Picks
             </h3>
+            <SectionImage
+              imageId="h3-showing"
+              caption="Preview live Summerlin West inventory before you dive into the full MLS feed."
+              className="mx-auto mb-6 max-w-4xl"
+            />
             <p className="mx-auto max-w-2xl text-gray-600">
               Preview curated Las Vegas homes for sale before you dive into the
               full MLS-powered inventory.

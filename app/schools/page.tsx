@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import PageHero from '@/components/media/page-hero';
 import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 import HeadingCardPhoto from '@/components/media/heading-card-photo';
 import type { SiteImageId } from '@/lib/images';
 
@@ -191,43 +192,25 @@ export default function SchoolsPage() {
             <h2 className="mb-8 text-3xl font-bold">
               Homes for Sale in Summerlin & CCSD Zoning Basics
             </h2>
-            <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-3">
-              <div className="rounded-lg bg-blue-50 p-6">
-                <div className="mb-4 flex justify-center">
-                  <Shield className="h-12 w-12 text-blue-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold text-blue-900">
-                  CCSD zoning
-                </h3>
-                <p className="text-blue-700">
-                  Confirm current Clark County School District boundaries during
-                  due diligence. Zoning can change.
-                </p>
-              </div>
-              <div className="rounded-lg bg-green-50 p-6">
-                <div className="mb-4 flex justify-center">
-                  <TrendingUp className="h-12 w-12 text-green-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold text-green-900">
-                  Program notes
-                </h3>
-                <p className="text-green-700">
-                  Ask each campus for current programs, calendars, and enrollment
-                  details. Do not rely on third-party ratings.
-                </p>
-              </div>
-              <div className="rounded-lg bg-purple-50 p-6">
-                <div className="mb-4 flex justify-center">
-                  <Award className="h-12 w-12 text-purple-600" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold text-purple-900">
-                  Program Variety
-                </h3>
-                <p className="text-purple-700">
-                  Advanced Placement, STEM, Arts, and Athletics programs
-                </p>
-              </div>
-            </div>
+            <HeadingPhotoGrid
+              items={[
+                {
+                  imageId: 'h3-school',
+                  heading: 'CCSD zoning',
+                  text: 'Confirm current Clark County School District boundaries during due diligence. Zoning can change.',
+                },
+                {
+                  imageId: 'hero-schools',
+                  heading: 'Program notes',
+                  text: 'Ask each campus for current programs, calendars, and enrollment details. Do not rely on third-party ratings.',
+                },
+                {
+                  imageId: 'h3-village-park',
+                  heading: 'Program variety',
+                  text: 'Ask about Advanced Placement, STEM, arts, and athletics on the campus website before you tour.',
+                },
+              ]}
+            />
           </div>
         </div>
       </section>
