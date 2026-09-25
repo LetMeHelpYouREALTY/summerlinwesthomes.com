@@ -255,6 +255,11 @@ export default function TransportationPage() {
         <div className="container mx-auto px-4">
           <div className="mb-6 text-center">
             <h2 className="mb-4 text-2xl font-bold">Filter by Category</h2>
+            <SectionImage
+              imageId="h3-beltway"
+              caption="Filter Beltway, Charleston, transit, airport, and scenic routes."
+              className="mx-auto mb-6 max-w-3xl"
+            />
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => {

@@ -24,7 +24,7 @@ const villageRows = [
   {
     name: 'The Vistas',
     fit: 'Established village with strong amenities',
-    bestFor: 'Buyers prioritizing parks, trails, and school-zoned inventory',
+    bestFor: 'Buyers prioritizing parks, trails, and commute windows',
   },
   {
     name: 'Stonebridge and nearby villages',

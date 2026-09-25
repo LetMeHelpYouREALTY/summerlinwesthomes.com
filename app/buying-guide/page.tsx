@@ -18,6 +18,8 @@ import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
+import Image from 'next/image';
+import { imageMeta, imageSrc, type SiteImageId } from '@/lib/images';
 
 export default function BuyingGuidePage() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -49,7 +51,7 @@ export default function BuyingGuidePage() {
         'Determine your preferred neighborhoods and communities',
         'Set your budget range and monthly payment target',
         'List essential features (bedrooms, bathrooms, square footage)',
-        'Consider lifestyle factors (golf, amenities, schools)',
+        'Match commute, square footage, and HOA terms',
       ],
     },
     {
@@ -98,9 +100,17 @@ export default function BuyingGuidePage() {
     },
   ];
 
-  const financingOptions = [
+  const financingOptions: Array<{
+    type: string;
+    description: string;
+    pros: string[];
+    cons: string[];
+    bestFor: string;
+    imageId: SiteImageId;
+  }> = [
     {
       type: 'Conventional Loan',
+      imageId: 'h3-sold-home',
       description: 'Traditional mortgage with 20% down payment',
       pros: ['Lower interest rates', 'No PMI required', 'Flexible terms'],
       cons: ['Higher down payment', 'Stricter credit requirements'],
@@ -108,6 +118,7 @@ export default function BuyingGuidePage() {
     },
     {
       type: 'FHA Loan',
+      imageId: 'h3-entry',
       description: 'Government-backed loan with lower down payment',
       pros: [
         '3.5% down payment',
@@ -119,6 +130,7 @@ export default function BuyingGuidePage() {
     },
     {
       type: 'VA Loan',
+      imageId: 'h3-village-street',
       description: 'Veterans Affairs guaranteed loan',
       pros: [
         '0% down payment',
@@ -135,6 +147,7 @@ export default function BuyingGuidePage() {
     },
     {
       type: 'Jumbo Loan',
+      imageId: 'h3-kitchen',
       description: 'Loan amount exceeding conventional limits',
       pros: [
         'Higher loan amounts',
@@ -232,6 +245,11 @@ export default function BuyingGuidePage() {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Las Vegas Homes for Sale — Quick Search
             </h3>
+            <SectionImage
+              imageId="h3-bedroom"
+              caption="Start with live MLS, then call (702) 842-0410 to tour."
+              className="mb-8"
+            />
             <p className="text-lg text-gray-600 mb-8">
               Start your search with our simple and intuitive search tool
             </p>
@@ -441,32 +459,31 @@ export default function BuyingGuidePage() {
                   <h3 className="mb-4 text-lg font-semibold text-gray-900">
                     Our Advanced Search Tools
                   </h3>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div className="flex items-center space-x-3">
-                      <Search className="h-5 w-5 text-amber-600" />
-                      <span className="text-sm text-gray-700">
-                        RealScout MLS Integration
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <MapPin className="h-5 w-5 text-amber-600" />
-                      <span className="text-sm text-gray-700">
-                        Interactive Map Search
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <FileText className="h-5 w-5 text-amber-600" />
-                      <span className="text-sm text-gray-700">
-                        Detailed Property Reports
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Phone className="h-5 w-5 text-amber-600" />
-                      <span className="text-sm text-gray-700">
-                        Personal Agent Guidance
-                      </span>
-                    </div>
-                  </div>
+                  <HeadingPhotoGrid
+                    columns={2}
+                    items={[
+                      {
+                        imageId: 'hero-search',
+                        heading: 'RealScout MLS integration',
+                        text: 'Search live Summerlin West inventory before you tour.',
+                      },
+                      {
+                        imageId: 'h3-village-street',
+                        heading: 'Village map search',
+                        text: 'Filter The Ridges, The Paseos, The Crossing, and nearby villages.',
+                      },
+                      {
+                        imageId: 'h3-cma-review',
+                        heading: 'Listing reports',
+                        text: 'Review comps with Dr. Jan Duffy before you write an offer.',
+                      },
+                      {
+                        imageId: 'h3-consultation',
+                        heading: 'Agent walkthrough',
+                        text: 'Call (702) 842-0410 to schedule showings after you shortlist.',
+                      },
+                    ]}
+                  />
                 </div>
               </div>
             </div>
@@ -486,11 +503,21 @@ export default function BuyingGuidePage() {
                 />
 
                 <div className="grid gap-6 md:grid-cols-2">
-                  {financingOptions.map((option, index) => (
+                  {financingOptions.map((option) => (
                     <div
-                      key={index}
-                      className="rounded-lg border border-gray-200 p-6"
+                      key={option.type}
+                      className="overflow-hidden rounded-lg border border-gray-200"
                     >
+                      <div className="relative aspect-[16/9]">
+                        <Image
+                          src={imageSrc(option.imageId)}
+                          alt={imageMeta(option.imageId).alt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="p-6">
                       <h3 className="mb-3 text-lg font-semibold text-gray-900">
                         {option.type}
                       </h3>
@@ -538,6 +565,7 @@ export default function BuyingGuidePage() {
                         <span className="text-sm font-medium text-amber-800">
                           Best for: {option.bestFor}
                         </span>
+                      </div>
                       </div>
                     </div>
                   ))}
@@ -635,6 +663,11 @@ export default function BuyingGuidePage() {
                   <h3 className="mb-6 text-xl font-semibold text-gray-900">
                     Typical Closing Timeline
                   </h3>
+                  <SectionImage
+                    imageId="h3-buyer-keys"
+                    caption="Timelines vary by lender, title, and HOA docs. Confirm on the contract."
+                    className="mb-6"
+                  />
                   <div className="space-y-4">
                     <div className="flex items-center space-x-4">
                       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-600 text-sm font-bold text-white">

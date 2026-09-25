@@ -470,6 +470,11 @@ export default function MortgageCalculatorPage() {
                 <h3 className="mb-4 text-xl font-bold text-gray-900">
                   Need Help with Your Mortgage?
                 </h3>
+                <SectionImage
+                  imageId="h3-consultation"
+                  caption="Call (702) 842-0410 to review payment scenarios before you tour."
+                  className="mb-6"
+                />
                 <p className="mb-6 text-gray-600">
                   Our team can help you find the best mortgage rates and lenders for Summerlin West properties.
                 </p>
@@ -559,6 +564,11 @@ export default function MortgageCalculatorPage() {
                 <h3 className="mb-6 text-xl font-bold text-gray-900">
                   Amortization Schedule
                 </h3>
+                <SectionImage
+                  imageId="h3-cma-review"
+                  caption="This table is an estimate from the inputs above, not a lender quote."
+                  className="mb-6"
+                />
                 
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">

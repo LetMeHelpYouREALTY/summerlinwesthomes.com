@@ -106,6 +106,11 @@ export default function SellYourHomePage() {
             <h3 className="mb-6 text-2xl font-bold text-gray-900">
               Las Vegas Homes for Sale — Quick Search
             </h3>
+            <SectionImage
+              imageId="h3-bedroom"
+              caption="Start with live MLS, then call (702) 842-0410 to schedule showings."
+              className="mb-6"
+            />
             <p className="mb-8 text-lg text-gray-600">
               Start your search with our simple and intuitive search tool
             </p>

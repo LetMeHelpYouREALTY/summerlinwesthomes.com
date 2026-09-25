@@ -63,7 +63,7 @@ export default function MarketDataPage() {
             className="mx-auto mb-8 max-w-4xl"
           />
           <p className="text-lg text-gray-600 mb-8">
-            Pair homes for sale in Las Vegas with the stats you just reviewed.
+            Pair homes for sale in Las Vegas with a village-level CMA.
           </p>
           <div className="flex justify-center">
             <div
