@@ -338,7 +338,7 @@ export default function PropertySearchPage() {
       </section>
 
       {/* RealScout Home Value Widget Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
+      <section className="bg-[#f6f4ef] py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto mb-12 max-w-4xl text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
@@ -371,6 +371,11 @@ export default function PropertySearchPage() {
           <h3 className="mb-6 text-2xl font-bold text-gray-900">
             Real Estate Listings in Las Vegas — Advanced Tools
           </h3>
+          <SectionImage
+            imageId="hero-search"
+            caption="Layer filters on live Summerlin West MLS inventory before you tour."
+            className="mx-auto mb-8 max-w-4xl"
+          />
           <p className="mb-8 text-lg text-gray-600">
             Layer filters on top of homes for sale in Las Vegas Summerlin West.
           </p>
@@ -389,6 +394,11 @@ export default function PropertySearchPage() {
           <h3 className="mb-6 text-2xl font-bold text-gray-900">
             Quick Property Search
           </h3>
+          <SectionImage
+            imageId="h3-bedroom"
+            caption="Start with live MLS, then call (702) 842-0410 to schedule showings."
+            className="mx-auto mb-8 max-w-4xl"
+          />
           <p className="mb-8 text-lg text-gray-600">
             Start your search with our simple and intuitive search tool
           </p>
@@ -506,6 +516,11 @@ export default function PropertySearchPage() {
             <h3 className="mb-4 text-3xl font-bold">
               Homes for Sale in Las Vegas — Additional MLS Bands
             </h3>
+            <SectionImage
+              imageId="hero-listings"
+              caption="Browse additional live MLS price bands for Summerlin West."
+              className="mx-auto mb-6 max-w-4xl"
+            />
             <p className="mx-auto max-w-2xl text-gray-600">
               Browse real-time property listings with up-to-date MLS data and
               advanced search capabilities

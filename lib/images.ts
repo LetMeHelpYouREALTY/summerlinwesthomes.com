@@ -53,6 +53,10 @@ export type SiteImageId =
   | 'h3-staging'
   | 'h3-sold-home'
   | 'h3-cma-review'
+  | 'h3-bedroom'
+  | 'h3-consultation'
+  | 'h3-twain-office'
+  | 'h3-elementary'
   | 'og-default';
 
 export type SiteImageMeta = {
@@ -409,6 +413,38 @@ export const SITE_IMAGES: Record<SiteImageId, SiteImageMeta> = {
     heading: 'Comparative market analysis for Summerlin West',
     alt: 'Realtor reviewing listing photos with adult buyers in a Las Vegas office overlooking desert mountains',
     localPath: '/images/h3-cma-review.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-bedroom': {
+    id: 'h3-bedroom',
+    heading: 'Primary suites in Summerlin West homes for sale',
+    alt: 'Luxury Summerlin West primary bedroom with glass walls opening to a pool and Red Rock Canyon',
+    localPath: '/images/h3-bedroom.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-consultation': {
+    id: 'h3-consultation',
+    heading: 'Schedule a Summerlin West consultation',
+    alt: 'Realtor meeting adult buyers in a Las Vegas office with desert mountain window light',
+    localPath: '/images/h3-consultation.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-twain-office': {
+    id: 'h3-twain-office',
+    heading: 'Google Business Profile office on West Twain Avenue',
+    alt: 'Downtown Summerlin mixed-use office plaza on West Twain Avenue at evening',
+    localPath: '/images/h3-twain-office.jpg',
+    width: 1280,
+    height: 720,
+  },
+  'h3-elementary': {
+    id: 'h3-elementary',
+    heading: 'Elementary campuses serving Summerlin West',
+    alt: 'West Las Vegas elementary campus with desert landscaping and mountain backdrop',
+    localPath: '/images/h3-elementary.jpg',
     width: 1280,
     height: 720,
   },

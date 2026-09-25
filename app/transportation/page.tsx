@@ -18,6 +18,7 @@ import {
   Info,
 } from 'lucide-react';
 import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 import HeadingCardPhoto from '@/components/media/heading-card-photo';
@@ -284,6 +285,11 @@ export default function TransportationPage() {
             <h2 className="mb-4 text-3xl font-bold">
               {filteredOptions.length} Transportation Options in Summerlin West
             </h2>
+            <SectionImage
+              imageId="h3-beltway"
+              caption="Compare Beltway, Charleston, transit, and airport routes before you tour."
+              className="mx-auto mb-6 max-w-4xl"
+            />
             <p className="mx-auto max-w-2xl text-gray-600">
               Multiple ways to get around and access the entire Las Vegas Valley
             </p>

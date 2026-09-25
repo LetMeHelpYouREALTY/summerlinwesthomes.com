@@ -188,6 +188,11 @@ export default function SummerlinWestVillagesComparisonPage() {
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
             Next Step: Match Villages to Live Inventory
           </h2>
+          <SectionImage
+            imageId="hero-listings"
+            caption="Use live listings to compare availability, then call to prioritize villages."
+            className="mb-4"
+          />
           <p className="mb-5 text-gray-600">
             Use live listings to compare availability and pricing in real time,
             then book a quick strategy call to prioritize villages.

@@ -1,152 +1,19 @@
 'use client';
 
-import React, { useState } from 'react';
-import {
-  TrendingUp,
-  TrendingDown,
-  Minus,
-  BarChart3,
-  Home,
-  DollarSign,
-  Calendar,
-  MapPin,
-} from 'lucide-react';
-import { cn } from '@/lib/utils';
+import React from 'react';
+import { MapPin } from 'lucide-react';
 import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 
 export default function MarketDataPage() {
-  const [selectedVillage, setSelectedVillage] = useState('all');
-  const [timeframe, setTimeframe] = useState('monthly');
-
-  const villages = [
-    'All Villages',
-    'The Ridges',
-    'The Summit',
-    'Red Rock Country Club',
-    'Reverence',
-    'The Paseos',
-    'The Vistas',
-    'Mesa',
-    'Stonebridge',
-    'Redpoint',
-    'Shelbourne',
-  ];
-
-  const marketData = {
-    all: {
-      totalProperties: 247,
-      averagePrice: 1250000,
-      averageDaysOnMarket: 28,
-      pricePerSqft: 385,
-      marketTrend: 'rising',
-      monthOverMonth: 2.3,
-      yearOverYear: 8.7,
-      inventoryChange: -12,
-      newListings: 23,
-      soldProperties: 18,
-    },
-    'The Ridges': {
-      totalProperties: 45,
-      averagePrice: 2800000,
-      averageDaysOnMarket: 35,
-      pricePerSqft: 480,
-      marketTrend: 'rising',
-      monthOverMonth: 3.2,
-      yearOverYear: 12.5,
-      inventoryChange: -8,
-      newListings: 5,
-      soldProperties: 3,
-    },
-    'The Summit': {
-      totalProperties: 60,
-      averagePrice: 1200000,
-      averageDaysOnMarket: 22,
-      pricePerSqft: 395,
-      marketTrend: 'stable',
-      monthOverMonth: 0.8,
-      yearOverYear: 6.2,
-      inventoryChange: -5,
-      newListings: 8,
-      soldProperties: 7,
-    },
-    'Red Rock Country Club': {
-      totalProperties: 35,
-      averagePrice: 1800000,
-      averageDaysOnMarket: 42,
-      pricePerSqft: 471,
-      marketTrend: 'rising',
-      monthOverMonth: 4.1,
-      yearOverYear: 15.3,
-      inventoryChange: -3,
-      newListings: 3,
-      soldProperties: 2,
-    },
-  };
-
-  const currentData =
-    marketData[selectedVillage as keyof typeof marketData] || marketData.all;
-
-  const getTrendIcon = (trend: string) => {
-    switch (trend) {
-      case 'rising':
-        return <TrendingUp className="h-5 w-5 text-green-600" />;
-      case 'declining':
-        return <TrendingDown className="h-5 w-5 text-red-600" />;
-      default:
-        return <Minus className="h-5 w-5 text-gray-600" />;
-    }
-  };
-
-  const getTrendColor = (trend: string) => {
-    switch (trend) {
-      case 'rising':
-        return 'text-green-600';
-      case 'declining':
-        return 'text-red-600';
-      default:
-        return 'text-gray-600';
-    }
-  };
-
-  const recentSales = [
-    {
-      address: '12345 Ridges Peak Dr',
-      village: 'The Ridges',
-      price: 2495000,
-      pricePerSqft: 480,
-      sqft: 5200,
-      daysOnMarket: 12,
-      soldDate: '2024-01-15',
-    },
-    {
-      address: '6789 Summit View Ln',
-      village: 'The Summit',
-      price: 1850000,
-      pricePerSqft: 451,
-      sqft: 4100,
-      daysOnMarket: 8,
-      soldDate: '2024-01-18',
-    },
-    {
-      address: '9876 Golf Club Dr',
-      village: 'Red Rock Country Club',
-      price: 3200000,
-      pricePerSqft: 471,
-      sqft: 6800,
-      daysOnMarket: 15,
-      soldDate: '2024-01-20',
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
       <PageHero
         imageId="hero-market"
         title="Las Vegas Homes & Summerlin West Market Data"
-        subtitle="Use live MLS widgets for current inventory. Village averages below are examples only and need verification."
+        subtitle="Use live MLS widgets for current inventory. Call for a CMA — this page does not publish invented averages."
       >
         <div className="flex flex-wrap justify-center gap-4 text-sm">
           <span className="rounded-full bg-white/20 px-4 py-2">Live MLS search</span>
@@ -154,12 +21,12 @@ export default function MarketDataPage() {
         </div>
       </PageHero>
       <p className="mx-auto max-w-4xl px-4 py-4 text-center text-sm text-amber-900">
-        Sample village figures below are illustrations for layout only. They are
-        not current MLS statistics. Use the live widgets and call for a CMA.
+        Use live MLS widgets and a CMA from Dr. Jan Duffy. This page does not
+        publish sample averages, invented prices, or fabricated closings.
       </p>
 
       {/* RealScout Home Value Widget Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+      <section className="bg-[#f6f4ef] py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -167,7 +34,7 @@ export default function MarketDataPage() {
             </h2>
             <SectionImage
               imageId="h3-cma-review"
-              caption="Use live MLS widgets for current inventory. Village averages below are examples only."
+              caption="Ask for a village-level CMA. Do not use a website average to price an offer."
               className="mb-8"
             />
             <p className="text-lg text-gray-600 mb-8">
@@ -190,6 +57,11 @@ export default function MarketDataPage() {
           <h3 className="text-2xl font-bold text-gray-900 mb-6">
             Real Estate Listings in Las Vegas — Advanced Search
           </h3>
+          <SectionImage
+            imageId="hero-search"
+            caption="Pair live Summerlin West listings with a CMA before you tour."
+            className="mx-auto mb-8 max-w-4xl"
+          />
           <p className="text-lg text-gray-600 mb-8">
             Pair homes for sale in Las Vegas with the stats you just reviewed.
           </p>
@@ -207,6 +79,11 @@ export default function MarketDataPage() {
           <h3 className="text-2xl font-bold text-gray-900 mb-6">
             Homes for Sale in Summerlin — Quick Search
           </h3>
+          <SectionImage
+            imageId="h3-sold-home"
+            caption="Jump into live MLS — not sample figures — then call (702) 842-0410."
+            className="mx-auto mb-8 max-w-4xl"
+          />
           <p className="text-lg text-gray-600 mb-8">
             Jump into Las Vegas homes for sale while market signals are fresh.
           </p>
@@ -251,172 +128,34 @@ export default function MarketDataPage() {
       {/* Market Overview */}
       <section className="bg-white py-12">
         <div className="container mx-auto px-4">
-          <div className="mb-8 flex flex-col gap-8 lg:flex-row">
-            {/* Village Selection */}
-            <div className="lg:w-1/3">
-              <label className="mb-2 block text-sm font-medium text-gray-700">
-                Select Village
-              </label>
-              <select
-                value={selectedVillage}
-                onChange={(e) => setSelectedVillage(e.target.value)}
-                className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-amber-500"
-                aria-label="Select village for market data"
-              >
-                {villages.map((village) => (
-                  <option
-                    key={village}
-                    value={village === 'All Villages' ? 'all' : village}
-                  >
-                    {village}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Timeframe Selection */}
-            <div className="lg:w-1/3">
-              <label className="mb-2 block text-sm font-medium text-gray-700">
-                Timeframe
-              </label>
-              <select
-                value={timeframe}
-                onChange={(e) => setTimeframe(e.target.value)}
-                className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-amber-500"
-                aria-label="Select timeframe for market data"
-              >
-                <option value="monthly">Monthly</option>
-                <option value="quarterly">Quarterly</option>
-                <option value="yearly">Yearly</option>
-              </select>
-            </div>
-
-            {/* Last Updated */}
-            <div className="lg:w-1/3">
-              <label className="mb-2 block text-sm font-medium text-gray-700">
-                Last Updated
-              </label>
-              <div className="rounded-lg bg-gray-100 px-3 py-2 text-gray-600">
-                {new Date().toLocaleDateString()}
-              </div>
-            </div>
-          </div>
-
-          {/* Key Metrics Grid */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-white">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-blue-100">Total Properties</p>
-                  <p className="text-3xl font-bold">
-                    {currentData.totalProperties}
-                  </p>
-                </div>
-                <Home className="h-8 w-8 text-blue-200" />
-              </div>
-            </div>
-
-            <div className="rounded-xl bg-gradient-to-br from-green-500 to-green-600 p-6 text-white">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-green-100">Average Price</p>
-                  <p className="text-3xl font-bold">
-                    ${(currentData.averagePrice / 1000000).toFixed(1)}M
-                  </p>
-                </div>
-                <DollarSign className="h-8 w-8 text-green-200" />
-              </div>
-            </div>
-
-            <div className="rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 p-6 text-white">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-purple-100">Days on Market</p>
-                  <p className="text-3xl font-bold">
-                    {currentData.averageDaysOnMarket}
-                  </p>
-                </div>
-                <Calendar className="h-8 w-8 text-purple-200" />
-              </div>
-            </div>
-
-            <div className="rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 p-6 text-white">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-amber-100">Price per Sq Ft</p>
-                  <p className="text-3xl font-bold">
-                    ${currentData.pricePerSqft}
-                  </p>
-                </div>
-                <BarChart3 className="h-8 w-8 text-amber-200" />
-              </div>
-            </div>
-          </div>
-
-          {/* Market Trend */}
-          <div className="mt-8 rounded-xl border border-gray-200 bg-white p-6">
-            <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-xl font-semibold text-gray-900">
-                Market Trend
-              </h3>
-              <div
-                className={cn(
-                  'flex items-center space-x-2',
-                  getTrendColor(currentData.marketTrend)
-                )}
-              >
-                {getTrendIcon(currentData.marketTrend)}
-                <span className="font-medium capitalize">
-                  {currentData.marketTrend}
-                </span>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              <div className="text-center">
-                <p className="mb-1 text-sm text-gray-600">Month over Month</p>
-                <p
-                  className={cn(
-                    'text-2xl font-bold',
-                    currentData.monthOverMonth > 0
-                      ? 'text-green-600'
-                      : 'text-red-600'
-                  )}
-                >
-                  {currentData.monthOverMonth > 0 ? '+' : ''}
-                  {currentData.monthOverMonth}%
-                </p>
-              </div>
-              <div className="text-center">
-                <p className="mb-1 text-sm text-gray-600">Year over Year</p>
-                <p
-                  className={cn(
-                    'text-2xl font-bold',
-                    currentData.yearOverYear > 0
-                      ? 'text-green-600'
-                      : 'text-red-600'
-                  )}
-                >
-                  {currentData.yearOverYear > 0 ? '+' : ''}
-                  {currentData.yearOverYear}%
-                </p>
-              </div>
-              <div className="text-center">
-                <p className="mb-1 text-sm text-gray-600">Inventory Change</p>
-                <p
-                  className={cn(
-                    'text-2xl font-bold',
-                    currentData.inventoryChange > 0
-                      ? 'text-green-600'
-                      : 'text-red-600'
-                  )}
-                >
-                  {currentData.inventoryChange > 0 ? '+' : ''}
-                  {currentData.inventoryChange}
-                </p>
-              </div>
-            </div>
-          </div>
+          <h2 className="mb-8 text-center text-3xl font-bold text-gray-900">
+            How to Read Summerlin West Market Data
+          </h2>
+          <HeadingPhotoGrid
+            columns={2}
+            items={[
+              {
+                imageId: 'h3-sold-home',
+                heading: 'Active inventory',
+                text: 'Count live listings by village on RealScout. Website averages are not MLS statistics.',
+              },
+              {
+                imageId: 'h3-cma-review',
+                heading: 'Price from comps',
+                text: 'Ask Dr. Jan Duffy for a CMA. Call (702) 842-0410 before you price an offer or a listing.',
+              },
+              {
+                imageId: 'h3-showing',
+                heading: 'Days on market',
+                text: 'Watch listing freshness on the live feed. Timing shifts by village and by week.',
+              },
+              {
+                imageId: 'h3-bedroom',
+                heading: 'Price per square foot',
+                text: 'Compare similar square footage and finishes on the listing sheet, not a blended village number.',
+              },
+            ]}
+          />
         </div>
       </section>
 
@@ -426,76 +165,25 @@ export default function MarketDataPage() {
           <h2 className="mb-8 text-center text-3xl font-bold">
             Recent Sales in Summerlin West
           </h2>
-          <SectionImage
-            imageId="h3-sold-home"
-            caption="Sample rows below are layout examples only — not current MLS closings."
-            className="mx-auto mb-8 max-w-4xl"
+          <HeadingPhotoGrid
+            items={[
+              {
+                imageId: 'h3-sold-home',
+                heading: 'Closed inventory',
+                text: 'Recent closes live in MLS. This page does not invent addresses, prices, or sold dates.',
+              },
+              {
+                imageId: 'hero-market',
+                heading: 'Village-level comps',
+                text: 'The Ridges, The Paseos, and The Crossing each close on different terms. Confirm on a CMA.',
+              },
+              {
+                imageId: 'h3-consultation',
+                heading: 'Ask for a CMA',
+                text: 'Call (702) 842-0410 for current sold comps tied to the village you want to tour.',
+              },
+            ]}
           />
-          <div className="overflow-hidden rounded-xl bg-white shadow-lg">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-4 py-3 text-left font-semibold text-gray-700">
-                      Address
-                    </th>
-                    <th className="px-4 py-3 text-left font-semibold text-gray-700">
-                      Village
-                    </th>
-                    <th className="px-4 py-3 text-left font-semibold text-gray-700">
-                      Price
-                    </th>
-                    <th className="px-4 py-3 text-left font-semibold text-gray-700">
-                      Price/Sq Ft
-                    </th>
-                    <th className="px-4 py-3 text-left font-semibold text-gray-700">
-                      Square Feet
-                    </th>
-                    <th className="px-4 py-3 text-left font-semibold text-gray-700">
-                      Days on Market
-                    </th>
-                    <th className="px-4 py-3 text-left font-semibold text-gray-700">
-                      Sold Date
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {recentSales.map((sale, index) => (
-                    <tr
-                      key={index}
-                      className="border-b border-gray-100 hover:bg-gray-50"
-                    >
-                      <td className="px-4 py-3">
-                        <div className="font-medium text-gray-900">
-                          {sale.address}
-                        </div>
-                      </td>
-                      <td className="px-4 py-3">
-                        <span className="inline-flex items-center rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800">
-                          {sale.village}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 font-semibold text-gray-900">
-                        ${(sale.price / 1000000).toFixed(2)}M
-                      </td>
-                      <td className="px-4 py-3 text-gray-600">
-                        ${sale.pricePerSqft}
-                      </td>
-                      <td className="px-4 py-3 text-gray-600">
-                        {sale.sqft.toLocaleString()}
-                      </td>
-                      <td className="px-4 py-3 text-gray-600">
-                        {sale.daysOnMarket}
-                      </td>
-                      <td className="px-4 py-3 text-gray-600">
-                        {new Date(sale.soldDate).toLocaleDateString()}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -593,7 +281,7 @@ export default function MarketDataPage() {
       <ImageCta
         imageId="hero-market"
         title="Need a village-level CMA for Summerlin West?"
-        subtitle="Figures on this page are examples only. Call (702) 842-0410 for a current comparative market analysis tied to live MLS."
+        subtitle="Call (702) 842-0410 for a current comparative market analysis tied to live MLS."
         primary={{ href: '/properties/search', label: 'Search live listings' }}
       />
 
@@ -606,7 +294,7 @@ export default function MarketDataPage() {
             </h3>
             <SectionImage
               imageId="hero-listings"
-              caption="Live RealScout MLS inventory — not the sample figures above."
+              caption="Live RealScout MLS inventory — not sample figures."
               className="mx-auto mb-6 max-w-4xl"
             />
             <p className="mx-auto max-w-2xl text-gray-600">

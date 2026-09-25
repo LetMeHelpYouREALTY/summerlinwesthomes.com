@@ -1,3 +1,5 @@
+import SectionImage from '@/components/media/section-image';
+
 type CalendlyInlineSectionProps = {
   title?: string;
   description?: string;
@@ -13,6 +15,11 @@ export default function CalendlyInlineSection({
         <h2 className="mb-3 text-center text-2xl font-semibold text-gray-900 md:text-3xl">
           {title}
         </h2>
+        <SectionImage
+          imageId="h3-consultation"
+          caption="Book a one-on-one appointment with Dr. Jan Duffy at (702) 842-0410."
+          className="mb-6"
+        />
         <p className="mb-6 text-center text-gray-600">{description}</p>
         <div
           className="calendly-inline-widget min-h-[700px] w-full"

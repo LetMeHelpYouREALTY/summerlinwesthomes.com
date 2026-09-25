@@ -548,6 +548,11 @@ export default function BuyingGuidePage() {
                   <h3 className="mb-6 text-2xl font-bold text-gray-900">
                     Understanding Closing Costs
                   </h3>
+                  <SectionImage
+                    imageId="h3-consultation"
+                    caption="Closing costs vary by loan type and title fees. Confirm with your lender and escrow officer."
+                    className="mb-6"
+                  />
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm">
                       <thead>

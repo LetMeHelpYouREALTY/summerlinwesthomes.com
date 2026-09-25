@@ -10,6 +10,7 @@ import BreadcrumbTrail from '@/components/seo/breadcrumb-trail';
 import SiteHeader from '@/components/site-header';
 import SiteFooter from '@/components/site-footer';
 import LocalBusinessJsonLd from '@/components/gbp/local-business-jsonld';
+import SectionImage from '@/components/media/section-image';
 import './globals.css';
 
 declare global {
@@ -216,6 +217,11 @@ export default function RootLayout({
             <h2 className="mb-3 text-center text-2xl font-semibold text-gray-900 md:text-3xl">
               Featured Summerlin West listings
             </h2>
+            <SectionImage
+              imageId="hero-listings"
+              caption="Browse live MLS homes for sale, then call to tour."
+              className="mb-8"
+            />
             <p className="mb-8 text-center text-gray-600">
               Browse live MLS homes for sale, then call {BUSINESS.phoneDisplay} to tour.
             </p>

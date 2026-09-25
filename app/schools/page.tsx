@@ -30,7 +30,7 @@ export default function SchoolsPage() {
       imageId: 'h3-school' as SiteImageId,
       address: '333 S Pavilion Center Dr, Las Vegas, NV 89144',
       distance: '2.1 miles',
-      enrollment: '2,847',
+      enrollment: 'Confirm on campus website',
       features: [
         'Advanced Placement Programs',
         'International Baccalaureate',
@@ -55,7 +55,7 @@ export default function SchoolsPage() {
       imageId: 'hero-schools' as SiteImageId,
       address: '1050 N Hualapai Way, Las Vegas, NV 89144',
       distance: '1.8 miles',
-      enrollment: '1,234',
+      enrollment: 'Confirm on campus website',
       features: [
         'Gifted & Talented Program',
         'STEM Focus',
@@ -77,10 +77,10 @@ export default function SchoolsPage() {
       name: 'Walter V. Long Elementary',
       type: 'Public Elementary',
       grade: 'K-5',
-      imageId: 'h3-school' as SiteImageId,
+      imageId: 'h3-elementary' as SiteImageId,
       address: '5850 N Tenaya Way, Las Vegas, NV 89149',
       distance: '0.9 miles',
-      enrollment: '756',
+      enrollment: 'Confirm on campus website',
       features: [
         'Early Childhood Education',
         'Reading programs',
@@ -105,7 +105,7 @@ export default function SchoolsPage() {
       imageId: 'hero-schools' as SiteImageId,
       address: '2015 S Hualapai Way, Las Vegas, NV 89117',
       distance: '3.2 miles',
-      enrollment: '1,200',
+      enrollment: 'Confirm on campus website',
       features: [
         'Christian Education',
         'College Preparatory',
@@ -130,7 +130,7 @@ export default function SchoolsPage() {
       imageId: 'h3-school' as SiteImageId,
       address: '8601 Scholar Ln, Las Vegas, NV 89128',
       distance: '4.1 miles',
-      enrollment: '800',
+      enrollment: 'Confirm on campus website',
       features: [
         'College Preparatory',
         'International Baccalaureate',
@@ -272,7 +272,7 @@ export default function SchoolsPage() {
                   <div className="mb-4 flex items-center space-x-2 text-gray-600">
                     <Users className="h-4 w-4" />
                     <span className="text-sm">
-                      {school.enrollment} students
+                      {school.enrollment}
                     </span>
                   </div>
 

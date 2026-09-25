@@ -528,6 +528,11 @@ function GoogleReviewsCta() {
         <h2 className="mb-4 text-3xl font-bold">
           Read Google reviews for {BUSINESS.gbpTitle}
         </h2>
+        <SectionImage
+          imageId="h3-twain-office"
+          caption={`${BUSINESS.streetAddress} — reviews live on Google Maps, not on this page.`}
+          className="mx-auto mb-8 max-w-3xl"
+        />
         <p className="mx-auto mb-8 max-w-2xl text-gray-600">
           Reviews live on Google Maps, not on this page. Open the Business
           Profile to read verified buyer and seller feedback before you tour.

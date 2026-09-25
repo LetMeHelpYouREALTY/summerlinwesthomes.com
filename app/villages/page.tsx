@@ -81,7 +81,7 @@ export default function VillagesPage() {
       </section>
 
       {/* RealScout Home Value Widget Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
+      <section className="bg-[#f6f4ef] py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto mb-12 max-w-4xl text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
@@ -114,6 +114,11 @@ export default function VillagesPage() {
           <h3 className="mb-6 text-2xl font-bold text-gray-900">
             Real Estate Listings in Las Vegas — Village Search
           </h3>
+          <SectionImage
+            imageId="h3-village-street"
+            caption="Search homes for sale in Summerlin across every village."
+            className="mx-auto mb-8 max-w-4xl"
+          />
           <p className="mb-8 text-lg text-gray-600">
             Search homes for sale in Summerlin across every village.
           </p>
@@ -131,6 +136,11 @@ export default function VillagesPage() {
             <h3 className="mb-6 text-2xl font-bold text-gray-900">
               Homes for Sale in Summerlin — Quick Search
             </h3>
+            <SectionImage
+              imageId="h3-sold-home"
+              caption="Start with live MLS, then call (702) 842-0410 to tour."
+              className="mx-auto mb-8 max-w-4xl"
+            />
             <p className="mb-8 text-lg text-gray-600">
               Start your search with our simple and intuitive search tool
             </p>
@@ -268,6 +278,11 @@ export default function VillagesPage() {
             <h3 className="mb-4 text-3xl font-bold">
               Available Properties in Summerlin West
             </h3>
+            <SectionImage
+              imageId="h3-village-street"
+              caption="Browse current listings in all Summerlin West villages with live MLS data."
+              className="mx-auto mb-6 max-w-4xl"
+            />
             <p className="mx-auto max-w-2xl text-gray-600">
               Browse current listings in all Summerlin West villages with
               real-time MLS data

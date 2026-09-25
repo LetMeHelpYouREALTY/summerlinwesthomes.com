@@ -159,6 +159,11 @@ export default function ListingsPage() {
               <Filter className="mr-2 inline-block h-5 w-5 text-amber-600" />
               Compare Homes for Sale in Las Vegas
             </h3>
+            <SectionImage
+              imageId="h3-bedroom"
+              caption="Compare live MLS homes side by side before you tour."
+              className="mb-4"
+            />
             {React.createElement('realscout-property-search', {
               'agent-encoded-id': agentId,
               'show-filters': 'true',

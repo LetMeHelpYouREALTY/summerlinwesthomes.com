@@ -498,6 +498,11 @@ export default function MortgageCalculatorPage() {
                 <h2 className="mb-6 text-2xl font-bold text-gray-900">
                   Your Monthly Payment
                 </h2>
+                <SectionImage
+                  imageId="h3-bedroom"
+                  caption="This is an estimate. Confirm taxes, HOA, and rate with your lender."
+                  className="mb-6"
+                />
                 
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-3 border-b border-gray-200">

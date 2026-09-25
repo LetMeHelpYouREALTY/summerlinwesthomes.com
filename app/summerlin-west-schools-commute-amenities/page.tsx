@@ -126,6 +126,11 @@ export default function SummerlinWestSchoolsCommuteAmenitiesPage() {
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
             Build a Shortlist in 15 Minutes
           </h2>
+          <SectionImage
+            imageId="h3-showing"
+            caption="Compare villages, verify listings, then move from browsing to touring."
+            className="mb-4"
+          />
           <p className="mb-5 text-gray-600">
             Use the three core pages below to compare villages, verify current
             listings, and move from browsing to touring.

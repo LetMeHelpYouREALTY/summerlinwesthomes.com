@@ -76,6 +76,10 @@ const UPLOADS = {
   'h3-staging': 'h3-staging.jpg',
   'h3-sold-home': 'h3-sold-home.jpg',
   'h3-cma-review': 'h3-cma-review.jpg',
+  'h3-bedroom': 'h3-bedroom.jpg',
+  'h3-consultation': 'h3-consultation.jpg',
+  'h3-twain-office': 'h3-twain-office.jpg',
+  'h3-elementary': 'h3-elementary.jpg',
   'og-default': 'og-image-summerlin-west-homes.jpg',
 };
 

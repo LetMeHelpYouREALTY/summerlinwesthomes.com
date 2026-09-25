@@ -132,6 +132,11 @@ export default function SummerlinWestMarketSnapshotPage() {
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
             Validate With Live Listings
           </h2>
+          <SectionImage
+            imageId="hero-listings"
+            caption="Pair this snapshot with live RealScout inventory before you tour."
+            className="mb-4"
+          />
           <p className="mb-5 text-gray-600">
             Pair this snapshot with live RealScout inventory to confirm pricing
             and inventory conditions before choosing next steps.

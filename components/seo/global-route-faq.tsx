@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react';
 import { usePathname } from 'next/navigation';
+import SectionImage from '@/components/media/section-image';
 
 type FaqItem = {
   question: string;
@@ -266,6 +267,11 @@ export default function GlobalRouteFaq() {
         <h2 className="mb-5 text-center text-3xl font-semibold text-[#050b25]">
           Summerlin West FAQ
         </h2>
+        <SectionImage
+          imageId="h3-village-street"
+          caption="Typical questions about Summerlin West homes, villages, and tours."
+          className="mb-8"
+        />
         <div className="grid gap-4 md:grid-cols-2">
           {faqItems.map((faq) => (
             <article

@@ -262,6 +262,11 @@ export default function AmenitiesPage() {
             <h2 className="mb-4 text-3xl font-bold">
               Summerlin Homes for Sale — Lifestyle Amenities Nearby
             </h2>
+            <SectionImage
+              imageId="section-downtown-summerlin"
+              caption="Golf, trails, shopping, and daily errands sit minutes from many 89135 streets."
+              className="mx-auto mb-6 max-w-4xl"
+            />
             <p className="mx-auto max-w-2xl text-gray-600">
               Everything you need for an exceptional lifestyle is just minutes
               away

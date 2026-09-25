@@ -41,7 +41,7 @@ export default function HomeValuationPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-[#f6f4ef]">
       <PageHero
         imageId="hero-valuation"
         title="Las Vegas Homes — Summerlin West Value & Pricing"
@@ -184,6 +184,11 @@ export default function HomeValuationPage() {
               <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
                 Need a Detailed Professional Valuation?
               </h2>
+              <SectionImage
+                imageId="h3-consultation"
+                caption="Submit the form or call (702) 842-0410 for a village-level CMA."
+                className="mb-6"
+              />
               <p className="text-lg text-gray-600">
                 Fill out the form below for a comprehensive market analysis and
                 personalized consultation
