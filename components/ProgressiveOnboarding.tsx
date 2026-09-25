@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Search, Home, MapPin, DollarSign, Bed, ChevronRight, X, Check } from 'lucide-react';
+import { Search, DollarSign, Bed, ChevronRight, X, Check } from 'lucide-react';
+import Image from 'next/image';
 import { useOnboarding } from './OnboardingContext';
+import { imageMeta, imageSrc, type SiteImageId } from '@/lib/images';
 
 interface OnboardingStep {
   id: string;
@@ -68,11 +70,15 @@ export function ProgressiveOnboarding() {
     { value: '5+', label: '5+ Bedrooms', icon: Bed }
   ];
 
-  const locationOptions = [
-    { value: 'redrock', label: 'Red Rock Country Club', icon: MapPin },
-    { value: 'summerlin-park', label: 'Summerlin Park', icon: MapPin },
-    { value: 'the-ridges', label: 'The Ridges', icon: MapPin },
-    { value: 'any', label: 'Any Summerlin West Area', icon: MapPin }
+  const locationOptions: Array<{
+    value: string;
+    label: string;
+    imageId: SiteImageId;
+  }> = [
+    { value: 'redrock', label: 'Red Rock Country Club', imageId: 'section-golf' },
+    { value: 'the-paseos', label: 'The Paseos', imageId: 'h3-village-park' },
+    { value: 'the-ridges', label: 'The Ridges', imageId: 'h3-village-street' },
+    { value: 'any', label: 'Any Summerlin West Area', imageId: 'hero-villages' }
   ];
 
   const searchSuggestions = [
@@ -209,16 +215,27 @@ export function ProgressiveOnboarding() {
               <p className="text-gray-600">{step.description}</p>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              {locationOptions.map((option) => (
+              {locationOptions.map((option) => {
+                const meta = imageMeta(option.imageId);
+                return (
                 <button
                   key={option.value}
                   onClick={() => handlePreferenceSelect('location', option.value)}
-                  className="flex flex-col items-center p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all"
+                  className="overflow-hidden rounded-lg border-2 border-gray-200 text-left transition-all hover:border-blue-500 hover:bg-blue-50"
                 >
-                  <option.icon className="h-8 w-8 text-blue-600 mb-2" />
-                  <span className="font-medium text-gray-900">{option.label}</span>
+                  <div className="relative h-24">
+                    <Image
+                      src={imageSrc(option.imageId)}
+                      alt={meta.alt}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 240px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <span className="block p-3 font-medium text-gray-900">{option.label}</span>
                 </button>
-              ))}
+              );
+              })}
             </div>
           </div>
         );
@@ -300,7 +317,7 @@ export function ProgressiveOnboarding() {
                 <h2 className="text-2xl font-bold text-gray-900">Find Your Dream Home in 60 Seconds</h2>
                 <p className="text-gray-600 mt-1">Let&apos;s get started with a few quick questions</p>
               </div>
-                                            <button
+              <button
                 onClick={closeModal}
                 className="text-gray-400 hover:text-gray-600 transition-colors"
                 aria-label="Close modal"
@@ -308,6 +325,15 @@ export function ProgressiveOnboarding() {
               >
                   <X className="h-6 w-6" />
                 </button>
+            </div>
+            <div className="relative mx-6 mt-4 h-36 overflow-hidden rounded-xl">
+              <Image
+                src={imageSrc('hero-search')}
+                alt={imageMeta('hero-search').alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 672px"
+                className="object-cover"
+              />
             </div>
 
             {/* Progress Bar */}

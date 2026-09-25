@@ -32,7 +32,6 @@ export default function AmenitiesPage() {
       name: 'TPC Las Vegas Golf Course',
       category: 'golf',
       type: 'Golf Course',
-      rating: 4.9,
       address: '9851 Canyon Run Dr, Las Vegas, NV 89144',
       distance: '0.8 miles',
       description:
@@ -53,7 +52,6 @@ export default function AmenitiesPage() {
       name: 'Red Rock Canyon National Conservation Area',
       category: 'outdoor',
       type: 'National Park',
-      rating: 4.8,
       address: '1000 Scenic Loop Dr, Las Vegas, NV 89161',
       distance: '2.3 miles',
       description:
@@ -74,7 +72,6 @@ export default function AmenitiesPage() {
       name: 'Downtown Summerlin',
       category: 'shopping',
       type: 'Shopping Center',
-      rating: 4.7,
       address: '1980 Festival Plaza Dr, Las Vegas, NV 89135',
       distance: '1.2 miles',
       description:
@@ -95,7 +92,6 @@ export default function AmenitiesPage() {
       name: 'The Ridges Golf Club',
       category: 'golf',
       type: 'Private Golf Club',
-      rating: 4.9,
       address: '1000 Ridges Pkwy, Las Vegas, NV 89135',
       distance: '1.5 miles',
       description:
@@ -116,7 +112,6 @@ export default function AmenitiesPage() {
       name: 'Summerlin Hospital Medical Center',
       category: 'healthcare',
       type: 'Medical Center',
-      rating: 4.6,
       address: '657 N Town Center Dr, Las Vegas, NV 89144',
       distance: '2.1 miles',
       description:
@@ -137,7 +132,6 @@ export default function AmenitiesPage() {
       name: 'Red Rock Casino Resort & Spa',
       category: 'entertainment',
       type: 'Casino & Resort',
-      rating: 4.5,
       address: '11011 W Charleston Blvd, Las Vegas, NV 89135',
       distance: '3.2 miles',
       description:
@@ -158,7 +152,6 @@ export default function AmenitiesPage() {
       name: 'Summerlin Library',
       category: 'community',
       type: 'Public Library',
-      rating: 4.7,
       address: '1771 Inner Circle Dr, Las Vegas, NV 89134',
       distance: '1.8 miles',
       description:
@@ -179,7 +172,6 @@ export default function AmenitiesPage() {
       name: 'The Summit Club',
       category: 'dining',
       type: 'Fine Dining',
-      rating: 4.8,
       address: '2000 Summit Club Dr, Las Vegas, NV 89135',
       distance: '2.4 miles',
       description:
@@ -232,6 +224,11 @@ export default function AmenitiesPage() {
         <div className="container mx-auto px-4">
           <div className="mb-6 text-center">
             <h2 className="mb-4 text-2xl font-bold">Filter by Category</h2>
+            <SectionImage
+              imageId="section-downtown-summerlin"
+              caption="Filter golf, trails, shopping, healthcare, and entertainment near Summerlin West."
+              className="mx-auto mb-6 max-w-3xl"
+            />
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => {
@@ -262,6 +259,11 @@ export default function AmenitiesPage() {
             <h2 className="mb-4 text-3xl font-bold">
               Summerlin Homes for Sale — Lifestyle Amenities Nearby
             </h2>
+            <SectionImage
+              imageId="section-downtown-summerlin"
+              caption="Golf, trails, shopping, and daily errands sit minutes from many 89135 streets."
+              className="mx-auto mb-6 max-w-4xl"
+            />
             <p className="mx-auto max-w-2xl text-gray-600">
               Everything you need for an exceptional lifestyle is just minutes
               away

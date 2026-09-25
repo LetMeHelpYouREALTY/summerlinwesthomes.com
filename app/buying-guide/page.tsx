@@ -15,7 +15,11 @@ import {
 } from 'lucide-react';
 import CalendlyInlineSection from '@/components/calendly-inline-section';
 import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
+import Image from 'next/image';
+import { imageMeta, imageSrc, type SiteImageId } from '@/lib/images';
 
 export default function BuyingGuidePage() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -47,7 +51,7 @@ export default function BuyingGuidePage() {
         'Determine your preferred neighborhoods and communities',
         'Set your budget range and monthly payment target',
         'List essential features (bedrooms, bathrooms, square footage)',
-        'Consider lifestyle factors (golf, amenities, schools)',
+        'Match commute, square footage, and HOA terms',
       ],
     },
     {
@@ -79,7 +83,7 @@ export default function BuyingGuidePage() {
       details: [
         'Schedule professional home inspection',
         'Review seller disclosures and property history',
-        'Conduct neighborhood research and school ratings',
+        'Conduct neighborhood research and confirm campus names',
         'Verify property boundaries and easements',
       ],
     },
@@ -96,9 +100,17 @@ export default function BuyingGuidePage() {
     },
   ];
 
-  const financingOptions = [
+  const financingOptions: Array<{
+    type: string;
+    description: string;
+    pros: string[];
+    cons: string[];
+    bestFor: string;
+    imageId: SiteImageId;
+  }> = [
     {
       type: 'Conventional Loan',
+      imageId: 'h3-sold-home',
       description: 'Traditional mortgage with 20% down payment',
       pros: ['Lower interest rates', 'No PMI required', 'Flexible terms'],
       cons: ['Higher down payment', 'Stricter credit requirements'],
@@ -106,6 +118,7 @@ export default function BuyingGuidePage() {
     },
     {
       type: 'FHA Loan',
+      imageId: 'h3-entry',
       description: 'Government-backed loan with lower down payment',
       pros: [
         '3.5% down payment',
@@ -117,6 +130,7 @@ export default function BuyingGuidePage() {
     },
     {
       type: 'VA Loan',
+      imageId: 'h3-village-street',
       description: 'Veterans Affairs guaranteed loan',
       pros: [
         '0% down payment',
@@ -133,6 +147,7 @@ export default function BuyingGuidePage() {
     },
     {
       type: 'Jumbo Loan',
+      imageId: 'h3-kitchen',
       description: 'Loan amount exceeding conventional limits',
       pros: [
         'Higher loan amounts',
@@ -206,6 +221,11 @@ export default function BuyingGuidePage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Homes for Sale in Summerlin — Start Your Search
             </h2>
+            <SectionImage
+              imageId="hero-search"
+              caption="Search live Summerlin West listings before you tour."
+              className="mb-8"
+            />
             <p className="text-lg text-gray-600 mb-8">
               Use advanced Las Vegas real estate listings tools before you tour.
             </p>
@@ -225,6 +245,11 @@ export default function BuyingGuidePage() {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Las Vegas Homes for Sale — Quick Search
             </h3>
+            <SectionImage
+              imageId="h3-bedroom"
+              caption="Start with live MLS, then call (702) 842-0410 to tour."
+              className="mb-8"
+            />
             <p className="text-lg text-gray-600 mb-8">
               Start your search with our simple and intuitive search tool
             </p>
@@ -296,66 +321,31 @@ export default function BuyingGuidePage() {
                 <h2 className="mb-6 text-3xl font-bold text-gray-900">
                   Why Choose Summerlin West?
                 </h2>
-                <div className="grid gap-6 md:grid-cols-2">
-                  <div className="space-y-4">
-                    <div className="flex items-start space-x-3">
-                      <div className="rounded-full bg-amber-100 p-2">
-                        <Star className="h-5 w-5 text-amber-600" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900">
-                          Premier Location
-                        </h3>
-                        <p className="text-sm text-gray-600">
-                          Nestled against the Red Rock Canyon with stunning
-                          mountain views
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="rounded-full bg-amber-100 p-2">
-                        <MapPin className="h-5 w-5 text-amber-600" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900">
-                          World-Class Amenities
-                        </h3>
-                        <p className="text-sm text-gray-600">
-                          Golf courses, shopping, dining, and outdoor recreation
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="flex items-start space-x-3">
-                      <div className="rounded-full bg-amber-100 p-2">
-                        <Home className="h-5 w-5 text-amber-600" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900">
-                          Luxury Homes
-                        </h3>
-                        <p className="text-sm text-gray-600">
-                          Custom estates, modern villas, and premium properties
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="rounded-full bg-amber-100 p-2">
-                        <CheckCircle className="h-5 w-5 text-amber-600" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900">
-                          Investment Value
-                        </h3>
-                        <p className="text-sm text-gray-600">
-                          Strong appreciation and rental demand in the luxury
-                          market
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <HeadingPhotoGrid
+                  columns={2}
+                  items={[
+                    {
+                      imageId: 'section-red-rock',
+                      heading: 'Red Rock location',
+                      text: 'Summerlin West sits against Red Rock Canyon with mountain views from many villages.',
+                    },
+                    {
+                      imageId: 'section-golf',
+                      heading: 'Golf and daily amenities',
+                      text: 'Golf, Downtown Summerlin retail, dining, and desert trails sit minutes from many streets.',
+                    },
+                    {
+                      imageId: 'h3-kitchen',
+                      heading: 'Luxury homes',
+                      text: 'Custom estates, newer plans, and resale homes — confirm finishes on the listing, not from a photo.',
+                    },
+                    {
+                      imageId: 'h3-buyer-keys',
+                      heading: 'Tour before you offer',
+                      text: 'Search live MLS, then call (702) 842-0410 to walk the home and the commute.',
+                    },
+                  ]}
+                />
               </div>
 
               {/* Buying Steps Overview */}
@@ -363,59 +353,63 @@ export default function BuyingGuidePage() {
                 <h2 className="mb-8 text-3xl font-bold text-gray-900">
                   The 6-Step Buying Process
                 </h2>
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {buyingSteps.map((step) => (
-                    <div
-                      key={step.step}
-                      className="rounded-lg border border-gray-200 p-6"
-                    >
-                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-amber-600 font-bold text-white">
-                        {step.step}
-                      </div>
-                      <h3 className="mb-2 text-lg font-semibold text-gray-900">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-gray-600">
-                        {step.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <HeadingPhotoGrid
+                  columns={2}
+                  items={[
+                    {
+                      imageId: 'h3-cma-review',
+                      heading: '1. Get pre-approved',
+                      text: 'Secure financing before you tour. This page is not a lender quote.',
+                    },
+                    {
+                      imageId: 'h3-village-street',
+                      heading: '2. Define village criteria',
+                      text: 'Match commute, square footage, and HOA terms to The Ridges, The Paseos, or The Crossing.',
+                    },
+                    {
+                      imageId: 'hero-search',
+                      heading: '3. Search live MLS',
+                      text: 'Use RealScout inventory, then call (702) 842-0410 to schedule showings.',
+                    },
+                    {
+                      imageId: 'h3-showing',
+                      heading: '4. Write the offer',
+                      text: 'Tour first. Then set terms, timing, and contingencies against live comps.',
+                    },
+                    {
+                      imageId: 'h3-entry',
+                      heading: '5. Due diligence',
+                      text: 'Inspection, disclosures, HOA docs, and campus zoning — confirm on the listing, not a website average.',
+                    },
+                    {
+                      imageId: 'h3-buyer-keys',
+                      heading: '6. Close and get keys',
+                      text: 'Walk the closing table with Dr. Jan Duffy after the lender and title work clear.',
+                    },
+                  ]}
+                />
               </div>
 
               {/* Market Overview */}
-              <div className="rounded-xl bg-amber-50 p-8">
+              <div>
                 <h3 className="mb-6 text-2xl font-bold text-gray-900">
                   Summerlin West Market Overview
                 </h3>
-                <div className="grid gap-6 md:grid-cols-4">
-                  <div className="rounded-lg bg-white p-4 text-center">
-                    <div className="text-2xl font-bold text-amber-600">
-                      $1,247
-                    </div>
-                    <div className="text-sm text-gray-600">Price per sq ft</div>
-                  </div>
-                  <div className="rounded-lg bg-white p-4 text-center">
-                    <div className="text-2xl font-bold text-amber-600">45</div>
-                    <div className="text-sm text-gray-600">Days on market</div>
-                  </div>
-                  <div className="rounded-lg bg-white p-4 text-center">
-                    <div className="text-2xl font-bold text-amber-600">
-                      +12.3%
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      Year over year growth
-                    </div>
-                  </div>
-                  <div className="rounded-lg bg-white p-4 text-center">
-                    <div className="text-2xl font-bold text-amber-600">
-                      98.7%
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      List to sale ratio
-                    </div>
-                  </div>
-                </div>
+                <HeadingPhotoGrid
+                  columns={2}
+                  items={[
+                    {
+                      imageId: 'h3-sold-home',
+                      heading: 'Price from live comps',
+                      text: 'Do not use a website average. Ask for a village-level CMA before you write an offer.',
+                    },
+                    {
+                      imageId: 'h3-cma-review',
+                      heading: 'Days on market and terms',
+                      text: 'Inventory and timing shift by village. Call (702) 842-0410 for current listing notes.',
+                    },
+                  ]}
+                />
               </div>
             </div>
           )}
@@ -427,6 +421,11 @@ export default function BuyingGuidePage() {
                 <h2 className="mb-8 text-3xl font-bold text-gray-900">
                   How to Search for Your Dream Home
                 </h2>
+                <SectionImage
+                  imageId="h3-showing"
+                  caption="Tour Summerlin West listings in person before you write an offer."
+                  className="mb-8"
+                />
 
                 <div className="space-y-8">
                   {buyingSteps.slice(1, 4).map((step) => (
@@ -460,32 +459,31 @@ export default function BuyingGuidePage() {
                   <h3 className="mb-4 text-lg font-semibold text-gray-900">
                     Our Advanced Search Tools
                   </h3>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div className="flex items-center space-x-3">
-                      <Search className="h-5 w-5 text-amber-600" />
-                      <span className="text-sm text-gray-700">
-                        RealScout MLS Integration
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <MapPin className="h-5 w-5 text-amber-600" />
-                      <span className="text-sm text-gray-700">
-                        Interactive Map Search
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <FileText className="h-5 w-5 text-amber-600" />
-                      <span className="text-sm text-gray-700">
-                        Detailed Property Reports
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Phone className="h-5 w-5 text-amber-600" />
-                      <span className="text-sm text-gray-700">
-                        Personal Agent Guidance
-                      </span>
-                    </div>
-                  </div>
+                  <HeadingPhotoGrid
+                    columns={2}
+                    items={[
+                      {
+                        imageId: 'hero-search',
+                        heading: 'RealScout MLS integration',
+                        text: 'Search live Summerlin West inventory before you tour.',
+                      },
+                      {
+                        imageId: 'h3-village-street',
+                        heading: 'Village map search',
+                        text: 'Filter The Ridges, The Paseos, The Crossing, and nearby villages.',
+                      },
+                      {
+                        imageId: 'h3-cma-review',
+                        heading: 'Listing reports',
+                        text: 'Review comps with Dr. Jan Duffy before you write an offer.',
+                      },
+                      {
+                        imageId: 'h3-consultation',
+                        heading: 'Agent walkthrough',
+                        text: 'Call (702) 842-0410 to schedule showings after you shortlist.',
+                      },
+                    ]}
+                  />
                 </div>
               </div>
             </div>
@@ -498,13 +496,28 @@ export default function BuyingGuidePage() {
                 <h2 className="mb-8 text-3xl font-bold text-gray-900">
                   Financing Your Summerlin West Home
                 </h2>
+                <SectionImage
+                  imageId="hero-mortgage"
+                  caption="Estimate payment scenarios, then confirm terms with your lender."
+                  className="mb-8"
+                />
 
                 <div className="grid gap-6 md:grid-cols-2">
-                  {financingOptions.map((option, index) => (
+                  {financingOptions.map((option) => (
                     <div
-                      key={index}
-                      className="rounded-lg border border-gray-200 p-6"
+                      key={option.type}
+                      className="overflow-hidden rounded-lg border border-gray-200"
                     >
+                      <div className="relative aspect-[16/9]">
+                        <Image
+                          src={imageSrc(option.imageId)}
+                          alt={imageMeta(option.imageId).alt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="p-6">
                       <h3 className="mb-3 text-lg font-semibold text-gray-900">
                         {option.type}
                       </h3>
@@ -553,6 +566,7 @@ export default function BuyingGuidePage() {
                           Best for: {option.bestFor}
                         </span>
                       </div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -562,6 +576,11 @@ export default function BuyingGuidePage() {
                   <h3 className="mb-6 text-2xl font-bold text-gray-900">
                     Understanding Closing Costs
                   </h3>
+                  <SectionImage
+                    imageId="h3-consultation"
+                    caption="Closing costs vary by loan type and title fees. Confirm with your lender and escrow officer."
+                    className="mb-6"
+                  />
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm">
                       <thead>
@@ -606,6 +625,11 @@ export default function BuyingGuidePage() {
                 <h2 className="mb-8 text-3xl font-bold text-gray-900">
                   The Closing Process
                 </h2>
+                <SectionImage
+                  imageId="h3-buyer-keys"
+                  caption="Close only after inspection, title, and lender work are complete."
+                  className="mb-8"
+                />
 
                 <div className="space-y-8">
                   {buyingSteps.slice(4, 6).map((step) => (
@@ -639,6 +663,11 @@ export default function BuyingGuidePage() {
                   <h3 className="mb-6 text-xl font-semibold text-gray-900">
                     Typical Closing Timeline
                   </h3>
+                  <SectionImage
+                    imageId="h3-buyer-keys"
+                    caption="Timelines vary by lender, title, and HOA docs. Confirm on the contract."
+                    className="mb-6"
+                  />
                   <div className="space-y-4">
                     <div className="flex items-center space-x-4">
                       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-600 text-sm font-bold text-white">

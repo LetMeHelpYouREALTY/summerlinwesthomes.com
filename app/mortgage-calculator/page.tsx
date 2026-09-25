@@ -1,9 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Calculator, Home, DollarSign, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 import { BUSINESS, telHref } from '@/lib/business';
 
 export default function MortgageCalculatorPage() {
@@ -172,35 +174,25 @@ export default function MortgageCalculatorPage() {
             taxes, and insurance so your estimate reflects true ownership cost,
             not just principal and interest.
           </p>
-          <div className="grid gap-3 md:grid-cols-3">
-            <article>
-              <h3 className="text-lg font-semibold text-gray-900">
-                Budget Planning for Summerlin Homes for Sale
-              </h3>
-              <p className="mt-1 text-gray-700">
-                Stress-test different down payment levels and interest rates before
-                choosing a target price range.
-              </p>
-            </article>
-            <article>
-              <h3 className="text-lg font-semibold text-gray-900">
-                Las Vegas Homes: Village-Level Ownership Costs
-              </h3>
-              <p className="mt-1 text-gray-700">
-                Compare HOA and tax assumptions by neighborhood so your monthly
-                payment expectations stay accurate.
-              </p>
-            </article>
-            <article>
-              <h3 className="text-lg font-semibold text-gray-900">
-                Offer Readiness on Homes for Sale in Las Vegas
-              </h3>
-              <p className="mt-1 text-gray-700">
-                Use payment scenarios to set clear limits before making offers in
-                competitive Summerlin West inventory.
-              </p>
-            </article>
-          </div>
+          <HeadingPhotoGrid
+            items={[
+              {
+                imageId: 'h3-kitchen',
+                heading: 'Budget planning for Summerlin homes for sale',
+                text: 'Stress-test down payment and rate inputs before you pick a price band. This is an estimate, not a lender quote.',
+              },
+              {
+                imageId: 'h3-village-street',
+                heading: 'Village-level ownership costs',
+                text: 'HOA dues and taxes vary by village. Confirm the listing sheet before you rely on the calculator.',
+              },
+              {
+                imageId: 'h3-closing-table',
+                heading: 'Offer readiness on Las Vegas listings',
+                text: 'Use payment scenarios to set a ceiling, then call (702) 842-0410 before you write an offer.',
+              },
+            ]}
+          />
         </section>
 
         {/* RealScout Advanced Search Widget */}
@@ -209,6 +201,11 @@ export default function MortgageCalculatorPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Homes for Sale in Summerlin — Match Payment to Price
             </h2>
+            <SectionImage
+              imageId="hero-mortgage"
+              caption="Pair Las Vegas homes for sale with realistic monthly payment scenarios."
+              className="mb-8"
+            />
             <p className="text-lg text-gray-600 mb-8">
               Pair Las Vegas homes for sale with realistic monthly payments.
             </p>
@@ -277,6 +274,11 @@ export default function MortgageCalculatorPage() {
                 <h2 className="mb-6 text-2xl font-bold text-gray-900">
                   Mortgage Payment Calculator
                 </h2>
+                <SectionImage
+                  imageId="h3-cma-review"
+                  caption="This calculator is an estimate. Confirm taxes, HOA, and rate with your lender."
+                  className="mb-6"
+                />
                 
                 <form className="space-y-6">
                   {/* Home Price */}
@@ -468,6 +470,11 @@ export default function MortgageCalculatorPage() {
                 <h3 className="mb-4 text-xl font-bold text-gray-900">
                   Need Help with Your Mortgage?
                 </h3>
+                <SectionImage
+                  imageId="h3-consultation"
+                  caption="Call (702) 842-0410 to review payment scenarios before you tour."
+                  className="mb-6"
+                />
                 <p className="mb-6 text-gray-600">
                   Our team can help you find the best mortgage rates and lenders for Summerlin West properties.
                 </p>
@@ -496,6 +503,11 @@ export default function MortgageCalculatorPage() {
                 <h2 className="mb-6 text-2xl font-bold text-gray-900">
                   Your Monthly Payment
                 </h2>
+                <SectionImage
+                  imageId="h3-bedroom"
+                  caption="This is an estimate. Confirm taxes, HOA, and rate with your lender."
+                  className="mb-6"
+                />
                 
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-3 border-b border-gray-200">
@@ -552,6 +564,11 @@ export default function MortgageCalculatorPage() {
                 <h3 className="mb-6 text-xl font-bold text-gray-900">
                   Amortization Schedule
                 </h3>
+                <SectionImage
+                  imageId="h3-cma-review"
+                  caption="This table is an estimate from the inputs above, not a lender quote."
+                  className="mb-6"
+                />
                 
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">

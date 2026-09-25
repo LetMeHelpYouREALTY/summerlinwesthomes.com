@@ -18,9 +18,12 @@ import {
   Info,
 } from 'lucide-react';
 import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
+import HeadingCardPhoto from '@/components/media/heading-card-photo';
 import { BUSINESS, directionsHref, telHref } from '@/lib/business';
+import type { SiteImageId } from '@/lib/images';
 
 export default function TransportationPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -30,6 +33,7 @@ export default function TransportationPage() {
       name: '215 Beltway (Bruce Woodbury Beltway)',
       category: 'highway',
       type: 'Major Highway',
+      imageId: 'h3-beltway' as SiteImageId,
       description:
         'Primary east-west corridor connecting Summerlin West to the entire Las Vegas Valley',
       access: 'Multiple on/off ramps throughout Summerlin West',
@@ -52,6 +56,7 @@ export default function TransportationPage() {
       name: 'Charleston Boulevard (SR 159)',
       category: 'arterial',
       type: 'Major Arterial',
+      imageId: 'h3-charleston' as SiteImageId,
       description:
         'Historic route connecting Summerlin West to downtown and Red Rock Canyon',
       access: 'Primary east-west route through Summerlin West',
@@ -74,6 +79,7 @@ export default function TransportationPage() {
       name: 'Hualapai Way',
       category: 'arterial',
       type: 'Major Arterial',
+      imageId: 'h3-village-street' as SiteImageId,
       description: 'North-south corridor connecting Summerlin West communities',
       access: 'Connects all major Summerlin West villages',
       travelTime: {
@@ -95,6 +101,7 @@ export default function TransportationPage() {
       name: 'RTC Transit - Route 206',
       category: 'public',
       type: 'Public Bus',
+      imageId: 'h3-transit' as SiteImageId,
       description:
         'Regional Transportation Commission bus service through Summerlin West',
       route: 'Downtown Summerlin ↔ Downtown Las Vegas',
@@ -120,6 +127,7 @@ export default function TransportationPage() {
       name: 'McCarran International Airport (LAS)',
       category: 'airport',
       type: 'International Airport',
+      imageId: 'h3-airport' as SiteImageId,
       description:
         'Primary airport serving Las Vegas and the surrounding region',
       distance: '25 miles from Summerlin West',
@@ -140,6 +148,7 @@ export default function TransportationPage() {
       name: 'Downtown Summerlin Transit Center',
       category: 'hub',
       type: 'Transit Hub',
+      imageId: 'section-downtown-summerlin' as SiteImageId,
       description: 'Central transportation hub for Summerlin West area',
       location: '1980 Festival Plaza Dr, Las Vegas, NV 89135',
       services: [
@@ -157,6 +166,7 @@ export default function TransportationPage() {
       name: 'Red Rock Canyon Scenic Drive',
       category: 'scenic',
       type: 'Scenic Route',
+      imageId: 'h3-trail' as SiteImageId,
       description:
         '13-mile scenic drive through Red Rock Canyon National Conservation Area',
       access: 'Via Charleston Boulevard (SR 159)',
@@ -211,46 +221,31 @@ export default function TransportationPage() {
             <h2 className="mb-8 text-center text-3xl font-bold">
               Las Vegas Homes: Quick Commute Reference
             </h2>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-              <div className="rounded-lg bg-blue-50 p-6 text-center">
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
-                  <Car className="h-6 w-6 text-blue-600" />
-                </div>
-                <h3 className="mb-2 font-bold text-blue-900">To Downtown</h3>
-                <p className="text-sm text-blue-700">
-                  15-20 minutes via 215 Beltway
-                </p>
-              </div>
-              <div className="rounded-lg bg-green-50 p-6 text-center">
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                  <Plane className="h-6 w-6 text-green-600" />
-                </div>
-                <h3 className="mb-2 font-bold text-green-900">To Airport</h3>
-                <p className="text-sm text-green-700">
-                  35-45 minutes via 215 Beltway
-                </p>
-              </div>
-              <div className="rounded-lg bg-purple-50 p-6 text-center">
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple-100">
-                  <MapPin className="h-6 w-6 text-purple-600" />
-                </div>
-                <h3 className="mb-2 font-bold text-purple-900">To Red Rock</h3>
-                <p className="text-sm text-purple-700">
-                  5-10 minutes via Charleston
-                </p>
-              </div>
-              <div className="rounded-lg bg-orange-50 p-6 text-center">
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-orange-100">
-                  <Bus className="h-6 w-6 text-orange-600" />
-                </div>
-                <h3 className="mb-2 font-bold text-orange-900">
-                  Public Transit
-                </h3>
-                <p className="text-sm text-orange-700">
-                  RTC Route 206 every 15-20 min
-                </p>
-              </div>
-            </div>
+            <HeadingPhotoGrid
+              columns={4}
+              items={[
+                {
+                  imageId: 'h3-downtown-skyline',
+                  heading: 'To Downtown',
+                  text: 'Plan 15–20 minutes via the 215 Beltway. Confirm the window before you tour.',
+                },
+                {
+                  imageId: 'h3-airport',
+                  heading: 'To Airport',
+                  text: 'Harry Reid International Airport is typically 35–45 minutes via the 215 Beltway.',
+                },
+                {
+                  imageId: 'h3-trail',
+                  heading: 'To Red Rock',
+                  text: 'Scenic Loop Drive is often 5–10 minutes west via Charleston Boulevard.',
+                },
+                {
+                  imageId: 'h3-transit',
+                  heading: 'Public transit',
+                  text: 'RTC service runs through Downtown Summerlin. Verify current routes on rtcsnv.com.',
+                },
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -260,6 +255,11 @@ export default function TransportationPage() {
         <div className="container mx-auto px-4">
           <div className="mb-6 text-center">
             <h2 className="mb-4 text-2xl font-bold">Filter by Category</h2>
+            <SectionImage
+              imageId="h3-beltway"
+              caption="Filter Beltway, Charleston, transit, airport, and scenic routes."
+              className="mx-auto mb-6 max-w-3xl"
+            />
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => {
@@ -290,6 +290,11 @@ export default function TransportationPage() {
             <h2 className="mb-4 text-3xl font-bold">
               {filteredOptions.length} Transportation Options in Summerlin West
             </h2>
+            <SectionImage
+              imageId="h3-beltway"
+              caption="Compare Beltway, Charleston, transit, and airport routes before you tour."
+              className="mx-auto mb-6 max-w-4xl"
+            />
             <p className="mx-auto max-w-2xl text-gray-600">
               Multiple ways to get around and access the entire Las Vegas Valley
             </p>
@@ -301,15 +306,14 @@ export default function TransportationPage() {
                 key={option.name}
                 className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
               >
-                <div className="bg-gradient-to-br from-purple-500 to-indigo-600 p-6 text-white">
-                  <div className="mb-4">
-                    <h3 className="text-2xl font-bold">{option.name}</h3>
-                    <p className="mt-2 text-purple-100">{option.type}</p>
-                  </div>
-                  <p className="text-white/90">{option.description}</p>
-                </div>
+                <HeadingCardPhoto
+                  imageId={option.imageId}
+                  title={option.name}
+                  subtitle={option.type}
+                />
 
                 <div className="p-6">
+                  <p className="mb-4 text-gray-700">{option.description}</p>
                   {option.travelTime && (
                     <div className="mb-4">
                       <h4 className="mb-2 font-semibold text-gray-900">

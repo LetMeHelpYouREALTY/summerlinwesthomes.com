@@ -1,15 +1,6 @@
 'use client';
 
 import React from 'react';
-import {
-  Map,
-  Home,
-  Mountain,
-  Shield,
-  Users,
-  Star,
-  TrendingUp,
-} from 'lucide-react';
 import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
@@ -90,12 +81,17 @@ export default function VillagesPage() {
       </section>
 
       {/* RealScout Home Value Widget Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
+      <section className="bg-[#f6f4ef] py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto mb-12 max-w-4xl text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
               Las Vegas Homes: Values Across Summerlin Villages
             </h2>
+            <SectionImage
+              imageId="h3-village-street"
+              caption="Compare village-level values on live MLS, then tour The Ridges, The Paseos, and nearby streets."
+              className="mb-8"
+            />
             <p className="mb-8 text-lg text-gray-600">
               Get instant property value estimates for any village in Summerlin
               West
@@ -118,6 +114,11 @@ export default function VillagesPage() {
           <h3 className="mb-6 text-2xl font-bold text-gray-900">
             Real Estate Listings in Las Vegas — Village Search
           </h3>
+          <SectionImage
+            imageId="h3-village-street"
+            caption="Search homes for sale in Summerlin across every village."
+            className="mx-auto mb-8 max-w-4xl"
+          />
           <p className="mb-8 text-lg text-gray-600">
             Search homes for sale in Summerlin across every village.
           </p>
@@ -135,6 +136,11 @@ export default function VillagesPage() {
             <h3 className="mb-6 text-2xl font-bold text-gray-900">
               Homes for Sale in Summerlin — Quick Search
             </h3>
+            <SectionImage
+              imageId="h3-sold-home"
+              caption="Start with live MLS, then call (702) 842-0410 to tour."
+              className="mx-auto mb-8 max-w-4xl"
+            />
             <p className="mb-8 text-lg text-gray-600">
               Start your search with our simple and intuitive search tool
             </p>
@@ -209,6 +215,11 @@ export default function VillagesPage() {
             <h2 className="mb-4 text-3xl font-bold">
               Explore Summerlin West Villages & Communities
             </h2>
+            <SectionImage
+              imageId="h3-village-park"
+              caption="Browse live village inventory powered by RealScout MLS data."
+              className="mx-auto mb-6 max-w-4xl"
+            />
             <p className="mx-auto max-w-2xl text-gray-600">
               Browse live village inventory powered by RealScout MLS data.
             </p>
@@ -267,6 +278,11 @@ export default function VillagesPage() {
             <h3 className="mb-4 text-3xl font-bold">
               Available Properties in Summerlin West
             </h3>
+            <SectionImage
+              imageId="h3-village-street"
+              caption="Browse current listings in all Summerlin West villages with live MLS data."
+              className="mx-auto mb-6 max-w-4xl"
+            />
             <p className="mx-auto max-w-2xl text-gray-600">
               Browse current listings in all Summerlin West villages with
               real-time MLS data

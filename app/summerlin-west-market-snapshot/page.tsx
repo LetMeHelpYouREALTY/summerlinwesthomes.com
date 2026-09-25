@@ -2,29 +2,7 @@ import Link from 'next/link';
 import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
-
-const snapshotSections = [
-  {
-    title: 'Inventory Direction for Las Vegas Homes',
-    detail:
-      'Track whether fresh listings are rising or tightening by village so you can set realistic expectations before touring.',
-  },
-  {
-    title: 'Buyer Competition on Summerlin Listings',
-    detail:
-      'Watch showing activity and offer speed to decide when stronger terms are needed in competitive pockets.',
-  },
-  {
-    title: 'Pricing Pressure on Homes for Sale in Summerlin',
-    detail:
-      'Compare list-price movement and recent closes to avoid overpaying or underpricing.',
-  },
-  {
-    title: 'Timing Strategy for Las Vegas Real Estate Listings',
-    detail:
-      'Use seasonality and local launch patterns to pick better weeks to list or make offers.',
-  },
-];
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 
 const faqItems = [
   {
@@ -78,21 +56,41 @@ export default function SummerlinWestMarketSnapshotPage() {
           className="mb-10"
         />
 
-        <div className="grid gap-5 md:grid-cols-2">
-          {snapshotSections.map((item) => (
-            <article key={item.title} className="rounded-xl border p-5">
-              <h2 className="mb-2 text-xl font-semibold text-gray-900">
-                {item.title}
-              </h2>
-              <p className="text-gray-700">{item.detail}</p>
-            </article>
-          ))}
-        </div>
+        <HeadingPhotoGrid
+          columns={2}
+          items={[
+            {
+              imageId: 'hero-listings',
+              heading: 'Inventory direction for Las Vegas homes',
+              text: 'Track whether fresh listings are rising or tightening by village before you tour. Use live MLS, not sample figures.',
+            },
+            {
+              imageId: 'h3-buyer-keys',
+              heading: 'Buyer competition on Summerlin listings',
+              text: 'Watch showing activity and offer speed. Call (702) 842-0410 for a current read on the village you want.',
+            },
+            {
+              imageId: 'h3-kitchen',
+              heading: 'Pricing pressure on homes for sale in Summerlin',
+              text: 'Compare list-price movement and recent closes. Ask for a CMA before you price an offer.',
+            },
+            {
+              imageId: 'h3-village-street',
+              heading: 'Timing strategy for Las Vegas listings',
+              text: 'Use local launch patterns to pick better weeks to list or make offers. Confirm with current inventory.',
+            },
+          ]}
+        />
 
         <div className="mt-10 rounded-xl border border-gray-200 bg-white p-6">
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
             Summerlin West Las Vegas Houses for Sale: Reading the Signals
           </h2>
+          <SectionImage
+            imageId="hero-market"
+            caption="Use live listings and a CMA — not website sample stats — to read Summerlin West pricing."
+            className="mb-4"
+          />
           <p className="text-gray-700">
             Track active inventory, median list-to-close spread, and contract speed
             by village. These three indicators usually reveal whether buyers should
@@ -104,6 +102,11 @@ export default function SummerlinWestMarketSnapshotPage() {
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
             New Homes in Summerlin West Las Vegas vs Existing Homes
           </h2>
+          <SectionImage
+            imageId="section-new-construction"
+            caption="Compare newer villages with established resale streets before you tour."
+            className="mb-4"
+          />
           <p className="text-gray-700">
             Compare base pricing, lot premiums, HOA structure, and total monthly
             carrying cost. This gives a clearer apples-to-apples view between new
@@ -129,6 +132,11 @@ export default function SummerlinWestMarketSnapshotPage() {
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
             Validate With Live Listings
           </h2>
+          <SectionImage
+            imageId="hero-listings"
+            caption="Pair this snapshot with live RealScout inventory before you tour."
+            className="mb-4"
+          />
           <p className="mb-5 text-gray-600">
             Pair this snapshot with live RealScout inventory to confirm pricing
             and inventory conditions before choosing next steps.

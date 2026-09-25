@@ -24,6 +24,7 @@ import { BUSINESS, telHref } from '@/lib/business';
 import { imageMeta, imageSrc } from '@/lib/images';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
+import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 
 export default function SummerlinWestHomes() {
   return (
@@ -195,6 +196,11 @@ function AdvancedSearchWidget() {
           <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
             Real Estate Listings in Las Vegas — Advanced Search
           </h2>
+          <SectionImage
+            imageId="hero-search"
+            caption="Filter homes for sale in Summerlin with live MLS tools."
+            className="mb-8"
+          />
           <p className="mb-8 text-lg text-gray-600">
             Filter homes for sale in Summerlin with the same tools serious west
             Las Vegas buyers use daily.
@@ -224,6 +230,11 @@ function SimpleSearchWidget() {
           <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
             Homes for Sale in Summerlin — Quick Search
           </h2>
+          <SectionImage
+            imageId="h3-sold-home"
+            caption="Jump into live Summerlin West inventory, then call to tour."
+            className="mb-8"
+          />
           <p className="mb-8 text-lg text-gray-600">
             Jump straight into Las Vegas homes for sale with a streamlined search
             bar.
@@ -305,6 +316,11 @@ function RealScoutSearchEmbed() {
           <h2 className="mb-4 text-3xl font-bold">
             Las Vegas Homes for Sale — Summerlin West Inventory
           </h2>
+          <SectionImage
+            imageId="hero-listings"
+            caption="Browse real estate listings in Las Vegas with live MLS feeds through RealScout."
+            className="mx-auto mb-6 max-w-4xl"
+          />
           <p className="mx-auto max-w-2xl text-gray-600">
             Browse real estate listings in Las Vegas with live MLS feeds through
             RealScout.
@@ -336,6 +352,11 @@ function FeaturedProperties() {
             <h2 className="text-3xl font-bold">
               Houses for Sale in Summerlin Las Vegas — Featured Listings
             </h2>
+            <SectionImage
+              imageId="h3-showing"
+              caption="Premium homes for sale in Las Vegas Summerlin West, refreshed live."
+              className="mt-6 max-w-3xl"
+            />
             <p className="mt-2 text-gray-600">
               Premium homes for sale in Las Vegas Summerlin West, refreshed live
             </p>
@@ -377,8 +398,14 @@ function PropertyCard({
 }) {
   return (
     <div className="group overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-2xl">
-      <div className="relative h-64 bg-gradient-to-br from-amber-400 to-orange-500">
-        <div className="absolute inset-0 bg-black opacity-20 transition-opacity group-hover:opacity-10"></div>
+      <div className="relative h-64 overflow-hidden">
+        <Image
+          src={imageSrc('h3-entry')}
+          alt={imageMeta('h3-entry').alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover"
+        />
         <button
           onClick={onToggleSaved}
           aria-label={isSaved ? 'Remove from favorites' : 'Add to favorites'}
@@ -448,6 +475,27 @@ function CommunitiesPreview() {
             caption="Summerlin West villages sit between the 215 Beltway and Red Rock Canyon."
             className="mx-auto mt-8 max-w-5xl"
           />
+          <div className="mx-auto mt-8 max-w-6xl">
+            <HeadingPhotoGrid
+              items={[
+                {
+                  imageId: 'h3-village-street',
+                  heading: 'Village streets',
+                  text: 'Compare The Ridges, The Paseos, The Crossing, and nearby villages on live MLS.',
+                },
+                {
+                  imageId: 'h3-village-park',
+                  heading: 'Parks and paths',
+                  text: 'Desert trails and village parks sit minutes from many Summerlin West homes.',
+                },
+                {
+                  imageId: 'section-golf',
+                  heading: 'Golf-course pockets',
+                  text: 'Tour golf-adjacent inventory only after you confirm club access and HOA terms.',
+                },
+              ]}
+            />
+          </div>
         </div>
 
         <div className="mx-auto max-w-6xl rounded-xl bg-white p-6 shadow-lg">
@@ -480,6 +528,11 @@ function GoogleReviewsCta() {
         <h2 className="mb-4 text-3xl font-bold">
           Read Google reviews for {BUSINESS.gbpTitle}
         </h2>
+        <SectionImage
+          imageId="h3-twain-office"
+          caption={`${BUSINESS.streetAddress} — reviews live on Google Maps, not on this page.`}
+          className="mx-auto mb-8 max-w-3xl"
+        />
         <p className="mx-auto mb-8 max-w-2xl text-gray-600">
           Reviews live on Google Maps, not on this page. Open the Business
           Profile to read verified buyer and seller feedback before you tour.

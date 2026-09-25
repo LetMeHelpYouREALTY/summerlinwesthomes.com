@@ -1,4 +1,5 @@
 import { MapPin, Phone, Star, Navigation } from 'lucide-react';
+import SectionImage from '@/components/media/section-image';
 import {
   BUSINESS,
   directionsHref,
@@ -21,6 +22,12 @@ export default function GbpEngagement() {
           <h2 className="mt-2 text-2xl font-semibold text-white md:text-3xl">
             {BUSINESS.gbpTitle}
           </h2>
+          <div className="mt-4 overflow-hidden rounded-2xl">
+            <SectionImage
+              imageId="h3-twain-office"
+              caption={`${BUSINESS.streetAddress}, ${BUSINESS.addressLocality}, ${BUSINESS.addressRegion} ${BUSINESS.postalCode}`}
+            />
+          </div>
           <p className="mt-4 flex items-start gap-2 text-white/90">
             <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#d8c58e]" aria-hidden />
             <span>{formattedAddress()}</span>
@@ -63,6 +70,12 @@ export default function GbpEngagement() {
           <h3 className="text-lg font-semibold text-[#d8c58e]">
             Tour Summerlin West homes
           </h3>
+          <div className="mt-3 overflow-hidden rounded-xl">
+            <SectionImage
+              imageId="h3-consultation"
+              caption="Call (702) 842-0410 or open the Google Maps listing before you tour."
+            />
+          </div>
           <p className="mt-2 text-sm leading-relaxed text-white/85">
             {BUSINESS.description}
           </p>

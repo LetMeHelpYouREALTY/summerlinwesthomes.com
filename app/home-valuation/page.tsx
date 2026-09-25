@@ -1,17 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import {
-  Calculator,
-  Home,
-  TrendingUp,
-  MapPin,
-  Phone,
-  Mail,
-  Users,
-} from 'lucide-react';
 import CalendlyInlineSection from '@/components/calendly-inline-section';
 import PageHero from '@/components/media/page-hero';
+import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 
@@ -49,7 +41,7 @@ export default function HomeValuationPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-[#f6f4ef]">
       <PageHero
         imageId="hero-valuation"
         title="Las Vegas Homes — Summerlin West Value & Pricing"
@@ -63,6 +55,11 @@ export default function HomeValuationPage() {
             <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
               Summerlin Homes for Sale — Instant Value Estimate
             </h2>
+            <SectionImage
+              imageId="h3-cma-review"
+              caption="Pair the live estimate with a CMA from Dr. Jan Duffy before you list or buy."
+              className="mb-8"
+            />
             <p className="mb-8 text-lg text-gray-600">
               Get an accurate, data-driven estimate of your home&apos;s current
               market value using our advanced RealScout technology
@@ -85,6 +82,11 @@ export default function HomeValuationPage() {
           <h3 className="mb-6 text-2xl font-bold text-gray-900">
             Real Estate Listings in Las Vegas — Advanced Search
           </h3>
+          <SectionImage
+            imageId="hero-search"
+            caption="Search live listings while you review a Summerlin West value estimate."
+            className="mb-6"
+          />
           <p className="mb-8 text-lg text-gray-600">
             Search for properties while you check your home&apos;s value
           </p>
@@ -103,6 +105,11 @@ export default function HomeValuationPage() {
           <h3 className="mb-6 text-2xl font-bold text-gray-900">
             Homes for Sale in Summerlin — Quick Search
           </h3>
+          <SectionImage
+            imageId="h3-sold-home"
+            caption="Start with live MLS, then call (702) 842-0410 to schedule a walkthrough."
+            className="mb-6"
+          />
           <p className="mb-8 text-lg text-gray-600">
             Start your search with our simple and intuitive search tool
           </p>
@@ -177,6 +184,11 @@ export default function HomeValuationPage() {
               <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
                 Need a Detailed Professional Valuation?
               </h2>
+              <SectionImage
+                imageId="h3-consultation"
+                caption="Submit the form or call (702) 842-0410 for a village-level CMA."
+                className="mb-6"
+              />
               <p className="text-lg text-gray-600">
                 Fill out the form below for a comprehensive market analysis and
                 personalized consultation
