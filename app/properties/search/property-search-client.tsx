@@ -18,6 +18,7 @@ import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import { BUSINESS, telHref } from '@/lib/business';
+import NearbyAmenitiesSection from '@/components/amenities/nearby-amenities-section';
 
 export default function PropertySearchPage() {
   const [searchParams, setSearchParams] = useState({
@@ -538,6 +539,10 @@ export default function PropertySearchPage() {
           </div>
         </div>
       </section>
+      <NearbyAmenitiesSection
+        title="Map amenities near your search area"
+        className="border-t border-gray-200 bg-gray-50 py-16"
+      />
       <ImageCta
         imageId="hero-search"
         title="Filter Summerlin West homes, then book a tour"
