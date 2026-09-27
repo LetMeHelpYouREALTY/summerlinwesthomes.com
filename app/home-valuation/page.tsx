@@ -6,8 +6,16 @@ import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
+import {
+  LEAD_FORM_ERROR_MESSAGE,
+  submitContactForm,
+} from '@/lib/submit-contact-form';
 
 export default function HomeValuationPage() {
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'submitting' | 'success' | 'error'
+  >('idle');
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     address: '',
     city: 'Las Vegas',
@@ -25,10 +33,24 @@ export default function HomeValuationPage() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission - integrate with your CRM
-    console.log('Valuation request:', formData);
+    setSubmitStatus('submitting');
+    setSubmitError(null);
+
+    const result = await submitContactForm({
+      formName: 'Home Valuation',
+      type: 'Seller Inquiry',
+      fields: formData,
+    });
+
+    if (result.ok) {
+      setSubmitStatus('success');
+      return;
+    }
+
+    setSubmitStatus('error');
+    setSubmitError(result.error);
   };
 
   const handleChange = (
@@ -454,11 +476,31 @@ export default function HomeValuationPage() {
                 </div>
 
                 <div className="border-t pt-6">
+                  {submitStatus === 'success' && (
+                    <div
+                      className="mb-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-green-800"
+                      role="status"
+                    >
+                      Thank you. Dr. Jan Duffy will follow up with your
+                      valuation request shortly.
+                    </div>
+                  )}
+                  {submitStatus === 'error' && (
+                    <div
+                      className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-800"
+                      role="alert"
+                    >
+                      {submitError ?? LEAD_FORM_ERROR_MESSAGE}
+                    </div>
+                  )}
                   <button
                     type="submit"
-                    className="w-full transform rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:from-blue-700 hover:to-indigo-700"
+                    disabled={submitStatus === 'submitting'}
+                    className="w-full transform rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100"
                   >
-                    Get Professional Valuation
+                    {submitStatus === 'submitting'
+                      ? 'Sending…'
+                      : 'Get Professional Valuation'}
                   </button>
                   <p className="mt-4 text-center text-sm text-gray-500">
                     By submitting this form, you agree to receive communications

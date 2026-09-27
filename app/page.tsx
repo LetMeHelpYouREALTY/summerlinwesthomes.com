@@ -7,7 +7,7 @@ export const metadata: Metadata = {
       'Summerlin Homes for Sale | Las Vegas Homes & Real Estate Listings',
   },
   description:
-    'Summerlin homes for sale and Las Vegas real estate listings in Summerlin West. Browse homes for sale in Summerlin, houses for sale in Summerlin Las Vegas, and expert buyer guidance.',
+    'Summerlin West homes for sale in Las Vegas. Browse MLS listings, explore villages, and get local buyer guidance from Dr. Jan Duffy.',
   alternates: {
     canonical: '/',
   },
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title:
       'Summerlin Homes for Sale | Las Vegas Homes & Real Estate Listings',
     description:
-      'Summerlin homes for sale and Las Vegas real estate listings in Summerlin West. Browse homes for sale in Summerlin and houses for sale in Summerlin Las Vegas.',
+      'Summerlin West homes for sale in Las Vegas. Browse MLS listings, explore villages, and get local buyer guidance from Dr. Jan Duffy.',
     url: '/',
     type: 'website',
   },

@@ -6,8 +6,16 @@ import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
+import {
+  LEAD_FORM_ERROR_MESSAGE,
+  submitContactForm,
+} from '@/lib/submit-contact-form';
 
 export default function SellYourHomePage() {
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'submitting' | 'success' | 'error'
+  >('idle');
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     address: '',
     city: 'Las Vegas',
@@ -26,10 +34,24 @@ export default function SellYourHomePage() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission - integrate with your CRM
-    console.log('Sell request:', formData);
+    setSubmitStatus('submitting');
+    setSubmitError(null);
+
+    const result = await submitContactForm({
+      formName: 'Sell Your Home',
+      type: 'Seller Inquiry',
+      fields: formData,
+    });
+
+    if (result.ok) {
+      setSubmitStatus('success');
+      return;
+    }
+
+    setSubmitStatus('error');
+    setSubmitError(result.error);
   };
 
   const handleChange = (
@@ -575,11 +597,31 @@ export default function SellYourHomePage() {
                     </div>
                   </div>
 
+                  {submitStatus === 'success' && (
+                    <div
+                      className="rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-green-800"
+                      role="status"
+                    >
+                      Thank you. Dr. Jan Duffy will follow up with your seller
+                      consultation request shortly.
+                    </div>
+                  )}
+                  {submitStatus === 'error' && (
+                    <div
+                      className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-800"
+                      role="alert"
+                    >
+                      {submitError ?? LEAD_FORM_ERROR_MESSAGE}
+                    </div>
+                  )}
                   <button
                     type="submit"
-                    className="w-full rounded-lg bg-amber-600 px-6 py-4 text-lg font-semibold text-white transition-colors hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+                    disabled={submitStatus === 'submitting'}
+                    className="w-full rounded-lg bg-amber-600 px-6 py-4 text-lg font-semibold text-white transition-colors hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
                   >
-                    Get My Free Home Evaluation
+                    {submitStatus === 'submitting'
+                      ? 'Sending…'
+                      : 'Get My Free Home Evaluation'}
                   </button>
 
                   <p className="text-center text-sm text-gray-500">
