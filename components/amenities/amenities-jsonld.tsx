@@ -33,13 +33,18 @@ export default function AmenitiesJsonLd() {
       item: {
         '@type': place.schemaType,
         name: place.name,
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: place.address.split(',')[0]?.trim(),
-          addressLocality: COMMUNITY.city,
-          addressRegion: COMMUNITY.stateCode,
-          addressCountry: 'US',
-        },
+        url: place.sourceUrl,
+        ...(place.address
+          ? {
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: place.address.split(',')[0]?.trim(),
+                addressLocality: COMMUNITY.city,
+                addressRegion: COMMUNITY.stateCode,
+                addressCountry: 'US',
+              },
+            }
+          : {}),
       },
     })),
   };

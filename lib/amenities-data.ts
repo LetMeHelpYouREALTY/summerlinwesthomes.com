@@ -17,11 +17,13 @@ export type CuratedAmenity = {
   name: string;
   category: AmenityCategoryId;
   schemaType: string;
-  address: string;
+  /** Verified street address; omit from JSON-LD when undefined */
+  address?: string;
+  sourceUrl: string;
   note?: string;
 };
 
-/** Category order tuned for luxury suburban Summerlin West (not 55+ or high-rise). */
+/** Category order tuned for Summerlin West (master-planned west Las Vegas). */
 export const AMENITY_CATEGORIES: {
   id: AmenityCategoryId;
   label: string;
@@ -97,63 +99,124 @@ export const AMENITY_CATEGORIES: {
   },
 ];
 
-/** Verified destinations for fallback lists, copy, and ItemList schema (no invented ratings). */
+/** Verified destinations for fallback lists and ItemList schema (no invented ratings). */
 export const CURATED_AMENITIES: CuratedAmenity[] = [
   {
     name: 'TPC Las Vegas',
     category: 'golf',
     schemaType: 'GolfCourse',
     address: '9851 Canyon Run Dr, Las Vegas, NV 89144',
+    sourceUrl: 'https://tpc.com/lasvegas/',
   },
   {
-    name: 'The Ridges Golf Club',
+    name: 'Angel Park Golf Club',
     category: 'golf',
     schemaType: 'GolfCourse',
-    address: '1000 Ridges Pkwy, Las Vegas, NV 89135',
-    note: 'Private club; guest access varies.',
+    address: '100 S Rampart Blvd, Las Vegas, NV 89145',
+    sourceUrl:
+      'https://arcisgolf.com/clubs/angel-park-golf-club/hours-and-directions',
   },
   {
     name: 'Red Rock Canyon National Conservation Area',
     category: 'parks',
     schemaType: 'Park',
     address: '1000 Scenic Loop Dr, Las Vegas, NV 89161',
+    sourceUrl:
+      'https://www.blm.gov/visit/red-rock-canyon-national-conservation-area',
+    note: 'Visitor center address; scenic drive entry requires separate planning.',
   },
   {
-    name: 'Downtown Summerlin',
-    category: 'shopping',
-    schemaType: 'ShoppingCenter',
-    address: '1980 Festival Plaza Dr, Las Vegas, NV 89135',
-  },
-  {
-    name: 'Summerlin Hospital Medical Center',
-    category: 'healthcare',
-    schemaType: 'Hospital',
-    address: '657 N Town Center Dr, Las Vegas, NV 89144',
+    name: 'Willows (Summerlin) Park',
+    category: 'parks',
+    schemaType: 'Park',
+    address: '2775 Desert Marigold Ln, Las Vegas, NV 89135',
+    sourceUrl:
+      'https://parkslocator.clarkcountynv.gov/Search/ParkDetail?parkId=85',
+    note: 'Clark County park in the Summerlin area.',
   },
   {
     name: 'Summerlin Library',
     category: 'parks',
     schemaType: 'Library',
     address: '1771 Inner Circle Dr, Las Vegas, NV 89134',
+    sourceUrl: 'https://thelibrarydistrict.org/locations/sm/',
+  },
+  {
+    name: 'Shake Shack',
+    category: 'restaurants',
+    schemaType: 'Restaurant',
+    address: '10975 Oval Park Dr, Suite 160, Las Vegas, NV 89135',
+    sourceUrl: 'https://shakeshack.com/location/summerlin-nv',
   },
   {
     name: 'Whole Foods Market',
     category: 'grocery',
     schemaType: 'GroceryStore',
-    address: '8855 W Charleston Blvd, Las Vegas, NV 89117',
+    address: '2475 S Town Center Dr, Las Vegas, NV 89135',
+    sourceUrl: 'https://www.wholefoodsmarket.com/stores/summerlin',
+    note: 'Downtown Summerlin location (relocated from Charleston/Fort Apache).',
   },
   {
-    name: 'Smith\'s Food and Drug',
+    name: "Smith's Food and Drug",
     category: 'grocery',
     schemaType: 'GroceryStore',
-    address: '9750 W Charleston Blvd, Las Vegas, NV 89147',
+    address: '9851 W Charleston Blvd, Las Vegas, NV 89117',
+    sourceUrl:
+      'https://www.smithsfoodanddrug.com/stores/grocery/nv/las-vegas/charleston/702/9851-w-charleston-blvd',
+  },
+  {
+    name: 'Downtown Summerlin',
+    category: 'shopping',
+    schemaType: 'ShoppingCenter',
+    address: '1980 Festival Plaza Dr, Las Vegas, NV 89135',
+    sourceUrl: 'https://summerlin.com/experience/',
+  },
+  {
+    name: 'Summerlin Hospital Medical Center',
+    category: 'healthcare',
+    schemaType: 'Hospital',
+    address: '657 N Town Center Dr, Las Vegas, NV 89144',
+    sourceUrl: 'https://www.summerlinhospital.com/about/contact-us',
+  },
+  {
+    name: 'Life Time — Summerlin',
+    category: 'fitness',
+    schemaType: 'ExerciseGym',
+    address: '10721 W Charleston Blvd, Las Vegas, NV 89135',
+    sourceUrl: 'https://www.lifetime.life/locations/nv/summerlin.html',
+  },
+  {
+    name: 'Starbucks (Town Center & Sahara)',
+    category: 'cafes',
+    schemaType: 'CafeOrCoffeeShop',
+    address: '2305 S Town Center Dr, Las Vegas, NV 89135',
+    sourceUrl:
+      'https://www.reviewjournal.com/business/new-tenant-signs-on-to-whole-foods-anchored-downtown-summerlin-center-3032960/',
+    note: 'Drive-thru café at the Whole Foods–anchored Town Center retail center.',
   },
   {
     name: 'Palo Verde High School',
     category: 'schools',
     schemaType: 'School',
     address: '333 S Pavilion Center Dr, Las Vegas, NV 89144',
+    sourceUrl: 'https://www.paloverde.org/',
     note: 'Confirm CCSD zoning for your address.',
+  },
+  {
+    name: 'CVS Pharmacy',
+    category: 'pharmacies',
+    schemaType: 'Pharmacy',
+    address: '10400 W Charleston Blvd, Las Vegas, NV 89135',
+    sourceUrl:
+      'https://www.cvs.com/store-locator/las-vegas-nv-pharmacies/10400-west-charleston-blvd-las-vegas-nv-89135/storeid=8780',
+  },
+  {
+    name: 'Downtown Summerlin parking',
+    category: 'parking',
+    schemaType: 'ParkingFacility',
+    address: '1980 Festival Plaza Dr, Las Vegas, NV 89135',
+    sourceUrl: 'https://summerlin.com/experience/',
+    note: 'Surface and structured parking serving the retail district.',
   },
 ];
 
@@ -164,7 +227,7 @@ export const AMENITY_CATEGORY_COPY: Record<
   golf: {
     heading: 'Golf in Summerlin West',
     body:
-      'TPC Las Vegas and village-adjacent courses sit minutes from many 89135 streets. Private clubs such as The Ridges require membership or guest policies—confirm access before you tour golf-front homes.',
+      'TPC Las Vegas and Angel Park Golf Club sit within a short drive of many 89135 streets. Private clubs in The Ridges area have changed access in recent years—confirm tee times and guest policies before you tour golf-adjacent homes.',
   },
   parks: {
     heading: 'Parks, trails, and open desert',
@@ -199,7 +262,7 @@ export const AMENITY_CATEGORY_COPY: Record<
   cafes: {
     heading: 'Cafes and coffee',
     body:
-      'Coffee shops and casual cafes concentrate in Downtown Summerlin and along major corridors. The interactive map updates nearby options from Google Places when your API key is configured.',
+      'Coffee shops and casual cafes concentrate in Downtown Summerlin and along major corridors. The interactive map updates nearby options from Google Places when available.',
   },
   schools: {
     heading: 'Schools serving Summerlin West',
@@ -245,7 +308,7 @@ export const AMENITIES_FAQ = [
   {
     question: `What grocery stores are near ${COMMUNITY.name}?`,
     answer:
-      `Smith's, Whole Foods, and other supermarkets sit along Charleston Boulevard and near Downtown Summerlin, typically within a short drive of ZIP ${COMMUNITY.primaryZip} homes.`,
+      `Whole Foods Market at Downtown Summerlin (2475 S Town Center Dr), Smith's on West Charleston Boulevard, and other supermarkets sit within a short drive of ZIP ${COMMUNITY.primaryZip} homes.`,
   },
   {
     question: `How far is ${COMMUNITY.name} from the Las Vegas Strip?`,
@@ -260,7 +323,7 @@ export const AMENITIES_FAQ = [
   {
     question: `What golf courses are near ${COMMUNITY.name}?`,
     answer:
-      'TPC Las Vegas is the public PGA Tour venue west of the 215; The Ridges and other private clubs sit inside Summerlin West with membership or guest rules.',
+      'TPC Las Vegas is the public PGA TOUR venue west of the 215; Angel Park Golf Club offers additional public golf minutes from Summerlin West.',
   },
   {
     question: `Where do residents shop near ${COMMUNITY.name}?`,

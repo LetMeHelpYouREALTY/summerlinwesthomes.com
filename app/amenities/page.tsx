@@ -37,9 +37,9 @@ export default function AmenitiesPage() {
               Explore what is near {COMMUNITY.name}
             </h2>
             <p className="text-gray-600">
-              Filter restaurants, golf, parks, grocery, healthcare, and more. Without a
-              Google Maps API key, you still get a centered map embed and curated place
-              list below.
+              Filter restaurants, golf, parks, grocery, healthcare, and more. If the
+              interactive map is unavailable, you still get a centered map embed and
+              featured places list below.
             </p>
           </div>
           <div className="mx-auto max-w-6xl">
