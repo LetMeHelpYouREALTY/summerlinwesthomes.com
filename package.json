@@ -16,6 +16,7 @@
     "auto-push": "powershell -ExecutionPolicy Bypass -File .\\scripts\\auto-push.ps1",
     "auto-push:custom": "powershell -ExecutionPolicy Bypass -File .\\scripts\\auto-push.ps1 -CommitMessage",
     "quick-deploy": "npm run auto-push",
+    "test": "node --experimental-strip-types --test lib/fub/send-event.test.mjs",
     "verify:seo": "node scripts/seo-gsc-checklist.mjs",
     "images:upload-cf": "node scripts/upload-cloudflare-images.mjs"
   },
