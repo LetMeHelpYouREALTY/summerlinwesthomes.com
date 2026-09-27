@@ -5,6 +5,7 @@ import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
+import NearbyAmenitiesSection from '@/components/amenities/nearby-amenities-section';
 
 export default function VillagesPage() {
   return (
@@ -300,6 +301,11 @@ export default function VillagesPage() {
           </div>
         </div>
       </section>
+
+      <NearbyAmenitiesSection
+        title="Amenities near Summerlin West villages"
+        className="border-t border-gray-200 bg-gray-50 py-16"
+      />
     </div>
   );
 }

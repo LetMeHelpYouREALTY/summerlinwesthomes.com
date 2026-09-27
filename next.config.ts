@@ -30,6 +30,8 @@ const nextConfig: NextConfig = {
             value: [
               "img-src 'self' data: blob: https: http:",
               "media-src 'self' https:",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com https://maps.gstatic.com https://assets.calendly.com https://em.realscout.com",
+              "connect-src 'self' https://maps.googleapis.com https://maps.gstatic.com https://places.googleapis.com https://www.realscout.com https://em.realscout.com https:",
             ].join('; '),
           },
         ],

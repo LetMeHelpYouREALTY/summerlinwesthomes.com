@@ -25,6 +25,7 @@ import { imageMeta, imageSrc } from '@/lib/images';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
+import NearbyAmenitiesSection from '@/components/amenities/nearby-amenities-section';
 
 export default function SummerlinWestHomes() {
   return (
@@ -47,6 +48,7 @@ function HomePage() {
       <RealScoutSearchEmbed />
       <FeaturedProperties />
       <CommunitiesPreview />
+      <NearbyAmenitiesSection title="Life Near Summerlin West" />
       <GoogleReviewsCta />
       <CTASection />
     </>

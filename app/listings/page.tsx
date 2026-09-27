@@ -6,6 +6,7 @@ import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
+import NearbyAmenitiesSection from '@/components/amenities/nearby-amenities-section';
 
 export default function ListingsPage() {
   const agentId = 'QWdlbnQtMjI1MDUw';
@@ -205,6 +206,10 @@ export default function ListingsPage() {
           />
         </section>
       </div>
+      <NearbyAmenitiesSection
+        title="What's nearby your shortlisted listings"
+        className="border-t border-gray-200 bg-white py-16"
+      />
       <ImageCta
         imageId="hero-listings"
         title="Tour a Summerlin West listing this week"
