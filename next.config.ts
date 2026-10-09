@@ -18,6 +18,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'images.cloudflare.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'd1buiexcd5gara.cloudfront.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'd2ygk8gs8v5c6g.cloudfront.net',
+      },
     ],
   },
   async headers() {
