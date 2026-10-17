@@ -25,6 +25,7 @@ import { imageMeta, imageSrc } from '@/lib/images';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
+import FeaturedListingSpotlight from '@/components/listings/featured-listing-spotlight';
 
 export default function SummerlinWestHomes() {
   return (
@@ -369,6 +370,10 @@ function FeaturedProperties() {
             <span>View All Properties</span>
             <ChevronRight className="h-5 w-5" />
           </Link>
+        </div>
+
+        <div className="mb-10">
+          <FeaturedListingSpotlight />
         </div>
 
         <div className="mx-auto max-w-6xl rounded-xl bg-white p-6 shadow-lg">

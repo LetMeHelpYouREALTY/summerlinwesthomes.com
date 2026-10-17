@@ -10,6 +10,10 @@ import {
 const BUYER_LINKS = [
   { href: '/properties/search', label: 'Search Summerlin West homes for sale' },
   { href: '/listings', label: 'Featured Summerlin West listings' },
+  {
+    href: '/listings/894-heritage-bend-drive',
+    label: '894 Heritage Bend Drive, Las Vegas 89138',
+  },
   { href: '/buying-guide', label: 'Las Vegas home buying guide' },
   { href: '/home-valuation', label: 'Summerlin West home value context' },
   { href: '/mortgage-calculator', label: 'Mortgage payment calculator' },
