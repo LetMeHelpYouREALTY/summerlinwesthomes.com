@@ -23,6 +23,7 @@ import ImageCta from '@/components/media/image-cta';
 import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
 import HeadingCardPhoto from '@/components/media/heading-card-photo';
 import { BUSINESS, directionsHref, telHref } from '@/lib/business';
+import NearbyAmenitiesSection from '@/components/amenities/nearby-amenities-section';
 import type { SiteImageId } from '@/lib/images';
 
 export default function TransportationPage() {
@@ -421,6 +422,10 @@ export default function TransportationPage() {
             text: 'Scenic Loop Drive and trailheads sit west of Summerlin West — often a short hop from The Ridges and The Crossing.',
           },
         ]}
+      />
+      <NearbyAmenitiesSection
+        title="Daily destinations near Summerlin West"
+        className="border-t border-gray-200 bg-gray-50 py-16"
       />
       <ImageCta
         imageId="hero-transportation"

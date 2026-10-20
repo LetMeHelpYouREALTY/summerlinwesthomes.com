@@ -4,8 +4,8 @@ import { segmentMetadata } from '@/lib/segment-metadata';
 
 export const metadata: Metadata = segmentMetadata(
   '/amenities',
-  'Las Vegas Homes Near Summerlin West Amenities',
-  'Lifestyle amenities near Summerlin homes for sale—golf, trails, dining, shopping—plan tours around Las Vegas listings that match your routine.',
+  'Nearby Amenities in Summerlin West, Las Vegas',
+  'Interactive map and guide to golf, parks, Downtown Summerlin, healthcare, and schools near Summerlin West homes for sale (ZIP 89135).',
 );
 
 export default function AmenitiesLayout({

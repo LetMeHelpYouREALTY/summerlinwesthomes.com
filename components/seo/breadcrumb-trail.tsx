@@ -8,7 +8,7 @@ import { getSiteUrl } from '@/lib/site-url';
 const LABELS: Record<string, string> = {
   '/': 'Summerlin West Homes',
   '/about': 'About',
-  '/amenities': 'Amenities',
+  '/amenities': 'Nearby amenities',
   '/buying-guide': 'Buying guide',
   '/home-valuation': 'Home value',
   '/listings': 'Listings',
