@@ -274,6 +274,7 @@ export default function RootLayout({
         {/* Vercel Analytics and Performance Monitoring */}
         <Analytics />
         <SpeedInsights />
+        <Script src="/ads-conversions.js" strategy="afterInteractive" />
       </body>
     </html>
   );
