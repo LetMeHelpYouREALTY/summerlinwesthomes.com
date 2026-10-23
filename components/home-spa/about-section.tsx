@@ -25,6 +25,10 @@ export default function AboutSection() {
 
           <div className="prose prose-lg mx-auto text-gray-600">
             <p className="mb-6">
+              {BUSINESS.agentName}, Top 1% Las Vegas REALTOR®, in real estate
+              since 1983.
+            </p>
+            <p className="mb-6">
               Summerlin West is the western portion of the Summerlin master plan,
               near Red Rock Canyon. Confirm village boundaries, HOA terms, and
               current listings before you tour.
@@ -45,7 +49,7 @@ export default function AboutSection() {
                 {
                   imageId: 'h3-entry',
                   heading: 'Tour-ready listings',
-                  text: 'Search live MLS, then book a showing. Hours: Daily 6:00 AM – 9:00 PM.',
+                  text: `Search live MLS, then book a showing. Hours: ${BUSINESS.hoursLabel}.`,
                 },
               ]}
             />
