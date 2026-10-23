@@ -236,7 +236,7 @@ export default function HomeValuationPage() {
                       onChange={handleChange}
                       required
                       className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-blue-500"
-                      placeholder="10777 West Twain Avenue # 333"
+                      placeholder="10777 W Twain Ave #333"
                     />
                   </div>
 

@@ -13,7 +13,7 @@ export const BUSINESS = {
   license: 'S.0197614.LLC',
   description:
     'Summerlin Real Estate | Homes by Dr. Jan Duffy serves buyers, sellers, and investors across Summerlin, Las Vegas, Henderson, and Clark County. Services include luxury residential home sales, buyer representation, new construction sales, 55+ active adult community sales, investment property consulting, divorce and probate real estate, and relocation services. Specializing in The Ridges, Summerlin West, Red Rock Country Club, Sun City, and Del Webb communities.',
-  streetAddress: '10777 West Twain Avenue # 333',
+  streetAddress: '10777 W Twain Ave #333',
   addressLocality: 'Las Vegas',
   addressRegion: 'NV',
   postalCode: '89135',
@@ -33,15 +33,15 @@ export const BUSINESS = {
   priceRange: '$$$',
   calendlyUrl: 'https://calendly.com/drjanduffy/appointment',
   realScoutAgentId: 'QWdlbnQtMjI1MDUw',
-  hoursLabel: 'Daily 6:00 AM – 9:00 PM',
+  hoursLabel: 'Daily 8:00 AM–8:00 PM',
   hours: [
-    { day: 'Sunday', opens: '06:00', closes: '21:00' },
-    { day: 'Monday', opens: '06:00', closes: '21:00' },
-    { day: 'Tuesday', opens: '06:00', closes: '21:00' },
-    { day: 'Wednesday', opens: '06:00', closes: '21:00' },
-    { day: 'Thursday', opens: '06:00', closes: '21:00' },
-    { day: 'Friday', opens: '06:00', closes: '21:00' },
-    { day: 'Saturday', opens: '06:00', closes: '21:00' },
+    { day: 'Sunday', opens: '08:00', closes: '20:00' },
+    { day: 'Monday', opens: '08:00', closes: '20:00' },
+    { day: 'Tuesday', opens: '08:00', closes: '20:00' },
+    { day: 'Wednesday', opens: '08:00', closes: '20:00' },
+    { day: 'Thursday', opens: '08:00', closes: '20:00' },
+    { day: 'Friday', opens: '08:00', closes: '20:00' },
+    { day: 'Saturday', opens: '08:00', closes: '20:00' },
   ],
 } as const;
 

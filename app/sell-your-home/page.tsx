@@ -327,7 +327,7 @@ export default function SellYourHomePage() {
                         value={formData.address}
                         onChange={handleChange}
                         className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200"
-                        placeholder="10777 West Twain Avenue # 333"
+                        placeholder="10777 W Twain Ave #333"
                       />
                     </div>
 

@@ -32,7 +32,7 @@ const FAQ_BY_ROUTE: Record<string, FaqItem[]> = {
     {
       question: 'Where is the Summerlin West office?',
       answer:
-        '10777 West Twain Avenue # 333, Las Vegas, NV 89135. Hours are daily 6:00 AM to 9:00 PM. Call (702) 842-0410 for tours.',
+        '10777 W Twain Ave #333, Las Vegas, NV 89135. Hours are daily 8:00 AM to 8:00 PM. Call (702) 842-0410 for tours.',
     },
   ],
   '/': [
