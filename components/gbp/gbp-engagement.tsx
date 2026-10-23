@@ -35,9 +35,6 @@ export default function GbpEngagement() {
           <p className="mt-2 text-white/90">
             Hours: {BUSINESS.hoursLabel}
           </p>
-          <p className="mt-2 text-white/90">
-            {BUSINESS.brokerage} | {BUSINESS.license}
-          </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href={telHref()}

@@ -88,7 +88,7 @@ export default function SiteFooter() {
             {BUSINESS.shortName} by {BUSINESS.agentName}. © {year}
           </p>
           <p className="mt-1">
-            {BUSINESS.brokerage} | {BUSINESS.license}
+            {BUSINESS.brokerage} since September 2008 · License {BUSINESS.license}
           </p>
           <p className="mt-3">
             <a

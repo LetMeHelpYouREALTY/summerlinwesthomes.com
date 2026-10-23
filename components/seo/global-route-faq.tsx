@@ -27,7 +27,7 @@ const FAQ_BY_ROUTE: Record<string, FaqItem[]> = {
     {
       question: 'Who is the listing agent for Summerlin West Homes?',
       answer:
-        'Dr. Jan Duffy with Berkshire Hathaway HomeServices Nevada Properties (S.0197614.LLC). The Google Business Profile lists Summerlin Real Estate | Homes by Dr. Jan Duffy.',
+        'Dr. Jan Duffy, REALTOR®, in real estate since 1983. The Google Business Profile lists Summerlin Real Estate | Homes by Dr. Jan Duffy.',
     },
     {
       question: 'Where is the Summerlin West office?',
