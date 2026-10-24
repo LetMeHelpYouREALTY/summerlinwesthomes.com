@@ -1,5 +1,6 @@
 'use client';
 
+import CalendlyAfterListings from '@/components/calendly-after-listings';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -45,6 +46,7 @@ function HomePage() {
       <AdvancedSearchWidget />
       <SimpleSearchWidget />
       <RealScoutSearchEmbed />
+      <CalendlyAfterListings />
       <FeaturedProperties />
       <CommunitiesPreview />
       <GoogleReviewsCta />
