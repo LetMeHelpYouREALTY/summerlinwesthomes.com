@@ -487,7 +487,7 @@ export default function MortgageCalculatorPage() {
                   </div>
                   <a
                     href={BUSINESS.calendlyUrl}
-                    data-calendly-popup="appointment"
+                    data-calendly-popup="page"
                     className="inline-block font-semibold text-amber-700 underline-offset-2 hover:underline"
                   >
                     Schedule a payment review

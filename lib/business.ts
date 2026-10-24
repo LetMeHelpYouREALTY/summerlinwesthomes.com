@@ -31,7 +31,7 @@ export const BUSINESS = {
   latitude: 36.1234609,
   longitude: -115.3267013,
   priceRange: '$$$',
-  calendlyUrl: 'https://calendly.com/drjanduffy/appointment',
+  calendlyUrl: 'https://calendly.com/drjanduffy/showing',
   realScoutAgentId: 'QWdlbnQtMjI1MDUw',
   hoursLabel: 'Daily 8:00 AM–8:00 PM',
   hours: [

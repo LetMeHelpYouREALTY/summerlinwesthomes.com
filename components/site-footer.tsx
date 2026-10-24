@@ -93,7 +93,7 @@ export default function SiteFooter() {
           <p className="mt-3">
             <a
               href={BUSINESS.calendlyUrl}
-              data-calendly-popup="appointment"
+              data-calendly-popup="page"
               className="font-semibold text-[#d8c58e] underline-offset-2 hover:underline"
             >
               Schedule time with me

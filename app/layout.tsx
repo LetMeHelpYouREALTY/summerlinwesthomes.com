@@ -9,6 +9,8 @@ import GlobalRouteFaq from '@/components/seo/global-route-faq';
 import BreadcrumbTrail from '@/components/seo/breadcrumb-trail';
 import SiteHeader from '@/components/site-header';
 import SiteFooter from '@/components/site-footer';
+import CalendlyAfterListings from '@/components/calendly-after-listings';
+import CalendlyClient from '@/components/calendly-client';
 import LocalBusinessJsonLd from '@/components/gbp/local-business-jsonld';
 import SectionImage from '@/components/media/section-image';
 import './globals.css';
@@ -24,6 +26,8 @@ declare global {
         branding: boolean;
       }) => void;
       initPopupWidget: (options: { url: string }) => void;
+      initInlineWidget: (options: { url: string; parentElement: HTMLElement }) => void;
+      destroyBadgeWidget?: () => void;
     };
   }
 }
@@ -211,38 +215,7 @@ export default function RootLayout({
           type="text/javascript"
           async
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function () {
-                function initCalendlyWidgets() {
-                  if (!window.Calendly) return;
-                  window.Calendly.initBadgeWidget({
-                    url: 'https://calendly.com/drjanduffy/appointment',
-                    text: 'Schedule time with me',
-                    color: '#0069ff',
-                    textColor: '#ffffff',
-                    branding: false
-                  });
-                  document.querySelectorAll('[data-calendly-popup="appointment"]').forEach(function (el) {
-                    if (el.dataset.calendlyBound === 'true') return;
-                    el.dataset.calendlyBound = 'true';
-                    el.addEventListener('click', function (event) {
-                      event.preventDefault();
-                      if (window.Calendly) {
-                        window.Calendly.initPopupWidget({
-                          url: 'https://calendly.com/drjanduffy/appointment'
-                        });
-                      }
-                    });
-                  });
-                }
-                window.addEventListener('load', initCalendlyWidgets);
-                setTimeout(initCalendlyWidgets, 1500);
-              })();
-            `,
-          }}
-        />
+        <CalendlyClient />
         <LocalBusinessJsonLd />
         <SiteHeader />
         <BreadcrumbTrail />
@@ -266,6 +239,7 @@ export default function RootLayout({
                   `<realscout-office-listings agent-encoded-id="${BUSINESS.realScoutAgentId}" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="500000" price-max="650000"></realscout-office-listings>`,
               }}
             />
+            <CalendlyAfterListings />
           </div>
         </section>
         <GlobalRouteFaq />

@@ -749,6 +749,7 @@ export default function BuyingGuidePage() {
         />
       </div>
       <CalendlyInlineSection
+        intent="buyer"
         title="Book a Buyer Strategy Call"
         description="Review your goals, timeline, and financing options with Dr. Jan Duffy."
       />

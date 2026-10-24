@@ -39,7 +39,7 @@ const RESOURCES_NAV = [
   { href: '/about', label: 'About' },
 ] as const;
 
-const CALENDLY_APPOINTMENT = BUSINESS.calendlyUrl;
+const CALENDLY_TOUR = BUSINESS.calendlyUrl;
 const SITE_PHONE_DISPLAY = BUSINESS.phoneDisplay;
 const SITE_PHONE_TEL = telHref();
 
@@ -290,8 +290,8 @@ export default function SiteHeader() {
                 </span>
               </a>
               <a
-                href={CALENDLY_APPOINTMENT}
-                data-calendly-popup="appointment"
+                href={CALENDLY_TOUR}
+                data-calendly-popup="page"
                 className="rounded-lg px-4 py-2 text-sm font-semibold text-[color:var(--hdr-navy)] shadow-md transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 xl:text-base"
                 style={{
                   backgroundColor: brand.gold,
@@ -425,8 +425,8 @@ export default function SiteHeader() {
               {SITE_PHONE_DISPLAY}
             </a>
             <a
-              href={CALENDLY_APPOINTMENT}
-              data-calendly-popup="appointment"
+              href={CALENDLY_TOUR}
+              data-calendly-popup="page"
               className="flex w-full items-center justify-center rounded-xl py-3.5 text-base font-semibold text-[color:var(--hdr-navy)] transition-transform active:scale-[0.98]"
               style={{ backgroundColor: brand.gold }}
             >

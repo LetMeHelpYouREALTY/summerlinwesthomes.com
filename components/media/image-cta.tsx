@@ -74,7 +74,7 @@ function CtaAnchor({
           ? { target: '_blank', rel: 'noopener noreferrer' }
           : {})}
         {...(link.href.includes('calendly.com')
-          ? { 'data-calendly-popup': 'appointment' }
+          ? { 'data-calendly-popup': 'page' }
           : {})}
       >
         {link.label}
