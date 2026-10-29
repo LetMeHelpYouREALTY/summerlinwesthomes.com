@@ -248,6 +248,17 @@ export default function RootLayout({
         {/* Vercel Analytics and Performance Monitoring */}
         <Analytics />
         <SpeedInsights />
+        {/* Cloudflare Web Analytics (cookie-free; works without the Cloudflare proxy) */}
+        <Script
+          id="cf-web-analytics"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          strategy="afterInteractive"
+          data-cf-beacon={JSON.stringify({
+            token:
+              process.env.NEXT_PUBLIC_CF_WEB_ANALYTICS_TOKEN?.trim() ||
+              'b0f528382e16497dbb2b6e14511e010d',
+          })}
+        />
         <Script src="/ads-conversions.js" strategy="afterInteractive" />
       </body>
     </html>
