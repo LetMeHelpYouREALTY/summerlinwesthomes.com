@@ -4,6 +4,7 @@ import {
   validateContactPayload,
 } from '@/lib/fub/send-event';
 import { BUSINESS } from '@/lib/business';
+import { verifyTurnstileToken } from '@/lib/turnstile';
 
 function resolveSourceUrl(
   request: NextRequest,
@@ -36,6 +37,19 @@ export async function POST(request: NextRequest) {
     body = await request.json();
   } catch {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 });
+  }
+
+  const turnstile = await verifyTurnstileToken(
+    (body as { turnstileToken?: unknown } | null)?.turnstileToken,
+    request.headers.get('x-real-ip') ??
+      request.headers.get('x-forwarded-for')?.split(',')[0]?.trim(),
+  );
+  if (!turnstile.ok) {
+    console.warn(`Turnstile check failed: ${turnstile.reason}`);
+    return NextResponse.json(
+      { error: 'Please refresh the page and try again' },
+      { status: 403 },
+    );
   }
 
   const validated = validateContactPayload(body);
