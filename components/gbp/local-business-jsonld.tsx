@@ -4,21 +4,6 @@ import { imageSrc } from '@/lib/images';
 
 export default function LocalBusinessJsonLd() {
   const siteUrl = getSiteUrl();
-  const aggregateRatingValue =
-    process.env.NEXT_PUBLIC_GBP_AGGREGATE_RATING_VALUE?.trim();
-  const aggregateRatingCount =
-    process.env.NEXT_PUBLIC_GBP_AGGREGATE_RATING_COUNT?.trim();
-  const aggregateRatingBest =
-    process.env.NEXT_PUBLIC_GBP_AGGREGATE_RATING_BEST?.trim() ?? '5';
-  const aggregateRating =
-    aggregateRatingValue && aggregateRatingCount
-      ? {
-          '@type': 'AggregateRating',
-          ratingValue: aggregateRatingValue,
-          reviewCount: aggregateRatingCount,
-          bestRating: aggregateRatingBest,
-        }
-      : undefined;
 
   const localBusiness = {
     '@context': 'https://schema.org',
@@ -70,7 +55,6 @@ export default function LocalBusinessJsonLd() {
     priceRange: BUSINESS.priceRange,
     currenciesAccepted: 'USD',
     sameAs: [BUSINESS.mapsUri, BUSINESS.reviewsUri],
-    ...(aggregateRating ? { aggregateRating } : {}),
   };
 
   const website = {
