@@ -25,8 +25,7 @@ export default function AboutSection() {
 
           <div className="prose prose-lg mx-auto text-gray-600">
             <p className="mb-6">
-              {BUSINESS.agentName}, Top 1% Las Vegas REALTOR®, in real estate
-              since 1983.
+              {BUSINESS.agentName}, Las Vegas REALTOR®, licensed since 2008 · 35 years in Las Vegas.
             </p>
             <p className="mb-6">
               Summerlin West is the western portion of the Summerlin master plan,

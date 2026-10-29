@@ -27,7 +27,7 @@ const FAQ_BY_ROUTE: Record<string, FaqItem[]> = {
     {
       question: 'Who is the listing agent for Summerlin West Homes?',
       answer:
-        'Dr. Jan Duffy, REALTOR®, in real estate since 1983. The Google Business Profile lists Summerlin Real Estate | Homes by Dr. Jan Duffy.',
+        'Dr. Jan Duffy, REALTOR®, licensed since 2008 · 35 years in Las Vegas. The Google Business Profile lists Summerlin Real Estate | Homes by Dr. Jan Duffy.',
     },
     {
       question: 'Where is the Summerlin West office?',
