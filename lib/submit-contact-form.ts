@@ -26,6 +26,7 @@ type SubmitContactFormArgs = {
   type: FubInquiryType;
   fields: SellerLeadFormFields;
   sourceUrl?: string;
+  turnstileToken?: string;
 };
 
 export async function submitContactForm({
@@ -33,6 +34,7 @@ export async function submitContactForm({
   type,
   fields,
   sourceUrl,
+  turnstileToken,
 }: SubmitContactFormArgs): Promise<{ ok: true } | { ok: false; error: string }> {
   const response = await fetch('/api/contact', {
     method: 'POST',
@@ -42,6 +44,7 @@ export async function submitContactForm({
       formName,
       type,
       sourceUrl: sourceUrl ?? (typeof window !== 'undefined' ? window.location.href : ''),
+      turnstileToken,
     }),
   });
 
