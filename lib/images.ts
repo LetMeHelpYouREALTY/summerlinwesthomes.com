@@ -450,7 +450,7 @@ export const SITE_IMAGES: Record<SiteImageId, SiteImageMeta> = {
   },
   'og-default': {
     id: 'og-default',
-    heading: 'Summerlin Real Estate | Homes by Dr. Jan Duffy',
+    heading: 'Summerlin Real Estate',
     alt: 'Luxury Summerlin West homes against Red Rock Canyon at sunset',
     localPath: '/images/og-image-summerlin-west-homes.jpg',
     width: 1200,

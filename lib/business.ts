@@ -1,18 +1,18 @@
 /**
  * Single source of truth for Google Business Profile NAP.
  * Pulled from GBP Business Information API on 2026-09-14 for
- * location "Summerlin Real Estate | Homes by Dr. Jan Duffy"
+ * location "Summerlin Real Estate"
  * (website https://www.summerlinwesthomes.com/).
  * Visible NAP, JSON-LD, and CTAs must stay character-consistent with this file.
  */
 export const BUSINESS = {
-  gbpTitle: 'Summerlin Real Estate | Homes by Dr. Jan Duffy',
+  gbpTitle: 'Summerlin Real Estate',
   shortName: 'Summerlin West Homes',
   agentName: 'Dr. Jan Duffy',
   brokerage: 'Berkshire Hathaway HomeServices Nevada Properties',
   license: 'S.0197614.LLC',
   description:
-    'Summerlin Real Estate | Homes by Dr. Jan Duffy serves buyers, sellers, and investors across Summerlin, Las Vegas, Henderson, and Clark County. Services include luxury residential home sales, buyer representation, new construction sales, 55+ active adult community sales, investment property consulting, divorce and probate real estate, and relocation services. Specializing in The Ridges, Summerlin West, Red Rock Country Club, Sun City, and Del Webb communities.',
+    'Summerlin Real Estate serves buyers, sellers, and investors across Summerlin, Las Vegas, Henderson, and Clark County. Services include luxury residential home sales, buyer representation, new construction sales, 55+ active adult community sales, investment property consulting, divorce and probate real estate, and relocation services. Specializing in The Ridges, Summerlin West, Red Rock Country Club, Sun City, and Del Webb communities.',
   streetAddress: '10777 W Twain Ave #333',
   addressLocality: 'Las Vegas',
   addressRegion: 'NV',
