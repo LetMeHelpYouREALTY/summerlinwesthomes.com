@@ -6,6 +6,7 @@ import PageHero from '@/components/media/page-hero';
 import SectionImage from '@/components/media/section-image';
 import ImageCta from '@/components/media/image-cta';
 import HeadingPhotoGrid from '@/components/media/heading-photo-grid';
+import FeaturedListingSpotlight from '@/components/listings/featured-listing-spotlight';
 
 export default function ListingsPage() {
   const agentId = 'QWdlbnQtMjI1MDUw';
@@ -18,6 +19,9 @@ export default function ListingsPage() {
         subtitle="Browse homes for sale in Summerlin and wider Las Vegas MLS inventory. Compare live listings before you tour."
       />
       <div className="container mx-auto px-4 py-8">
+        <div className="mb-12">
+          <FeaturedListingSpotlight />
+        </div>
 
         {/* RealScout Home Value Widget Section */}
         <div className="mb-12">

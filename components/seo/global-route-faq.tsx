@@ -230,6 +230,28 @@ const FAQ_BY_ROUTE: Record<string, FaqItem[]> = {
         'Yes. The listings feed prioritizes recent inventory so you can review new opportunities first.',
     },
   ],
+  '/listings/894-heritage-bend-drive': [
+    {
+      question: 'What is the price of 894 Heritage Bend Drive?',
+      answer:
+        'The active list price is $539,888, or $437 per square foot, for 1,234 square feet. MLS number 2825123. Confirm the price before you tour.',
+    },
+    {
+      question: 'When is the open house at 894 Heritage Bend Drive?',
+      answer:
+        'Saturday, October 10, 2026, 12:00–2:00 PM PT, and Sunday, October 11, 2026, 10:00 AM–12:00 PM PT. Call (702) 842-0410 to schedule a private showing.',
+    },
+    {
+      question: 'What is the HOA fee at 894 Heritage Bend Drive?',
+      answer:
+        'MLS lists a Heritage Heights association fee of $350 monthly and an association fee total of $419 monthly. Confirm the current amount in the resale package.',
+    },
+    {
+      question: 'Is Heritage at Stonebridge age-restricted?',
+      answer:
+        'Yes. Heritage at Stonebridge is listed as a guard-gated, 55+ age-restricted community in Summerlin West. Confirm occupancy rules with the association before you write an offer.',
+    },
+  ],
 };
 
 export default function GlobalRouteFaq() {

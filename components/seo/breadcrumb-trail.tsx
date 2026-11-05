@@ -12,6 +12,7 @@ const LABELS: Record<string, string> = {
   '/buying-guide': 'Buying guide',
   '/home-valuation': 'Home value',
   '/listings': 'Listings',
+  '/listings/894-heritage-bend-drive': '894 Heritage Bend Drive',
   '/market-data': 'Market data',
   '/mortgage-calculator': 'Mortgage calculator',
   '/properties/search': 'Search homes',
@@ -24,16 +25,33 @@ const LABELS: Record<string, string> = {
   '/villages': 'Villages',
 };
 
+function buildCrumbs(pathname: string): Array<{ href: string; label: string }> {
+  if (pathname === '/') {
+    return [{ href: '/', label: LABELS['/'] ?? 'Summerlin West Homes' }];
+  }
+
+  const crumbs: Array<{ href: string; label: string }> = [
+    { href: '/', label: LABELS['/'] ?? 'Summerlin West Homes' },
+  ];
+  const segments = pathname.split('/').filter(Boolean);
+  let href = '';
+
+  for (const segment of segments) {
+    href += `/${segment}`;
+    const known = LABELS[href];
+    crumbs.push({
+      href,
+      label: known ?? segment.replace(/-/g, ' '),
+    });
+  }
+
+  return crumbs;
+}
+
 export default function BreadcrumbTrail() {
   const pathname = usePathname() || '/';
   const siteUrl = getSiteUrl();
-  const crumbs =
-    pathname === '/'
-      ? [{ href: '/', label: LABELS['/'] }]
-      : [
-          { href: '/', label: LABELS['/'] },
-          { href: pathname, label: LABELS[pathname] ?? pathname.replace(/\//g, ' ').trim() },
-        ];
+  const crumbs = buildCrumbs(pathname);
 
   const jsonLd = {
     '@context': 'https://schema.org',
