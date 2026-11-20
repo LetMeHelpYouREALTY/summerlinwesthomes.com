@@ -23,7 +23,7 @@ export default function SellYourHomePage() {
             </h2>
             <SectionImage
               imageId="h3-cma-review"
-              caption="Ask for a village-level CMA before you set a Summerlin West list price."
+              caption="Ask for a price review based on recent sales in your village before you set a Summerlin West list price."
               className="mb-6"
             />
             <p className="text-lg text-gray-600">
@@ -156,7 +156,7 @@ export default function SellYourHomePage() {
                     {
                       imageId: 'h3-kitchen',
                       heading: 'Pricing from live comps',
-                      text: 'Ask for a village-level CMA. Do not use website averages to set a list price.',
+                      text: 'Ask for a price review based on recent sales in your village. Do not use website averages to set a list price.',
                     },
                     {
                       imageId: 'h3-entry',
@@ -192,7 +192,7 @@ export default function SellYourHomePage() {
                     {
                       imageId: 'hero-market',
                       heading: '2. Market analysis',
-                      text: 'Get a CMA tied to live MLS comps for your village — not a website average.',
+                      text: 'Get a price review tied to recent nearby sales for your village — not a website average.',
                     },
                     {
                       imageId: 'h3-staging',
@@ -224,7 +224,7 @@ export default function SellYourHomePage() {
                     {
                       imageId: 'h3-sold-home',
                       heading: 'Price from live comps',
-                      text: 'Ask for a CMA. Website averages are not current MLS statistics.',
+                      text: 'Ask for a price review. Website averages are not current MLS statistics.',
                     },
                     {
                       imageId: 'h3-cma-review',
@@ -249,7 +249,7 @@ export default function SellYourHomePage() {
               <ImageCta
                 imageId="hero-sell"
                 title="Ready to list your Summerlin West home?"
-                subtitle="Call (702) 842-0410 or book a seller consultation. GBP does not list a public email."
+                subtitle="Call (702) 842-0410 or book a seller consultation."
                 primary={{ href: 'tel:+17028420410', label: 'Call (702) 842-0410' }}
               />
             </div>

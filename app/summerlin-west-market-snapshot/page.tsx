@@ -18,7 +18,7 @@ const faqItems = [
   {
     question: 'Are new homes in Summerlin West different from resale inventory?',
     answer:
-      'Yes. New construction may offer builder incentives and modern plans, while resale homes can offer mature landscaping, established streets, and broader price variation.',
+      'Yes. New construction may offer builder incentives and modern plans, while resale homes can offer mature landscaping, built-out streets, and broader price variation.',
   },
 ];
 
@@ -41,7 +41,7 @@ export default function SummerlinWestMarketSnapshotPage() {
       <PageHero
         imageId="hero-market"
         title="Las Vegas Homes for Sale — Summerlin West Market Snapshot"
-        subtitle="A practical local snapshot tied to live listing behavior. Call for a current CMA — do not treat sample figures as MLS statistics."
+        subtitle="A practical local snapshot tied to live listing behavior. Call for a current price review — do not treat sample figures as MLS statistics."
       />
       <section className="container mx-auto px-4 py-12">
         <script
@@ -52,7 +52,7 @@ export default function SummerlinWestMarketSnapshotPage() {
         />
         <SectionImage
           imageId="section-luxury-interior"
-          caption="Use live MLS widgets and a CMA from Dr. Jan Duffy before you price an offer."
+          caption="Use live listings and a price review from Dr. Jan Duffy before you price an offer."
           className="mb-10"
         />
 
@@ -72,7 +72,7 @@ export default function SummerlinWestMarketSnapshotPage() {
             {
               imageId: 'h3-kitchen',
               heading: 'Pricing pressure on homes for sale in Summerlin',
-              text: 'Compare list-price movement and recent closes. Ask for a CMA before you price an offer.',
+              text: 'Compare list-price movement and recent closes. Ask for a price review before you price an offer.',
             },
             {
               imageId: 'h3-village-street',
@@ -88,7 +88,7 @@ export default function SummerlinWestMarketSnapshotPage() {
           </h2>
           <SectionImage
             imageId="hero-market"
-            caption="Use live listings and a CMA — not website sample stats — to read Summerlin West pricing."
+            caption="Use live listings and a price review — not website sample stats — to read Summerlin West pricing."
             className="mb-4"
           />
           <p className="text-gray-700">
@@ -104,13 +104,13 @@ export default function SummerlinWestMarketSnapshotPage() {
           </h2>
           <SectionImage
             imageId="section-new-construction"
-            caption="Compare newer villages with established resale streets before you tour."
+            caption="Compare newer villages with built-out resale streets before you tour."
             className="mb-4"
           />
           <p className="text-gray-700">
             Compare base pricing, lot premiums, HOA structure, and total monthly
             carrying cost. This gives a clearer apples-to-apples view between new
-            homes in Summerlin West Las Vegas and established resale options.
+            homes in Summerlin West Las Vegas and resale options.
           </p>
         </div>
 
@@ -134,11 +134,11 @@ export default function SummerlinWestMarketSnapshotPage() {
           </h2>
           <SectionImage
             imageId="hero-listings"
-            caption="Pair this snapshot with live RealScout inventory before you tour."
+            caption="Pair this snapshot with live listings before you tour."
             className="mb-4"
           />
           <p className="mb-5 text-gray-600">
-            Pair this snapshot with live RealScout inventory to confirm pricing
+            Pair this snapshot with live listings to confirm pricing
             and inventory conditions before choosing next steps.
           </p>
           <div className="flex flex-wrap gap-3">
@@ -159,7 +159,7 @@ export default function SummerlinWestMarketSnapshotPage() {
       </section>
       <ImageCta
         imageId="hero-market"
-        title="Get a current Summerlin West CMA"
+        title="Get a current Summerlin West price review"
         subtitle="This snapshot is a planning guide. Call (702) 842-0410 for live pricing tied to MLS."
         primary={{ href: '/properties/search', label: 'Search listings' }}
       />

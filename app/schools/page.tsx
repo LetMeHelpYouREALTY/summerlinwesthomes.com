@@ -100,14 +100,13 @@ export default function SchoolsPage() {
     },
     {
       name: 'Faith Lutheran Middle & High School',
-      type: 'Private Christian School',
+      type: 'Private School',
       grade: '6-12',
       imageId: 'hero-schools' as SiteImageId,
       address: '2015 S Hualapai Way, Las Vegas, NV 89117',
       distance: '3.2 miles',
       enrollment: 'Confirm on campus website',
       features: [
-        'Christian Education',
         'College Preparatory',
         'Advanced Placement',
         'Fine Arts Programs',

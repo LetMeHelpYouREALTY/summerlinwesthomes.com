@@ -618,7 +618,7 @@ export default function MortgageCalculatorPage() {
                 <p className="mb-6 text-gray-700">
                   Payment math here is an estimate from the inputs you enter.
                   Ask your lender for current rates, taxes, HOA dues, and
-                  insurance. Call {BUSINESS.phoneDisplay} for a village-level CMA.
+                  insurance. Call {BUSINESS.phoneDisplay} for a price review based on recent sales in your village.
                 </p>
                 <a
                   href={telHref()}
@@ -634,7 +634,7 @@ export default function MortgageCalculatorPage() {
       <ImageCta
         imageId="hero-mortgage"
         title="Want a payment plan that matches a real listing?"
-        subtitle="Call (702) 842-0410. Pair this calculator with a lender quote and a village-level CMA."
+        subtitle="Call (702) 842-0410. Pair this calculator with a lender quote and a price review based on recent sales in your village."
         primary={{ href: telHref(), label: `Call ${BUSINESS.phoneDisplay}` }}
       />
     </div>

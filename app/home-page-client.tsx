@@ -152,12 +152,12 @@ function HomeValueWidget() {
             Las Vegas Homes: What&apos;s Your Summerlin West Worth?
           </h2>
           <p className="mb-8 text-lg text-gray-600">
-            Get an instant, accurate estimate of your Summerlin West
+            Get an instant estimate of your Summerlin West
             property&apos;s current market value
           </p>
           <SectionImage
             imageId="hero-valuation"
-            caption="Ask for a village-level CMA before you price a Summerlin West home."
+            caption="Ask for a price review based on recent sales in your village before you price a Summerlin West home."
             className="mb-8"
           />
         </div>
@@ -174,7 +174,7 @@ function HomeValueWidget() {
 
         <div className="mt-8 text-center">
           <p className="mb-4 text-sm text-gray-500">
-            Powered by RealScout&apos;s advanced market analysis technology
+            Free, instant estimate
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -320,12 +320,11 @@ function RealScoutSearchEmbed() {
           </h2>
           <SectionImage
             imageId="hero-listings"
-            caption="Browse real estate listings in Las Vegas with live MLS feeds through RealScout."
+            caption="Browse live Las Vegas real estate listings."
             className="mx-auto mb-6 max-w-4xl"
           />
           <p className="mx-auto max-w-2xl text-gray-600">
-            Browse real estate listings in Las Vegas with live MLS feeds through
-            RealScout.
+            Browse live Las Vegas real estate listings.
           </p>
         </div>
 

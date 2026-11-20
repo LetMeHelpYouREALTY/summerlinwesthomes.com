@@ -12,7 +12,7 @@ export default function HomeValuationPage() {
       <PageHero
         imageId="hero-valuation"
         title="Las Vegas Homes — Summerlin West Value & Pricing"
-        subtitle="Professional valuation context before you list or buy. Live estimates plus a CMA from Dr. Jan Duffy."
+        subtitle="Professional valuation context before you list or buy. Live estimates plus a price review from Dr. Jan Duffy."
       />
 
       {/* RealScout Home Value Widget Section */}
@@ -24,12 +24,12 @@ export default function HomeValuationPage() {
             </h2>
             <SectionImage
               imageId="h3-cma-review"
-              caption="Pair the live estimate with a CMA from Dr. Jan Duffy before you list or buy."
+              caption="Pair the live estimate with a price review from Dr. Jan Duffy before you list or buy."
               className="mb-8"
             />
             <p className="mb-8 text-lg text-gray-600">
               Get an accurate, data-driven estimate of your home&apos;s current
-              market value using our advanced RealScout technology
+              market value
             </p>
           </div>
 
@@ -174,7 +174,7 @@ export default function HomeValuationPage() {
                 {
                   imageId: 'hero-market',
                   heading: 'Current listing context',
-                  text: 'Pair the live estimate with a CMA from Dr. Jan Duffy before you price a sale or offer.',
+                  text: 'Pair the live estimate with a price review from Dr. Jan Duffy before you price a sale or offer.',
                 },
                 {
                   imageId: 'h3-entry',
@@ -190,7 +190,7 @@ export default function HomeValuationPage() {
       <ImageCta
         imageId="hero-valuation"
         title="Ready to review your Summerlin West home value?"
-        subtitle="Book a listing consultation above or call (702) 842-0410. GBP does not list a public email."
+        subtitle="Book a listing consultation above or call (702) 842-0410."
         primary={{ href: 'tel:+17028420410', label: 'Call (702) 842-0410' }}
       />
     </div>

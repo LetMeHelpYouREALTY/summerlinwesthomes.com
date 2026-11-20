@@ -95,7 +95,7 @@ export default function AmenitiesPage() {
       address: '1000 Ridges Pkwy, Las Vegas, NV 89135',
       distance: '1.5 miles',
       description:
-        'Exclusive private golf club with championship course and luxury amenities',
+        'Private golf club with a championship course and clubhouse amenities',
       features: [
         'Private 18-hole Course',
         'Clubhouse & Dining',
@@ -175,7 +175,7 @@ export default function AmenitiesPage() {
       address: '2000 Summit Club Dr, Las Vegas, NV 89135',
       distance: '2.4 miles',
       description:
-        'Exclusive fine dining experience with panoramic views and gourmet cuisine',
+        'Fine dining with panoramic views',
       features: [
         'Gourmet Cuisine',
         'Wine Cellar',

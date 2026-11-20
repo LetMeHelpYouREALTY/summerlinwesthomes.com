@@ -59,7 +59,7 @@ export default function BuyingGuidePage() {
       title: 'Start Your Search',
       description: 'Use our advanced search tools and expert guidance',
       details: [
-        'Browse available properties with RealScout integration',
+        'Browse available homes with live listing search',
         'Set up property alerts for new listings',
         'Schedule viewings of promising properties',
         'Compare properties side-by-side',
@@ -369,7 +369,7 @@ export default function BuyingGuidePage() {
                     {
                       imageId: 'hero-search',
                       heading: '3. Search live MLS',
-                      text: 'Use RealScout inventory, then call (702) 842-0410 to schedule showings.',
+                      text: 'Shortlist live listings, then call (702) 842-0410 to schedule showings.',
                     },
                     {
                       imageId: 'h3-showing',
@@ -401,7 +401,7 @@ export default function BuyingGuidePage() {
                     {
                       imageId: 'h3-sold-home',
                       heading: 'Price from live comps',
-                      text: 'Do not use a website average. Ask for a village-level CMA before you write an offer.',
+                      text: 'Do not use a website average. Ask for a price review based on recent sales in your village before you write an offer.',
                     },
                     {
                       imageId: 'h3-cma-review',
@@ -464,7 +464,7 @@ export default function BuyingGuidePage() {
                     items={[
                       {
                         imageId: 'hero-search',
-                        heading: 'RealScout MLS integration',
+                        heading: 'Live listing search',
                         text: 'Search live Summerlin West inventory before you tour.',
                       },
                       {
