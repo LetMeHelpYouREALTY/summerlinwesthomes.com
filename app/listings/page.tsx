@@ -133,7 +133,7 @@ export default function ListingsPage() {
               Las Vegas Homes for Sale — Live Inventory
             </h2>
             <p className="text-gray-600">
-              Powered by RealScout MLS integration - showing real-time property
+              Live listings showing real-time property
               data
             </p>
           </div>

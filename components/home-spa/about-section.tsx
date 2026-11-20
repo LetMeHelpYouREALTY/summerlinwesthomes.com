@@ -72,12 +72,12 @@ export default function AboutSection() {
             </h3>
             <SectionImage
               imageId="h3-showing"
-              caption="Preview live Summerlin West inventory before you dive into the full MLS feed."
+              caption="Preview live Summerlin West homes before you browse every listing."
               className="mx-auto mb-6 max-w-4xl"
             />
             <p className="mx-auto max-w-2xl text-gray-600">
               Preview curated Las Vegas homes for sale before you dive into the
-              full MLS-powered inventory.
+              full live inventory.
             </p>
           </div>
           <div className="mx-auto max-w-6xl rounded-xl bg-white p-8 shadow-xl">

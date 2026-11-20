@@ -13,15 +13,15 @@ export default function MarketDataPage() {
       <PageHero
         imageId="hero-market"
         title="Las Vegas Homes & Summerlin West Market Data"
-        subtitle="Use live MLS widgets for current inventory. Call for a CMA — this page does not publish invented averages."
+        subtitle="Use the live home search for current inventory. Call for a price review based on recent sales. This page does not publish invented averages."
       >
         <div className="flex flex-wrap justify-center gap-4 text-sm">
           <span className="rounded-full bg-white/20 px-4 py-2">Live MLS search</span>
-          <span className="rounded-full bg-white/20 px-4 py-2">Ask for a CMA</span>
+          <span className="rounded-full bg-white/20 px-4 py-2">Ask for a price review</span>
         </div>
       </PageHero>
       <p className="mx-auto max-w-4xl px-4 py-4 text-center text-sm text-amber-900">
-        Use live MLS widgets and a CMA from Dr. Jan Duffy. This page does not
+        Use the live home search and a price review from Dr. Jan Duffy. This page does not
         publish sample averages, invented prices, or fabricated closings.
       </p>
 
@@ -34,11 +34,11 @@ export default function MarketDataPage() {
             </h2>
             <SectionImage
               imageId="h3-cma-review"
-              caption="Ask for a village-level CMA. Do not use a website average to price an offer."
+              caption="Ask for a price review based on recent sales in your village. Do not use a website average to price an offer."
               className="mb-8"
             />
             <p className="text-lg text-gray-600 mb-8">
-              Get instant property value estimates with our advanced RealScout technology
+              Get an instant home value estimate
             </p>
           </div>
           
@@ -59,11 +59,11 @@ export default function MarketDataPage() {
           </h3>
           <SectionImage
             imageId="hero-search"
-            caption="Pair live Summerlin West listings with a CMA before you tour."
+            caption="Pair live Summerlin West listings with a price review before you tour."
             className="mx-auto mb-8 max-w-4xl"
           />
           <p className="text-lg text-gray-600 mb-8">
-            Pair homes for sale in Las Vegas with a village-level CMA.
+            Pair homes for sale in Las Vegas with a price review based on recent sales in your village.
           </p>
           <div className="flex justify-center">
             <div
@@ -137,12 +137,12 @@ export default function MarketDataPage() {
               {
                 imageId: 'h3-sold-home',
                 heading: 'Active inventory',
-                text: 'Count live listings by village on RealScout. Website averages are not MLS statistics.',
+                text: 'Count live listings by village. Website averages are not official sales statistics.',
               },
               {
                 imageId: 'h3-cma-review',
                 heading: 'Price from comps',
-                text: 'Ask Dr. Jan Duffy for a CMA. Call (702) 842-0410 before you price an offer or a listing.',
+                text: 'Ask Dr. Jan Duffy for a price review. Call (702) 842-0410 before you price an offer or a listing.',
               },
               {
                 imageId: 'h3-showing',
@@ -175,11 +175,11 @@ export default function MarketDataPage() {
               {
                 imageId: 'hero-market',
                 heading: 'Village-level comps',
-                text: 'The Ridges, The Paseos, and The Crossing each close on different terms. Confirm on a CMA.',
+                text: 'The Ridges, The Paseos, and The Crossing each close on different terms. Confirm with a price review.',
               },
               {
                 imageId: 'h3-consultation',
-                heading: 'Ask for a CMA',
+                heading: 'Ask for a price review',
                 text: 'Call (702) 842-0410 for current sold comps tied to the village you want to tour.',
               },
             ]}
@@ -261,10 +261,7 @@ export default function MarketDataPage() {
                       portions only)
                     </li>
                     <li>
-                      <strong>Total Area:</strong> 22,500 acres
-                    </li>
-                    <li>
-                      <strong>Villages:</strong> 10 unique communities
+                      <strong>Part of:</strong> 22,500-acre Summerlin
                     </li>
                     <li>
                       <strong>Excluded:</strong> Spanish Trail, Queensridge,
@@ -280,7 +277,7 @@ export default function MarketDataPage() {
 
       <ImageCta
         imageId="hero-market"
-        title="Need a village-level CMA for Summerlin West?"
+        title="Need a price review for your Summerlin West village?"
         subtitle="Call (702) 842-0410 for a current comparative market analysis tied to live MLS."
         primary={{ href: '/properties/search', label: 'Search live listings' }}
       />
@@ -294,7 +291,7 @@ export default function MarketDataPage() {
             </h3>
             <SectionImage
               imageId="hero-listings"
-              caption="Live RealScout MLS inventory — not sample figures."
+              caption="Live listings, not sample figures."
               className="mx-auto mb-6 max-w-4xl"
             />
             <p className="mx-auto max-w-2xl text-gray-600">

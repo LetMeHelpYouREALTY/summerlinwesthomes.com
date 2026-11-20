@@ -23,7 +23,7 @@ const villageRows = [
   },
   {
     name: 'The Vistas',
-    fit: 'Established village with strong amenities',
+    fit: 'Fully built village with strong amenities',
     bestFor: 'Buyers prioritizing parks, trails, and commute windows',
   },
   {
@@ -81,7 +81,7 @@ export default function SummerlinWestVillagesComparisonPage() {
         />
         <SectionImage
           imageId="section-new-construction"
-          caption="Compare newer Summerlin West villages with established streets before you tour."
+          caption="Compare newer Summerlin West villages with built-out streets before you tour."
           className="mb-10"
         />
 

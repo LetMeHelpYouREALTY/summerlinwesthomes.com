@@ -13,7 +13,7 @@ const FALLBACK_FAQ: FaqItem[] = [
   {
     question: 'Where can I search Summerlin West homes for sale right now?',
     answer:
-      'Use the live RealScout search tools on this site to browse active Summerlin West listings by budget, beds, and village.',
+      'Use the live home search on this site to browse active Summerlin West listings by budget, beds, and village.',
   },
   {
     question: 'Is Summerlin West part of Las Vegas, Nevada?',
@@ -39,7 +39,7 @@ const FAQ_BY_ROUTE: Record<string, FaqItem[]> = {
     {
       question: 'Are there homes for sale in Summerlin West Las Vegas today?',
       answer:
-        'Yes. Inventory updates throughout the day, and this site shows live Summerlin West listings through RealScout search widgets.',
+        'Yes. Inventory updates throughout the day, and this site shows live Summerlin West listings.',
     },
     {
       question: 'What price ranges are common in Summerlin West?',
@@ -222,7 +222,7 @@ const FAQ_BY_ROUTE: Record<string, FaqItem[]> = {
     {
       question: 'Are these Summerlin West listings updated in real time?',
       answer:
-        'Listings refresh through RealScout integrations and may change quickly as homes go pending, so frequent checks are recommended.',
+        'Listings refresh throughout the day and may change quickly as homes go pending, so check back often.',
     },
     {
       question: 'Can I sort listings by newest inventory first?',

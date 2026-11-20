@@ -63,10 +63,7 @@ export default function VillagesPage() {
                     <strong>Partial Zip:</strong> 89138
                   </li>
                   <li>
-                    <strong>Total Area:</strong> 22,500 acres
-                  </li>
-                  <li>
-                    <strong>Villages:</strong> 10 unique communities
+                    <strong>Part of:</strong> 22,500-acre Summerlin
                   </li>
                 </ul>
               </div>
@@ -217,11 +214,11 @@ export default function VillagesPage() {
             </h2>
             <SectionImage
               imageId="h3-village-park"
-              caption="Browse live village inventory powered by RealScout MLS data."
+              caption="Browse live homes for sale in every Summerlin West village."
               className="mx-auto mb-6 max-w-4xl"
             />
             <p className="mx-auto max-w-2xl text-gray-600">
-              Browse live village inventory powered by RealScout MLS data.
+              Browse live homes for sale in every Summerlin West village.
             </p>
           </div>
 

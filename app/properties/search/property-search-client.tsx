@@ -476,11 +476,11 @@ export default function PropertySearchPage() {
               </h2>
               <SectionImage
                 imageId="hero-listings"
-                caption="Live Las Vegas real estate listings via RealScout MLS data."
+                caption="Live Las Vegas real estate listings."
                 className="mb-4 max-w-3xl"
               />
               <p className="text-gray-600">
-                Live Las Vegas real estate listings via RealScout MLS data
+                Live Las Vegas real estate listings
               </p>
             </div>
 
@@ -491,7 +491,7 @@ export default function PropertySearchPage() {
               </div>
               <div className="text-sm text-gray-500">
                 <DollarSign className="mr-1 inline-block h-4 w-4" />
-                MLS Powered
+                Live listings
               </div>
             </div>
           </div>
@@ -514,11 +514,11 @@ export default function PropertySearchPage() {
         <div className="container mx-auto px-4">
           <div className="mb-8 text-center">
             <h3 className="mb-4 text-3xl font-bold">
-              Homes for Sale in Las Vegas — Additional MLS Bands
+              Homes for Sale in Las Vegas — More Price Ranges
             </h3>
             <SectionImage
               imageId="hero-listings"
-              caption="Browse additional live MLS price bands for Summerlin West."
+              caption="Browse more live price ranges for Summerlin West."
               className="mx-auto mb-6 max-w-4xl"
             />
             <p className="mx-auto max-w-2xl text-gray-600">
