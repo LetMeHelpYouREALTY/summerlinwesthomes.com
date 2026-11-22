@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CalendarDays, Phone, Search, Star } from 'lucide-react';
-import CalendlyAfterListings from '@/components/calendly-after-listings';
 import { BUSINESS, formattedAddress, telHref } from '@/lib/business';
 import { calendlyUrlFor } from '@/lib/calendly';
 import { imageMeta, imageSrc } from '@/lib/images';
@@ -38,7 +37,6 @@ export default function SummerlinWestHomes() {
       <HeroSection />
       <TrackRecord />
       <TwoPaths />
-      <ListingsNow />
       <Villages />
       <MarketLink />
       <AboutSection />
@@ -194,34 +192,6 @@ function TwoPaths() {
   );
 }
 
-function ListingsNow() {
-  return (
-    <section className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10">
-      <div className="flex flex-wrap items-baseline justify-between gap-4">
-        <h2 className={`${display} text-[32px] md:text-[40px]`}>Newest homes for sale</h2>
-        <Link
-          href="/properties/search"
-          prefetch={false}
-          className="font-semibold underline-offset-4 hover:underline"
-        >
-          See all homes for sale
-        </Link>
-      </div>
-      <div className="min-h-[320px] rounded-xl border border-[#DAD7D0] bg-white p-4 md:p-6">
-        {React.createElement('realscout-office-listings', {
-          'agent-encoded-id': BUSINESS.realScoutAgentId,
-          'sort-order': 'NEWEST',
-          'listing-status': 'For Sale',
-          'property-types': 'SFR,MF,TC',
-          'price-min': '860000',
-          'price-max': '1200000',
-        })}
-      </div>
-      <CalendlyAfterListings />
-    </section>
-  );
-}
-
 function Villages() {
   const villages = [
     { name: 'The Ridges', line: 'Custom homes and estate lots.' },
@@ -313,7 +283,7 @@ function ContactSection() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [error, setError] = useState('');
 
-  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     setStatus('sending');
