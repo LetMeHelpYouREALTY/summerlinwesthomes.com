@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     default: 'Summerlin Homes for Sale | Las Vegas Real Estate Listings',
   },
   description:
-    'Summerlin Real Estate | Homes by Dr. Jan Duffy. Search Summerlin West homes for sale, tour listings, and get local buyer guidance in Las Vegas, Nevada.',
+    'Summerlin Real Estate. Search Summerlin West homes for sale, tour listings, and get local buyer guidance in Las Vegas, Nevada.',
   keywords: [
     'Summerlin West Homes',
     'Summerlin homes for sale',
