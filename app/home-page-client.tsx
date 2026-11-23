@@ -196,8 +196,14 @@ function TwoPaths() {
 function Villages() {
   const villages = [
     { name: 'The Ridges', line: 'Custom homes and estate lots.' },
-    { name: 'The Paseos', line: 'Compare homes, lots and HOA terms.' },
-    { name: 'The Crossing', line: 'Compare homes, lots and HOA terms.' },
+    {
+      name: 'The Paseos',
+      line: 'Paseos Park, Fox Hill Park and trails into the Summerlin trail system, about a mile from Downtown Summerlin.',
+    },
+    {
+      name: 'The Crossing',
+      line: 'The Crossing Park and its soccer fields, close to Summerlin Hospital, with quick access to Summerlin Parkway and the 215.',
+    },
   ];
   return (
     <section id="villages" className="mx-auto flex max-w-6xl flex-col gap-7 px-6 py-14">
