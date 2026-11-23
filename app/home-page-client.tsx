@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { CalendarDays, Phone, Search, Star } from 'lucide-react';
 import { BUSINESS, formattedAddress, telHref } from '@/lib/business';
 import { calendlyUrlFor } from '@/lib/calendly';
-import { imageMeta, imageSrc } from '@/lib/images';
+import { STOCK_PHOTOS } from '@/lib/stock-photos';
 import {
   LEAD_FORM_ERROR_MESSAGE,
   submitContactForm,
@@ -38,6 +38,7 @@ export default function SummerlinWestHomes() {
       <TrackRecord />
       <TwoPaths />
       <Villages />
+      <RedRockStrip />
       <MarketLink />
       <AboutSection />
       <ContactSection />
@@ -47,11 +48,11 @@ export default function SummerlinWestHomes() {
 }
 
 function HeroSection() {
-  const hero = imageMeta('section-red-rock');
+  const hero = STOCK_PHOTOS.heroRedRock;
   return (
     <section className="relative isolate overflow-hidden bg-[#2B3431] text-[#F4F3F0]">
       <Image
-        src={imageSrc('section-red-rock')}
+        src={hero.src}
         alt={hero.alt}
         fill
         priority
@@ -225,6 +226,36 @@ function Villages() {
   );
 }
 
+function RedRockStrip() {
+  const photos = [STOCK_PHOTOS.redRockClouds, STOCK_PHOTOS.redRockTrail];
+  return (
+    <section aria-labelledby="home-red-rock" className="mx-auto flex max-w-6xl flex-col gap-6 px-6 pb-16">
+      <div className="flex flex-col gap-2">
+        <h2 id="home-red-rock" className={`${display} text-[30px] md:text-[36px]`}>
+          Red Rock Canyon, just west
+        </h2>
+        <p className="max-w-[60ch] text-[#3F4845]">
+          Summerlin West sits at the edge of the Red Rock Canyon National
+          Conservation Area, with trails and scenic views close to home.
+        </p>
+      </div>
+      <div className="grid gap-5 md:grid-cols-[3fr_2fr]">
+        {photos.map((photo) => (
+          <div key={photo.src} className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[#CDBFAF]">
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 60vw"
+              className="object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function MarketLink() {
   return (
     <section aria-labelledby="home-market" className="border-y border-[#DAD7D0] bg-white">
@@ -248,31 +279,42 @@ function MarketLink() {
 function AboutSection() {
   return (
     <section id="about" className="mx-auto max-w-6xl px-6 py-20">
-      <div className="flex max-w-3xl flex-col gap-5">
-        <h2 className={`${display} text-[36px] md:text-[44px]`}>Real numbers, not guesswork</h2>
-        <p className="text-[#3F4845]">
-          I have helped more than 500 buyers and sellers across Las Vegas. In
-          Summerlin West I know which streets back onto the trails, which lots
-          hold the mountain view, and what the last three sales near you closed
-          for.
-        </p>
-        <p className="text-[#3F4845]">
-          Call me directly. You work with me from the first question to
-          closing.
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <a href="#contact" className={btnPrimary}>
-            Talk with Dr. Jan
-          </a>
-          <a
-            href={BUSINESS.reviewsUri}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={btnOutline}
-          >
-            <Star className="h-5 w-5" aria-hidden />
-            Read reviews on Google
-          </a>
+      <div className="flex flex-col gap-10 md:flex-row md:items-center md:gap-14">
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-[340px] shrink-0 overflow-hidden rounded-xl bg-[#D6D1C8] md:mx-0">
+          <Image
+            src="/images/portrait-dr-jan-duffy.jpg"
+            alt={`${BUSINESS.agentName}, Berkshire Hathaway HomeServices Nevada Properties`}
+            fill
+            sizes="(max-width: 768px) 340px, 340px"
+            className="object-cover object-top"
+          />
+        </div>
+        <div className="flex min-w-0 max-w-3xl flex-col gap-5">
+          <h2 className={`${display} text-[36px] md:text-[44px]`}>Real numbers, not guesswork</h2>
+          <p className="text-[#3F4845]">
+            I have helped more than 500 buyers and sellers across Las Vegas. In
+            Summerlin West I know which streets back onto the trails, which lots
+            hold the mountain view, and what the last three sales near you closed
+            for.
+          </p>
+          <p className="text-[#3F4845]">
+            Call me directly. You work with me from the first question to
+            closing.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <a href="#contact" className={btnPrimary}>
+              Talk with Dr. Jan
+            </a>
+            <a
+              href={BUSINESS.reviewsUri}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={btnOutline}
+            >
+              <Star className="h-5 w-5" aria-hidden />
+              Read reviews on Google
+            </a>
+          </div>
         </div>
       </div>
     </section>
