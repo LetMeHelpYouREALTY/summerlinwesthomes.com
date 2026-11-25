@@ -18,6 +18,12 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'images.cloudflare.com',
       },
+      {
+        // Free-license stock photos (Pexels License); see lib/stock-photos.ts.
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+        pathname: '/photos/**',
+      },
     ],
   },
   async headers() {
