@@ -1,7 +1,7 @@
 import { BUSINESS } from '@/lib/business';
 import type { FubInquiryType } from '@/lib/fub/send-event';
 
-export const LEAD_FORM_ERROR_MESSAGE = `Sorry, something went wrong sending your message. Please call or text Dr. Jan Duffy at ${BUSINESS.phoneDisplay}.`;
+export const LEAD_FORM_ERROR_MESSAGE = `Sorry, something went wrong sending your message. Please call Dr. Jan Duffy at ${BUSINESS.phoneDisplay}.`;
 
 export type SellerLeadFormFields = {
   name: string;

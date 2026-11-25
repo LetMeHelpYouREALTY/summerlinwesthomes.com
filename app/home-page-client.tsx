@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
+import { track } from '@vercel/analytics';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CalendarDays, Phone, Search, Star } from 'lucide-react';
@@ -38,6 +39,7 @@ export default function SummerlinWestHomes() {
       <TrackRecord />
       <TwoPaths />
       <Villages />
+      <NextStepBand />
       <RedRockStrip />
       <MarketLink />
       <AboutSection />
@@ -78,12 +80,14 @@ function HeroSection() {
             href={SEARCH_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track('home_search_click', { place: 'hero' })}
             className="inline-flex min-h-[56px] items-center justify-center rounded-md bg-[#F4F3F0] px-7 font-semibold text-[#1E2A27] transition-colors hover:bg-white"
           >
             Search homes for sale
           </a>
           <a
             href="#sell"
+            onClick={() => track('home_value_click', { place: 'hero' })}
             className="inline-flex min-h-[56px] items-center justify-center rounded-md border-[1.5px] border-[#F4F3F0] px-7 font-semibold text-[#F4F3F0] transition-colors hover:bg-[#F4F3F0] hover:text-[#1E2A27]"
           >
             What is my home worth?
@@ -93,6 +97,7 @@ function HeroSection() {
           Or call{' '}
           <a
             href={telHref()}
+            onClick={() => track('home_call_click', { place: 'hero' })}
             className="font-semibold text-white underline-offset-4 hover:underline"
           >
             {BUSINESS.phoneDisplay}
@@ -327,6 +332,44 @@ function AboutSection() {
   );
 }
 
+const INTENTS = ['Buy', 'Sell', 'Buy and sell', 'Just curious'] as const;
+
+function inquiryTypeFor(intent: string) {
+  if (intent === 'Sell' || intent === 'Buy and sell') return 'Seller Inquiry' as const;
+  if (intent === 'Buy') return 'Property Inquiry' as const;
+  return 'General Inquiry' as const;
+}
+
+function NextStepBand() {
+  return (
+    <section aria-labelledby="home-next" className="bg-[#E9ECE8]">
+      <div className="mx-auto flex max-w-6xl flex-col gap-5 px-6 py-12 md:flex-row md:items-center md:justify-between">
+        <h2 id="home-next" className={`${display} text-[28px] md:text-[34px]`}>
+          Found a village you like?
+        </h2>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href={SEARCH_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => track('home_search_click', { place: 'villages-band' })}
+            className={btnPrimary}
+          >
+            See homes for sale
+          </a>
+          <a
+            href="#sell"
+            onClick={() => track('home_value_click', { place: 'villages-band' })}
+            className={btnOutline}
+          >
+            What is my home worth?
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ContactSection() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [error, setError] = useState('');
@@ -334,20 +377,25 @@ function ContactSection() {
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
+    const intent = String(form.get('intent') ?? '');
+    const message = String(form.get('message') ?? '').trim();
     setStatus('sending');
     setError('');
     try {
       const result = await submitContactForm({
         formName: 'Home page contact',
-        type: 'General Inquiry',
+        type: inquiryTypeFor(intent),
         fields: {
           name: String(form.get('name') ?? '').trim(),
           email: String(form.get('email') ?? '').trim(),
           phone: String(form.get('phone') ?? '').trim() || undefined,
-          message: String(form.get('message') ?? '').trim() || undefined,
+          message:
+            [intent ? `Looking to: ${intent}` : '', message].filter(Boolean).join('\n') ||
+            undefined,
         },
       });
       if (result.ok) {
+        track('home_form_sent', { intent: intent || 'none' });
         setStatus('sent');
       } else {
         setStatus('error');
@@ -367,8 +415,12 @@ function ContactSection() {
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-2">
         <div className="flex flex-col gap-3">
           <h2 className={`${display} text-[36px] md:text-[44px]`}>Ask anything</h2>
-          <p className="text-[#DCD8D0]">No form needed. Call, or stop by the office.</p>
-          <a href={telHref()} className={`${display} text-[32px] text-white`}>
+          <p className="text-[#DCD8D0]">Call me, or send a short note and I will get back to you.</p>
+          <a
+            href={telHref()}
+            onClick={() => track('home_call_click', { place: 'contact' })}
+            className={`${display} text-[32px] text-white`}
+          >
             {BUSINESS.phoneDisplay}
           </a>
           <span className="text-[#DCD8D0]">{formattedAddress()}</span>
@@ -385,6 +437,19 @@ function ContactSection() {
           </div>
         ) : (
           <form onSubmit={onSubmit} className="flex flex-col gap-3">
+            <fieldset className="flex flex-col gap-2">
+              <legend className="mb-2 text-[15px] font-semibold">I am looking to</legend>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                {INTENTS.map((option) => (
+                  <label key={option} className="cursor-pointer">
+                    <input type="radio" name="intent" value={option} className="peer sr-only" />
+                    <span className="flex min-h-[48px] items-center justify-center rounded-md border border-[#6B756F] px-3 text-center text-[15px] font-semibold transition-colors peer-checked:border-[#F4F3F0] peer-checked:bg-[#F4F3F0] peer-checked:text-[#1E2A27] peer-focus-visible:outline peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[#E7D9CC]">
+                      {option}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
             <label htmlFor="home-name" className="text-[15px] font-semibold">
               Name
             </label>
@@ -396,7 +461,7 @@ function ContactSection() {
             <label htmlFor="home-phone" className="text-[15px] font-semibold">
               Phone <span className="font-normal text-[#BFC5C1]">(optional)</span>
             </label>
-            <input id="home-phone" name="phone" type="tel" autoComplete="tel" className={input} />
+            <input id="home-phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" className={input} />
             <label htmlFor="home-message" className="text-[15px] font-semibold">
               What can I help with?
             </label>
@@ -413,6 +478,7 @@ function ContactSection() {
             >
               {status === 'sending' ? 'Sending…' : 'Send to Dr. Jan'}
             </button>
+            <p className="text-[14px] text-[#BFC5C1]">Your note goes only to {BUSINESS.agentName}.</p>
           </form>
         )}
       </div>
@@ -428,7 +494,11 @@ function MobileActionBar() {
       aria-label="Quick contact"
       className="fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-[#DAD7D0] bg-[#F4F3F0] px-4 pb-[max(12px,env(safe-area-inset-bottom))] pt-3 md:hidden"
     >
-      <a href={telHref()} className={`${base} bg-[#5A2A4A] text-white`}>
+      <a
+        href={telHref()}
+        onClick={() => track('home_call_click', { place: 'mobile-bar' })}
+        className={`${base} bg-[#5A2A4A] text-white`}
+      >
         <Phone className="h-5 w-5" aria-hidden />
         Call
       </a>
@@ -436,6 +506,7 @@ function MobileActionBar() {
         href={calendlyUrlFor('/', 'home-mobile-bar')}
         data-calendly-popup="page"
         data-calendly-medium="home-mobile-bar"
+        onClick={() => track('home_tour_click', { place: 'mobile-bar' })}
         target="_blank"
         rel="noopener noreferrer"
         className={`${base} border-[1.5px] border-[#1E2A27] text-[#1E2A27]`}
@@ -445,6 +516,7 @@ function MobileActionBar() {
       </a>
       <a
         href={SEARCH_URL}
+        onClick={() => track('home_search_click', { place: 'mobile-bar' })}
         target="_blank"
         rel="noopener noreferrer"
         className={`${base} border-[1.5px] border-[#1E2A27] text-[#1E2A27]`}
